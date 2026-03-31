@@ -1,0 +1,48 @@
+# configs/benchmarks.yaml
+# Benchmark train/val/test split for TELFOR 2026 GNN pass ordering paper
+# 23 valid cBench-v1 benchmarks, 0 failures
+# Split: 14 train (61%), 5 val (22%), 4 test (17%)
+# Stratified by program category for diversity in each set
+# This split is FIXED — do not modify after experiments begin.
+
+split_seed: 42
+
+categories:
+  telecom:    [adpcm, gsm, lame]
+  crypto:     [blowfish, rijndael, sha]
+  compress:   [bzip2, crc32]
+  consumer:   [jpeg-c, jpeg-d]
+  graph:      [dijkstra, patricia]
+  sort:       [qsort, bitcount]
+  text:       [ispell, stringsearch, stringsearch2]
+  image:      [susan, tiff2bw, tiff2rgba, tiffdither, tiffmedian]
+  other:      [ghostscript]
+
+train:
+  - benchmark://cBench-v1/adpcm
+  - benchmark://cBench-v1/gsm
+  - benchmark://cBench-v1/blowfish
+  - benchmark://cBench-v1/rijndael
+  - benchmark://cBench-v1/bzip2
+  - benchmark://cBench-v1/jpeg-c
+  - benchmark://cBench-v1/dijkstra
+  - benchmark://cBench-v1/bitcount
+  - benchmark://cBench-v1/ispell
+  - benchmark://cBench-v1/stringsearch
+  - benchmark://cBench-v1/susan
+  - benchmark://cBench-v1/tiff2bw
+  - benchmark://cBench-v1/tiffdither
+  - benchmark://cBench-v1/ghostscript
+
+validation:
+  - benchmark://cBench-v1/lame
+  - benchmark://cBench-v1/crc32
+  - benchmark://cBench-v1/qsort
+  - benchmark://cBench-v1/stringsearch2
+  - benchmark://cBench-v1/tiffmedian
+
+test:
+  - benchmark://cBench-v1/sha
+  - benchmark://cBench-v1/jpeg-d
+  - benchmark://cBench-v1/patricia
+  - benchmark://cBench-v1/tiff2rgba
