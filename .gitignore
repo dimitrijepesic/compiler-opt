@@ -1,0 +1,18 @@
+# Environments
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Project specific data & caches
+data/cached_graphs/
+data/polybench/
+results/
+*.deb
+
+# IDEs
+.vscode/
+.idea/
