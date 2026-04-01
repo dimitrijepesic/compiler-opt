@@ -93,9 +93,14 @@ class PPOAutophaseAgent:
         self.num_actions = len(self.reduced_passes)
         self.action_map = [p["action_id"] for p in self.reduced_passes]
 
-        # Benchmark URIs
-        self.train_uris = benchmarks_config["train"]
-        self.val_uris = benchmarks_config["validation"]
+        # Benchmark URIs — filter out benchmarks too large for RL loop
+        max_ic_for_training = self.config.get("rl_max_benchmark_ic", 20000)
+        self.train_uris = self._filter_benchmarks(
+            benchmarks_config["train"], max_ic_for_training
+        )
+        self.val_uris = self._filter_benchmarks(
+            benchmarks_config["validation"], max_ic_for_training
+        )
 
         # Networks (separate policy and value)
         mlp_cfg = self.config["policy_mlp"]
@@ -136,6 +141,21 @@ class PPOAutophaseAgent:
         self.episode_count = 0
         self.best_val_score = float("inf")
         self.training_log = []
+
+    def _filter_benchmarks(self, uris, max_ic):
+        """Filter out benchmarks with O0 instruction count above max_ic."""
+        filtered = []
+        for uri in uris:
+            try:
+                self.env.reset(benchmark=uri)
+                ic = int(self.env.observation["IrInstructionCount"])
+                if ic <= max_ic:
+                    filtered.append(uri)
+                else:
+                    print(f"    Skipping {uri.split('/')[-1]} (IC={ic} > {max_ic})")
+            except Exception as e:
+                print(f"    Skipping {uri.split('/')[-1]} (error: {e})")
+        return filtered
 
     def _get_state(self):
         """Extract Autophase state as torch tensor."""

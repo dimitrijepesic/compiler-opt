@@ -1,6 +1,10 @@
 # configs/hyperparams.yaml
 # All RL/GNN hyperparameters for reproducibility
 
+# Benchmarks with O0 IC above this threshold are excluded from RL training/val
+# (too slow for thousands of resets). They remain in baselines.
+rl_max_benchmark_ic: 20000
+
 ppo:
   clip_ratio: 0.2
   gae_lambda: 0.95
@@ -10,10 +14,10 @@ ppo:
   batch_size: 64
   ppo_epochs: 4
   collect_steps: 2048
-  max_episode_steps: 50
+  max_episode_steps: 45
   gamma: 0.99
-  total_env_steps: 500000
-  val_interval_steps: 50000
+  total_env_steps: 200000
+  val_interval_steps: 20000
 
 gnn:
   num_layers: 3

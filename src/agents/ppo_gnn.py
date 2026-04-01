@@ -95,9 +95,14 @@ class PPOGNNAgent:
         self.num_actions = len(self.reduced_passes)
         self.action_map = [p["action_id"] for p in self.reduced_passes]
 
-        # Benchmark URIs
-        self.train_uris = benchmarks_config["train"]
-        self.val_uris = benchmarks_config["validation"]
+        # Benchmark URIs — filter out benchmarks too large for RL loop
+        max_ic_for_training = self.config.get("rl_max_benchmark_ic", 20000)
+        self.train_uris = self._filter_benchmarks(
+            benchmarks_config["train"], max_ic_for_training
+        )
+        self.val_uris = self._filter_benchmarks(
+            benchmarks_config["validation"], max_ic_for_training
+        )
 
         # GNN encoder
         gnn_cfg = self.config["gnn"]
@@ -160,6 +165,21 @@ class PPOGNNAgent:
         # Track graph extraction time for overhead reporting
         self.total_graph_time = 0
         self.total_graph_extractions = 0
+
+    def _filter_benchmarks(self, uris, max_ic):
+        """Filter out benchmarks with O0 instruction count above max_ic."""
+        filtered = []
+        for uri in uris:
+            try:
+                self.env.reset(benchmark=uri)
+                ic = int(self.env.observation["IrInstructionCount"])
+                if ic <= max_ic:
+                    filtered.append(uri)
+                else:
+                    print(f"    Skipping {uri.split('/')[-1]} (IC={ic} > {max_ic})")
+            except Exception as e:
+                print(f"    Skipping {uri.split('/')[-1]} (error: {e})")
+        return filtered
 
     def _get_graph(self):
         """Extract program graph from current env state."""
