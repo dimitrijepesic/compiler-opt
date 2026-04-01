@@ -95,6 +95,9 @@ class PPOGNNAgent:
         self.num_actions = len(self.reduced_passes)
         self.action_map = [p["action_id"] for p in self.reduced_passes]
 
+        # Environment (created early so _filter_benchmarks can use it)
+        self.env = compiler_gym.make("llvm-ic-v0")
+
         # Benchmark URIs — filter out benchmarks too large for RL loop
         max_ic_for_training = self.config.get("rl_max_benchmark_ic", 20000)
         self.train_uris = self._filter_benchmarks(
@@ -146,9 +149,6 @@ class PPOGNNAgent:
         self.scheduler = optim.lr_scheduler.CosineAnnealingLR(
             self.optimizer, T_max=total_updates
         )
-
-        # Environment
-        self.env = compiler_gym.make("llvm-ic-v0")
 
         # Graph cache (speeds up repeated states)
         self.graph_cache = IRGraphCache()
