@@ -10,7 +10,6 @@ __pycache__/
 # Project specific data & caches
 data/cached_graphs/
 data/polybench/
-results/
 *.deb
 
 # IDEs

@@ -1,0 +1,1183 @@
+{
+  "timestamp": "2026-04-02T14:18:43.421693",
+  "seed": 42,
+  "total_steps": 200704,
+  "total_episodes": 4508,
+  "total_time_seconds": 2239.4,
+  "best_val_ic": 680,
+  "config": {
+    "rl_max_benchmark_ic": 20000,
+    "ppo": {
+      "clip_ratio": 0.2,
+      "gae_lambda": 0.95,
+      "entropy_coeff": 0.01,
+      "learning_rate": 0.0003,
+      "lr_schedule": "cosine",
+      "batch_size": 64,
+      "ppo_epochs": 4,
+      "collect_steps": 2048,
+      "max_episode_steps": 45,
+      "gamma": 0.99,
+      "total_env_steps": 200000,
+      "val_interval_steps": 20000
+    },
+    "gnn": {
+      "num_layers": 3,
+      "hidden_dim": 128,
+      "embedding_dim": 64,
+      "aggregation": "mean",
+      "pooling": "mean",
+      "dropout": 0.1
+    },
+    "policy_mlp": {
+      "hidden_dim": 256,
+      "num_layers": 2,
+      "activation": "relu"
+    },
+    "value_mlp": {
+      "hidden_dim": 256,
+      "num_layers": 2,
+      "activation": "relu"
+    },
+    "seeds": [
+      42,
+      123,
+      456
+    ]
+  },
+  "num_actions": 36,
+  "log": [
+    {
+      "update": 1,
+      "total_steps": 2048,
+      "episodes": 46,
+      "avg_episode_reward": 0.462845,
+      "policy_loss": -0.043951,
+      "value_loss": 0.023168,
+      "entropy": 3.5127
+    },
+    {
+      "update": 2,
+      "total_steps": 4096,
+      "episodes": 92,
+      "avg_episode_reward": 0.50251,
+      "policy_loss": -0.047089,
+      "value_loss": 0.006728,
+      "entropy": 3.4945
+    },
+    {
+      "update": 3,
+      "total_steps": 6144,
+      "episodes": 138,
+      "avg_episode_reward": 0.48783,
+      "policy_loss": -0.045861,
+      "value_loss": 0.00251,
+      "entropy": 3.4673
+    },
+    {
+      "update": 4,
+      "total_steps": 8192,
+      "episodes": 184,
+      "avg_episode_reward": 0.513593,
+      "policy_loss": -0.050867,
+      "value_loss": 0.001036,
+      "entropy": 3.4739
+    },
+    {
+      "update": 5,
+      "total_steps": 10240,
+      "episodes": 230,
+      "avg_episode_reward": 0.514992,
+      "policy_loss": -0.046851,
+      "value_loss": 0.001194,
+      "entropy": 3.4359
+    },
+    {
+      "update": 6,
+      "total_steps": 12288,
+      "episodes": 276,
+      "avg_episode_reward": 0.507723,
+      "policy_loss": -0.052925,
+      "value_loss": 0.001047,
+      "entropy": 3.4549
+    },
+    {
+      "update": 7,
+      "total_steps": 14336,
+      "episodes": 322,
+      "avg_episode_reward": 0.515467,
+      "policy_loss": -0.047662,
+      "value_loss": 0.000623,
+      "entropy": 3.4288
+    },
+    {
+      "update": 8,
+      "total_steps": 16384,
+      "episodes": 368,
+      "avg_episode_reward": 0.497381,
+      "policy_loss": -0.053222,
+      "value_loss": 0.000573,
+      "entropy": 3.4085
+    },
+    {
+      "update": 9,
+      "total_steps": 18432,
+      "episodes": 414,
+      "avg_episode_reward": 0.511602,
+      "policy_loss": -0.059529,
+      "value_loss": 0.000354,
+      "entropy": 3.3842
+    },
+    {
+      "update": 10,
+      "total_steps": 20480,
+      "episodes": 460,
+      "avg_episode_reward": 0.515038,
+      "policy_loss": -0.045081,
+      "value_loss": 0.000582,
+      "entropy": 3.3633,
+      "val_total_ic": 689,
+      "val_reduction_pct": 49.41,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 319,
+          "reduction_pct": 50.0
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 11,
+      "total_steps": 22528,
+      "episodes": 506,
+      "avg_episode_reward": 0.49739,
+      "policy_loss": -0.045513,
+      "value_loss": 0.000343,
+      "entropy": 3.365
+    },
+    {
+      "update": 12,
+      "total_steps": 24576,
+      "episodes": 552,
+      "avg_episode_reward": 0.518769,
+      "policy_loss": -0.050345,
+      "value_loss": 0.000343,
+      "entropy": 3.3945
+    },
+    {
+      "update": 13,
+      "total_steps": 26624,
+      "episodes": 598,
+      "avg_episode_reward": 0.522742,
+      "policy_loss": -0.052023,
+      "value_loss": 0.000172,
+      "entropy": 3.3785
+    },
+    {
+      "update": 14,
+      "total_steps": 28672,
+      "episodes": 644,
+      "avg_episode_reward": 0.525488,
+      "policy_loss": -0.047682,
+      "value_loss": 0.00027,
+      "entropy": 3.3527
+    },
+    {
+      "update": 15,
+      "total_steps": 30720,
+      "episodes": 690,
+      "avg_episode_reward": 0.526814,
+      "policy_loss": -0.047272,
+      "value_loss": 0.00021,
+      "entropy": 3.3893
+    },
+    {
+      "update": 16,
+      "total_steps": 32768,
+      "episodes": 736,
+      "avg_episode_reward": 0.523964,
+      "policy_loss": -0.050399,
+      "value_loss": 0.000185,
+      "entropy": 3.3319
+    },
+    {
+      "update": 17,
+      "total_steps": 34816,
+      "episodes": 782,
+      "avg_episode_reward": 0.514075,
+      "policy_loss": -0.052119,
+      "value_loss": 0.000153,
+      "entropy": 3.3707
+    },
+    {
+      "update": 18,
+      "total_steps": 36864,
+      "episodes": 828,
+      "avg_episode_reward": 0.523103,
+      "policy_loss": -0.052281,
+      "value_loss": 0.000268,
+      "entropy": 3.3461
+    },
+    {
+      "update": 19,
+      "total_steps": 38912,
+      "episodes": 874,
+      "avg_episode_reward": 0.515465,
+      "policy_loss": -0.053461,
+      "value_loss": 0.000198,
+      "entropy": 3.3301
+    },
+    {
+      "update": 20,
+      "total_steps": 40960,
+      "episodes": 920,
+      "avg_episode_reward": 0.512715,
+      "policy_loss": -0.050216,
+      "value_loss": 0.000195,
+      "entropy": 3.342,
+      "val_total_ic": 680,
+      "val_reduction_pct": 50.07,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 310,
+          "reduction_pct": 51.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 21,
+      "total_steps": 43008,
+      "episodes": 966,
+      "avg_episode_reward": 0.529674,
+      "policy_loss": -0.047122,
+      "value_loss": 0.000247,
+      "entropy": 3.3139
+    },
+    {
+      "update": 22,
+      "total_steps": 45056,
+      "episodes": 1012,
+      "avg_episode_reward": 0.537429,
+      "policy_loss": -0.044301,
+      "value_loss": 0.000147,
+      "entropy": 3.2283
+    },
+    {
+      "update": 23,
+      "total_steps": 47104,
+      "episodes": 1058,
+      "avg_episode_reward": 0.513743,
+      "policy_loss": -0.051292,
+      "value_loss": 0.000144,
+      "entropy": 3.2431
+    },
+    {
+      "update": 24,
+      "total_steps": 49152,
+      "episodes": 1104,
+      "avg_episode_reward": 0.514675,
+      "policy_loss": -0.050562,
+      "value_loss": 0.000125,
+      "entropy": 3.2337
+    },
+    {
+      "update": 25,
+      "total_steps": 51200,
+      "episodes": 1150,
+      "avg_episode_reward": 0.535638,
+      "policy_loss": -0.049673,
+      "value_loss": 0.000156,
+      "entropy": 3.1737
+    },
+    {
+      "update": 26,
+      "total_steps": 53248,
+      "episodes": 1196,
+      "avg_episode_reward": 0.517491,
+      "policy_loss": -0.045328,
+      "value_loss": 0.000134,
+      "entropy": 3.1416
+    },
+    {
+      "update": 27,
+      "total_steps": 55296,
+      "episodes": 1242,
+      "avg_episode_reward": 0.524502,
+      "policy_loss": -0.046126,
+      "value_loss": 0.00018,
+      "entropy": 3.1252
+    },
+    {
+      "update": 28,
+      "total_steps": 57344,
+      "episodes": 1288,
+      "avg_episode_reward": 0.541639,
+      "policy_loss": -0.047809,
+      "value_loss": 0.000151,
+      "entropy": 3.0852
+    },
+    {
+      "update": 29,
+      "total_steps": 59392,
+      "episodes": 1334,
+      "avg_episode_reward": 0.528978,
+      "policy_loss": -0.04361,
+      "value_loss": 7.7e-05,
+      "entropy": 3.047
+    },
+    {
+      "update": 30,
+      "total_steps": 61440,
+      "episodes": 1380,
+      "avg_episode_reward": 0.53326,
+      "policy_loss": -0.043771,
+      "value_loss": 7.5e-05,
+      "entropy": 3.0059,
+      "val_total_ic": 1059,
+      "val_reduction_pct": 22.25,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 204,
+          "reduction_pct": 15.7
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 462,
+          "reduction_pct": 27.59
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 393,
+          "reduction_pct": 18.46
+        }
+      ]
+    },
+    {
+      "update": 31,
+      "total_steps": 63488,
+      "episodes": 1426,
+      "avg_episode_reward": 0.527312,
+      "policy_loss": -0.041797,
+      "value_loss": 7.7e-05,
+      "entropy": 3.0163
+    },
+    {
+      "update": 32,
+      "total_steps": 65536,
+      "episodes": 1472,
+      "avg_episode_reward": 0.554558,
+      "policy_loss": -0.045961,
+      "value_loss": 6.3e-05,
+      "entropy": 2.989
+    },
+    {
+      "update": 33,
+      "total_steps": 67584,
+      "episodes": 1518,
+      "avg_episode_reward": 0.515791,
+      "policy_loss": -0.044427,
+      "value_loss": 0.000106,
+      "entropy": 2.9223
+    },
+    {
+      "update": 34,
+      "total_steps": 69632,
+      "episodes": 1564,
+      "avg_episode_reward": 0.526679,
+      "policy_loss": -0.042289,
+      "value_loss": 0.000151,
+      "entropy": 2.8564
+    },
+    {
+      "update": 35,
+      "total_steps": 71680,
+      "episodes": 1610,
+      "avg_episode_reward": 0.523431,
+      "policy_loss": -0.041231,
+      "value_loss": 4.7e-05,
+      "entropy": 2.919
+    },
+    {
+      "update": 36,
+      "total_steps": 73728,
+      "episodes": 1656,
+      "avg_episode_reward": 0.539235,
+      "policy_loss": -0.039175,
+      "value_loss": 5.6e-05,
+      "entropy": 2.9373
+    },
+    {
+      "update": 37,
+      "total_steps": 75776,
+      "episodes": 1702,
+      "avg_episode_reward": 0.540875,
+      "policy_loss": -0.044278,
+      "value_loss": 0.000101,
+      "entropy": 2.9923
+    },
+    {
+      "update": 38,
+      "total_steps": 77824,
+      "episodes": 1748,
+      "avg_episode_reward": 0.507758,
+      "policy_loss": -0.039801,
+      "value_loss": 9.1e-05,
+      "entropy": 2.9665
+    },
+    {
+      "update": 39,
+      "total_steps": 79872,
+      "episodes": 1794,
+      "avg_episode_reward": 0.532447,
+      "policy_loss": -0.043565,
+      "value_loss": 8.1e-05,
+      "entropy": 2.9452
+    },
+    {
+      "update": 40,
+      "total_steps": 81920,
+      "episodes": 1840,
+      "avg_episode_reward": 0.529687,
+      "policy_loss": -0.042807,
+      "value_loss": 7.2e-05,
+      "entropy": 2.8444,
+      "val_total_ic": 701,
+      "val_reduction_pct": 48.53,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 325,
+          "reduction_pct": 49.06
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 256,
+          "reduction_pct": 46.89
+        }
+      ]
+    },
+    {
+      "update": 41,
+      "total_steps": 83968,
+      "episodes": 1886,
+      "avg_episode_reward": 0.526174,
+      "policy_loss": -0.042678,
+      "value_loss": 6.5e-05,
+      "entropy": 2.8365
+    },
+    {
+      "update": 42,
+      "total_steps": 86016,
+      "episodes": 1932,
+      "avg_episode_reward": 0.532097,
+      "policy_loss": -0.037965,
+      "value_loss": 7.6e-05,
+      "entropy": 2.8426
+    },
+    {
+      "update": 43,
+      "total_steps": 88064,
+      "episodes": 1978,
+      "avg_episode_reward": 0.516389,
+      "policy_loss": -0.040436,
+      "value_loss": 7.8e-05,
+      "entropy": 2.8507
+    },
+    {
+      "update": 44,
+      "total_steps": 90112,
+      "episodes": 2024,
+      "avg_episode_reward": 0.520713,
+      "policy_loss": -0.037865,
+      "value_loss": 4.8e-05,
+      "entropy": 2.8834
+    },
+    {
+      "update": 45,
+      "total_steps": 92160,
+      "episodes": 2070,
+      "avg_episode_reward": 0.526187,
+      "policy_loss": -0.041059,
+      "value_loss": 5.2e-05,
+      "entropy": 2.8462
+    },
+    {
+      "update": 46,
+      "total_steps": 94208,
+      "episodes": 2116,
+      "avg_episode_reward": 0.534873,
+      "policy_loss": -0.038024,
+      "value_loss": 9.8e-05,
+      "entropy": 2.8973
+    },
+    {
+      "update": 47,
+      "total_steps": 96256,
+      "episodes": 2162,
+      "avg_episode_reward": 0.5285,
+      "policy_loss": -0.043438,
+      "value_loss": 5.9e-05,
+      "entropy": 2.8478
+    },
+    {
+      "update": 48,
+      "total_steps": 98304,
+      "episodes": 2208,
+      "avg_episode_reward": 0.510531,
+      "policy_loss": -0.045423,
+      "value_loss": 4.4e-05,
+      "entropy": 2.785
+    },
+    {
+      "update": 49,
+      "total_steps": 100352,
+      "episodes": 2254,
+      "avg_episode_reward": 0.521714,
+      "policy_loss": -0.040021,
+      "value_loss": 4.1e-05,
+      "entropy": 2.8246,
+      "val_total_ic": 975,
+      "val_reduction_pct": 28.41,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 462,
+          "reduction_pct": 27.59
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 393,
+          "reduction_pct": 18.46
+        }
+      ]
+    },
+    {
+      "update": 50,
+      "total_steps": 102400,
+      "episodes": 2300,
+      "avg_episode_reward": 0.525138,
+      "policy_loss": -0.045225,
+      "value_loss": 3.8e-05,
+      "entropy": 2.8718
+    },
+    {
+      "update": 51,
+      "total_steps": 104448,
+      "episodes": 2346,
+      "avg_episode_reward": 0.540759,
+      "policy_loss": -0.046078,
+      "value_loss": 5.1e-05,
+      "entropy": 2.832
+    },
+    {
+      "update": 52,
+      "total_steps": 106496,
+      "episodes": 2392,
+      "avg_episode_reward": 0.523263,
+      "policy_loss": -0.038693,
+      "value_loss": 4.1e-05,
+      "entropy": 2.7698
+    },
+    {
+      "update": 53,
+      "total_steps": 108544,
+      "episodes": 2438,
+      "avg_episode_reward": 0.522495,
+      "policy_loss": -0.038336,
+      "value_loss": 4.7e-05,
+      "entropy": 2.7905
+    },
+    {
+      "update": 54,
+      "total_steps": 110592,
+      "episodes": 2484,
+      "avg_episode_reward": 0.536343,
+      "policy_loss": -0.040467,
+      "value_loss": 4.2e-05,
+      "entropy": 2.7358
+    },
+    {
+      "update": 55,
+      "total_steps": 112640,
+      "episodes": 2530,
+      "avg_episode_reward": 0.528214,
+      "policy_loss": -0.035875,
+      "value_loss": 4.7e-05,
+      "entropy": 2.77
+    },
+    {
+      "update": 56,
+      "total_steps": 114688,
+      "episodes": 2576,
+      "avg_episode_reward": 0.533565,
+      "policy_loss": -0.038501,
+      "value_loss": 2.8e-05,
+      "entropy": 2.7668
+    },
+    {
+      "update": 57,
+      "total_steps": 116736,
+      "episodes": 2622,
+      "avg_episode_reward": 0.540931,
+      "policy_loss": -0.03937,
+      "value_loss": 5.1e-05,
+      "entropy": 2.6821
+    },
+    {
+      "update": 58,
+      "total_steps": 118784,
+      "episodes": 2668,
+      "avg_episode_reward": 0.538904,
+      "policy_loss": -0.038737,
+      "value_loss": 2.9e-05,
+      "entropy": 2.7032
+    },
+    {
+      "update": 59,
+      "total_steps": 120832,
+      "episodes": 2714,
+      "avg_episode_reward": 0.539344,
+      "policy_loss": -0.037198,
+      "value_loss": 2.8e-05,
+      "entropy": 2.6258,
+      "val_total_ic": 737,
+      "val_reduction_pct": 45.89,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 346,
+          "reduction_pct": 45.77
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 271,
+          "reduction_pct": 43.78
+        }
+      ]
+    },
+    {
+      "update": 60,
+      "total_steps": 122880,
+      "episodes": 2760,
+      "avg_episode_reward": 0.535165,
+      "policy_loss": -0.036393,
+      "value_loss": 3.5e-05,
+      "entropy": 2.6407
+    },
+    {
+      "update": 61,
+      "total_steps": 124928,
+      "episodes": 2806,
+      "avg_episode_reward": 0.52186,
+      "policy_loss": -0.039182,
+      "value_loss": 3.1e-05,
+      "entropy": 2.5929
+    },
+    {
+      "update": 62,
+      "total_steps": 126976,
+      "episodes": 2852,
+      "avg_episode_reward": 0.525815,
+      "policy_loss": -0.037482,
+      "value_loss": 1.9e-05,
+      "entropy": 2.5725
+    },
+    {
+      "update": 63,
+      "total_steps": 129024,
+      "episodes": 2898,
+      "avg_episode_reward": 0.541335,
+      "policy_loss": -0.034257,
+      "value_loss": 2.9e-05,
+      "entropy": 2.5156
+    },
+    {
+      "update": 64,
+      "total_steps": 131072,
+      "episodes": 2944,
+      "avg_episode_reward": 0.536753,
+      "policy_loss": -0.032841,
+      "value_loss": 2.2e-05,
+      "entropy": 2.4755
+    },
+    {
+      "update": 65,
+      "total_steps": 133120,
+      "episodes": 2990,
+      "avg_episode_reward": 0.543682,
+      "policy_loss": -0.036085,
+      "value_loss": 2.2e-05,
+      "entropy": 2.4845
+    },
+    {
+      "update": 66,
+      "total_steps": 135168,
+      "episodes": 3036,
+      "avg_episode_reward": 0.533944,
+      "policy_loss": -0.03281,
+      "value_loss": 3e-05,
+      "entropy": 2.4756
+    },
+    {
+      "update": 67,
+      "total_steps": 137216,
+      "episodes": 3082,
+      "avg_episode_reward": 0.530116,
+      "policy_loss": -0.037852,
+      "value_loss": 2e-05,
+      "entropy": 2.6193
+    },
+    {
+      "update": 68,
+      "total_steps": 139264,
+      "episodes": 3128,
+      "avg_episode_reward": 0.530412,
+      "policy_loss": -0.034129,
+      "value_loss": 1.6e-05,
+      "entropy": 2.6581
+    },
+    {
+      "update": 69,
+      "total_steps": 141312,
+      "episodes": 3174,
+      "avg_episode_reward": 0.538816,
+      "policy_loss": -0.035545,
+      "value_loss": 2.6e-05,
+      "entropy": 2.6673,
+      "val_total_ic": 695,
+      "val_reduction_pct": 48.97,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 325,
+          "reduction_pct": 49.06
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 70,
+      "total_steps": 143360,
+      "episodes": 3220,
+      "avg_episode_reward": 0.533322,
+      "policy_loss": -0.036106,
+      "value_loss": 2.9e-05,
+      "entropy": 2.568
+    },
+    {
+      "update": 71,
+      "total_steps": 145408,
+      "episodes": 3266,
+      "avg_episode_reward": 0.537751,
+      "policy_loss": -0.034005,
+      "value_loss": 1.7e-05,
+      "entropy": 2.5692
+    },
+    {
+      "update": 72,
+      "total_steps": 147456,
+      "episodes": 3312,
+      "avg_episode_reward": 0.519879,
+      "policy_loss": -0.035934,
+      "value_loss": 1.9e-05,
+      "entropy": 2.4868
+    },
+    {
+      "update": 73,
+      "total_steps": 149504,
+      "episodes": 3358,
+      "avg_episode_reward": 0.516655,
+      "policy_loss": -0.036088,
+      "value_loss": 1.7e-05,
+      "entropy": 2.5889
+    },
+    {
+      "update": 74,
+      "total_steps": 151552,
+      "episodes": 3404,
+      "avg_episode_reward": 0.550175,
+      "policy_loss": -0.033442,
+      "value_loss": 1.8e-05,
+      "entropy": 2.6071
+    },
+    {
+      "update": 75,
+      "total_steps": 153600,
+      "episodes": 3450,
+      "avg_episode_reward": 0.537614,
+      "policy_loss": -0.030528,
+      "value_loss": 2.1e-05,
+      "entropy": 2.4366
+    },
+    {
+      "update": 76,
+      "total_steps": 155648,
+      "episodes": 3496,
+      "avg_episode_reward": 0.538661,
+      "policy_loss": -0.036815,
+      "value_loss": 1.2e-05,
+      "entropy": 2.5818
+    },
+    {
+      "update": 77,
+      "total_steps": 157696,
+      "episodes": 3542,
+      "avg_episode_reward": 0.536482,
+      "policy_loss": -0.030809,
+      "value_loss": 2.5e-05,
+      "entropy": 2.4262
+    },
+    {
+      "update": 78,
+      "total_steps": 159744,
+      "episodes": 3588,
+      "avg_episode_reward": 0.543981,
+      "policy_loss": -0.03338,
+      "value_loss": 2.1e-05,
+      "entropy": 2.498
+    },
+    {
+      "update": 79,
+      "total_steps": 161792,
+      "episodes": 3634,
+      "avg_episode_reward": 0.542861,
+      "policy_loss": -0.030151,
+      "value_loss": 1.8e-05,
+      "entropy": 2.4903,
+      "val_total_ic": 693,
+      "val_reduction_pct": 49.12,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 325,
+          "reduction_pct": 49.06
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 248,
+          "reduction_pct": 48.55
+        }
+      ]
+    },
+    {
+      "update": 80,
+      "total_steps": 163840,
+      "episodes": 3680,
+      "avg_episode_reward": 0.51973,
+      "policy_loss": -0.028938,
+      "value_loss": 1.2e-05,
+      "entropy": 2.4988
+    },
+    {
+      "update": 81,
+      "total_steps": 165888,
+      "episodes": 3726,
+      "avg_episode_reward": 0.541982,
+      "policy_loss": -0.030229,
+      "value_loss": 1.7e-05,
+      "entropy": 2.4728
+    },
+    {
+      "update": 82,
+      "total_steps": 167936,
+      "episodes": 3772,
+      "avg_episode_reward": 0.550845,
+      "policy_loss": -0.029926,
+      "value_loss": 2.3e-05,
+      "entropy": 2.4856
+    },
+    {
+      "update": 83,
+      "total_steps": 169984,
+      "episodes": 3818,
+      "avg_episode_reward": 0.527659,
+      "policy_loss": -0.029612,
+      "value_loss": 1.4e-05,
+      "entropy": 2.5444
+    },
+    {
+      "update": 84,
+      "total_steps": 172032,
+      "episodes": 3864,
+      "avg_episode_reward": 0.530126,
+      "policy_loss": -0.030423,
+      "value_loss": 1.5e-05,
+      "entropy": 2.5431
+    },
+    {
+      "update": 85,
+      "total_steps": 174080,
+      "episodes": 3910,
+      "avg_episode_reward": 0.525214,
+      "policy_loss": -0.029003,
+      "value_loss": 2.3e-05,
+      "entropy": 2.4275
+    },
+    {
+      "update": 86,
+      "total_steps": 176128,
+      "episodes": 3956,
+      "avg_episode_reward": 0.538441,
+      "policy_loss": -0.028794,
+      "value_loss": 1.4e-05,
+      "entropy": 2.4995
+    },
+    {
+      "update": 87,
+      "total_steps": 178176,
+      "episodes": 4002,
+      "avg_episode_reward": 0.5222,
+      "policy_loss": -0.027401,
+      "value_loss": 1.5e-05,
+      "entropy": 2.4549
+    },
+    {
+      "update": 88,
+      "total_steps": 180224,
+      "episodes": 4048,
+      "avg_episode_reward": 0.528457,
+      "policy_loss": -0.02928,
+      "value_loss": 1.7e-05,
+      "entropy": 2.4972,
+      "val_total_ic": 695,
+      "val_reduction_pct": 48.97,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 325,
+          "reduction_pct": 49.06
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 89,
+      "total_steps": 182272,
+      "episodes": 4094,
+      "avg_episode_reward": 0.535461,
+      "policy_loss": -0.027898,
+      "value_loss": 1.6e-05,
+      "entropy": 2.5102
+    },
+    {
+      "update": 90,
+      "total_steps": 184320,
+      "episodes": 4140,
+      "avg_episode_reward": 0.539926,
+      "policy_loss": -0.02701,
+      "value_loss": 1e-05,
+      "entropy": 2.5102
+    },
+    {
+      "update": 91,
+      "total_steps": 186368,
+      "episodes": 4186,
+      "avg_episode_reward": 0.543943,
+      "policy_loss": -0.026174,
+      "value_loss": 1.8e-05,
+      "entropy": 2.5148
+    },
+    {
+      "update": 92,
+      "total_steps": 188416,
+      "episodes": 4232,
+      "avg_episode_reward": 0.539834,
+      "policy_loss": -0.025925,
+      "value_loss": 2.6e-05,
+      "entropy": 2.4389
+    },
+    {
+      "update": 93,
+      "total_steps": 190464,
+      "episodes": 4278,
+      "avg_episode_reward": 0.528759,
+      "policy_loss": -0.025468,
+      "value_loss": 1.3e-05,
+      "entropy": 2.4787
+    },
+    {
+      "update": 94,
+      "total_steps": 192512,
+      "episodes": 4324,
+      "avg_episode_reward": 0.527156,
+      "policy_loss": -0.025434,
+      "value_loss": 1.4e-05,
+      "entropy": 2.4889
+    },
+    {
+      "update": 95,
+      "total_steps": 194560,
+      "episodes": 4370,
+      "avg_episode_reward": 0.545171,
+      "policy_loss": -0.024966,
+      "value_loss": 9e-06,
+      "entropy": 2.4774
+    },
+    {
+      "update": 96,
+      "total_steps": 196608,
+      "episodes": 4416,
+      "avg_episode_reward": 0.526895,
+      "policy_loss": -0.024213,
+      "value_loss": 1.5e-05,
+      "entropy": 2.4095
+    },
+    {
+      "update": 97,
+      "total_steps": 198656,
+      "episodes": 4462,
+      "avg_episode_reward": 0.540151,
+      "policy_loss": -0.024928,
+      "value_loss": 1.5e-05,
+      "entropy": 2.4838
+    },
+    {
+      "update": 98,
+      "total_steps": 200704,
+      "episodes": 4508,
+      "avg_episode_reward": 0.514099,
+      "policy_loss": -0.024547,
+      "value_loss": 1.5e-05,
+      "entropy": 2.4547,
+      "val_total_ic": 693,
+      "val_reduction_pct": 49.12,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 325,
+          "reduction_pct": 49.06
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 248,
+          "reduction_pct": 48.55
+        }
+      ]
+    }
+  ]
+}

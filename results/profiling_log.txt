@@ -1,0 +1,54 @@
+======================================================================
+ACTION SPACE PROFILING
+======================================================================
+Profiling 124 passes on 14 training benchmarks...
+
+  [ 10/124] -break-crit-edges                   improved 0/14 benchmarks
+  [ 20/124] -coro-elide                         improved 0/14 benchmarks
+  [ 30/124] -early-cse-memssa                   improved 14/14 benchmarks
+  [ 40/124] -gvn                                improved 14/14 benchmarks
+  [ 50/124] -infer-address-spaces               improved 0/14 benchmarks
+  [ 60/124] -load-store-vectorizer              improved 3/14 benchmarks
+  [ 70/124] -loop-predication                   improved 0/14 benchmarks
+  [ 80/124] -loop-vectorize                     improved 0/14 benchmarks
+  [ 90/124] -lower-widenable-condition          improved 0/14 benchmarks
+  [100/124] -partial-inliner                    improved 0/14 benchmarks
+  [110/124] -sccp                               improved 3/14 benchmarks
+  [120/124] -strip-debug-declare                improved 0/14 benchmarks
+  [124/124] -mergereturn                        improved 0/14 benchmarks
+
+======================================================================
+PROFILING RESULTS
+======================================================================
+  Total passes profiled:  124
+  Passes with any effect: 36
+  Passes with no effect:  88
+  Coverage of total improvement: 100.0%
+  Profiling time: 14.0 minutes
+
+  Top 20 most impactful passes:
+  #    Pass                                 Improved    Total      Avg      Max
+  ---------------------------------------------------------------------------
+  1    -sroa                                  14/14    262017  18715.5   163422
+  2    -mem2reg                               14/14    255890  18277.9   159017
+  3    -early-cse-memssa                      14/14    162793  11628.1   101480
+  4    -newgvn                                14/14    162138  11581.3   101003
+  5    -gvn                                   14/14    150306  10736.1    93465
+  6    -instcombine                           14/14     78670   5619.3    53985
+  7    -early-cse                             14/14     76484   5463.1    48757
+  8    -simplifycfg                           14/14     20420   1458.6    12941
+  9    -jump-threading                        14/14     13069    933.5     7750
+  10   -gvn-hoist                             14/14      8006    571.9     4939
+  11   -loop-simplifycfg                      14/14      3958    282.7     1969
+  12   -instsimplify                          13/14      3058    218.4     1505
+  13   -dse                                   13/14      1885    134.6     1471
+  14   -aggressive-instcombine                10/14      1682    120.1     1003
+  15   -mergefunc                              5/14      1316     94.0     1037
+  16   -adce                                  11/14       849     60.6      454
+  17   -bdce                                  11/14       835     59.6      438
+  18   -dce                                   11/14       828     59.1      433
+  19   -die                                   11/14       787     56.2      394
+  20   -loop-instsimplify                      7/14       747     53.4      204
+
+  Full profiles saved to: data/pass_profiles.json
+  Reduced action space saved to: configs/passes.yaml

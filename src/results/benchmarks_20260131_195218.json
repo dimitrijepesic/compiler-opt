@@ -1,0 +1,80 @@
+{
+  "adpcm": {
+    "baseline_O0": 567,
+    "greedy": 218,
+    "improvement_pct": 61.55,
+    "num_actions": 5
+  },
+  "bitcount": {
+    "baseline_O0": 857,
+    "greedy": 399,
+    "improvement_pct": 53.44,
+    "num_actions": 8
+  },
+  "blowfish": {
+    "baseline_O0": 3898,
+    "greedy": 1873,
+    "improvement_pct": 51.95,
+    "num_actions": 10
+  },
+  "crc32": {
+    "baseline_O0": 242,
+    "greedy": 114,
+    "improvement_pct": 52.89,
+    "num_actions": 4
+  },
+  "dijkstra": {
+    "baseline_O0": 450,
+    "greedy": 258,
+    "improvement_pct": 42.67,
+    "num_actions": 5
+  },
+  "gsm": {
+    "baseline_O0": 14902,
+    "greedy": 6009,
+    "improvement_pct": 59.68,
+    "num_actions": 21
+  },
+  "jpeg-c": {
+    "baseline_O0": 62452,
+    "greedy": 28989,
+    "improvement_pct": 53.58,
+    "num_actions": 31
+  },
+  "jpeg-d": {
+    "baseline_O0": 59942,
+    "greedy": 27671,
+    "improvement_pct": 53.84,
+    "num_actions": 30
+  },
+  "patricia": {
+    "baseline_O0": 1282,
+    "greedy": 401,
+    "improvement_pct": 68.72,
+    "num_actions": 7
+  },
+  "qsort": {
+    "baseline_O0": 638,
+    "greedy": 271,
+    "improvement_pct": 57.52,
+    "num_actions": 7
+  },
+  "sha": {
+    "baseline_O0": 799,
+    "greedy": 358,
+    "improvement_pct": 55.19,
+    "num_actions": 6
+  },
+  "stringsearch": {
+    "baseline_O0": 1348,
+    "greedy": 608,
+    "improvement_pct": 54.9,
+    "num_actions": 10
+  },
+  "susan": {
+    "baseline_O0": 13282,
+    "greedy": 5431,
+    "improvement_pct": 59.11,
+    "num_actions": 16
+  }
+}

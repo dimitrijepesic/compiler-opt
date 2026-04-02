@@ -1,0 +1,39 @@
+{
+  "agent": "GreedyAgent",
+  "benchmark": "benchmark://cbench-v1/crc32",
+  "timestamp": "2026-02-01T15:40:29.605551",
+  "best_score": 114,
+  "best_sequence": [
+    103,
+    39,
+    10,
+    53
+  ],
+  "history_length": 4,
+  "history": [
+    {
+      "step": 1,
+      "size": 124,
+      "action_id": 103,
+      "action_name": "-mem2reg"
+    },
+    {
+      "step": 2,
+      "size": 117,
+      "action_id": 39,
+      "action_name": "-gvn"
+    },
+    {
+      "step": 3,
+      "size": 115,
+      "action_id": 10,
+      "action_name": "-simplifycfg"
+    },
+    {
+      "step": 4,
+      "size": 114,
+      "action_id": 53,
+      "action_name": "-instcombine"
+    }
+  ]
+}
