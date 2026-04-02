@@ -189,12 +189,21 @@ python scripts/generate_figures.py
 | Package | Version | Purpose |
 |---------|---------|---------|
 | compiler_gym | 0.2.5 | LLVM optimization environment |
+<<<<<<< HEAD
 | torch | >=2.0 | Neural network training |
 | torch_geometric | >=2.4 | GNN layers (GraphSAGE) |
 | numpy | 1.26.x | Numerical operations |
 | scipy | >=1.11 | Statistical tests |
 | matplotlib | >=3.9 | Figure generation |
 | pyyaml | >=6.0 | Config loading |
+=======
+| torch | ≥2.0 | Neural network training |
+| torch_geometric | ≥2.4 | GNN layers (GraphSAGE) |
+| numpy | 1.26.x | Numerical operations |
+| scipy | ≥1.11 | Statistical tests |
+| matplotlib | ≥3.9 | Figure generation |
+| pyyaml | ≥6.0 | Config loading |
+>>>>>>> e60353a7078675d2ec804bdb32fe222835d887d0
 
 ## Future Work
 - Extended GNN training budget on larger benchmarks
@@ -204,4 +213,8 @@ python scripts/generate_figures.py
 - Execution time optimization in addition to code size
 
 ## Author
+<<<<<<< HEAD
 Dimitrije Pesic — Faculty of Electrical Engineering, University of Belgrade
+=======
+Dimitrije Pesic — Faculty of Electrical Engineering, University of Belgrade
+>>>>>>> e60353a7078675d2ec804bdb32fe222835d887d0
