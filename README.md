@@ -203,18 +203,3 @@ python scripts/generate_figures.py
 | scipy | ≥1.11 | Statistical tests |
 | matplotlib | ≥3.9 | Figure generation |
 | pyyaml | ≥6.0 | Config loading |
->>>>>>> e60353a7078675d2ec804bdb32fe222835d887d0
-
-## Future Work
-- Extended GNN training budget on larger benchmarks
-- Polybench cross-suite generalization testing
-- Pass sequence analysis (transition matrices, n-gram patterns)
-- Runtime measurement on actual hardware (RISC-V)
-- Execution time optimization in addition to code size
-
-## Author
-<<<<<<< HEAD
-Dimitrije Pesic — Faculty of Electrical Engineering, University of Belgrade
-=======
-Dimitrije Pesic — Faculty of Electrical Engineering, University of Belgrade
->>>>>>> e60353a7078675d2ec804bdb32fe222835d887d0
