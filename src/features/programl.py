@@ -36,6 +36,19 @@ OPCODES = [
 OPCODE_TO_IDX = {op: i for i, op in enumerate(OPCODES)}
 NUM_OPCODES = len(OPCODES)
 
+# Scalar node features appended after the one-hot opcode block:
+#   is_terminator, log1p(num_uses)/3, has_def, is_memory_op
+NUM_SCALAR_FEATURES = 4
+NODE_FEATURE_DIM = NUM_OPCODES + NUM_SCALAR_FEATURES
+
+# Bump when node features or graph structure change, so stale cached
+# graphs from older feature layouts are never reused.
+FEATURE_VERSION = "v2"
+
+TERMINATOR_OPCODES = {"ret", "br", "switch", "unreachable", "invoke", "resume"}
+MEMORY_OPCODES = {"alloca", "load", "store", "getelementptr", "fence",
+                  "atomicrmw", "cmpxchg"}
+
 
 def _parse_opcode(line):
     """Extract the LLVM opcode from an instruction line."""
@@ -159,11 +172,18 @@ def parse_llvm_ir(ir_text):
 
         opcode_idx = OPCODE_TO_IDX.get(opcode, 0)
 
+        # Parse SSA defs and uses (also feeds scalar node features)
+        defs, uses = _parse_ssa_defs_uses(stripped)
+
         node_idx = len(nodes)
         nodes.append({
             "opcode": opcode,
             "opcode_idx": opcode_idx,
             "block": current_block or "unknown",
+            "is_terminator": opcode in TERMINATOR_OPCODES,
+            "num_uses": len(uses),
+            "has_def": len(defs) > 0,
+            "is_memory_op": opcode in MEMORY_OPCODES,
         })
 
         # Track block boundaries
@@ -177,9 +197,6 @@ def parse_llvm_ir(ir_text):
             cfg_edges.append((prev_node_idx, node_idx))
 
         prev_node_idx = node_idx
-
-        # Parse SSA defs and uses for data flow
-        defs, uses = _parse_ssa_defs_uses(stripped)
 
         for d in defs:
             ssa_def_node[d] = node_idx
@@ -220,13 +237,14 @@ def ir_to_pyg_data(ir_text):
     """
     Convert LLVM IR text to a PyTorch Geometric Data object.
 
-    Node features: one-hot opcode encoding (NUM_OPCODES dims)
+    Node features: one-hot opcode (NUM_OPCODES dims) + scalar features
+    (is_terminator, log1p(num_uses)/3, has_def, is_memory_op)
     Edge index: combined CFG + DFG edges
     Edge attr: 0 for CFG, 1 for DFG
 
     Returns:
         Data object with:
-            x: [num_nodes, NUM_OPCODES] float tensor
+            x: [num_nodes, NODE_FEATURE_DIM] float tensor
             edge_index: [2, num_edges] long tensor
             edge_type: [num_edges] long tensor (0=CFG, 1=DFG)
     """
@@ -235,16 +253,19 @@ def ir_to_pyg_data(ir_text):
     if len(nodes) == 0:
         # Return minimal valid graph
         return Data(
-            x=torch.zeros(1, NUM_OPCODES),
+            x=torch.zeros(1, NODE_FEATURE_DIM),
             edge_index=torch.zeros(2, 0, dtype=torch.long),
             edge_type=torch.zeros(0, dtype=torch.long),
             num_nodes=1,
         )
 
-    # Node features: one-hot opcode
-    x = torch.zeros(len(nodes), NUM_OPCODES)
+    x = torch.zeros(len(nodes), NODE_FEATURE_DIM)
     for i, node in enumerate(nodes):
         x[i, node["opcode_idx"]] = 1.0
+        x[i, NUM_OPCODES + 0] = 1.0 if node["is_terminator"] else 0.0
+        x[i, NUM_OPCODES + 1] = np.log1p(node["num_uses"]) / 3.0
+        x[i, NUM_OPCODES + 2] = 1.0 if node["has_def"] else 0.0
+        x[i, NUM_OPCODES + 3] = 1.0 if node["is_memory_op"] else 0.0
 
     # Combine edges
     all_edges = []
@@ -274,15 +295,28 @@ def ir_to_pyg_data(ir_text):
 
 
 class IRGraphCache:
-    """Disk cache for parsed IR graphs to avoid re-extraction during training."""
+    """Disk cache for parsed IR graphs to avoid re-extraction during training.
 
-    def __init__(self, cache_dir="data/cached_graphs"):
+    Cache dir resolution order: explicit arg, COMPILER_OPT_CACHE_DIR env var
+    (useful to keep the cache on a fast native filesystem under WSL),
+    then the in-repo default. Keys embed FEATURE_VERSION so graphs cached
+    under an older feature layout are never reused.
+    """
+
+    def __init__(self, cache_dir=None):
+        if cache_dir is None:
+            cache_dir = os.environ.get(
+                "COMPILER_OPT_CACHE_DIR",
+                os.path.join("data", f"cached_graphs_{FEATURE_VERSION}"),
+            )
         self.cache_dir = cache_dir
         os.makedirs(cache_dir, exist_ok=True)
 
     def _key(self, ir_text):
-        """Hash the IR text to get a cache key."""
-        return hashlib.md5(ir_text.encode()).hexdigest()
+        """Hash the IR text (+ feature version) to get a cache key."""
+        return hashlib.md5(
+            (FEATURE_VERSION + ir_text).encode()
+        ).hexdigest()
 
     def get(self, ir_text):
         """Try to load cached graph. Returns Data or None."""

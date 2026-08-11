@@ -6,11 +6,19 @@ from torch_geometric.data import Data, Batch
 
 class GNNEncoder(nn.Module):
     """
-    GraphSAGE encoder for program graphs.
+    Edge-type-aware GraphSAGE encoder for program graphs.
 
-    Input: PyG Data with one-hot opcode node features
+    Each layer runs two SAGEConv convolutions — one over control-flow
+    edges (edge_type == 0), one over data-flow edges (edge_type == 1) —
+    and sums their outputs. This lets the encoder treat "next instruction"
+    and "value dependency" as distinct relations instead of collapsing
+    them into a single edge set.
+
+    Input: PyG Data with node features and edge_type vector
     Output: fixed-size program embedding vector
     """
+
+    NUM_EDGE_TYPES = 2  # 0 = CFG, 1 = DFG
 
     def __init__(self, input_dim, hidden_dim=128, output_dim=128,
                  num_layers=3, dropout=0.1, aggregation="mean"):
@@ -19,15 +27,18 @@ class GNNEncoder(nn.Module):
         self.num_layers = num_layers
         self.dropout = dropout
 
-        # Input projection from one-hot opcodes to embedding space
+        # Input projection from raw node features to embedding space
         self.input_proj = nn.Linear(input_dim, hidden_dim)
 
-        # GraphSAGE convolution layers
+        # Per-layer, per-edge-type GraphSAGE convolutions
         self.convs = nn.ModuleList()
         self.norms = nn.ModuleList()
 
-        for i in range(num_layers):
-            self.convs.append(SAGEConv(hidden_dim, hidden_dim, aggr=aggregation))
+        for _ in range(num_layers):
+            self.convs.append(nn.ModuleList([
+                SAGEConv(hidden_dim, hidden_dim, aggr=aggregation)
+                for _ in range(self.NUM_EDGE_TYPES)
+            ]))
             self.norms.append(nn.LayerNorm(hidden_dim))
 
         # Output projection
@@ -38,7 +49,14 @@ class GNNEncoder(nn.Module):
     def forward(self, data):
         x = data.x
         edge_index = data.edge_index
+        edge_type = data.edge_type
         batch = data.batch if hasattr(data, "batch") and data.batch is not None else None
+
+        # Split edges by type once, reuse across layers
+        typed_edges = []
+        for t in range(self.NUM_EDGE_TYPES):
+            mask = edge_type == t
+            typed_edges.append(edge_index[:, mask])
 
         # Input projection
         x = self.input_proj(x)
@@ -47,8 +65,11 @@ class GNNEncoder(nn.Module):
         # Message passing layers
         for i in range(self.num_layers):
             residual = x
-            x = self.convs[i](x, edge_index)
-            x = self.norms[i](x)
+            out = None
+            for t in range(self.NUM_EDGE_TYPES):
+                h = self.convs[i][t](x, typed_edges[t])
+                out = h if out is None else out + h
+            x = self.norms[i](out)
             x = torch.relu(x)
             x = self.drop(x)
             # Residual connection
