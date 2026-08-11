@@ -1,204 +1,190 @@
-# GNN-Based LLVM Pass Ordering with Reinforcement Learning
+# GNN vs. Flat Features for LLVM Pass Ordering with RL: A Controlled Study
 
 ## Overview
 
-This project trains reinforcement learning agents to optimize LLVM compiler pass orderings for code size reduction. Instead of applying a fixed optimization sequence (like `-O3`), our agents learn **program-specific** pass orderings that outperform standard compiler optimization levels.
+This project trains reinforcement-learning agents to choose LLVM optimization
+pass orderings that minimize IR instruction count (IC), and asks a specific
+question under a controlled protocol:
 
-We compare two approaches:
-- **PPO + Autophase**: PPO agent using a flat 56-dimensional feature vector (instruction type counts)
-- **PPO + GNN**: PPO agent using a GraphSAGE neural network that operates directly on the program's control flow and data flow graph structure
+> Does a GraphSAGE encoder over the program's control-flow + data-flow graph
+> make PPO more data-efficient than the flat 56-dim Autophase feature vector?
 
-### Key Finding
+**Answer, under this protocol: no.** The two representations are statistically
+indistinguishable on both validation and test splits (Wilcoxon p = 0.63 / 0.88),
+the GNN costs ~17× more wall-clock per environment step, and most of the
+end-to-end IC reduction is attributable to the curated 36-pass action space
+rather than to learning. An earlier version of this README claimed the
+opposite; see [What changed and why](#what-changed-and-why).
 
-The GNN-based agent matches the flat-feature agent's validation performance (689 vs 680 total IC) while requiring **75% fewer training steps** and **less than half the training benchmarks**, demonstrating that structural graph representations are more data-efficient for learning compiler optimization strategies.
+## Controlled protocol
+
+Everything that differs between the two agents is the state representation.
+
+| Protocol element | Value (identical for both agents) |
+|---|---|
+| Training benchmarks | dijkstra, adpcm, bitcount, stringsearch (cBench-v1, O0 IC < 3000) |
+| Budget | 100K env steps per seed |
+| Seeds | 42, 123, 456 (3 per agent) |
+| Checkpoint selection | val-small (crc32, qsort, stringsearch2) every 5K steps |
+| Final evaluation | full validation split (5) + held-out test split (4), once, from best checkpoints |
+| Action space | 36 passes (profiled subset of 124) |
+| PPO | clip 0.2, GAE λ=0.95, γ=0.99, KL early-stop (target 0.02), entropy coeff 0.01→0.001 |
+
+Null models measured in the same 36-pass space: a single random 45-step
+episode (mean of 20), and best-of-50 random episodes.
 
 ## Results
 
-| Method | Val Total IC | Val Reduction | Training Steps | Training Benchmarks |
-|--------|-------------|---------------|----------------|---------------------|
-| -O3 (baseline) | ~700 | ~48% | — | — |
-| PPO + Autophase | **680** | **50.1%** | 200K | 9 |
-| PPO + GNN | **689** | **49.4%** | 50K | 4 |
+Total IC, lower is better. `-O3`/`-Oz` are the **real** optimization levels
+(CompilerGym `IrInstructionCountO3/Oz` observations), not hand-picked pass
+lists. Agents report the median seed; mean ± std across seeds in parentheses.
 
-Both RL agents significantly outperform the fixed `-O3` pass sequence across validation benchmarks (crc32, qsort, stringsearch2).
+| Method | Validation (5) | Test (4) |
+|---|---|---|
+| O0 | 111,758 | 120,684 |
+| -O3 (real) | 77,853 | 85,981 |
+| -Oz (real) | 55,412 | 60,575 |
+| Random search, full 124-pass space (50×50) | 59,572 | 63,938 |
+| Random single episode, 36-pass space | 56,229 | 62,436 |
+| **Random search, 36-pass space (50×45)** | **52,725** | **58,281** |
+| **Greedy search** | **52,481** | **58,069** |
+| PPO + Autophase | 64,837 (73,922 ± 15,724) | 68,922 (76,040 ± 12,439) |
+| PPO + GNN | 64,568 (64,550 ± 25) | 68,620 (69,180 ± 792) |
 
-### Training Curves
+In-training validation (val-small; best per seed; nulls: Oz 643,
+random-1-episode 640, greedy = random-50 604):
 
-![Training Curves](results/figures/fig1_training_curves.png)
+| Agent | seed 42 | seed 123 | seed 456 |
+|---|---|---|---|
+| PPO + Autophase | 685 | 681 | **629** |
+| PPO + GNN | 689 | 689 | 689 |
 
-### Validation Performance
+### Findings
 
-![Validation](results/figures/fig2_validation_curves.png)
+1. **The curated action space, not RL, does the heavy lifting.** Best-of-50
+   random search inside the 36-pass space matches greedy search (within 0.5%)
+   and beats -Oz by ~5% on both splits. A *single* random episode already
+   roughly matches -Oz. The 36-pass profiling step distills most of the
+   available signal.
 
-## Architecture
+2. **GNN ≠ more data-efficient — the representations are indistinguishable.**
+   With identical data, budget, and PPO loop, per-benchmark ICs differ
+   insignificantly (Wilcoxon p = 0.625 validation, p = 0.875 test). The GNN's
+   striking seed-consistency (std 25 vs 15,724) is not learned structure: all
+   three GNN seeds converge to the same near-uniform-policy plateau (689 on
+   val-small — the same value a barely-trained policy reaches).
 
-### PPO + Autophase
-```
-Program → Autophase (56-dim vector) → Policy MLP → Action (pass selection)
-                                    → Value MLP → State value
-```
+3. **Neither representation generalizes across program scale.** Trained on
+   programs with < 3,000 instructions, both agents underperform even a single
+   random 36-pass episode on the 50K-60K-instruction validation/test programs.
+   A deterministic argmax rollout transfers a degenerate behavior; random
+   sampling is more robust on out-of-scale inputs.
 
-### PPO + GNN (Novel Contribution)
-```
-Program → LLVM IR → Custom IR Parser → CFG+DFG Graph → GraphSAGE Encoder → 128-dim embedding
-                                                                          → Policy MLP → Action
-                                                                          → Value MLP → Value
-```
+4. **Learning is possible but fragile.** With the fixed PPO loop
+   (truncation-aware GAE, KL early-stop), Autophase seed 456 genuinely
+   learned: 629 on val-small, beating -Oz (643) and the single-episode null
+   (640), approaching greedy (604). One seed in three; no GNN seed did.
 
-The custom IR parser extracts:
-- **Instruction nodes** with opcode features (57 LLVM opcodes)
-- **Control flow edges** (intra-block sequential + cross-block branches)
-- **Data flow edges** (SSA def-use chains)
+5. **-O3 is the wrong yardstick for code size.** On the three small validation
+   programs real -O3 *increases* IC above O0 (1,608 vs 1,362 — inlining and
+   unrolling). Any size result advertised as "beats -O3" should be read as
+   "beats a speed-oriented baseline at a size game." The honest compiler
+   baseline is -Oz, and no learned policy here beats it on the full splits.
 
-## Repository Structure
+6. **The GNN pays ~17× wall-clock per step** (51-68 min vs 3 min per 100K
+   steps), dominated by IR→graph extraction, despite an on-disk graph cache.
+
+### What changed and why
+
+The original README reported that both agents "significantly outperform -O3"
+(~50% vs ~48% reduction) and that the GNN "matches Autophase with 75% fewer
+training steps." Re-examination showed: the "-O3" baseline was a hand-crafted
+15-pass list; its own recorded value (644 on the 3-benchmark validation
+subset) *beat* both agents (680/689); the agents' best scores were reached
+within 10-40K steps, not at their nominal budgets; the two agents trained on
+different benchmark sets; and the test split had never been evaluated. All
+claims were re-derived from a controlled rerun with fixed code. The original
+artifacts are preserved in `results/archive_2026-04_original/`.
+
+Fixes applied before the rerun (all in this repo's history):
+
+- **PPO**: GAE now bootstraps V(s_next) at truncations (episodes here never
+  truly terminate) and no longer leaks advantages across episode boundaries at
+  rollout cuts; KL-based epoch early stopping; linear entropy-coefficient
+  decay; lower encoder learning rate for the GNN stack.
+- **GNN**: edge-type-aware GraphSAGE (separate CFG/DFG convolutions per
+  layer — `edge_type` was previously computed and ignored); node features
+  extended with is-terminator / operand-count / defines-value / is-memory-op
+  scalars; versioned graph cache.
+- **Baselines**: real -O3/-Oz observations; random null models in the reduced
+  action space; all baselines recorded per benchmark in
+  `results/full_baselines_v2.json`.
+- **Evaluation**: `scripts/evaluate_all.py` now actually runs (test split was
+  previously never evaluated) and reports per-seed results, bootstrap CIs and
+  a paired Wilcoxon test; `scripts/generate_figures.py` (referenced but
+  missing before) exists.
+
+## Figures
+
+![Training curves](results/figures/fig1_training_curves.png)
+![Validation curves](results/figures/fig2_validation_curves.png)
+![Diagnostics](results/figures/fig3_entropy.png)
+![Final comparison](results/figures/fig4_best_val_comparison.png)
+
+## Repository structure
 
 ```
 compiler-opt/
 ├── configs/
-│   ├── benchmarks.yaml          # Train/val/test split (14/5/4)
-│   ├── hyperparams.yaml         # All hyperparameters
-│   └── passes.yaml              # Reduced action space (36 passes)
-│
+│   ├── benchmarks.yaml          # Fixed train/val/test split + val-small subset
+│   ├── hyperparams.yaml         # Controlled-protocol hyperparameters
+│   └── passes.yaml              # Reduced 36-pass action space
 ├── src/
-│   ├── agents/
-│   │   ├── base_agent.py        # Abstract base class
-│   │   ├── greedy.py            # Greedy search baseline
-│   │   ├── ppo_autophase.py     # PPO + flat features
-│   │   └── ppo_gnn.py           # PPO + GNN encoder
-│   ├── features/
-│   │   ├── autophase.py         # 56-dim Autophase extraction
-│   │   └── programl.py          # Custom LLVM IR → PyG graph parser
-│   ├── models/
-│   │   ├── policy_mlp.py        # Policy network
-│   │   ├── value_head.py        # Value network
-│   │   └── gnn_encoder.py       # GraphSAGE encoder
-│   └── envs/
-│       └── compiler_env.py      # CompilerGym wrapper
-│
+│   ├── agents/ppo_autophase.py  # PPO + flat Autophase features
+│   ├── agents/ppo_gnn.py        # PPO + GraphSAGE encoder
+│   ├── features/autophase.py    # 56-dim feature extraction
+│   ├── features/programl.py     # Custom LLVM IR → PyG graph parser + cache
+│   └── models/                  # policy_mlp, value_head, gnn_encoder
 ├── scripts/
-│   ├── discover_benchmarks.py   # Step 1: Validate all cBench benchmarks
-│   ├── run_full_baselines.py    # Step 2: O0/O3/Oz/Greedy/Random baselines
-│   ├── profile_action_space.py  # Step 3: Per-pass profiling → reduced action space
-│   ├── train_ppo_autophase.py   # Step 4: Train PPO + Autophase
-│   ├── train_ppo_gnn.py         # Step 5: Train PPO + GNN
-│   ├── evaluate_all.py          # Step 6: Test set evaluation
-│   └── generate_figures.py      # Step 7: Generate paper figures
-│
-├── data/
-│   ├── benchmark_inventory.json # 23 valid cBench benchmarks
-│   └── pass_profiles.json       # Per-pass improvement data
-│
-├── results/
-│   ├── full_baselines.json      # All baseline results
-│   ├── ppo_autophase/           # Checkpoints + training logs
-│   ├── ppo_gnn/                 # Checkpoints + training logs
-│   └── figures/                 # Generated figures (PNG)
-│
-└── requirements.txt
+│   ├── setup_wsl_env.sh         # One-time environment setup (WSL/Ubuntu 22.04)
+│   ├── run_experiment.sh        # Full pipeline: baselines → training → eval → figures
+│   ├── augment_baselines.py     # Real O3/Oz + random-in-reduced-space nulls
+│   ├── train_ppo_autophase.py   # --seed N
+│   ├── train_ppo_gnn.py         # --seed N
+│   ├── evaluate_all.py          # Final eval: full val + test, stats
+│   └── generate_figures.py      # fig1-fig4
+├── data/                        # benchmark inventory, pass profiles
+└── results/
+    ├── full_baselines_v2.json   # All baselines incl. real O3/Oz + nulls
+    ├── final_evaluation.json    # Per-seed final results + statistics
+    ├── ppo_autophase/, ppo_gnn/ # Checkpoints + training logs (3 seeds each)
+    ├── figures/
+    └── archive_2026-04_original/  # Pre-rerun artifacts, kept for provenance
 ```
 
-## Methodology
+## Reproduce
 
-### 1. Benchmark Discovery
-Validated all 23 cBench-v1 benchmarks for `reset()` and `fork()` support in CompilerGym v0.2.5. All 23 passed.
+Linux (or WSL2 Ubuntu 22.04) required — CompilerGym 0.2.5 is Linux-only.
 
-### 2. Benchmark Split
-Stratified split by program category:
-- **Train (14)**: adpcm, gsm, blowfish, rijndael, bzip2, jpeg-c, dijkstra, bitcount, ispell, stringsearch, susan, tiff2bw, tiffdither, ghostscript
-- **Validation (5)**: lame, crc32, qsort, stringsearch2, tiffmedian
-- **Test (4)**: sha, jpeg-d, patricia, tiff2rgba
-
-### 3. Action Space Reduction
-Profiled all 124 LLVM passes individually on training benchmarks. Found **36 passes** that improve at least one benchmark, covering 100% of observed single-pass improvements. Top passes: `sroa`, `mem2reg`, `early-cse-memssa`, `newgvn`, `gvn`, `instcombine`.
-
-### 4. Baselines
-Collected O0, O3, Oz, Greedy (45-step), and Random (50×50) baselines across all 23 benchmarks. Greedy beats O3 by **6-8%** on average.
-
-### 5. RL Training
-- **PPO + Autophase**: 200K steps on 9 benchmarks (IC < 20K), ~37 min
-- **PPO + GNN**: 50K steps on 4 benchmarks (IC < 3K), ~28 min per seed
-- Both use reduced 36-pass action space, clip ratio 0.2, GAE λ=0.95
-
-### 6. Custom IR Parser
-The `programl` Python package was incompatible with our environment, so we built a custom LLVM IR parser (`src/features/programl.py`) that extracts control flow and data flow graphs directly from IR text, producing PyTorch Geometric `Data` objects with:
-- One-hot opcode node features (57 opcodes)
-- CFG edges (sequential + branch targets)
-- DFG edges (SSA def-use chains)
-
-## Setup
-
-### Prerequisites
-- Python 3.10
-- Ubuntu 22.04 (WSL2 or native)
-
-### Installation
 ```bash
-# Create virtual environment
-python3.10 -m venv venv
-source venv/bin/activate
-
-# Install dependencies (order matters)
-pip install "pip<24.1" setuptools==65.5.0 wheel==0.38.4
-pip install gym==0.21.0
-pip install compiler-gym==0.2.5 "numpy<2" pyyaml tqdm scipy matplotlib
-pip install torch --index-url https://download.pytorch.org/whl/cpu
-pip install torch-geometric
-
-# Fix missing library (Ubuntu 22.04)
-sudo apt-get install -y libtinfo5
+bash scripts/setup_wsl_env.sh     # venv + pinned deps + smoke test (~10 min)
+bash scripts/run_experiment.sh    # baselines + 6 trainings + eval + figures
 ```
 
-### Reproduce Results
-```bash
-# Step 1: Discover benchmarks
-python scripts/discover_benchmarks.py
+Wall-clock on a laptop CPU: baselines ~35 min, PPO+Autophase ~3 min/seed,
+PPO+GNN ~50-70 min/seed, final evaluation ~15 min.
 
-# Step 2: Collect baselines (~3 hours)
-python scripts/run_full_baselines.py
+## Honest limitations & where a GNN could still win
 
-# Step 3: Profile action space (~15 min)
-python scripts/profile_action_space.py
-
-# Step 4: Train PPO + Autophase (~37 min per seed)
-python scripts/train_ppo_autophase.py --seed 42
-
-# Step 5: Train PPO + GNN (~28 min per seed)
-python scripts/train_ppo_gnn.py --seed 42
-
-# Step 6: Generate figures
-python scripts/generate_figures.py
-```
-
-## Technical Details
-
-### Hyperparameters
-| Parameter | Value |
-|-----------|-------|
-| PPO clip ratio | 0.2 |
-| GAE lambda | 0.95 |
-| Entropy coefficient | 0.01 |
-| Learning rate | 3e-4 (cosine annealing) |
-| Batch size | 64 |
-| PPO epochs | 4 |
-| Max episode steps | 45 |
-| GNN layers | 3 (GraphSAGE, mean aggregation) |
-| GNN hidden dim | 128 |
-| Policy/Value MLP | 2 layers × 256 hidden |
-
-### Dependencies
-| Package | Version | Purpose |
-|---------|---------|---------|
-| compiler_gym | 0.2.5 | LLVM optimization environment |
-| torch | >=2.0 | Neural network training |
-| torch_geometric | >=2.4 | GNN layers (GraphSAGE) |
-| numpy | 1.26.x | Numerical operations |
-| scipy | >=1.11 | Statistical tests |
-| matplotlib | >=3.9 | Figure generation |
-| pyyaml | >=6.0 | Config loading |
-=======
-| torch | >=2.0 | Neural network training |
-| torch_geometric | >=2.4 | GNN layers (GraphSAGE) |
-| numpy | 1.26.x | Numerical operations |
-| scipy | >=1.11 | Statistical tests |
-| matplotlib | >=3.9 | Figure generation |
-| pyyaml | >=6.0 | Config loading |
+- Deterministic argmax rollouts are brittle; sampling-based evaluation (e.g.
+  best-of-k samples) would measure the policy distribution, not its mode.
+- Training only on < 3K-IC programs is the protocol's control, but also its
+  limit: the scale-generalization failure might shrink with mixed-size
+  training (the GNN's per-step cost is what made that expensive here).
+- The GNN receives opcode-level features only; no pretraining, no value/type
+  information, no global context beyond mean pooling. A pretrained encoder
+  (e.g. on IR reconstruction or supervised proxy tasks) remains untested here.
+- Single-rollout policies are the right product target (amortized search:
+  greedy costs O(|A|) compilations per step, a policy costs one forward pass) —
+  but to claim it, a policy must first reliably beat the single-episode random
+  null on unseen programs. None here does.
