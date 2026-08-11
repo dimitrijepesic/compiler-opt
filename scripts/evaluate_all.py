@@ -1,8 +1,16 @@
 #!/usr/bin/env python3
 """
-Step 6: Evaluate All Methods on Test Set
-Loads trained PPO+Autophase and PPO+GNN checkpoints,
-evaluates on test benchmarks, computes statistics.
+Final evaluation: trained agents vs baselines on the FULL declared
+validation split and the held-out test split.
+
+- Baselines come from results/full_baselines_v2.json (real -O3/-Oz via
+  IrInstructionCountO3/Oz observations, greedy, random over the full
+  action space, and random null models in the reduced 36-pass space).
+- Agents are evaluated from their best checkpoints for every seed that
+  has one; per-seed results are reported, plus mean/std, bootstrap CI,
+  and a paired Wilcoxon test between the two agents.
+
+Output: results/final_evaluation.json
 """
 
 import sys
@@ -19,212 +27,222 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from src.agents.ppo_autophase import PPOAutophaseAgent
 from src.agents.ppo_gnn import PPOGNNAgent
 
+METHOD_LABELS = {
+    "o0": "O0", "o3": "O3 (real)", "oz": "Oz (real)", "o3_seq": "O3-seq",
+    "greedy": "Greedy", "random": "Rnd-full",
+    "random_reduced_policy": "RndRed-1ep", "random_reduced_search": "RndRed-50",
+    "ppo_autophase": "PPO+AP", "ppo_gnn": "PPO+GNN",
+}
 
-def geometric_mean_improvement(method_ics, baseline_ics):
-    """Compute geometric mean of per-benchmark improvement ratios vs baseline."""
-    ratios = []
-    for m, b in zip(method_ics, baseline_ics):
-        if b > 0:
-            ratios.append(b / m)  # >1 means method is better
+
+def geometric_mean_ratio(method_ics, baseline_ics):
+    """Geometric mean of per-benchmark baseline/method ratios (>1 = better)."""
+    ratios = [b / m for m, b in zip(method_ics, baseline_ics) if m > 0 and b > 0]
     if not ratios:
         return 1.0
-    return np.exp(np.mean(np.log(ratios)))
+    return float(np.exp(np.mean(np.log(ratios))))
 
 
 def bootstrap_ci(data, n_bootstrap=10000, ci=0.95, seed=42):
-    """Compute bootstrap confidence interval for the mean."""
     rng = np.random.RandomState(seed)
-    means = []
-    data = np.array(data)
-    for _ in range(n_bootstrap):
-        sample = rng.choice(data, size=len(data), replace=True)
-        means.append(np.mean(sample))
+    data = np.array(data, dtype=float)
+    means = [
+        np.mean(rng.choice(data, size=len(data), replace=True))
+        for _ in range(n_bootstrap)
+    ]
     lower = np.percentile(means, (1 - ci) / 2 * 100)
     upper = np.percentile(means, (1 + ci) / 2 * 100)
-    return lower, upper
+    return float(lower), float(upper)
 
 
-def evaluate_agent(agent_class, checkpoint_dir, seed, test_uris, label):
-    """Evaluate a trained agent on test benchmarks."""
-    agent = agent_class(seed=seed)
+def evaluate_agent_all_seeds(agent_class, checkpoint_dir, seeds, uris, label):
+    """Evaluate every seed that has a best (or final) checkpoint."""
+    runs = []
+    for seed in seeds:
+        ckpt_path = os.path.join(checkpoint_dir, f"checkpoint_best_seed{seed}.pt")
+        if not os.path.exists(ckpt_path):
+            ckpt_path = os.path.join(checkpoint_dir, f"checkpoint_final_seed{seed}.pt")
+        if not os.path.exists(ckpt_path):
+            print(f"  [{label}] seed {seed}: no checkpoint, skipping")
+            continue
 
-    ckpt_path = os.path.join(checkpoint_dir, f"checkpoint_best_seed{seed}.pt")
-    if not os.path.exists(ckpt_path):
-        ckpt_path = os.path.join(checkpoint_dir, f"checkpoint_final_seed{seed}.pt")
+        agent = agent_class(seed=seed)
+        try:
+            agent.load_checkpoint(ckpt_path)
+            total_ic, reduction, details = agent.evaluate(uris, "final")
+        finally:
+            agent.close()
 
-    if not os.path.exists(ckpt_path):
-        print(f"  WARNING: No checkpoint found for {label} seed={seed}")
-        agent.close()
+        print(f"  [{label}] seed {seed}: total IC {total_ic} "
+              f"({reduction:.2f}% reduction)")
+        runs.append({
+            "seed": seed,
+            "checkpoint": os.path.basename(ckpt_path),
+            "total_ic": int(total_ic),
+            "reduction_pct": round(float(reduction), 2),
+            "ics": [d["final_ic"] for d in details],
+            "details": details,
+        })
+    return runs
+
+
+def summarize_runs(runs):
+    if not runs:
         return None
-
-    agent.load_checkpoint(ckpt_path)
-    total_ic, reduction, details = agent.evaluate(test_uris, "test")
-    agent.close()
-
-    return {
-        "seed": seed,
-        "total_ic": total_ic,
-        "reduction_pct": reduction,
-        "details": details,
+    totals = [r["total_ic"] for r in runs]
+    summary = {
+        "seeds": [r["seed"] for r in runs],
+        "total_ics": totals,
+        "mean_total_ic": round(float(np.mean(totals)), 1),
+        "std_total_ic": round(float(np.std(totals)), 1),
     }
+    if len(totals) >= 2:
+        lo, hi = bootstrap_ci(totals)
+        summary["bootstrap_ci_95"] = [round(lo, 1), round(hi, 1)]
+    # Median seed (by total IC) is used for per-benchmark comparisons
+    runs_sorted = sorted(runs, key=lambda r: r["total_ic"])
+    summary["median_seed"] = runs_sorted[len(runs_sorted) // 2]["seed"]
+    return summary
+
+
+def median_run(runs):
+    runs_sorted = sorted(runs, key=lambda r: r["total_ic"])
+    return runs_sorted[len(runs_sorted) // 2]
+
+
+def print_split_table(split_name, uris, baselines, agent_runs):
+    """Per-benchmark table + geomean-vs-real-O3 row for one split."""
+    baseline_methods = ["o0", "o3", "oz", "greedy", "random",
+                        "random_reduced_search"]
+    agent_methods = [m for m in ["ppo_autophase", "ppo_gnn"] if agent_runs.get(m)]
+
+    print(f"\n{'=' * 90}")
+    print(f"{split_name.upper()} SPLIT")
+    print(f"{'=' * 90}")
+
+    header = f"{'Benchmark':<15}"
+    for m in baseline_methods + agent_methods:
+        header += f" {METHOD_LABELS[m]:>10}"
+    print(header)
+    print("-" * len(header))
+
+    columns = {}
+    for m in baseline_methods:
+        columns[m] = []
+        for uri in uris:
+            name = uri.split("/")[-1]
+            columns[m].append(int(baselines[name][m]))
+    for m in agent_methods:
+        columns[m] = median_run(agent_runs[m])["ics"]
+
+    for i, uri in enumerate(uris):
+        row = f"{uri.split('/')[-1]:<15}"
+        for m in baseline_methods + agent_methods:
+            row += f" {columns[m][i]:>10}"
+        print(row)
+
+    print("-" * len(header))
+    totals_row = f"{'TOTAL':<15}"
+    for m in baseline_methods + agent_methods:
+        totals_row += f" {sum(columns[m]):>10}"
+    print(totals_row)
+
+    o3_ics = columns["o3"]
+    geo_row = f"{'Geo vs O3':<15}"
+    geomeans = {}
+    for m in baseline_methods + agent_methods:
+        gm = geometric_mean_ratio(columns[m], o3_ics)
+        geomeans[m] = gm
+        geo_row += f" {(gm - 1) * 100:>+9.2f}%"
+    print(geo_row)
+
+    return columns, geomeans
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Evaluate all methods on test set")
-    parser.add_argument("--baselines", type=str, default="results/full_baselines.json")
+    parser = argparse.ArgumentParser(description="Final evaluation on val+test")
+    parser.add_argument("--baselines", type=str,
+                        default="results/full_baselines_v2.json")
     parser.add_argument("--ppo-ap-dir", type=str, default="results/ppo_autophase")
     parser.add_argument("--ppo-gnn-dir", type=str, default="results/ppo_gnn")
     parser.add_argument("--benchmarks", type=str, default="configs/benchmarks.yaml")
     parser.add_argument("--output", type=str, default="results/final_evaluation.json")
+    parser.add_argument("--seeds", type=int, nargs="+", default=[42, 123, 456])
     args = parser.parse_args()
 
-    # Load test benchmarks
     with open(args.benchmarks) as f:
         bm_config = yaml.safe_load(f)
+    val_uris = bm_config["validation"]
     test_uris = bm_config["test"]
 
-    print("=" * 80)
-    print("FINAL TEST SET EVALUATION")
-    print("=" * 80)
-    print(f"  Test benchmarks: {[u.split('/')[-1] for u in test_uris]}")
-
-    # Load baselines
     with open(args.baselines) as f:
         baselines_data = json.load(f)
+    baselines = {e["short_name"]: e for e in baselines_data["baselines"]}
+    # Flatten the random_reduced_policy dict to its mean for table use
+    for e in baselines.values():
+        if isinstance(e.get("random_reduced_policy"), dict):
+            e["random_reduced_policy"] = e["random_reduced_policy"]["mean"]
 
-    test_baselines = {}
-    for entry in baselines_data["baselines"]:
-        if entry["split"] == "test":
-            name = entry["short_name"]
-            test_baselines[name] = entry
+    print("=" * 90)
+    print("FINAL EVALUATION (full validation split + held-out test split)")
+    print("=" * 90)
 
-    # --- Collect results from all methods ---
-    all_results = {}
+    agent_runs = {"validation": {}, "test": {}}
+    for split_name, uris in [("validation", val_uris), ("test", test_uris)]:
+        print(f"\nEvaluating agents on {split_name} "
+              f"({[u.split('/')[-1] for u in uris]})")
+        agent_runs[split_name]["ppo_autophase"] = evaluate_agent_all_seeds(
+            PPOAutophaseAgent, args.ppo_ap_dir, args.seeds, uris, "PPO+AP")
+        agent_runs[split_name]["ppo_gnn"] = evaluate_agent_all_seeds(
+            PPOGNNAgent, args.ppo_gnn_dir, args.seeds, uris, "PPO+GNN")
 
-    # Baselines (from pre-computed data)
-    for method in ["o0", "o3", "oz", "greedy", "random"]:
-        ics = []
-        for uri in test_uris:
-            name = uri.split("/")[-1]
-            ics.append(test_baselines[name][method])
-        all_results[method] = {"ics": ics, "seeds": [None]}
-
-    # PPO + Autophase (3 seeds)
-    seeds = [42, 123, 456]
-    ppo_ap_runs = []
-    for seed in seeds:
-        result = evaluate_agent(PPOAutophaseAgent, args.ppo_ap_dir, seed, test_uris, "PPO+AP")
-        if result:
-            ppo_ap_runs.append(result)
-
-    if ppo_ap_runs:
-        # Use median seed's results
-        ppo_ap_runs.sort(key=lambda r: r["total_ic"])
-        median_run = ppo_ap_runs[len(ppo_ap_runs) // 2]
-        all_results["ppo_autophase"] = {
-            "ics": [d["final_ic"] for d in median_run["details"]],
-            "all_runs": ppo_ap_runs,
-            "seeds": seeds,
-        }
-
-    # PPO + GNN (3 seeds)
-    ppo_gnn_runs = []
-    for seed in seeds:
-        result = evaluate_agent(PPOGNNAgent, args.ppo_gnn_dir, seed, test_uris, "PPO+GNN")
-        if result:
-            ppo_gnn_runs.append(result)
-
-    if ppo_gnn_runs:
-        ppo_gnn_runs.sort(key=lambda r: r["total_ic"])
-        median_run = ppo_gnn_runs[len(ppo_gnn_runs) // 2]
-        all_results["ppo_gnn"] = {
-            "ics": [d["final_ic"] for d in median_run["details"]],
-            "all_runs": ppo_gnn_runs,
-            "seeds": seeds,
-        }
-
-    # --- Print results table ---
-    print(f"\n{'Benchmark':<15}", end="")
-    for method in ["o0", "o3", "oz", "greedy", "random", "ppo_autophase", "ppo_gnn"]:
-        if method in all_results:
-            label = {"o0": "O0", "o3": "O3", "oz": "Oz", "greedy": "Greedy",
-                     "random": "Random", "ppo_autophase": "PPO+AP", "ppo_gnn": "PPO+GNN"}[method]
-            print(f" {label:>10}", end="")
-    print()
-    print("-" * 100)
-
-    o3_ics = all_results["o3"]["ics"]
-
-    for i, uri in enumerate(test_uris):
-        name = uri.split("/")[-1]
-        print(f"{name:<15}", end="")
-        for method in ["o0", "o3", "oz", "greedy", "random", "ppo_autophase", "ppo_gnn"]:
-            if method in all_results:
-                ic = all_results[method]["ics"][i]
-                print(f" {ic:>10}", end="")
-        print()
-
-    # Geomean vs O3
-    print("-" * 100)
-    print(f"{'Geomean vs O3':<15}", end="")
-    for method in ["o0", "o3", "oz", "greedy", "random", "ppo_autophase", "ppo_gnn"]:
-        if method in all_results:
-            gm = geometric_mean_improvement(all_results[method]["ics"], o3_ics)
-            pct = (gm - 1) * 100
-            print(f" {pct:>+9.2f}%", end="")
-    print()
-
-    # --- Statistical tests ---
-    if "ppo_autophase" in all_results and "ppo_gnn" in all_results:
-        print(f"\n{'=' * 80}")
-        print("STATISTICAL ANALYSIS")
-        print(f"{'=' * 80}")
-
-        ap_total_ics = [r["total_ic"] for r in all_results["ppo_autophase"]["all_runs"]]
-        gnn_total_ics = [r["total_ic"] for r in all_results["ppo_gnn"]["all_runs"]]
-
-        print(f"\n  PPO+Autophase total ICs across seeds: {ap_total_ics}")
-        print(f"  PPO+GNN total ICs across seeds:       {gnn_total_ics}")
-
-        if len(ap_total_ics) >= 3 and len(gnn_total_ics) >= 3:
-            # Wilcoxon on per-benchmark ICs (paired)
-            ap_ics = all_results["ppo_autophase"]["ics"]
-            gnn_ics = all_results["ppo_gnn"]["ics"]
-
-            try:
-                stat, p_value = stats.wilcoxon(ap_ics, gnn_ics)
-                print(f"\n  Wilcoxon signed-rank test (per-benchmark, median seed):")
-                print(f"    Statistic: {stat}")
-                print(f"    p-value: {p_value:.4f}")
-                print(f"    Significant (p<0.05): {'YES' if p_value < 0.05 else 'NO'}")
-            except Exception as e:
-                print(f"\n  Wilcoxon test failed: {e}")
-
-        # Bootstrap CIs
-        for label, runs in [("PPO+AP", all_results.get("ppo_autophase", {}).get("all_runs", [])),
-                            ("PPO+GNN", all_results.get("ppo_gnn", {}).get("all_runs", []))]:
-            if runs:
-                total_ics = [r["total_ic"] for r in runs]
-                if len(total_ics) >= 2:
-                    lo, hi = bootstrap_ci(total_ics)
-                    print(f"\n  {label} 95% CI for total IC: [{lo:.0f}, {hi:.0f}]")
-
-    # --- Save full results ---
     output = {
         "timestamp": datetime.now().isoformat(),
-        "test_benchmarks": test_uris,
-        "results": {
-            method: {
-                "ics": data["ics"],
-                "total_ic": sum(data["ics"]),
-            }
-            for method, data in all_results.items()
-        },
+        "baselines_file": args.baselines,
+        "splits": {},
     }
+
+    for split_name, uris in [("validation", val_uris), ("test", test_uris)]:
+        columns, geomeans = print_split_table(
+            split_name, uris, baselines, agent_runs[split_name])
+
+        split_out = {
+            "benchmarks": [u.split("/")[-1] for u in uris],
+            "method_ics": {m: [int(v) for v in ics] for m, ics in columns.items()},
+            "geomean_vs_o3": {m: round(g, 4) for m, g in geomeans.items()},
+            "agents": {},
+        }
+
+        # Seed-level statistics
+        for m in ["ppo_autophase", "ppo_gnn"]:
+            runs = agent_runs[split_name][m]
+            if runs:
+                split_out["agents"][m] = {
+                    "runs": runs,
+                    "summary": summarize_runs(runs),
+                }
+
+        ap_runs = agent_runs[split_name]["ppo_autophase"]
+        gnn_runs = agent_runs[split_name]["ppo_gnn"]
+        if ap_runs and gnn_runs:
+            ap_ics = median_run(ap_runs)["ics"]
+            gnn_ics = median_run(gnn_runs)["ics"]
+            try:
+                stat, p = stats.wilcoxon(ap_ics, gnn_ics)
+                split_out["wilcoxon_ap_vs_gnn"] = {
+                    "statistic": float(stat), "p_value": round(float(p), 4)}
+                print(f"\nWilcoxon PPO+AP vs PPO+GNN (median seeds, "
+                      f"per-benchmark): p={p:.4f}")
+            except ValueError as e:
+                # identical ICs on every benchmark -> no test possible
+                split_out["wilcoxon_ap_vs_gnn"] = {"error": str(e)}
+                print(f"\nWilcoxon PPO+AP vs PPO+GNN: not computable ({e})")
+
+        output["splits"][split_name] = split_out
+
     with open(args.output, "w") as f:
         json.dump(output, f, indent=2, default=str)
-
-    print(f"\n  Results saved to: {args.output}")
+    print(f"\nSaved: {args.output}")
 
 
 if __name__ == "__main__":

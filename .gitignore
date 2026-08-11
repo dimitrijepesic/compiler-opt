@@ -8,7 +8,7 @@ __pycache__/
 *$py.class
 
 # Project specific data & caches
-data/cached_graphs/
+data/cached_graphs*/
 data/polybench/
 *.deb
 

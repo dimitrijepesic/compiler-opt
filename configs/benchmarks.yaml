@@ -41,6 +41,16 @@ validation:
   - benchmark://cBench-v1/stringsearch2
   - benchmark://cBench-v1/tiffmedian
 
+# Cheap subset of the validation split used ONLY for in-training
+# checkpoint selection (evaluated every val_interval_steps). The full
+# validation split above is evaluated once, at the end, in
+# scripts/evaluate_all.py — lame and tiffmedian are too large
+# (O0 IC 49K / 61K) for per-checkpoint GNN evaluation.
+validation_small:
+  - benchmark://cBench-v1/crc32
+  - benchmark://cBench-v1/qsort
+  - benchmark://cBench-v1/stringsearch2
+
 test:
   - benchmark://cBench-v1/sha
   - benchmark://cBench-v1/jpeg-d

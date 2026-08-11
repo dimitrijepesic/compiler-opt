@@ -1,14 +1,28 @@
 # configs/hyperparams.yaml
-# All RL/GNN hyperparameters for reproducibility
+# All RL/GNN hyperparameters for reproducibility.
+#
+# CONTROLLED COMPARISON PROTOCOL (fixed before the rerun, 2026-08-11):
+# - BOTH agents train on the same benchmark set (rl_max_benchmark_ic
+#   filter applied identically), with the SAME step budget and the same
+#   validation cadence. Data efficiency is read from validation curves,
+#   never from unequal budgets.
+# - Checkpoint selection uses benchmarks.yaml:validation_small (cheap,
+#   every val_interval_steps). The full declared validation set and the
+#   test set are evaluated once, at the end, by scripts/evaluate_all.py.
 
-# Benchmarks with O0 IC above this threshold are excluded from RL training/val
-# (too slow for thousands of resets). They remain in baselines.
-rl_max_benchmark_ic: 20000
+# Benchmarks with O0 IC above this threshold are excluded from RL
+# training (too slow for thousands of resets — the cost is dominated by
+# per-step graph extraction for the GNN agent, so the same cap is applied
+# to both agents to keep the comparison controlled). With 3000 this
+# selects: dijkstra, adpcm, bitcount, stringsearch.
+rl_max_benchmark_ic: 3000
 
 ppo:
   clip_ratio: 0.2
   gae_lambda: 0.95
   entropy_coeff: 0.01
+  entropy_coeff_final: 0.001   # linear decay across the run
+  target_kl: 0.02              # PPO epoch early-stop threshold (x1.5)
   learning_rate: 3.0e-4
   lr_schedule: cosine
   batch_size: 64
@@ -16,8 +30,8 @@ ppo:
   collect_steps: 2048
   max_episode_steps: 45
   gamma: 0.99
-  total_env_steps: 200000
-  val_interval_steps: 20000
+  total_env_steps: 100000
+  val_interval_steps: 5000
 
 gnn:
   num_layers: 3
@@ -26,6 +40,7 @@ gnn:
   aggregation: mean
   pooling: mean
   dropout: 0.1
+  encoder_lr: 1.0e-4           # lower lr for the encoder than the heads
 
 policy_mlp:
   hidden_dim: 256
