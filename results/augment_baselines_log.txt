@@ -1,0 +1,41 @@
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+Benchmark       Split            O0  O3real  Ozreal   O3seq  Greedy  RndRedP  RndRedS   Time
+--------------------------------------------------------------------------------------------
+adpcm           train           567     222     209     221     218    246.9      209     2s
+gsm             train         14902   10028    6870    7950    6009   7429.9     6359    14s
+blowfish        train          3898    1978    1933    2023    1873   2132.4     1781     6s
+rijndael        train          6133    3642    3524    3830    3251   3581.3     3252    10s
+bzip2           train         28748   19169   15946   14806   13273  14979.9    13380    33s
+jpeg-c          train         62452   46186   30195   30697   28989  31321.8    29197    56s
+dijkstra        train           450     366     254     275     258    266.6      258     2s
+bitcount        train           857     607     405     416     399    438.1      406     2s
+ispell          train         15184   12848    8079    8449    7937   8667.8     7989    15s
+stringsearch    train          1348     697     616     686     608    665.1      609     2s
+susan           train         13282    5731    5468    5880    5431   6169.2     5454    13s
+tiff2bw         train         58797   39537   30878   30672   29695  31889.4    29746    55s
+tiffdither      train         58450   39259   30706   30483   29519  31568.1    29644    53s
+ghostscript     train        406198  289350  177416  183116  172452 190400.2   174120   441s
+lame            validation    49131   35594   22785   24809   21058  22626.2    21027    45s
+crc32           validation      242     164     114     122     114    116.5      114     1s
+qsort           validation      638    1163     315     289     271    291.2      271     2s
+stringsearch2   validation      482     281     214     233     219    232.6      219     2s
+tiffmedian      validation    61265   40651   31984   31844   30819  32962.6    31094    58s
+sha             test            799     789     500     428     358    374.9      353     2s
+jpeg-d          test          59942   45383   28883   29285   27671  29783.5    27833    54s
+patricia        test           1282     566     383     413     401    508.1      397     1s
+tiff2rgba       test          58661   39243   30809   30629   29639  31769.2    29698    57s
+
+Saved: results/full_baselines_v2.json
+
+TRAIN totals: O0=671266 O3real=469620 Ozreal=312499 Greedy=299912 RndRedSearch=302404
+
+VALIDATION totals: O0=111758 O3real=77853 Ozreal=55412 Greedy=52481 RndRedSearch=52725
+
+TEST totals: O0=120684 O3real=85981 Ozreal=60575 Greedy=58069 RndRedSearch=58281

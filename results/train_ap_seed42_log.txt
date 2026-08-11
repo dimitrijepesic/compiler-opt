@@ -1,0 +1,106 @@
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+
+######################################################################
+# SEED 42
+######################################################################
+
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+======================================================================
+PPO + AUTOPHASE TRAINING (seed=42)
+======================================================================
+  Action space: 36 passes (reduced)
+  Train benchmarks: 4
+  Val benchmarks: 3
+  Total budget: 100000 steps
+  Collect per update: 2048 steps
+
+  Update   1 | Steps:    2048/100000 | Ep reward: +0.4981 | P loss: -0.0451 | V loss: 0.0087 | Entropy: 3.539 | KL: 0.0123 (4ep) | 504 steps/s
+  Update   2 | Steps:    4096/100000 | Ep reward: +0.4980 | P loss: -0.0467 | V loss: 0.0019 | Entropy: 3.523 | KL: 0.0048 (4ep) | 539 steps/s
+  Update   3 | Steps:    6144/100000 | Ep reward: +0.4932 | P loss: -0.0463 | V loss: 0.0009 | Entropy: 3.506 | KL: 0.0104 (4ep) | 556 steps/s
+         VAL | Total IC: 743 | Reduction: 45.45%
+         NEW BEST val IC: 743
+  Update   4 | Steps:    8192/100000 | Ep reward: +0.5192 | P loss: -0.0466 | V loss: 0.0006 | Entropy: 3.505 | KL: 0.0155 (4ep) | 794 steps/s
+  Update   5 | Steps:   10240/100000 | Ep reward: +0.5185 | P loss: -0.0475 | V loss: 0.0005 | Entropy: 3.496 | KL: 0.0117 (4ep) | 556 steps/s
+         VAL | Total IC: 685 | Reduction: 49.71%
+         NEW BEST val IC: 685
+  Update   6 | Steps:   12288/100000 | Ep reward: +0.5101 | P loss: -0.0490 | V loss: 0.0004 | Entropy: 3.505 | KL: 0.0095 (4ep) | 519 steps/s
+  Update   7 | Steps:   14336/100000 | Ep reward: +0.5067 | P loss: -0.0506 | V loss: 0.0003 | Entropy: 3.498 | KL: 0.0093 (4ep) | 544 steps/s
+  Update   8 | Steps:   16384/100000 | Ep reward: +0.4954 | P loss: -0.0499 | V loss: 0.0004 | Entropy: 3.483 | KL: 0.0106 (4ep) | 521 steps/s
+         VAL | Total IC: 743 | Reduction: 45.45%
+  Update   9 | Steps:   18432/100000 | Ep reward: +0.5139 | P loss: -0.0449 | V loss: 0.0003 | Entropy: 3.468 | KL: 0.0127 (4ep) | 543 steps/s
+  Update  10 | Steps:   20480/100000 | Ep reward: +0.4907 | P loss: -0.0428 | V loss: 0.0002 | Entropy: 3.426 | KL: 0.0099 (4ep) | 517 steps/s
+         VAL | Total IC: 738 | Reduction: 45.81%
+  Update  11 | Steps:   22528/100000 | Ep reward: +0.5255 | P loss: -0.0458 | V loss: 0.0002 | Entropy: 3.404 | KL: 0.0124 (4ep) | 560 steps/s
+  Update  12 | Steps:   24576/100000 | Ep reward: +0.4815 | P loss: -0.0448 | V loss: 0.0002 | Entropy: 3.368 | KL: 0.0144 (4ep) | 523 steps/s
+  Update  13 | Steps:   26624/100000 | Ep reward: +0.4853 | P loss: -0.0427 | V loss: 0.0001 | Entropy: 3.341 | KL: 0.0091 (4ep) | 902 steps/s
+         VAL | Total IC: 743 | Reduction: 45.45%
+  Update  14 | Steps:   28672/100000 | Ep reward: +0.4846 | P loss: -0.0421 | V loss: 0.0001 | Entropy: 3.299 | KL: 0.0150 (4ep) | 526 steps/s
+  Update  15 | Steps:   30720/100000 | Ep reward: +0.5040 | P loss: -0.0401 | V loss: 0.0001 | Entropy: 3.287 | KL: 0.0119 (4ep) | 552 steps/s
+         VAL | Total IC: 743 | Reduction: 45.45%
+  Update  16 | Steps:   32768/100000 | Ep reward: +0.5011 | P loss: -0.0382 | V loss: 0.0001 | Entropy: 3.255 | KL: 0.0154 (4ep) | 555 steps/s
+  Update  17 | Steps:   34816/100000 | Ep reward: +0.5031 | P loss: -0.0349 | V loss: 0.0001 | Entropy: 3.236 | KL: 0.0085 (4ep) | 562 steps/s
+  Update  18 | Steps:   36864/100000 | Ep reward: +0.5076 | P loss: -0.0338 | V loss: 0.0001 | Entropy: 3.204 | KL: 0.0136 (4ep) | 543 steps/s
+         VAL | Total IC: 723 | Reduction: 46.92%
+  Update  19 | Steps:   38912/100000 | Ep reward: +0.5013 | P loss: -0.0350 | V loss: 0.0000 | Entropy: 3.131 | KL: 0.0127 (4ep) | 558 steps/s
+  Update  20 | Steps:   40960/100000 | Ep reward: +0.4863 | P loss: -0.0329 | V loss: 0.0000 | Entropy: 3.105 | KL: 0.0144 (4ep) | 560 steps/s
+         VAL | Total IC: 743 | Reduction: 45.45%
+  Update  21 | Steps:   43008/100000 | Ep reward: +0.5215 | P loss: -0.0290 | V loss: 0.0000 | Entropy: 3.107 | KL: 0.0145 (4ep) | 901 steps/s
+  Update  22 | Steps:   45056/100000 | Ep reward: +0.5045 | P loss: -0.0332 | V loss: 0.0000 | Entropy: 3.073 | KL: 0.0139 (4ep) | 569 steps/s
+         VAL | Total IC: 743 | Reduction: 45.45%
+  Update  23 | Steps:   47104/100000 | Ep reward: +0.5014 | P loss: -0.0318 | V loss: 0.0000 | Entropy: 3.008 | KL: 0.0055 (4ep) | 601 steps/s
+  Update  24 | Steps:   49152/100000 | Ep reward: +0.4976 | P loss: -0.0315 | V loss: 0.0000 | Entropy: 2.963 | KL: 0.0078 (4ep) | 585 steps/s
+  Update  25 | Steps:   51200/100000 | Ep reward: +0.4672 | P loss: -0.0266 | V loss: 0.0000 | Entropy: 2.976 | KL: 0.0098 (4ep) | 563 steps/s
+         VAL | Total IC: 743 | Reduction: 45.45%
+  Update  26 | Steps:   53248/100000 | Ep reward: +0.4991 | P loss: -0.0274 | V loss: 0.0000 | Entropy: 2.955 | KL: 0.0065 (4ep) | 572 steps/s
+  Update  27 | Steps:   55296/100000 | Ep reward: +0.5007 | P loss: -0.0263 | V loss: 0.0000 | Entropy: 2.882 | KL: 0.0117 (4ep) | 593 steps/s
+         VAL | Total IC: 743 | Reduction: 45.45%
+  Update  28 | Steps:   57344/100000 | Ep reward: +0.4661 | P loss: -0.0261 | V loss: 0.0000 | Entropy: 2.918 | KL: 0.0055 (4ep) | 568 steps/s
+  Update  29 | Steps:   59392/100000 | Ep reward: +0.5055 | P loss: -0.0273 | V loss: 0.0000 | Entropy: 2.857 | KL: 0.0135 (4ep) | 557 steps/s
+  Update  30 | Steps:   61440/100000 | Ep reward: +0.4740 | P loss: -0.0238 | V loss: 0.0000 | Entropy: 2.892 | KL: 0.0050 (4ep) | 871 steps/s
+         VAL | Total IC: 743 | Reduction: 45.45%
+  Update  31 | Steps:   63488/100000 | Ep reward: +0.5025 | P loss: -0.0226 | V loss: 0.0000 | Entropy: 2.858 | KL: 0.0096 (4ep) | 577 steps/s
+  Update  32 | Steps:   65536/100000 | Ep reward: +0.4963 | P loss: -0.0230 | V loss: 0.0000 | Entropy: 2.796 | KL: 0.0046 (4ep) | 576 steps/s
+         VAL | Total IC: 685 | Reduction: 49.71%
+  Update  33 | Steps:   67584/100000 | Ep reward: +0.4939 | P loss: -0.0201 | V loss: 0.0000 | Entropy: 2.739 | KL: 0.0048 (4ep) | 539 steps/s
+  Update  34 | Steps:   69632/100000 | Ep reward: +0.5089 | P loss: -0.0211 | V loss: 0.0000 | Entropy: 2.701 | KL: 0.0109 (4ep) | 565 steps/s
+  Update  35 | Steps:   71680/100000 | Ep reward: +0.4911 | P loss: -0.0230 | V loss: 0.0000 | Entropy: 2.738 | KL: 0.0111 (4ep) | 556 steps/s
+         VAL | Total IC: 685 | Reduction: 49.71%
+  Update  36 | Steps:   73728/100000 | Ep reward: +0.5007 | P loss: -0.0184 | V loss: 0.0000 | Entropy: 2.734 | KL: 0.0073 (4ep) | 544 steps/s
+  Update  37 | Steps:   75776/100000 | Ep reward: +0.5132 | P loss: -0.0190 | V loss: 0.0000 | Entropy: 2.755 | KL: 0.0034 (4ep) | 552 steps/s
+         VAL | Total IC: 703 | Reduction: 48.38%
+  Update  38 | Steps:   77824/100000 | Ep reward: +0.4816 | P loss: -0.0157 | V loss: 0.0000 | Entropy: 2.756 | KL: 0.0065 (4ep) | 559 steps/s
+  Update  39 | Steps:   79872/100000 | Ep reward: +0.5027 | P loss: -0.0165 | V loss: 0.0000 | Entropy: 2.773 | KL: 0.0060 (4ep) | 853 steps/s
+  Update  40 | Steps:   81920/100000 | Ep reward: +0.4978 | P loss: -0.0134 | V loss: 0.0000 | Entropy: 2.708 | KL: 0.0025 (4ep) | 573 steps/s
+         VAL | Total IC: 703 | Reduction: 48.38%
+  Update  41 | Steps:   83968/100000 | Ep reward: +0.4897 | P loss: -0.0131 | V loss: 0.0000 | Entropy: 2.611 | KL: 0.0007 (4ep) | 588 steps/s
+  Update  42 | Steps:   86016/100000 | Ep reward: +0.4998 | P loss: -0.0132 | V loss: 0.0000 | Entropy: 2.615 | KL: 0.0037 (4ep) | 555 steps/s
+         VAL | Total IC: 703 | Reduction: 48.38%
+  Update  43 | Steps:   88064/100000 | Ep reward: +0.5048 | P loss: -0.0090 | V loss: 0.0000 | Entropy: 2.624 | KL: 0.0015 (4ep) | 556 steps/s
+  Update  44 | Steps:   90112/100000 | Ep reward: +0.5052 | P loss: -0.0076 | V loss: 0.0000 | Entropy: 2.620 | KL: 0.0001 (4ep) | 550 steps/s
+         VAL | Total IC: 703 | Reduction: 48.38%
+  Update  45 | Steps:   92160/100000 | Ep reward: +0.4782 | P loss: -0.0064 | V loss: 0.0000 | Entropy: 2.608 | KL: 0.0013 (4ep) | 548 steps/s
+  Update  46 | Steps:   94208/100000 | Ep reward: +0.4963 | P loss: -0.0048 | V loss: 0.0000 | Entropy: 2.594 | KL: 0.0001 (4ep) | 518 steps/s
+  Update  47 | Steps:   96256/100000 | Ep reward: +0.5232 | P loss: -0.0041 | V loss: 0.0000 | Entropy: 2.575 | KL: 0.0002 (4ep) | 804 steps/s
+         VAL | Total IC: 703 | Reduction: 48.38%
+  Update  48 | Steps:   98304/100000 | Ep reward: +0.4967 | P loss: -0.0032 | V loss: 0.0000 | Entropy: 2.595 | KL: 0.0000 (4ep) | 524 steps/s
+  Update  49 | Steps:  100352/100000 | Ep reward: +0.5082 | P loss: -0.0026 | V loss: 0.0000 | Entropy: 2.593 | KL: -0.0000 (4ep) | 516 steps/s
+         VAL | Total IC: 703 | Reduction: 48.38%
+
+  Training complete in 3.0 minutes
+  Best validation IC: 685

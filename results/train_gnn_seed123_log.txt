@@ -1,0 +1,107 @@
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+
+######################################################################
+# SEED 123
+######################################################################
+
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+======================================================================
+PPO + GNN TRAINING (seed=123)
+======================================================================
+  Action space: 36 passes (reduced)
+  GNN: 3 layers, hidden=128
+  Train benchmarks: 4
+  Val benchmarks: 3
+  Total budget: 100000 steps
+
+  Update   1 | Steps:    2048/100000 | Ep reward: +0.4946 | P loss: -0.0454 | V loss: 0.0067 | Ent: 3.575 | KL: 0.0105 (4ep) | 26.9 sps | Graph: 3ms
+  Update   2 | Steps:    4096/100000 | Ep reward: +0.5070 | P loss: -0.0459 | V loss: 0.0021 | Ent: 3.564 | KL: 0.0083 (4ep) | 25.8 sps | Graph: 4ms
+  Update   3 | Steps:    6144/100000 | Ep reward: +0.4956 | P loss: -0.0505 | V loss: 0.0010 | Ent: 3.536 | KL: 0.0169 (4ep) | 24.4 sps | Graph: 4ms
+         VAL | Total IC: 743 | Reduction: 45.45%
+         NEW BEST val IC: 743
+  Update   4 | Steps:    8192/100000 | Ep reward: +0.5094 | P loss: -0.0468 | V loss: 0.0007 | Ent: 3.507 | KL: 0.0099 (4ep) | 25.7 sps | Graph: 4ms
+  Update   5 | Steps:   10240/100000 | Ep reward: +0.5271 | P loss: -0.0431 | V loss: 0.0009 | Ent: 3.490 | KL: 0.0085 (4ep) | 27.0 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+         NEW BEST val IC: 689
+  Update   6 | Steps:   12288/100000 | Ep reward: +0.4976 | P loss: -0.0463 | V loss: 0.0011 | Ent: 3.458 | KL: 0.0085 (4ep) | 19.2 sps | Graph: 4ms
+  Update   7 | Steps:   14336/100000 | Ep reward: +0.5142 | P loss: -0.0451 | V loss: 0.0010 | Ent: 3.436 | KL: 0.0122 (4ep) | 28.4 sps | Graph: 4ms
+  Update   8 | Steps:   16384/100000 | Ep reward: +0.5303 | P loss: -0.0409 | V loss: 0.0013 | Ent: 3.414 | KL: 0.0142 (4ep) | 26.9 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update   9 | Steps:   18432/100000 | Ep reward: +0.5142 | P loss: -0.0428 | V loss: 0.0015 | Ent: 3.376 | KL: 0.0063 (4ep) | 20.0 sps | Graph: 4ms
+  Update  10 | Steps:   20480/100000 | Ep reward: +0.4991 | P loss: -0.0403 | V loss: 0.0009 | Ent: 3.335 | KL: 0.0108 (4ep) | 23.1 sps | Graph: 4ms
+         VAL | Total IC: 1059 | Reduction: 22.25%
+  Update  11 | Steps:   22528/100000 | Ep reward: +0.5112 | P loss: -0.0445 | V loss: 0.0006 | Ent: 3.287 | KL: 0.0180 (3ep) | 26.3 sps | Graph: 4ms
+  Update  12 | Steps:   24576/100000 | Ep reward: +0.5349 | P loss: -0.0356 | V loss: 0.0018 | Ent: 3.214 | KL: 0.0141 (4ep) | 18.5 sps | Graph: 4ms
+  Update  13 | Steps:   26624/100000 | Ep reward: +0.5166 | P loss: -0.0403 | V loss: 0.0007 | Ent: 3.215 | KL: 0.0157 (4ep) | 20.3 sps | Graph: 4ms
+         VAL | Total IC: 1362 | Reduction: 0.00%
+  Update  14 | Steps:   28672/100000 | Ep reward: +0.5241 | P loss: -0.0386 | V loss: 0.0005 | Ent: 3.097 | KL: 0.0175 (4ep) | 16.3 sps | Graph: 4ms
+  Update  15 | Steps:   30720/100000 | Ep reward: +0.5404 | P loss: -0.0351 | V loss: 0.0005 | Ent: 3.121 | KL: 0.0177 (4ep) | 20.1 sps | Graph: 4ms
+         VAL | Total IC: 1362 | Reduction: 0.00%
+  Update  16 | Steps:   32768/100000 | Ep reward: +0.5229 | P loss: -0.0332 | V loss: 0.0007 | Ent: 3.091 | KL: 0.0121 (4ep) | 21.6 sps | Graph: 4ms
+  Update  17 | Steps:   34816/100000 | Ep reward: +0.5412 | P loss: -0.0414 | V loss: 0.0004 | Ent: 3.105 | KL: 0.0165 (4ep) | 24.2 sps | Graph: 4ms
+  Update  18 | Steps:   36864/100000 | Ep reward: +0.5289 | P loss: -0.0363 | V loss: 0.0005 | Ent: 2.976 | KL: 0.0131 (4ep) | 24.8 sps | Graph: 4ms
+         VAL | Total IC: 1362 | Reduction: 0.00%
+  Update  19 | Steps:   38912/100000 | Ep reward: +0.4997 | P loss: -0.0332 | V loss: 0.0007 | Ent: 2.944 | KL: 0.0147 (4ep) | 23.4 sps | Graph: 4ms
+  Update  20 | Steps:   40960/100000 | Ep reward: +0.5184 | P loss: -0.0303 | V loss: 0.0005 | Ent: 2.952 | KL: 0.0112 (4ep) | 22.3 sps | Graph: 4ms
+         VAL | Total IC: 1097 | Reduction: 19.46%
+  Update  21 | Steps:   43008/100000 | Ep reward: +0.5200 | P loss: -0.0254 | V loss: 0.0004 | Ent: 2.919 | KL: 0.0111 (4ep) | 23.6 sps | Graph: 4ms
+  Update  22 | Steps:   45056/100000 | Ep reward: +0.5065 | P loss: -0.0221 | V loss: 0.0003 | Ent: 2.900 | KL: 0.0047 (4ep) | 22.3 sps | Graph: 4ms
+         VAL | Total IC: 1362 | Reduction: 0.00%
+  Update  23 | Steps:   47104/100000 | Ep reward: +0.5348 | P loss: -0.0276 | V loss: 0.0004 | Ent: 2.933 | KL: 0.0132 (4ep) | 20.3 sps | Graph: 4ms
+  Update  24 | Steps:   49152/100000 | Ep reward: +0.5256 | P loss: -0.0272 | V loss: 0.0003 | Ent: 2.913 | KL: 0.0109 (4ep) | 18.3 sps | Graph: 4ms
+  Update  25 | Steps:   51200/100000 | Ep reward: +0.5282 | P loss: -0.0250 | V loss: 0.0003 | Ent: 2.840 | KL: 0.0068 (4ep) | 24.0 sps | Graph: 4ms
+         VAL | Total IC: 797 | Reduction: 41.48%
+  Update  26 | Steps:   53248/100000 | Ep reward: +0.5313 | P loss: -0.0245 | V loss: 0.0002 | Ent: 2.798 | KL: 0.0127 (4ep) | 19.1 sps | Graph: 4ms
+  Update  27 | Steps:   55296/100000 | Ep reward: +0.5234 | P loss: -0.0237 | V loss: 0.0002 | Ent: 2.711 | KL: 0.0138 (4ep) | 18.9 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  28 | Steps:   57344/100000 | Ep reward: +0.5305 | P loss: -0.0188 | V loss: 0.0002 | Ent: 2.605 | KL: 0.0128 (4ep) | 22.4 sps | Graph: 4ms
+  Update  29 | Steps:   59392/100000 | Ep reward: +0.5483 | P loss: -0.0159 | V loss: 0.0002 | Ent: 2.551 | KL: 0.0095 (4ep) | 22.7 sps | Graph: 4ms
+  Update  30 | Steps:   61440/100000 | Ep reward: +0.5493 | P loss: -0.0224 | V loss: 0.0002 | Ent: 2.447 | KL: 0.0098 (4ep) | 20.9 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  31 | Steps:   63488/100000 | Ep reward: +0.5378 | P loss: -0.0192 | V loss: 0.0002 | Ent: 2.436 | KL: 0.0053 (4ep) | 17.4 sps | Graph: 4ms
+  Update  32 | Steps:   65536/100000 | Ep reward: +0.5417 | P loss: -0.0198 | V loss: 0.0002 | Ent: 2.514 | KL: 0.0120 (4ep) | 24.5 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  33 | Steps:   67584/100000 | Ep reward: +0.5475 | P loss: -0.0198 | V loss: 0.0002 | Ent: 2.526 | KL: 0.0065 (4ep) | 31.5 sps | Graph: 4ms
+  Update  34 | Steps:   69632/100000 | Ep reward: +0.5242 | P loss: -0.0184 | V loss: 0.0002 | Ent: 2.445 | KL: 0.0086 (4ep) | 30.5 sps | Graph: 4ms
+  Update  35 | Steps:   71680/100000 | Ep reward: +0.4989 | P loss: -0.0154 | V loss: 0.0001 | Ent: 2.377 | KL: 0.0119 (4ep) | 32.0 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  36 | Steps:   73728/100000 | Ep reward: +0.5357 | P loss: -0.0141 | V loss: 0.0001 | Ent: 2.340 | KL: 0.0043 (4ep) | 32.1 sps | Graph: 4ms
+  Update  37 | Steps:   75776/100000 | Ep reward: +0.5405 | P loss: -0.0141 | V loss: 0.0001 | Ent: 2.295 | KL: 0.0035 (4ep) | 32.5 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  38 | Steps:   77824/100000 | Ep reward: +0.5415 | P loss: -0.0150 | V loss: 0.0001 | Ent: 2.347 | KL: 0.0088 (4ep) | 33.2 sps | Graph: 4ms
+  Update  39 | Steps:   79872/100000 | Ep reward: +0.5154 | P loss: -0.0103 | V loss: 0.0001 | Ent: 2.289 | KL: 0.0043 (4ep) | 31.4 sps | Graph: 4ms
+  Update  40 | Steps:   81920/100000 | Ep reward: +0.5206 | P loss: -0.0111 | V loss: 0.0001 | Ent: 2.302 | KL: 0.0034 (4ep) | 31.9 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  41 | Steps:   83968/100000 | Ep reward: +0.5260 | P loss: -0.0118 | V loss: 0.0001 | Ent: 2.301 | KL: 0.0053 (4ep) | 32.6 sps | Graph: 3ms
+  Update  42 | Steps:   86016/100000 | Ep reward: +0.5545 | P loss: -0.0065 | V loss: 0.0001 | Ent: 2.251 | KL: 0.0004 (4ep) | 37.2 sps | Graph: 3ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  43 | Steps:   88064/100000 | Ep reward: +0.5301 | P loss: -0.0066 | V loss: 0.0001 | Ent: 2.234 | KL: -0.0001 (4ep) | 30.2 sps | Graph: 3ms
+  Update  44 | Steps:   90112/100000 | Ep reward: +0.5193 | P loss: -0.0065 | V loss: 0.0001 | Ent: 2.230 | KL: -0.0002 (4ep) | 32.3 sps | Graph: 3ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  45 | Steps:   92160/100000 | Ep reward: +0.5149 | P loss: -0.0044 | V loss: 0.0001 | Ent: 2.210 | KL: 0.0008 (4ep) | 30.8 sps | Graph: 3ms
+  Update  46 | Steps:   94208/100000 | Ep reward: +0.5263 | P loss: -0.0040 | V loss: 0.0001 | Ent: 2.211 | KL: -0.0001 (4ep) | 27.6 sps | Graph: 3ms
+  Update  47 | Steps:   96256/100000 | Ep reward: +0.5301 | P loss: -0.0029 | V loss: 0.0001 | Ent: 2.210 | KL: -0.0003 (4ep) | 35.4 sps | Graph: 3ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  48 | Steps:   98304/100000 | Ep reward: +0.5171 | P loss: -0.0022 | V loss: 0.0001 | Ent: 2.197 | KL: 0.0004 (4ep) | 34.0 sps | Graph: 3ms
+  Update  49 | Steps:  100352/100000 | Ep reward: +0.5322 | P loss: -0.0019 | V loss: 0.0001 | Ent: 2.200 | KL: 0.0000 (4ep) | 34.5 sps | Graph: 3ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+
+  Training complete in 67.8 minutes
+  Best validation IC: 689
+  Graph extractions: 105366 (340.4s total)
