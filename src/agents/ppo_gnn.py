@@ -22,11 +22,16 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 from src.models.policy_mlp import PolicyMLP
 from src.models.value_head import ValueMLP
 from src.models.gnn_encoder import GNNEncoder
-from src.features.programl import ir_to_pyg_data, IRGraphCache, NUM_OPCODES
+from src.features.programl import ir_to_pyg_data, IRGraphCache, NODE_FEATURE_DIM
 
 
 class GNNRolloutBuffer:
-    """Stores transitions with graph states instead of flat vectors."""
+    """Stores transitions with graph states instead of flat vectors.
+
+    bootstraps[t] is V(s_{t+1}) for transitions where done=True — every
+    episode here ends by truncation (time limit or collect boundary), so
+    the return must bootstrap from the next state's value, not from 0.
+    """
 
     def __init__(self):
         self.graphs = []
@@ -35,14 +40,16 @@ class GNNRolloutBuffer:
         self.rewards = []
         self.values = []
         self.dones = []
+        self.bootstraps = []
 
-    def add(self, graph, action, log_prob, reward, value, done):
+    def add(self, graph, action, log_prob, reward, value, done, bootstrap=0.0):
         self.graphs.append(graph)
         self.actions.append(action)
         self.log_probs.append(log_prob)
         self.rewards.append(reward)
         self.values.append(value)
         self.dones.append(done)
+        self.bootstraps.append(bootstrap)
 
     def clear(self):
         self.graphs.clear()
@@ -51,6 +58,7 @@ class GNNRolloutBuffer:
         self.rewards.clear()
         self.values.clear()
         self.dones.clear()
+        self.bootstraps.clear()
 
     def __len__(self):
         return len(self.graphs)
@@ -90,6 +98,17 @@ class PPOGNNAgent:
         self.total_env_steps = ppo_cfg["total_env_steps"]
         self.val_interval = ppo_cfg["val_interval_steps"]
 
+        # KL guard: stop PPO epochs early once the policy has moved too far
+        # from the rollout policy. This is what prevents the collapse seen
+        # in the original runs (val IC 689 -> 1059).
+        self.target_kl = ppo_cfg.get("target_kl", 0.02)
+
+        # Entropy coefficient decays linearly across updates so exploration
+        # is high early but the policy is allowed to commit late.
+        self.entropy_coeff_final = ppo_cfg.get("entropy_coeff_final",
+                                               self.entropy_coeff)
+        self.current_entropy_coeff = self.entropy_coeff
+
         # Reduced action space
         self.reduced_passes = passes_config["passes"]
         self.num_actions = len(self.reduced_passes)
@@ -103,14 +122,19 @@ class PPOGNNAgent:
         self.train_uris = self._filter_benchmarks(
             benchmarks_config["train"], max_ic_for_training
         )
-        self.val_uris = self._filter_benchmarks(
-            benchmarks_config["validation"], max_ic_for_training
-        )
+        # Checkpoint selection uses the explicit cheap validation subset if
+        # declared; the full validation set is reserved for final evaluation.
+        if "validation_small" in benchmarks_config:
+            self.val_uris = list(benchmarks_config["validation_small"])
+        else:
+            self.val_uris = self._filter_benchmarks(
+                benchmarks_config["validation"], max_ic_for_training
+            )
 
         # GNN encoder
         gnn_cfg = self.config["gnn"]
         self.gnn = GNNEncoder(
-            input_dim=NUM_OPCODES,
+            input_dim=NODE_FEATURE_DIM,
             hidden_dim=gnn_cfg["hidden_dim"],
             output_dim=gnn_cfg["hidden_dim"],  # output feeds into policy/value MLPs
             num_layers=gnn_cfg["num_layers"],
@@ -136,14 +160,16 @@ class PPOGNNAgent:
             num_layers=val_cfg["num_layers"],
         )
 
-        # Single optimizer for all parameters (GNN + policy + value)
-        # Joint training is important — GNN learns features guided by RL objective
-        all_params = (
-            list(self.gnn.parameters()) +
-            list(self.policy.parameters()) +
-            list(self.value_fn.parameters())
-        )
-        self.optimizer = optim.Adam(all_params, lr=self.lr)
+        # Single optimizer, two param groups: the encoder gets a lower lr
+        # than the heads so RL gradients refine its features without
+        # destabilizing them. Joint training is still important — the GNN
+        # learns features guided by the RL objective.
+        encoder_lr = gnn_cfg.get("encoder_lr", self.lr)
+        self.optimizer = optim.Adam([
+            {"params": self.gnn.parameters(), "lr": encoder_lr},
+            {"params": list(self.policy.parameters()) +
+                       list(self.value_fn.parameters()), "lr": self.lr},
+        ])
 
         total_updates = self.total_env_steps // self.collect_steps
         self.scheduler = optim.lr_scheduler.CosineAnnealingLR(
@@ -208,15 +234,24 @@ class PPOGNNAgent:
 
         return action_idx.item(), log_prob.item(), value.item()
 
-    def _compute_gae(self, rewards, values, dones):
-        """Compute Generalized Advantage Estimation."""
+    def _state_value(self, graph):
+        """Value estimate for a single graph state (no grad)."""
+        with torch.no_grad():
+            embedding = self.gnn(graph)
+            return self.value_fn(embedding).item()
+
+    def _compute_gae(self, rewards, values, dones, bootstraps):
+        """Compute GAE. Episodes here never truly terminate — they are
+        truncated (time limit / collect boundary) — so at done steps the
+        delta bootstraps from V(s_next) instead of 0, and the advantage
+        accumulator resets so nothing leaks across episode boundaries."""
         advantages = []
         gae = 0
         values = values + [0]
 
         for t in reversed(range(len(rewards))):
             if dones[t]:
-                delta = rewards[t] - values[t]
+                delta = rewards[t] + self.gamma * bootstraps[t] - values[t]
                 gae = delta
             else:
                 delta = rewards[t] + self.gamma * values[t + 1] - values[t]
@@ -252,20 +287,31 @@ class PPOGNNAgent:
                 try:
                     self.env.step(cg_action)
                 except Exception:
-                    self.buffer.add(graph, action_idx, log_prob, 0.0, value, False)
+                    # Session died — end the episode, bootstrap from the
+                    # (unchanged) current state's value.
+                    self.buffer.add(graph, action_idx, log_prob, 0.0, value,
+                                    True, bootstrap=value)
                     steps_collected += 1
                     self.total_steps += 1
-                    continue
+                    break
 
                 current_ic = int(self.env.observation["IrInstructionCount"])
                 reward = (prev_ic - current_ic) / initial_ic
                 prev_ic = current_ic
                 episode_reward += reward
 
-                done = (step == self.max_episode_steps - 1)
-
                 next_graph = self._get_graph()
-                self.buffer.add(graph, action_idx, log_prob, reward, value, done)
+
+                # Episode ends by truncation at the time limit or when the
+                # rollout budget is exhausted mid-episode. Both must
+                # bootstrap from V(s_next) and reset the GAE accumulator.
+                truncated = (
+                    step == self.max_episode_steps - 1
+                    or steps_collected + 1 >= self.collect_steps
+                )
+                bootstrap = self._state_value(next_graph) if truncated else 0.0
+                self.buffer.add(graph, action_idx, log_prob, reward, value,
+                                truncated, bootstrap=bootstrap)
 
                 graph = next_graph
                 steps_collected += 1
@@ -283,7 +329,8 @@ class PPOGNNAgent:
     def update(self):
         """Run PPO update with batched graph processing."""
         advantages, returns = self._compute_gae(
-            self.buffer.rewards, self.buffer.values, self.buffer.dones
+            self.buffer.rewards, self.buffer.values, self.buffer.dones,
+            self.buffer.bootstraps
         )
 
         actions = torch.tensor(self.buffer.actions, dtype=torch.long)
@@ -296,11 +343,15 @@ class PPOGNNAgent:
         total_policy_loss = 0
         total_value_loss = 0
         total_entropy = 0
+        total_kl = 0
         num_batches = 0
+        epochs_ran = 0
 
         dataset_size = len(graphs)
 
         for epoch in range(self.ppo_epochs):
+            epoch_kl = 0
+            epoch_batches = 0
             indices = torch.randperm(dataset_size)
 
             for start in range(0, dataset_size, self.batch_size):
@@ -329,7 +380,7 @@ class PPOGNNAgent:
                     ratio * batch_advantages,
                     clipped_ratio * batch_advantages,
                 ).mean()
-                policy_loss = policy_loss - self.entropy_coeff * entropy
+                policy_loss = policy_loss - self.current_entropy_coeff * entropy
 
                 values = self.value_fn(embeddings)
                 value_loss = nn.MSELoss()(values, batch_returns)
@@ -347,10 +398,22 @@ class PPOGNNAgent:
                 )
                 self.optimizer.step()
 
+                with torch.no_grad():
+                    approx_kl = (batch_old_log_probs - new_log_probs).mean().item()
+
                 total_policy_loss += policy_loss.item()
                 total_value_loss += value_loss.item()
                 total_entropy += entropy.item()
+                total_kl += approx_kl
+                epoch_kl += approx_kl
                 num_batches += 1
+                epoch_batches += 1
+
+            epochs_ran += 1
+            # KL early stop: once the new policy drifts too far from the
+            # rollout policy, further epochs on this stale data hurt.
+            if epoch_batches > 0 and epoch_kl / epoch_batches > 1.5 * self.target_kl:
+                break
 
         self.scheduler.step()
 
@@ -358,6 +421,8 @@ class PPOGNNAgent:
             "policy_loss": total_policy_loss / max(num_batches, 1),
             "value_loss": total_value_loss / max(num_batches, 1),
             "entropy": total_entropy / max(num_batches, 1),
+            "approx_kl": total_kl / max(num_batches, 1),
+            "epochs_ran": epochs_ran,
         }
 
     def evaluate(self, uris, label="val"):
@@ -423,9 +488,18 @@ class PPOGNNAgent:
         start_time = time.time()
         update_num = 0
 
+        total_updates = max(self.total_env_steps // self.collect_steps, 1)
+
         while self.total_steps < self.total_env_steps:
             update_num += 1
             t0 = time.time()
+
+            # Linear entropy coefficient decay across the training run
+            frac = min((update_num - 1) / total_updates, 1.0)
+            self.current_entropy_coeff = (
+                self.entropy_coeff
+                + frac * (self.entropy_coeff_final - self.entropy_coeff)
+            )
 
             episode_rewards = self.collect_rollouts()
             avg_ep_reward = np.mean(episode_rewards) if episode_rewards else 0
@@ -444,7 +518,8 @@ class PPOGNNAgent:
                 f"  Update {update_num:>3} | Steps: {self.total_steps:>7}/{self.total_env_steps} | "
                 f"Ep reward: {avg_ep_reward:>+.4f} | "
                 f"P loss: {losses['policy_loss']:.4f} | V loss: {losses['value_loss']:.4f} | "
-                f"Ent: {losses['entropy']:.3f} | {steps_per_sec:.1f} sps | "
+                f"Ent: {losses['entropy']:.3f} | KL: {losses['approx_kl']:.4f} "
+                f"({losses['epochs_ran']}ep) | {steps_per_sec:.1f} sps | "
                 f"Graph: {avg_graph_ms:.0f}ms"
             )
 
@@ -456,6 +531,9 @@ class PPOGNNAgent:
                 "policy_loss": round(losses["policy_loss"], 6),
                 "value_loss": round(losses["value_loss"], 6),
                 "entropy": round(losses["entropy"], 4),
+                "approx_kl": round(losses["approx_kl"], 6),
+                "epochs_ran": losses["epochs_ran"],
+                "entropy_coeff": round(self.current_entropy_coeff, 6),
                 "avg_graph_extraction_ms": round(avg_graph_ms, 1),
             }
 

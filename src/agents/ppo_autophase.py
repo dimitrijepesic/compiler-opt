@@ -24,7 +24,12 @@ from src.features.autophase import extract_autophase, AUTOPHASE_DIM
 
 
 class RolloutBuffer:
-    """Stores transitions collected during rollout phase."""
+    """Stores transitions collected during rollout phase.
+
+    bootstraps[t] is V(s_{t+1}) for transitions where done=True — every
+    episode here ends by truncation (time limit or collect boundary), so
+    the return must bootstrap from the next state's value, not from 0.
+    """
 
     def __init__(self):
         self.states = []
@@ -33,14 +38,16 @@ class RolloutBuffer:
         self.rewards = []
         self.values = []
         self.dones = []
+        self.bootstraps = []
 
-    def add(self, state, action, log_prob, reward, value, done):
+    def add(self, state, action, log_prob, reward, value, done, bootstrap=0.0):
         self.states.append(state)
         self.actions.append(action)
         self.log_probs.append(log_prob)
         self.rewards.append(reward)
         self.values.append(value)
         self.dones.append(done)
+        self.bootstraps.append(bootstrap)
 
     def clear(self):
         self.states.clear()
@@ -49,6 +56,7 @@ class RolloutBuffer:
         self.rewards.clear()
         self.values.clear()
         self.dones.clear()
+        self.bootstraps.clear()
 
     def __len__(self):
         return len(self.states)
@@ -88,6 +96,13 @@ class PPOAutophaseAgent:
         self.total_env_steps = ppo_cfg["total_env_steps"]
         self.val_interval = ppo_cfg["val_interval_steps"]
 
+        # KL guard + entropy decay (same PPO loop policy as the GNN agent,
+        # so the representation is the only variable in the comparison)
+        self.target_kl = ppo_cfg.get("target_kl", 0.02)
+        self.entropy_coeff_final = ppo_cfg.get("entropy_coeff_final",
+                                               self.entropy_coeff)
+        self.current_entropy_coeff = self.entropy_coeff
+
         # Build reduced action space mapping: index -> CompilerGym action_id
         self.reduced_passes = passes_config["passes"]
         self.num_actions = len(self.reduced_passes)
@@ -101,9 +116,14 @@ class PPOAutophaseAgent:
         self.train_uris = self._filter_benchmarks(
             benchmarks_config["train"], max_ic_for_training
         )
-        self.val_uris = self._filter_benchmarks(
-            benchmarks_config["validation"], max_ic_for_training
-        )
+        # Checkpoint selection uses the explicit cheap validation subset if
+        # declared; the full validation set is reserved for final evaluation.
+        if "validation_small" in benchmarks_config:
+            self.val_uris = list(benchmarks_config["validation_small"])
+        else:
+            self.val_uris = self._filter_benchmarks(
+                benchmarks_config["validation"], max_ic_for_training
+            )
 
         # Networks (separate policy and value)
         mlp_cfg = self.config["policy_mlp"]
@@ -173,16 +193,23 @@ class PPOAutophaseAgent:
 
         return action_idx.item(), log_prob.item(), value.item()
 
-    def _compute_gae(self, rewards, values, dones):
-        """Compute Generalized Advantage Estimation."""
+    def _state_value(self, state):
+        """Value estimate for a single state (no grad)."""
+        with torch.no_grad():
+            return self.value_fn(state.unsqueeze(0)).item()
+
+    def _compute_gae(self, rewards, values, dones, bootstraps):
+        """Compute GAE. Episodes here never truly terminate — they are
+        truncated (time limit / collect boundary) — so at done steps the
+        delta bootstraps from V(s_next) instead of 0, and the advantage
+        accumulator resets so nothing leaks across episode boundaries."""
         advantages = []
         gae = 0
-        # Append 0 as bootstrap value for terminal states
         values = values + [0]
 
         for t in reversed(range(len(rewards))):
             if dones[t]:
-                delta = rewards[t] - values[t]
+                delta = rewards[t] + self.gamma * bootstraps[t] - values[t]
                 gae = delta
             else:
                 delta = rewards[t] + self.gamma * values[t + 1] - values[t]
@@ -219,8 +246,10 @@ class PPOAutophaseAgent:
                     self.env.step(cg_action)
                     current_ic = int(self.env.observation["IrInstructionCount"])
                 except Exception:
-                    # Session died — end this episode
-                    self.buffer.add(state.numpy(), action_idx, log_prob, 0.0, value, True)
+                    # Session died — end the episode, bootstrap from the
+                    # (unchanged) current state's value.
+                    self.buffer.add(state.numpy(), action_idx, log_prob, 0.0,
+                                    value, True, bootstrap=value)
                     steps_collected += 1
                     self.total_steps += 1
                     break
@@ -230,10 +259,18 @@ class PPOAutophaseAgent:
                 prev_ic = current_ic
                 episode_reward += reward
 
-                done = (step == self.max_episode_steps - 1)
-
                 next_state = self._get_state()
-                self.buffer.add(state.numpy(), action_idx, log_prob, reward, value, done)
+
+                # Episode ends by truncation at the time limit or when the
+                # rollout budget is exhausted mid-episode. Both must
+                # bootstrap from V(s_next) and reset the GAE accumulator.
+                truncated = (
+                    step == self.max_episode_steps - 1
+                    or steps_collected + 1 >= self.collect_steps
+                )
+                bootstrap = self._state_value(next_state) if truncated else 0.0
+                self.buffer.add(state.numpy(), action_idx, log_prob, reward,
+                                value, truncated, bootstrap=bootstrap)
 
                 state = next_state
                 steps_collected += 1
@@ -251,7 +288,8 @@ class PPOAutophaseAgent:
         """Run PPO update on collected rollout data."""
         # Compute advantages
         advantages, returns = self._compute_gae(
-            self.buffer.rewards, self.buffer.values, self.buffer.dones
+            self.buffer.rewards, self.buffer.values, self.buffer.dones,
+            self.buffer.bootstraps
         )
 
         # Convert buffer to tensors
@@ -267,11 +305,15 @@ class PPOAutophaseAgent:
         total_policy_loss = 0
         total_value_loss = 0
         total_entropy = 0
+        total_kl = 0
         num_batches = 0
+        epochs_ran = 0
 
         dataset_size = len(states)
 
         for epoch in range(self.ppo_epochs):
+            epoch_kl = 0
+            epoch_batches = 0
             indices = torch.randperm(dataset_size)
 
             for start in range(0, dataset_size, self.batch_size):
@@ -298,7 +340,7 @@ class PPOAutophaseAgent:
                     clipped_ratio * batch_advantages,
                 ).mean()
 
-                policy_loss = policy_loss - self.entropy_coeff * entropy
+                policy_loss = policy_loss - self.current_entropy_coeff * entropy
 
                 self.policy_optimizer.zero_grad()
                 policy_loss.backward()
@@ -314,10 +356,22 @@ class PPOAutophaseAgent:
                 nn.utils.clip_grad_norm_(self.value_fn.parameters(), 0.5)
                 self.value_optimizer.step()
 
+                with torch.no_grad():
+                    approx_kl = (batch_old_log_probs - new_log_probs).mean().item()
+
                 total_policy_loss += policy_loss.item()
                 total_value_loss += value_loss.item()
                 total_entropy += entropy.item()
+                total_kl += approx_kl
+                epoch_kl += approx_kl
                 num_batches += 1
+                epoch_batches += 1
+
+            epochs_ran += 1
+            # KL early stop: once the new policy drifts too far from the
+            # rollout policy, further epochs on this stale data hurt.
+            if epoch_batches > 0 and epoch_kl / epoch_batches > 1.5 * self.target_kl:
+                break
 
         self.policy_scheduler.step()
         self.value_scheduler.step()
@@ -326,6 +380,8 @@ class PPOAutophaseAgent:
             "policy_loss": total_policy_loss / max(num_batches, 1),
             "value_loss": total_value_loss / max(num_batches, 1),
             "entropy": total_entropy / max(num_batches, 1),
+            "approx_kl": total_kl / max(num_batches, 1),
+            "epochs_ran": epochs_ran,
         }
 
     def evaluate(self, uris, label="val"):
@@ -387,9 +443,18 @@ class PPOAutophaseAgent:
         start_time = time.time()
         update_num = 0
 
+        total_updates = max(self.total_env_steps // self.collect_steps, 1)
+
         while self.total_steps < self.total_env_steps:
             update_num += 1
             t0 = time.time()
+
+            # Linear entropy coefficient decay across the training run
+            frac = min((update_num - 1) / total_updates, 1.0)
+            self.current_entropy_coeff = (
+                self.entropy_coeff
+                + frac * (self.entropy_coeff_final - self.entropy_coeff)
+            )
 
             # Collect rollouts
             episode_rewards = self.collect_rollouts()
@@ -405,7 +470,8 @@ class PPOAutophaseAgent:
                 f"  Update {update_num:>3} | Steps: {self.total_steps:>7}/{self.total_env_steps} | "
                 f"Ep reward: {avg_ep_reward:>+.4f} | "
                 f"P loss: {losses['policy_loss']:.4f} | V loss: {losses['value_loss']:.4f} | "
-                f"Entropy: {losses['entropy']:.3f} | {steps_per_sec:.0f} steps/s"
+                f"Entropy: {losses['entropy']:.3f} | KL: {losses['approx_kl']:.4f} "
+                f"({losses['epochs_ran']}ep) | {steps_per_sec:.0f} steps/s"
             )
 
             log_entry = {
@@ -416,6 +482,9 @@ class PPOAutophaseAgent:
                 "policy_loss": round(losses["policy_loss"], 6),
                 "value_loss": round(losses["value_loss"], 6),
                 "entropy": round(losses["entropy"], 4),
+                "approx_kl": round(losses["approx_kl"], 6),
+                "epochs_ran": losses["epochs_ran"],
+                "entropy_coeff": round(self.current_entropy_coeff, 6),
             }
 
             # Validation check
