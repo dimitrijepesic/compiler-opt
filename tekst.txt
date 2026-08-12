@@ -127,7 +127,31 @@ Linux ili WSL2 Ubuntu 22.04 (CompilerGym 0.2.5 je Linux-only):
 Trajanje na laptop CPU-u: baselines ~35 min; AP ~3 min/seed; GNN ~50-70
 min/seed; finalna evaluacija ~15 min.
 
-8. OGRANIČENJA I GDE BI GNN JOŠ MOGAO DA POBEDI
+8. NAKNADNI EKSPERIMENTI (tri paralelna koloseka, 2026-08-11/12)
+--------------------------------------------------------------------------------
+A) BEST-OF-8 SAMPLING EVALUACIJA — prva prava GNN pobeda. Umesto argmax
+   moda, 8 uzorkovanih rollout-a po benchmarku (null: best-of-8 random u
+   istom prostoru). GNN tuče AP na svakom seed-u i oba splita
+   (val 52.670-52.748 vs 52.777-54.349; test 57.943-58.210 vs
+   58.292-59.697), tuče null 6/6, a najbolji test seed obara i greedy
+   (57.943 vs 58.069) uz ~4.5x manje kompilacija. "Plato" politike su
+   bile dobri SAMPLERI sa degenerisanim modom.
+B) MIXED-SIZE TRENING (9 benchmarka, 450-15K IC) — negativan rezultat:
+   AP postaje gori i nestabilniji (val 82.935/60.798/111.077), GNN
+   nepromenjen (64.958). Ograda: GNN grana je 1 seed prekinut Windows
+   update-om na ~13h; evaluiran preživeli best checkpoint.
+C) PRETRENIRAN ENKODER (distilacija Autophase, val MSE 0.025) — probija
+   plato: val-small 651/668 (0/3 from-scratch seed-ova ispod 689 → 2/2 sa
+   pretreningom); argmax na punim splitovima 55.593/61.015 (najbolji seed)
+   naspram 64.550/69.180 from scratch — prva argmax politika koja tuče
+   random-1ep null na oba splita, ~0.5% od -Oz. RL gradijenti sami ne umeju
+   da nauče enkoder; pretrenirani enkoder + RL umeju.
+REVIDIRAN ZAKLJUČAK: reprezentacija nikad nije bila usko grlo — merenje
+(argmax) i optimizacija enkodera jesu. Data-efficiency tvrdnja ostaje
+mrtva; amortizovana-pretraga tvrdnja sada stoji: 8 GNN rollout-a ≈ greedy
+kvalitet za ~22% njegove cene kompajliranja.
+
+9. OGRANIČENJA I GDE BI GNN JOŠ MOGAO DA POBEDI
 --------------------------------------------------------------------------------
 - Argmax evaluacija meri mod politike, ne distribuciju; best-of-k uzorkovanje
   bi bilo poštenije prema stohastičkim politikama.

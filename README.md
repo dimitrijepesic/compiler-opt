@@ -174,6 +174,63 @@ bash scripts/run_experiment.sh    # baselines + 6 trainings + eval + figures
 Wall-clock on a laptop CPU: baselines ~35 min, PPO+Autophase ~3 min/seed,
 PPO+GNN ~50-70 min/seed, final evaluation ~15 min.
 
+## Follow-up experiments (three tracks, run in parallel)
+
+The controlled study left three open leads. All three were run; two changed
+the conclusions materially.
+
+### Track A — sampling evaluation (best-of-8): the GNN's first real win
+
+Argmax rollouts measure a policy's *mode*; sampling measures its
+*distribution*. Eight sampled rollouts per benchmark, best kept, against a
+best-of-8 random null from the same 36-pass space:
+
+| Best-of-8 totals | Validation (5) | Test (4) |
+|---|---|---|
+| Random null (best-of-8) | 53,539 | 58,717 |
+| Greedy | 52,481 | 58,069 |
+| PPO + Autophase (3 seeds) | 52,777 / 54,349 / 52,821 | 58,325 / 59,697 / 58,292 |
+| **PPO + GNN (3 seeds)** | **52,748 / 52,731 / 52,670** | **58,065 / 58,210 / 57,943** |
+
+Every GNN seed beats every Autophase seed on both splits, beats the null
+6/6, decisively beats -Oz, and the best test seed **beats greedy search**
+(57,943 vs 58,069) at roughly 4.5× fewer compilations (8×45 steps vs
+greedy's ~1,620). The "plateau" policies were good *samplers* with a
+degenerate mode.
+
+### Track C — encoder pretraining breaks the plateau
+
+Distilling Autophase into the encoder (regress log1p(Autophase) from the
+graph; 2,430 states; val MSE 0.025) before RL fine-tuning:
+
+- val-small best per seed: **651 / 668** — both below the 689 plateau that
+  0/3 from-scratch seeds escaped;
+- full-split argmax (best seed): validation **55,593**, test **61,015** —
+  vs 64,550 / 69,180 from scratch. First argmax policy in the study to beat
+  the single-episode random null on both splits, and within 0.5-0.7% of -Oz.
+
+RL gradients alone could not train the encoder; a pretrained encoder + RL
+can. The representation was never the bottleneck — encoder optimization was.
+
+### Track B — mixed-size training does not fix scale generalization
+
+Training on 9 benchmarks (O0 IC 450-15,184) instead of 4 tiny ones:
+Autophase became *worse and less stable* (argmax validation totals 82,935 /
+60,798 / 111,077); the GNN was unchanged (64,958 vs 64,550). Caveat: the
+GNN arm is a single seed whose training was interrupted at ~13 h by a
+forced Windows update; its surviving best checkpoint was evaluated and the
+arm is reported as incomplete.
+
+### Revised conclusion
+
+The graph representation is not the problem — measurement and optimization
+were. Evaluate the policy as a sampler (Track A) or give the encoder a
+pretrained start (Track C), and the GNN is the strongest agent in the
+study; train longer on bigger programs (Track B) and nothing improves.
+The data-efficiency claim stays dead; the amortized-search claim is now
+alive and supported: 8 sampled rollouts from the GNN policy ≈ greedy
+quality at ~22% of greedy's compile cost.
+
 ## Honest limitations & where a GNN could still win
 
 - Deterministic argmax rollouts are brittle; sampling-based evaluation (e.g.
