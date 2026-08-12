@@ -1,0 +1,1193 @@
+{
+  "timestamp": "2026-08-11T22:26:15.796389",
+  "seed": 42,
+  "total_steps": 100352,
+  "total_episodes": 2254,
+  "total_time_seconds": 4271.3,
+  "best_val_ic": 651,
+  "total_graph_extractions": 105366,
+  "total_graph_time_seconds": 312.9,
+  "config": {
+    "rl_max_benchmark_ic": 3000,
+    "ppo": {
+      "clip_ratio": 0.2,
+      "gae_lambda": 0.95,
+      "entropy_coeff": 0.01,
+      "entropy_coeff_final": 0.001,
+      "target_kl": 0.02,
+      "learning_rate": 0.0003,
+      "lr_schedule": "cosine",
+      "batch_size": 64,
+      "ppo_epochs": 4,
+      "collect_steps": 2048,
+      "max_episode_steps": 45,
+      "gamma": 0.99,
+      "total_env_steps": 100000,
+      "val_interval_steps": 5000
+    },
+    "gnn": {
+      "num_layers": 3,
+      "hidden_dim": 128,
+      "embedding_dim": 64,
+      "aggregation": "mean",
+      "pooling": "mean",
+      "dropout": 0.1,
+      "encoder_lr": 0.0001
+    },
+    "policy_mlp": {
+      "hidden_dim": 256,
+      "num_layers": 2,
+      "activation": "relu"
+    },
+    "value_mlp": {
+      "hidden_dim": 256,
+      "num_layers": 2,
+      "activation": "relu"
+    },
+    "seeds": [
+      42,
+      123,
+      456
+    ]
+  },
+  "num_actions": 36,
+  "log": [
+    {
+      "update": 1,
+      "total_steps": 2048,
+      "episodes": 46,
+      "avg_episode_reward": 0.486667,
+      "policy_loss": -0.051507,
+      "value_loss": 0.004633,
+      "entropy": 3.5717,
+      "approx_kl": 0.014391,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.01,
+      "avg_graph_extraction_ms": 3.2
+    },
+    {
+      "update": 2,
+      "total_steps": 4096,
+      "episodes": 92,
+      "avg_episode_reward": 0.502143,
+      "policy_loss": -0.049574,
+      "value_loss": 0.000989,
+      "entropy": 3.5525,
+      "approx_kl": 0.013536,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.009813,
+      "avg_graph_extraction_ms": 4.3
+    },
+    {
+      "update": 3,
+      "total_steps": 6144,
+      "episodes": 138,
+      "avg_episode_reward": 0.502835,
+      "policy_loss": -0.055684,
+      "value_loss": 0.000516,
+      "entropy": 3.5168,
+      "approx_kl": 0.014095,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.009625,
+      "avg_graph_extraction_ms": 4.5,
+      "val_total_ic": 712,
+      "val_reduction_pct": 47.72,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 319,
+          "reduction_pct": 50.0
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 273,
+          "reduction_pct": 43.36
+        }
+      ]
+    },
+    {
+      "update": 4,
+      "total_steps": 8192,
+      "episodes": 184,
+      "avg_episode_reward": 0.529058,
+      "policy_loss": -0.04868,
+      "value_loss": 0.00048,
+      "entropy": 3.5049,
+      "approx_kl": 0.008914,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.009437,
+      "avg_graph_extraction_ms": 4.6
+    },
+    {
+      "update": 5,
+      "total_steps": 10240,
+      "episodes": 230,
+      "avg_episode_reward": 0.52766,
+      "policy_loss": -0.058712,
+      "value_loss": 0.000381,
+      "entropy": 3.4557,
+      "approx_kl": 0.01393,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.00925,
+      "avg_graph_extraction_ms": 4.7,
+      "val_total_ic": 689,
+      "val_reduction_pct": 49.41,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 319,
+          "reduction_pct": 50.0
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 6,
+      "total_steps": 12288,
+      "episodes": 276,
+      "avg_episode_reward": 0.528545,
+      "policy_loss": -0.047731,
+      "value_loss": 0.000453,
+      "entropy": 3.4315,
+      "approx_kl": 0.015392,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.009062,
+      "avg_graph_extraction_ms": 4.7
+    },
+    {
+      "update": 7,
+      "total_steps": 14336,
+      "episodes": 322,
+      "avg_episode_reward": 0.526246,
+      "policy_loss": -0.045724,
+      "value_loss": 0.000492,
+      "entropy": 3.4221,
+      "approx_kl": 0.012163,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.008875,
+      "avg_graph_extraction_ms": 4.7
+    },
+    {
+      "update": 8,
+      "total_steps": 16384,
+      "episodes": 368,
+      "avg_episode_reward": 0.523966,
+      "policy_loss": -0.042761,
+      "value_loss": 0.00035,
+      "entropy": 3.3643,
+      "approx_kl": 0.011516,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.008688,
+      "avg_graph_extraction_ms": 4.7,
+      "val_total_ic": 689,
+      "val_reduction_pct": 49.41,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 319,
+          "reduction_pct": 50.0
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 9,
+      "total_steps": 18432,
+      "episodes": 414,
+      "avg_episode_reward": 0.534625,
+      "policy_loss": -0.04301,
+      "value_loss": 0.000403,
+      "entropy": 3.2909,
+      "approx_kl": 0.014864,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.0085,
+      "avg_graph_extraction_ms": 4.6
+    },
+    {
+      "update": 10,
+      "total_steps": 20480,
+      "episodes": 460,
+      "avg_episode_reward": 0.5167,
+      "policy_loss": -0.042806,
+      "value_loss": 0.000385,
+      "entropy": 3.2556,
+      "approx_kl": 0.016513,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.008313,
+      "avg_graph_extraction_ms": 4.5,
+      "val_total_ic": 689,
+      "val_reduction_pct": 49.41,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 319,
+          "reduction_pct": 50.0
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 11,
+      "total_steps": 22528,
+      "episodes": 506,
+      "avg_episode_reward": 0.555566,
+      "policy_loss": -0.037242,
+      "value_loss": 0.000303,
+      "entropy": 3.2022,
+      "approx_kl": 0.015482,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.008125,
+      "avg_graph_extraction_ms": 4.3
+    },
+    {
+      "update": 12,
+      "total_steps": 24576,
+      "episodes": 552,
+      "avg_episode_reward": 0.508335,
+      "policy_loss": -0.037694,
+      "value_loss": 0.000436,
+      "entropy": 3.1451,
+      "approx_kl": 0.011149,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.007938,
+      "avg_graph_extraction_ms": 4.2
+    },
+    {
+      "update": 13,
+      "total_steps": 26624,
+      "episodes": 598,
+      "avg_episode_reward": 0.516371,
+      "policy_loss": -0.038558,
+      "value_loss": 0.000385,
+      "entropy": 3.1773,
+      "approx_kl": 0.012799,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.00775,
+      "avg_graph_extraction_ms": 4.1,
+      "val_total_ic": 689,
+      "val_reduction_pct": 49.41,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 319,
+          "reduction_pct": 50.0
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 14,
+      "total_steps": 28672,
+      "episodes": 644,
+      "avg_episode_reward": 0.517566,
+      "policy_loss": -0.034819,
+      "value_loss": 0.000566,
+      "entropy": 3.1353,
+      "approx_kl": 0.012824,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.007562,
+      "avg_graph_extraction_ms": 4.1
+    },
+    {
+      "update": 15,
+      "total_steps": 30720,
+      "episodes": 690,
+      "avg_episode_reward": 0.53454,
+      "policy_loss": -0.035731,
+      "value_loss": 0.000379,
+      "entropy": 3.1491,
+      "approx_kl": 0.014066,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.007375,
+      "avg_graph_extraction_ms": 4.1,
+      "val_total_ic": 892,
+      "val_reduction_pct": 34.51,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 319,
+          "reduction_pct": 50.0
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 453,
+          "reduction_pct": 6.02
+        }
+      ]
+    },
+    {
+      "update": 16,
+      "total_steps": 32768,
+      "episodes": 736,
+      "avg_episode_reward": 0.534017,
+      "policy_loss": -0.037143,
+      "value_loss": 0.000243,
+      "entropy": 3.1799,
+      "approx_kl": 0.015321,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.007187,
+      "avg_graph_extraction_ms": 4.1
+    },
+    {
+      "update": 17,
+      "total_steps": 34816,
+      "episodes": 782,
+      "avg_episode_reward": 0.535706,
+      "policy_loss": -0.037403,
+      "value_loss": 0.000221,
+      "entropy": 3.1617,
+      "approx_kl": 0.013971,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.007,
+      "avg_graph_extraction_ms": 4.1
+    },
+    {
+      "update": 18,
+      "total_steps": 36864,
+      "episodes": 828,
+      "avg_episode_reward": 0.544178,
+      "policy_loss": -0.036859,
+      "value_loss": 0.000238,
+      "entropy": 3.1517,
+      "approx_kl": 0.015361,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.006812,
+      "avg_graph_extraction_ms": 4.1,
+      "val_total_ic": 892,
+      "val_reduction_pct": 34.51,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 319,
+          "reduction_pct": 50.0
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 453,
+          "reduction_pct": 6.02
+        }
+      ]
+    },
+    {
+      "update": 19,
+      "total_steps": 38912,
+      "episodes": 874,
+      "avg_episode_reward": 0.537824,
+      "policy_loss": -0.034308,
+      "value_loss": 0.000277,
+      "entropy": 3.1262,
+      "approx_kl": 0.012187,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.006625,
+      "avg_graph_extraction_ms": 4.0
+    },
+    {
+      "update": 20,
+      "total_steps": 40960,
+      "episodes": 920,
+      "avg_episode_reward": 0.521322,
+      "policy_loss": -0.033882,
+      "value_loss": 0.000248,
+      "entropy": 3.1046,
+      "approx_kl": 0.015548,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.006438,
+      "avg_graph_extraction_ms": 4.0,
+      "val_total_ic": 875,
+      "val_reduction_pct": 35.76,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 302,
+          "reduction_pct": 52.66
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 453,
+          "reduction_pct": 6.02
+        }
+      ]
+    },
+    {
+      "update": 21,
+      "total_steps": 43008,
+      "episodes": 966,
+      "avg_episode_reward": 0.551102,
+      "policy_loss": -0.03611,
+      "value_loss": 0.000214,
+      "entropy": 3.0887,
+      "approx_kl": 0.014344,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.00625,
+      "avg_graph_extraction_ms": 3.9
+    },
+    {
+      "update": 22,
+      "total_steps": 45056,
+      "episodes": 1012,
+      "avg_episode_reward": 0.534491,
+      "policy_loss": -0.032331,
+      "value_loss": 0.000205,
+      "entropy": 2.951,
+      "approx_kl": 0.015077,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.006063,
+      "avg_graph_extraction_ms": 3.9,
+      "val_total_ic": 651,
+      "val_reduction_pct": 52.2,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 302,
+          "reduction_pct": 52.66
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 229,
+          "reduction_pct": 52.49
+        }
+      ]
+    },
+    {
+      "update": 23,
+      "total_steps": 47104,
+      "episodes": 1058,
+      "avg_episode_reward": 0.536652,
+      "policy_loss": -0.031742,
+      "value_loss": 0.000182,
+      "entropy": 2.9797,
+      "approx_kl": 0.011585,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.005875,
+      "avg_graph_extraction_ms": 3.9
+    },
+    {
+      "update": 24,
+      "total_steps": 49152,
+      "episodes": 1104,
+      "avg_episode_reward": 0.532192,
+      "policy_loss": -0.030617,
+      "value_loss": 0.000193,
+      "entropy": 2.8961,
+      "approx_kl": 0.010542,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.005687,
+      "avg_graph_extraction_ms": 3.8
+    },
+    {
+      "update": 25,
+      "total_steps": 51200,
+      "episodes": 1150,
+      "avg_episode_reward": 0.510292,
+      "policy_loss": -0.025352,
+      "value_loss": 0.000128,
+      "entropy": 2.8368,
+      "approx_kl": 0.010009,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.0055,
+      "avg_graph_extraction_ms": 3.8,
+      "val_total_ic": 689,
+      "val_reduction_pct": 49.41,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 319,
+          "reduction_pct": 50.0
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 26,
+      "total_steps": 53248,
+      "episodes": 1196,
+      "avg_episode_reward": 0.537915,
+      "policy_loss": -0.026149,
+      "value_loss": 9e-05,
+      "entropy": 2.8404,
+      "approx_kl": 0.005836,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.005312,
+      "avg_graph_extraction_ms": 3.7
+    },
+    {
+      "update": 27,
+      "total_steps": 55296,
+      "episodes": 1242,
+      "avg_episode_reward": 0.535768,
+      "policy_loss": -0.027894,
+      "value_loss": 0.000132,
+      "entropy": 2.8399,
+      "approx_kl": 0.014275,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.005125,
+      "avg_graph_extraction_ms": 3.7,
+      "val_total_ic": 651,
+      "val_reduction_pct": 52.2,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 281,
+          "reduction_pct": 55.96
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 28,
+      "total_steps": 57344,
+      "episodes": 1288,
+      "avg_episode_reward": 0.505849,
+      "policy_loss": -0.028479,
+      "value_loss": 0.000152,
+      "entropy": 2.7611,
+      "approx_kl": 0.012133,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.004937,
+      "avg_graph_extraction_ms": 3.6
+    },
+    {
+      "update": 29,
+      "total_steps": 59392,
+      "episodes": 1334,
+      "avg_episode_reward": 0.533156,
+      "policy_loss": -0.030176,
+      "value_loss": 0.0001,
+      "entropy": 2.7589,
+      "approx_kl": 0.014413,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.00475,
+      "avg_graph_extraction_ms": 3.6
+    },
+    {
+      "update": 30,
+      "total_steps": 61440,
+      "episodes": 1380,
+      "avg_episode_reward": 0.509501,
+      "policy_loss": -0.025053,
+      "value_loss": 9.5e-05,
+      "entropy": 2.6707,
+      "approx_kl": 0.009839,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.004562,
+      "avg_graph_extraction_ms": 3.5,
+      "val_total_ic": 678,
+      "val_reduction_pct": 50.22,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 308,
+          "reduction_pct": 51.72
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 31,
+      "total_steps": 63488,
+      "episodes": 1426,
+      "avg_episode_reward": 0.53175,
+      "policy_loss": -0.024959,
+      "value_loss": 6.8e-05,
+      "entropy": 2.6424,
+      "approx_kl": 0.015209,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.004375,
+      "avg_graph_extraction_ms": 3.5
+    },
+    {
+      "update": 32,
+      "total_steps": 65536,
+      "episodes": 1472,
+      "avg_episode_reward": 0.531779,
+      "policy_loss": -0.022079,
+      "value_loss": 5.2e-05,
+      "entropy": 2.5669,
+      "approx_kl": 0.008066,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.004187,
+      "avg_graph_extraction_ms": 3.4,
+      "val_total_ic": 651,
+      "val_reduction_pct": 52.2,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 281,
+          "reduction_pct": 55.96
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 33,
+      "total_steps": 67584,
+      "episodes": 1518,
+      "avg_episode_reward": 0.53271,
+      "policy_loss": -0.020191,
+      "value_loss": 5.1e-05,
+      "entropy": 2.5019,
+      "approx_kl": 0.007933,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.004,
+      "avg_graph_extraction_ms": 3.4
+    },
+    {
+      "update": 34,
+      "total_steps": 69632,
+      "episodes": 1564,
+      "avg_episode_reward": 0.536809,
+      "policy_loss": -0.015389,
+      "value_loss": 6e-05,
+      "entropy": 2.4447,
+      "approx_kl": 0.008745,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.003812,
+      "avg_graph_extraction_ms": 3.4
+    },
+    {
+      "update": 35,
+      "total_steps": 71680,
+      "episodes": 1610,
+      "avg_episode_reward": 0.520498,
+      "policy_loss": -0.015182,
+      "value_loss": 5.5e-05,
+      "entropy": 2.3745,
+      "approx_kl": 0.004538,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.003625,
+      "avg_graph_extraction_ms": 3.3,
+      "val_total_ic": 678,
+      "val_reduction_pct": 50.22,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 308,
+          "reduction_pct": 51.72
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 36,
+      "total_steps": 73728,
+      "episodes": 1656,
+      "avg_episode_reward": 0.531071,
+      "policy_loss": -0.013294,
+      "value_loss": 8e-05,
+      "entropy": 2.3403,
+      "approx_kl": 0.011887,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.003437,
+      "avg_graph_extraction_ms": 3.3
+    },
+    {
+      "update": 37,
+      "total_steps": 75776,
+      "episodes": 1702,
+      "avg_episode_reward": 0.543583,
+      "policy_loss": -0.014174,
+      "value_loss": 5.4e-05,
+      "entropy": 2.3092,
+      "approx_kl": 0.005049,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.00325,
+      "avg_graph_extraction_ms": 3.3,
+      "val_total_ic": 678,
+      "val_reduction_pct": 50.22,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 308,
+          "reduction_pct": 51.72
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 38,
+      "total_steps": 77824,
+      "episodes": 1748,
+      "avg_episode_reward": 0.516926,
+      "policy_loss": -0.016456,
+      "value_loss": 6.4e-05,
+      "entropy": 2.2182,
+      "approx_kl": 0.008494,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.003062,
+      "avg_graph_extraction_ms": 3.2
+    },
+    {
+      "update": 39,
+      "total_steps": 79872,
+      "episodes": 1794,
+      "avg_episode_reward": 0.534773,
+      "policy_loss": -0.011388,
+      "value_loss": 6e-05,
+      "entropy": 2.1853,
+      "approx_kl": 0.003105,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.002875,
+      "avg_graph_extraction_ms": 3.2
+    },
+    {
+      "update": 40,
+      "total_steps": 81920,
+      "episodes": 1840,
+      "avg_episode_reward": 0.529032,
+      "policy_loss": -0.013411,
+      "value_loss": 5.1e-05,
+      "entropy": 2.1639,
+      "approx_kl": 0.003303,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.002687,
+      "avg_graph_extraction_ms": 3.2,
+      "val_total_ic": 678,
+      "val_reduction_pct": 50.22,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 308,
+          "reduction_pct": 51.72
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 41,
+      "total_steps": 83968,
+      "episodes": 1886,
+      "avg_episode_reward": 0.518807,
+      "policy_loss": -0.007972,
+      "value_loss": 5.9e-05,
+      "entropy": 2.1609,
+      "approx_kl": 0.00114,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.0025,
+      "avg_graph_extraction_ms": 3.2
+    },
+    {
+      "update": 42,
+      "total_steps": 86016,
+      "episodes": 1932,
+      "avg_episode_reward": 0.525885,
+      "policy_loss": -0.008797,
+      "value_loss": 5e-05,
+      "entropy": 2.1596,
+      "approx_kl": 0.002142,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.002312,
+      "avg_graph_extraction_ms": 3.2,
+      "val_total_ic": 678,
+      "val_reduction_pct": 50.22,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 308,
+          "reduction_pct": 51.72
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 43,
+      "total_steps": 88064,
+      "episodes": 1978,
+      "avg_episode_reward": 0.535238,
+      "policy_loss": -0.007765,
+      "value_loss": 4.9e-05,
+      "entropy": 2.0956,
+      "approx_kl": 0.003471,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.002125,
+      "avg_graph_extraction_ms": 3.1
+    },
+    {
+      "update": 44,
+      "total_steps": 90112,
+      "episodes": 2024,
+      "avg_episode_reward": 0.533976,
+      "policy_loss": -0.007524,
+      "value_loss": 4e-05,
+      "entropy": 2.084,
+      "approx_kl": 0.001037,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.001937,
+      "avg_graph_extraction_ms": 3.1,
+      "val_total_ic": 678,
+      "val_reduction_pct": 50.22,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 308,
+          "reduction_pct": 51.72
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 45,
+      "total_steps": 92160,
+      "episodes": 2070,
+      "avg_episode_reward": 0.518093,
+      "policy_loss": -0.006533,
+      "value_loss": 5.7e-05,
+      "entropy": 2.0352,
+      "approx_kl": 0.001904,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.00175,
+      "avg_graph_extraction_ms": 3.1
+    },
+    {
+      "update": 46,
+      "total_steps": 94208,
+      "episodes": 2116,
+      "avg_episode_reward": 0.525397,
+      "policy_loss": -0.004415,
+      "value_loss": 5.5e-05,
+      "entropy": 2.0823,
+      "approx_kl": 0.000146,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.001562,
+      "avg_graph_extraction_ms": 3.0
+    },
+    {
+      "update": 47,
+      "total_steps": 96256,
+      "episodes": 2162,
+      "avg_episode_reward": 0.545455,
+      "policy_loss": -0.002864,
+      "value_loss": 5.2e-05,
+      "entropy": 2.1567,
+      "approx_kl": -0.000174,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.001375,
+      "avg_graph_extraction_ms": 3.0,
+      "val_total_ic": 651,
+      "val_reduction_pct": 52.2,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 281,
+          "reduction_pct": 55.96
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    },
+    {
+      "update": 48,
+      "total_steps": 98304,
+      "episodes": 2208,
+      "avg_episode_reward": 0.529108,
+      "policy_loss": -0.002896,
+      "value_loss": 5.5e-05,
+      "entropy": 2.08,
+      "approx_kl": 0.000385,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.001187,
+      "avg_graph_extraction_ms": 3.0
+    },
+    {
+      "update": 49,
+      "total_steps": 100352,
+      "episodes": 2254,
+      "avg_episode_reward": 0.537276,
+      "policy_loss": -0.002461,
+      "value_loss": 5.6e-05,
+      "entropy": 2.1006,
+      "approx_kl": -3.7e-05,
+      "epochs_ran": 4,
+      "entropy_coeff": 0.001,
+      "avg_graph_extraction_ms": 3.0,
+      "val_total_ic": 651,
+      "val_reduction_pct": 52.2,
+      "val_details": [
+        {
+          "uri": "benchmark://cBench-v1/crc32",
+          "short_name": "crc32",
+          "initial_ic": 242,
+          "final_ic": 120,
+          "reduction_pct": 50.41
+        },
+        {
+          "uri": "benchmark://cBench-v1/qsort",
+          "short_name": "qsort",
+          "initial_ic": 638,
+          "final_ic": 281,
+          "reduction_pct": 55.96
+        },
+        {
+          "uri": "benchmark://cBench-v1/stringsearch2",
+          "short_name": "stringsearch2",
+          "initial_ic": 482,
+          "final_ic": 250,
+          "reduction_pct": 48.13
+        }
+      ]
+    }
+  ]
+}

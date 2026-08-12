@@ -1,0 +1,405 @@
+Phase 1: collecting (graph, autophase) samples
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+  collected adpcm: 270 total samples (2s)
+  collected gsm: 540 total samples (49s)
+  collected blowfish: 810 total samples (19s)
+  collected rijndael: 1080 total samples (26s)
+  collected dijkstra: 1350 total samples (3s)
+  collected bitcount: 1620 total samples (4s)
+  collected ispell: 1890 total samples (68s)
+  collected stringsearch: 2160 total samples (7s)
+  collected susan: 2430 total samples (55s)
+Total samples: 2430
+Phase 2: distillation training
+  epoch   1  train MSE 0.8684  val MSE 0.4502  <- saved
+  epoch   2  train MSE 0.2867  val MSE 0.1872  <- saved
+  epoch   3  train MSE 0.1620  val MSE 0.1495  <- saved
+  epoch   4  train MSE 0.1146  val MSE 0.1029  <- saved
+  epoch   5  train MSE 0.0933  val MSE 0.0909  <- saved
+  epoch   6  train MSE 0.0840  val MSE 0.0964
+  epoch   7  train MSE 0.0745  val MSE 0.0597  <- saved
+  epoch   8  train MSE 0.0602  val MSE 0.0577  <- saved
+  epoch   9  train MSE 0.0592  val MSE 0.0578
+  epoch  10  train MSE 0.0548  val MSE 0.0611
+  epoch  11  train MSE 0.0526  val MSE 0.0510  <- saved
+  epoch  12  train MSE 0.0504  val MSE 0.0576
+  epoch  13  train MSE 0.0470  val MSE 0.0542
+  epoch  14  train MSE 0.0462  val MSE 0.0479  <- saved
+  epoch  15  train MSE 0.0448  val MSE 0.0446  <- saved
+  epoch  16  train MSE 0.0429  val MSE 0.0508
+  epoch  17  train MSE 0.0430  val MSE 0.0580
+  epoch  18  train MSE 0.0400  val MSE 0.0466
+  epoch  19  train MSE 0.0413  val MSE 0.0405  <- saved
+  epoch  20  train MSE 0.0394  val MSE 0.0360  <- saved
+  epoch  21  train MSE 0.0340  val MSE 0.0361
+  epoch  22  train MSE 0.0348  val MSE 0.0446
+  epoch  23  train MSE 0.0367  val MSE 0.0350  <- saved
+  epoch  24  train MSE 0.0335  val MSE 0.0432
+  epoch  25  train MSE 0.0337  val MSE 0.0312  <- saved
+  epoch  26  train MSE 0.0309  val MSE 0.0526
+  epoch  27  train MSE 0.0317  val MSE 0.0295  <- saved
+  epoch  28  train MSE 0.0295  val MSE 0.0301
+  epoch  29  train MSE 0.0305  val MSE 0.0323
+  epoch  30  train MSE 0.0302  val MSE 0.0253  <- saved
+Best val MSE: 0.0253. Encoder saved to results/gnn_pretrained/encoder.pt
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+
+######################################################################
+# SEED 42
+######################################################################
+
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  Initialized encoder from results/gnn_pretrained/encoder.pt (pretrain val MSE 0.025348680559545755)
+======================================================================
+PPO + GNN TRAINING (seed=42)
+======================================================================
+  Action space: 36 passes (reduced)
+  GNN: 3 layers, hidden=128
+  Train benchmarks: 4
+  Val benchmarks: 3
+  Total budget: 100000 steps
+
+  Update   1 | Steps:    2048/100000 | Ep reward: +0.4867 | P loss: -0.0515 | V loss: 0.0046 | Ent: 3.572 | KL: 0.0144 (4ep) | 19.2 sps | Graph: 3ms
+  Update   2 | Steps:    4096/100000 | Ep reward: +0.5021 | P loss: -0.0496 | V loss: 0.0010 | Ent: 3.553 | KL: 0.0135 (4ep) | 21.7 sps | Graph: 4ms
+  Update   3 | Steps:    6144/100000 | Ep reward: +0.5028 | P loss: -0.0557 | V loss: 0.0005 | Ent: 3.517 | KL: 0.0141 (4ep) | 22.8 sps | Graph: 4ms
+         VAL | Total IC: 712 | Reduction: 47.72%
+         NEW BEST val IC: 712
+  Update   4 | Steps:    8192/100000 | Ep reward: +0.5291 | P loss: -0.0487 | V loss: 0.0005 | Ent: 3.505 | KL: 0.0089 (4ep) | 20.6 sps | Graph: 5ms
+  Update   5 | Steps:   10240/100000 | Ep reward: +0.5277 | P loss: -0.0587 | V loss: 0.0004 | Ent: 3.456 | KL: 0.0139 (4ep) | 20.3 sps | Graph: 5ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+         NEW BEST val IC: 689
+  Update   6 | Steps:   12288/100000 | Ep reward: +0.5285 | P loss: -0.0477 | V loss: 0.0005 | Ent: 3.431 | KL: 0.0154 (4ep) | 21.2 sps | Graph: 5ms
+  Update   7 | Steps:   14336/100000 | Ep reward: +0.5262 | P loss: -0.0457 | V loss: 0.0005 | Ent: 3.422 | KL: 0.0122 (4ep) | 22.9 sps | Graph: 5ms
+  Update   8 | Steps:   16384/100000 | Ep reward: +0.5240 | P loss: -0.0428 | V loss: 0.0003 | Ent: 3.364 | KL: 0.0115 (4ep) | 18.9 sps | Graph: 5ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update   9 | Steps:   18432/100000 | Ep reward: +0.5346 | P loss: -0.0430 | V loss: 0.0004 | Ent: 3.291 | KL: 0.0149 (4ep) | 20.8 sps | Graph: 5ms
+  Update  10 | Steps:   20480/100000 | Ep reward: +0.5167 | P loss: -0.0428 | V loss: 0.0004 | Ent: 3.256 | KL: 0.0165 (4ep) | 26.2 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  11 | Steps:   22528/100000 | Ep reward: +0.5556 | P loss: -0.0372 | V loss: 0.0003 | Ent: 3.202 | KL: 0.0155 (4ep) | 26.6 sps | Graph: 4ms
+  Update  12 | Steps:   24576/100000 | Ep reward: +0.5083 | P loss: -0.0377 | V loss: 0.0004 | Ent: 3.145 | KL: 0.0111 (4ep) | 24.3 sps | Graph: 4ms
+  Update  13 | Steps:   26624/100000 | Ep reward: +0.5164 | P loss: -0.0386 | V loss: 0.0004 | Ent: 3.177 | KL: 0.0128 (4ep) | 22.1 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  14 | Steps:   28672/100000 | Ep reward: +0.5176 | P loss: -0.0348 | V loss: 0.0006 | Ent: 3.135 | KL: 0.0128 (4ep) | 22.0 sps | Graph: 4ms
+  Update  15 | Steps:   30720/100000 | Ep reward: +0.5345 | P loss: -0.0357 | V loss: 0.0004 | Ent: 3.149 | KL: 0.0141 (4ep) | 24.0 sps | Graph: 4ms
+         VAL | Total IC: 892 | Reduction: 34.51%
+  Update  16 | Steps:   32768/100000 | Ep reward: +0.5340 | P loss: -0.0371 | V loss: 0.0002 | Ent: 3.180 | KL: 0.0153 (4ep) | 19.4 sps | Graph: 4ms
+  Update  17 | Steps:   34816/100000 | Ep reward: +0.5357 | P loss: -0.0374 | V loss: 0.0002 | Ent: 3.162 | KL: 0.0140 (4ep) | 20.5 sps | Graph: 4ms
+  Update  18 | Steps:   36864/100000 | Ep reward: +0.5442 | P loss: -0.0369 | V loss: 0.0002 | Ent: 3.152 | KL: 0.0154 (4ep) | 19.8 sps | Graph: 4ms
+         VAL | Total IC: 892 | Reduction: 34.51%
+  Update  19 | Steps:   38912/100000 | Ep reward: +0.5378 | P loss: -0.0343 | V loss: 0.0003 | Ent: 3.126 | KL: 0.0122 (4ep) | 21.9 sps | Graph: 4ms
+  Update  20 | Steps:   40960/100000 | Ep reward: +0.5213 | P loss: -0.0339 | V loss: 0.0002 | Ent: 3.105 | KL: 0.0155 (4ep) | 21.3 sps | Graph: 4ms
+         VAL | Total IC: 875 | Reduction: 35.76%
+  Update  21 | Steps:   43008/100000 | Ep reward: +0.5511 | P loss: -0.0361 | V loss: 0.0002 | Ent: 3.089 | KL: 0.0143 (4ep) | 22.6 sps | Graph: 4ms
+  Update  22 | Steps:   45056/100000 | Ep reward: +0.5345 | P loss: -0.0323 | V loss: 0.0002 | Ent: 2.951 | KL: 0.0151 (4ep) | 19.1 sps | Graph: 4ms
+         VAL | Total IC: 651 | Reduction: 52.20%
+         NEW BEST val IC: 651
+  Update  23 | Steps:   47104/100000 | Ep reward: +0.5367 | P loss: -0.0317 | V loss: 0.0002 | Ent: 2.980 | KL: 0.0116 (4ep) | 28.6 sps | Graph: 4ms
+  Update  24 | Steps:   49152/100000 | Ep reward: +0.5322 | P loss: -0.0306 | V loss: 0.0002 | Ent: 2.896 | KL: 0.0105 (4ep) | 29.5 sps | Graph: 4ms
+  Update  25 | Steps:   51200/100000 | Ep reward: +0.5103 | P loss: -0.0254 | V loss: 0.0001 | Ent: 2.837 | KL: 0.0100 (4ep) | 25.3 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  26 | Steps:   53248/100000 | Ep reward: +0.5379 | P loss: -0.0261 | V loss: 0.0001 | Ent: 2.840 | KL: 0.0058 (4ep) | 20.2 sps | Graph: 4ms
+  Update  27 | Steps:   55296/100000 | Ep reward: +0.5358 | P loss: -0.0279 | V loss: 0.0001 | Ent: 2.840 | KL: 0.0143 (4ep) | 25.2 sps | Graph: 4ms
+         VAL | Total IC: 651 | Reduction: 52.20%
+  Update  28 | Steps:   57344/100000 | Ep reward: +0.5058 | P loss: -0.0285 | V loss: 0.0002 | Ent: 2.761 | KL: 0.0121 (4ep) | 23.5 sps | Graph: 4ms
+  Update  29 | Steps:   59392/100000 | Ep reward: +0.5332 | P loss: -0.0302 | V loss: 0.0001 | Ent: 2.759 | KL: 0.0144 (4ep) | 26.4 sps | Graph: 4ms
+  Update  30 | Steps:   61440/100000 | Ep reward: +0.5095 | P loss: -0.0251 | V loss: 0.0001 | Ent: 2.671 | KL: 0.0098 (4ep) | 25.1 sps | Graph: 4ms
+         VAL | Total IC: 678 | Reduction: 50.22%
+  Update  31 | Steps:   63488/100000 | Ep reward: +0.5317 | P loss: -0.0250 | V loss: 0.0001 | Ent: 2.642 | KL: 0.0152 (4ep) | 25.4 sps | Graph: 4ms
+  Update  32 | Steps:   65536/100000 | Ep reward: +0.5318 | P loss: -0.0221 | V loss: 0.0001 | Ent: 2.567 | KL: 0.0081 (4ep) | 26.7 sps | Graph: 3ms
+         VAL | Total IC: 651 | Reduction: 52.20%
+  Update  33 | Steps:   67584/100000 | Ep reward: +0.5327 | P loss: -0.0202 | V loss: 0.0001 | Ent: 2.502 | KL: 0.0079 (4ep) | 27.1 sps | Graph: 3ms
+  Update  34 | Steps:   69632/100000 | Ep reward: +0.5368 | P loss: -0.0154 | V loss: 0.0001 | Ent: 2.445 | KL: 0.0087 (4ep) | 26.8 sps | Graph: 3ms
+  Update  35 | Steps:   71680/100000 | Ep reward: +0.5205 | P loss: -0.0152 | V loss: 0.0001 | Ent: 2.374 | KL: 0.0045 (4ep) | 20.0 sps | Graph: 3ms
+         VAL | Total IC: 678 | Reduction: 50.22%
+  Update  36 | Steps:   73728/100000 | Ep reward: +0.5311 | P loss: -0.0133 | V loss: 0.0001 | Ent: 2.340 | KL: 0.0119 (4ep) | 29.3 sps | Graph: 3ms
+  Update  37 | Steps:   75776/100000 | Ep reward: +0.5436 | P loss: -0.0142 | V loss: 0.0001 | Ent: 2.309 | KL: 0.0050 (4ep) | 24.5 sps | Graph: 3ms
+         VAL | Total IC: 678 | Reduction: 50.22%
+  Update  38 | Steps:   77824/100000 | Ep reward: +0.5169 | P loss: -0.0165 | V loss: 0.0001 | Ent: 2.218 | KL: 0.0085 (4ep) | 25.3 sps | Graph: 3ms
+  Update  39 | Steps:   79872/100000 | Ep reward: +0.5348 | P loss: -0.0114 | V loss: 0.0001 | Ent: 2.185 | KL: 0.0031 (4ep) | 22.8 sps | Graph: 3ms
+  Update  40 | Steps:   81920/100000 | Ep reward: +0.5290 | P loss: -0.0134 | V loss: 0.0001 | Ent: 2.164 | KL: 0.0033 (4ep) | 24.2 sps | Graph: 3ms
+         VAL | Total IC: 678 | Reduction: 50.22%
+  Update  41 | Steps:   83968/100000 | Ep reward: +0.5188 | P loss: -0.0080 | V loss: 0.0001 | Ent: 2.161 | KL: 0.0011 (4ep) | 27.2 sps | Graph: 3ms
+  Update  42 | Steps:   86016/100000 | Ep reward: +0.5259 | P loss: -0.0088 | V loss: 0.0000 | Ent: 2.160 | KL: 0.0021 (4ep) | 24.5 sps | Graph: 3ms
+         VAL | Total IC: 678 | Reduction: 50.22%
+  Update  43 | Steps:   88064/100000 | Ep reward: +0.5352 | P loss: -0.0078 | V loss: 0.0000 | Ent: 2.096 | KL: 0.0035 (4ep) | 28.6 sps | Graph: 3ms
+  Update  44 | Steps:   90112/100000 | Ep reward: +0.5340 | P loss: -0.0075 | V loss: 0.0000 | Ent: 2.084 | KL: 0.0010 (4ep) | 29.0 sps | Graph: 3ms
+         VAL | Total IC: 678 | Reduction: 50.22%
+  Update  45 | Steps:   92160/100000 | Ep reward: +0.5181 | P loss: -0.0065 | V loss: 0.0001 | Ent: 2.035 | KL: 0.0019 (4ep) | 28.2 sps | Graph: 3ms
+  Update  46 | Steps:   94208/100000 | Ep reward: +0.5254 | P loss: -0.0044 | V loss: 0.0001 | Ent: 2.082 | KL: 0.0001 (4ep) | 28.2 sps | Graph: 3ms
+  Update  47 | Steps:   96256/100000 | Ep reward: +0.5455 | P loss: -0.0029 | V loss: 0.0001 | Ent: 2.157 | KL: -0.0002 (4ep) | 27.0 sps | Graph: 3ms
+         VAL | Total IC: 651 | Reduction: 52.20%
+  Update  48 | Steps:   98304/100000 | Ep reward: +0.5291 | P loss: -0.0029 | V loss: 0.0001 | Ent: 2.080 | KL: 0.0004 (4ep) | 23.2 sps | Graph: 3ms
+  Update  49 | Steps:  100352/100000 | Ep reward: +0.5373 | P loss: -0.0025 | V loss: 0.0001 | Ent: 2.101 | KL: -0.0000 (4ep) | 25.5 sps | Graph: 3ms
+         VAL | Total IC: 651 | Reduction: 52.20%
+
+  Training complete in 71.2 minutes
+  Best validation IC: 651
+  Graph extractions: 105366 (312.9s total)
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+
+######################################################################
+# SEED 123
+######################################################################
+
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  Initialized encoder from results/gnn_pretrained/encoder.pt (pretrain val MSE 0.025348680559545755)
+======================================================================
+PPO + GNN TRAINING (seed=123)
+======================================================================
+  Action space: 36 passes (reduced)
+  GNN: 3 layers, hidden=128
+  Train benchmarks: 4
+  Val benchmarks: 3
+  Total budget: 100000 steps
+
+  Update   1 | Steps:    2048/100000 | Ep reward: +0.4919 | P loss: -0.0553 | V loss: 0.0036 | Ent: 3.571 | KL: 0.0138 (4ep) | 17.5 sps | Graph: 4ms
+  Update   2 | Steps:    4096/100000 | Ep reward: +0.5101 | P loss: -0.0480 | V loss: 0.0011 | Ent: 3.542 | KL: 0.0192 (3ep) | 21.8 sps | Graph: 5ms
+  Update   3 | Steps:    6144/100000 | Ep reward: +0.5021 | P loss: -0.0543 | V loss: 0.0006 | Ent: 3.521 | KL: 0.0106 (4ep) | 18.9 sps | Graph: 5ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+         NEW BEST val IC: 689
+  Update   4 | Steps:    8192/100000 | Ep reward: +0.5159 | P loss: -0.0530 | V loss: 0.0008 | Ent: 3.496 | KL: 0.0139 (4ep) | 22.3 sps | Graph: 5ms
+  Update   5 | Steps:   10240/100000 | Ep reward: +0.5204 | P loss: -0.0473 | V loss: 0.0006 | Ent: 3.468 | KL: 0.0165 (4ep) | 23.0 sps | Graph: 5ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update   6 | Steps:   12288/100000 | Ep reward: +0.5004 | P loss: -0.0513 | V loss: 0.0005 | Ent: 3.475 | KL: 0.0133 (4ep) | 22.2 sps | Graph: 5ms
+  Update   7 | Steps:   14336/100000 | Ep reward: +0.5194 | P loss: -0.0521 | V loss: 0.0006 | Ent: 3.423 | KL: 0.0221 (3ep) | 32.5 sps | Graph: 5ms
+  Update   8 | Steps:   16384/100000 | Ep reward: +0.5284 | P loss: -0.0475 | V loss: 0.0005 | Ent: 3.384 | KL: 0.0215 (4ep) | 25.9 sps | Graph: 5ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update   9 | Steps:   18432/100000 | Ep reward: +0.5188 | P loss: -0.0442 | V loss: 0.0004 | Ent: 3.335 | KL: 0.0166 (4ep) | 22.6 sps | Graph: 5ms
+  Update  10 | Steps:   20480/100000 | Ep reward: +0.4993 | P loss: -0.0399 | V loss: 0.0003 | Ent: 3.324 | KL: 0.0136 (4ep) | 27.1 sps | Graph: 5ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  11 | Steps:   22528/100000 | Ep reward: +0.5167 | P loss: -0.0455 | V loss: 0.0003 | Ent: 3.269 | KL: 0.0198 (4ep) | 25.7 sps | Graph: 4ms
+  Update  12 | Steps:   24576/100000 | Ep reward: +0.5287 | P loss: -0.0444 | V loss: 0.0003 | Ent: 3.248 | KL: 0.0104 (4ep) | 24.1 sps | Graph: 4ms
+  Update  13 | Steps:   26624/100000 | Ep reward: +0.5219 | P loss: -0.0372 | V loss: 0.0004 | Ent: 3.210 | KL: 0.0167 (4ep) | 25.4 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  14 | Steps:   28672/100000 | Ep reward: +0.5295 | P loss: -0.0336 | V loss: 0.0003 | Ent: 3.123 | KL: 0.0141 (4ep) | 23.1 sps | Graph: 4ms
+  Update  15 | Steps:   30720/100000 | Ep reward: +0.5423 | P loss: -0.0348 | V loss: 0.0002 | Ent: 3.056 | KL: 0.0128 (4ep) | 24.6 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  16 | Steps:   32768/100000 | Ep reward: +0.5259 | P loss: -0.0346 | V loss: 0.0002 | Ent: 3.071 | KL: 0.0117 (4ep) | 24.9 sps | Graph: 4ms
+  Update  17 | Steps:   34816/100000 | Ep reward: +0.5432 | P loss: -0.0313 | V loss: 0.0002 | Ent: 3.026 | KL: 0.0173 (4ep) | 27.3 sps | Graph: 4ms
+  Update  18 | Steps:   36864/100000 | Ep reward: +0.5306 | P loss: -0.0274 | V loss: 0.0002 | Ent: 3.024 | KL: 0.0225 (2ep) | 47.2 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  19 | Steps:   38912/100000 | Ep reward: +0.5023 | P loss: -0.0374 | V loss: 0.0002 | Ent: 2.930 | KL: 0.0175 (4ep) | 28.8 sps | Graph: 4ms
+  Update  20 | Steps:   40960/100000 | Ep reward: +0.5231 | P loss: -0.0355 | V loss: 0.0002 | Ent: 2.984 | KL: 0.0160 (4ep) | 27.6 sps | Graph: 4ms
+         VAL | Total IC: 668 | Reduction: 50.95%
+         NEW BEST val IC: 668
+  Update  21 | Steps:   43008/100000 | Ep reward: +0.5232 | P loss: -0.0274 | V loss: 0.0002 | Ent: 2.917 | KL: 0.0066 (4ep) | 26.9 sps | Graph: 4ms
+  Update  22 | Steps:   45056/100000 | Ep reward: +0.5074 | P loss: -0.0227 | V loss: 0.0002 | Ent: 2.854 | KL: 0.0115 (4ep) | 24.8 sps | Graph: 4ms
+         VAL | Total IC: 668 | Reduction: 50.95%
+  Update  23 | Steps:   47104/100000 | Ep reward: +0.5365 | P loss: -0.0263 | V loss: 0.0001 | Ent: 2.846 | KL: 0.0123 (4ep) | 23.9 sps | Graph: 4ms
+  Update  24 | Steps:   49152/100000 | Ep reward: +0.5268 | P loss: -0.0246 | V loss: 0.0002 | Ent: 2.738 | KL: 0.0064 (4ep) | 28.0 sps | Graph: 4ms
+  Update  25 | Steps:   51200/100000 | Ep reward: +0.5318 | P loss: -0.0242 | V loss: 0.0001 | Ent: 2.662 | KL: 0.0100 (4ep) | 26.8 sps | Graph: 4ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  26 | Steps:   53248/100000 | Ep reward: +0.5346 | P loss: -0.0220 | V loss: 0.0001 | Ent: 2.685 | KL: 0.0099 (4ep) | 26.5 sps | Graph: 3ms
+  Update  27 | Steps:   55296/100000 | Ep reward: +0.5232 | P loss: -0.0253 | V loss: 0.0001 | Ent: 2.639 | KL: 0.0122 (4ep) | 26.2 sps | Graph: 3ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  28 | Steps:   57344/100000 | Ep reward: +0.5291 | P loss: -0.0263 | V loss: 0.0001 | Ent: 2.545 | KL: 0.0103 (4ep) | 28.8 sps | Graph: 3ms
+  Update  29 | Steps:   59392/100000 | Ep reward: +0.5513 | P loss: -0.0208 | V loss: 0.0001 | Ent: 2.430 | KL: 0.0085 (4ep) | 29.1 sps | Graph: 3ms
+  Update  30 | Steps:   61440/100000 | Ep reward: +0.5472 | P loss: -0.0198 | V loss: 0.0001 | Ent: 2.427 | KL: 0.0111 (4ep) | 25.7 sps | Graph: 3ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  31 | Steps:   63488/100000 | Ep reward: +0.5348 | P loss: -0.0151 | V loss: 0.0001 | Ent: 2.387 | KL: 0.0050 (4ep) | 25.9 sps | Graph: 3ms
+  Update  32 | Steps:   65536/100000 | Ep reward: +0.5446 | P loss: -0.0164 | V loss: 0.0001 | Ent: 2.250 | KL: 0.0076 (4ep) | 29.3 sps | Graph: 3ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  33 | Steps:   67584/100000 | Ep reward: +0.5496 | P loss: -0.0193 | V loss: 0.0001 | Ent: 2.312 | KL: 0.0092 (4ep) | 26.7 sps | Graph: 3ms
+  Update  34 | Steps:   69632/100000 | Ep reward: +0.5255 | P loss: -0.0179 | V loss: 0.0001 | Ent: 2.366 | KL: 0.0092 (4ep) | 26.7 sps | Graph: 3ms
+  Update  35 | Steps:   71680/100000 | Ep reward: +0.5038 | P loss: -0.0202 | V loss: 0.0001 | Ent: 2.279 | KL: 0.0093 (4ep) | 29.1 sps | Graph: 3ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  36 | Steps:   73728/100000 | Ep reward: +0.5393 | P loss: -0.0150 | V loss: 0.0001 | Ent: 2.233 | KL: 0.0084 (4ep) | 28.1 sps | Graph: 3ms
+  Update  37 | Steps:   75776/100000 | Ep reward: +0.5434 | P loss: -0.0154 | V loss: 0.0001 | Ent: 2.226 | KL: 0.0078 (4ep) | 31.5 sps | Graph: 3ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  38 | Steps:   77824/100000 | Ep reward: +0.5442 | P loss: -0.0145 | V loss: 0.0000 | Ent: 2.101 | KL: 0.0054 (4ep) | 29.1 sps | Graph: 3ms
+  Update  39 | Steps:   79872/100000 | Ep reward: +0.5209 | P loss: -0.0102 | V loss: 0.0001 | Ent: 2.134 | KL: 0.0028 (4ep) | 28.3 sps | Graph: 3ms
+  Update  40 | Steps:   81920/100000 | Ep reward: +0.5226 | P loss: -0.0102 | V loss: 0.0001 | Ent: 2.120 | KL: 0.0014 (4ep) | 26.5 sps | Graph: 3ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  41 | Steps:   83968/100000 | Ep reward: +0.5289 | P loss: -0.0106 | V loss: 0.0000 | Ent: 2.211 | KL: 0.0047 (4ep) | 28.6 sps | Graph: 3ms
+  Update  42 | Steps:   86016/100000 | Ep reward: +0.5543 | P loss: -0.0113 | V loss: 0.0000 | Ent: 2.242 | KL: 0.0029 (4ep) | 29.7 sps | Graph: 3ms
+         VAL | Total IC: 716 | Reduction: 47.43%
+  Update  43 | Steps:   88064/100000 | Ep reward: +0.5310 | P loss: -0.0070 | V loss: 0.0001 | Ent: 2.230 | KL: 0.0017 (4ep) | 25.7 sps | Graph: 3ms
+  Update  44 | Steps:   90112/100000 | Ep reward: +0.5222 | P loss: -0.0068 | V loss: 0.0000 | Ent: 2.271 | KL: 0.0006 (4ep) | 28.0 sps | Graph: 3ms
+         VAL | Total IC: 716 | Reduction: 47.43%
+  Update  45 | Steps:   92160/100000 | Ep reward: +0.5176 | P loss: -0.0062 | V loss: 0.0001 | Ent: 2.212 | KL: 0.0012 (4ep) | 26.4 sps | Graph: 3ms
+  Update  46 | Steps:   94208/100000 | Ep reward: +0.5301 | P loss: -0.0036 | V loss: 0.0001 | Ent: 2.117 | KL: 0.0006 (4ep) | 23.9 sps | Graph: 3ms
+  Update  47 | Steps:   96256/100000 | Ep reward: +0.5351 | P loss: -0.0026 | V loss: 0.0001 | Ent: 2.139 | KL: -0.0005 (4ep) | 29.7 sps | Graph: 3ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+  Update  48 | Steps:   98304/100000 | Ep reward: +0.5195 | P loss: -0.0024 | V loss: 0.0000 | Ent: 2.169 | KL: 0.0004 (4ep) | 26.8 sps | Graph: 3ms
+  Update  49 | Steps:  100352/100000 | Ep reward: +0.5352 | P loss: -0.0015 | V loss: 0.0000 | Ent: 2.136 | KL: 0.0002 (4ep) | 32.0 sps | Graph: 3ms
+         VAL | Total IC: 689 | Reduction: 49.41%
+
+  Training complete in 64.2 minutes
+  Best validation IC: 668
+  Graph extractions: 105366 (281.4s total)
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+==========================================================================================
+FINAL EVALUATION (full validation split + held-out test split)
+==========================================================================================
+
+Evaluating agents on validation (['lame', 'crc32', 'qsort', 'stringsearch2', 'tiffmedian'])
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  [PPO+AP] seed 42: total IC 96041 (14.06% reduction)
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  [PPO+AP] seed 123: total IC 60887 (45.52% reduction)
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  [PPO+GNN] seed 42: total IC 60367 (45.98% reduction)
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  [PPO+GNN] seed 123: total IC 55593 (50.26% reduction)
+
+Evaluating agents on test (['sha', 'jpeg-d', 'patricia', 'tiff2rgba'])
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  [PPO+AP] seed 42: total IC 93531 (22.50% reduction)
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  [PPO+AP] seed 123: total IC 65667 (45.59% reduction)
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  [PPO+GNN] seed 42: total IC 65442 (45.77% reduction)
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  [PPO+GNN] seed 123: total IC 61015 (49.44% reduction)
+
+==========================================================================================
+VALIDATION SPLIT
+==========================================================================================
+Benchmark               O0  O3 (real)  Oz (real)     Greedy   Rnd-full  RndRed-50     PPO+AP    PPO+GNN
+-------------------------------------------------------------------------------------------------------
+lame                 49131      35594      22785      21058      24527      21027      34859      24853
+crc32                  242        164        114        114        117        114        124        120
+qsort                  638       1163        315        271        289        271        308        302
+stringsearch2          482        281        214        219        232        219        253        229
+tiffmedian           61265      40651      31984      30819      34407      31094      60497      34863
+-------------------------------------------------------------------------------------------------------
+TOTAL               111758      77853      55412      52481      59572      52725      96041      60367
+Geo vs O3          -19.12%     +0.00%    +69.15%    +77.58%    +63.58%    +77.32%    +30.64%    +60.90%
+
+Wilcoxon PPO+AP vs PPO+GNN (median seeds, per-benchmark): p=0.0625
+
+==========================================================================================
+TEST SPLIT
+==========================================================================================
+Benchmark               O0  O3 (real)  Oz (real)     Greedy   Rnd-full  RndRed-50     PPO+AP    PPO+GNN
+-------------------------------------------------------------------------------------------------------
+sha                    799        789        500        358        388        353        452        450
+jpeg-d               59942      45383      28883      27671      29037      27833      34503      30875
+patricia              1282        566        383        401        416        397        648        648
+tiff2rgba            58661      39243      30809      29639      34097      29698      57928      33469
+-------------------------------------------------------------------------------------------------------
+TOTAL               120684      85981      60575      58069      63938      58281      93531      65442
+Geo vs O3          -31.45%     +0.00%    +46.98%    +61.22%    +49.36%    +61.87%     +7.96%    +27.46%
+
+Wilcoxon PPO+AP vs PPO+GNN (median seeds, per-benchmark): p=0.2500
+
+Saved: results/final_evaluation_pretrained.json
+=== TRACK-C-DONE ===
