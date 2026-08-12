@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://mibench-v1/gsm-1",
+  "suite": "mibench-v1",
+  "o0": {
+    "ic": 218,
+    "text": 860,
+    "total": 860
+  },
+  "oz": {
+    "ic": 95,
+    "text": 695,
+    "total": 695,
+    "opt_ms": 11.9
+  },
+  "rnd_bo8": {
+    "ic": 89,
+    "text": 751,
+    "total": 751,
+    "opt_ms": 8.4
+  },
+  "gnn_bo8": {
+    "ic": 91,
+    "text": 695,
+    "total": 695,
+    "opt_ms": 13.4
+  }
+}

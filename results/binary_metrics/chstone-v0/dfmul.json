@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://chstone-v0/dfmul",
+  "suite": "chstone-v0",
+  "o0": {
+    "ic": 859,
+    "text": 4014,
+    "total": 4022
+  },
+  "oz": {
+    "ic": 349,
+    "text": 3366,
+    "total": 3374,
+    "opt_ms": 19.0
+  },
+  "rnd_bo8": {
+    "ic": 335,
+    "text": 3672,
+    "total": 3680,
+    "opt_ms": 23.2
+  },
+  "gnn_bo8": {
+    "ic": 335,
+    "text": 3656,
+    "total": 3664,
+    "opt_ms": 15.5
+  }
+}

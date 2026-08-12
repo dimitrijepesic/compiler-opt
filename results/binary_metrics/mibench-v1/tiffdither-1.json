@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://mibench-v1/tiffdither-1",
+  "suite": "mibench-v1",
+  "o0": {
+    "ic": 331,
+    "text": 1214,
+    "total": 1214
+  },
+  "oz": {
+    "ic": 145,
+    "text": 1003,
+    "total": 1003,
+    "opt_ms": 11.4
+  },
+  "rnd_bo8": {
+    "ic": 148,
+    "text": 1003,
+    "total": 1003,
+    "opt_ms": 9.6
+  },
+  "gnn_bo8": {
+    "ic": 145,
+    "text": 1003,
+    "total": 1003,
+    "opt_ms": 9.0
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://mibench-v1/pgp-e-2",
+  "suite": "mibench-v1",
+  "o0": {
+    "ic": 158,
+    "text": 845,
+    "total": 845
+  },
+  "oz": {
+    "ic": 58,
+    "text": 698,
+    "total": 698,
+    "opt_ms": 8.6
+  },
+  "rnd_bo8": {
+    "ic": 58,
+    "text": 698,
+    "total": 698,
+    "opt_ms": 8.5
+  },
+  "gnn_bo8": {
+    "ic": 58,
+    "text": 698,
+    "total": 698,
+    "opt_ms": 8.3
+  }
+}

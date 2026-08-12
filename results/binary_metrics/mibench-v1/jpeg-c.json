@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://mibench-v1/jpeg-c",
+  "suite": "mibench-v1",
+  "o0": {
+    "ic": 645,
+    "text": 2001,
+    "total": 2001
+  },
+  "oz": {
+    "ic": 200,
+    "text": 1685,
+    "total": 1685,
+    "opt_ms": 15.5
+  },
+  "rnd_bo8": {
+    "ic": 201,
+    "text": 1669,
+    "total": 1669,
+    "opt_ms": 12.8
+  },
+  "gnn_bo8": {
+    "ic": 201,
+    "text": 1669,
+    "total": 1669,
+    "opt_ms": 12.0
+  }
+}

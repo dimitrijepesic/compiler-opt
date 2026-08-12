@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://mibench-v1/lame-takehiro-1",
+  "suite": "mibench-v1",
+  "o0": {
+    "ic": 386,
+    "text": 1449,
+    "total": 1449
+  },
+  "oz": {
+    "ic": 145,
+    "text": 1250,
+    "total": 1250,
+    "opt_ms": 12.9
+  },
+  "rnd_bo8": {
+    "ic": 143,
+    "text": 1298,
+    "total": 1298,
+    "opt_ms": 10.9
+  },
+  "gnn_bo8": {
+    "ic": 145,
+    "text": 1298,
+    "total": 1298,
+    "opt_ms": 9.9
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://mibench-v1/susan-e-1",
+  "suite": "mibench-v1",
+  "o0": {
+    "ic": 215,
+    "text": 873,
+    "total": 873
+  },
+  "oz": {
+    "ic": 88,
+    "text": 647,
+    "total": 647,
+    "opt_ms": 10.4
+  },
+  "rnd_bo8": {
+    "ic": 90,
+    "text": 679,
+    "total": 679,
+    "opt_ms": 8.9
+  },
+  "gnn_bo8": {
+    "ic": 88,
+    "text": 679,
+    "total": 679,
+    "opt_ms": 8.7
+  }
+}

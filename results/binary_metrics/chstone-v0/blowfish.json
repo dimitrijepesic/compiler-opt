@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://chstone-v0/blowfish",
+  "suite": "chstone-v0",
+  "o0": {
+    "ic": 2134,
+    "text": 23935,
+    "total": 23935
+  },
+  "oz": {
+    "ic": 1214,
+    "text": 22486,
+    "total": 22486,
+    "opt_ms": 35.0
+  },
+  "rnd_bo8": {
+    "ic": 1149,
+    "text": 22054,
+    "total": 22054,
+    "opt_ms": 32.0
+  },
+  "gnn_bo8": {
+    "ic": 1150,
+    "text": 22590,
+    "total": 22590,
+    "opt_ms": 66.7
+  }
+}

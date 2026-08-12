@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://npb-v0/34",
+  "suite": "npb-v0",
+  "o0": {
+    "ic": 3046,
+    "text": 7590,
+    "total": 7590
+  },
+  "oz": {
+    "ic": 739,
+    "text": 3984,
+    "total": 3984,
+    "opt_ms": 91.3
+  },
+  "rnd_bo8": {
+    "ic": 761,
+    "text": 4146,
+    "total": 4146,
+    "opt_ms": 71.9
+  },
+  "gnn_bo8": {
+    "ic": 713,
+    "text": 3701,
+    "total": 3701,
+    "opt_ms": 63.1
+  }
+}

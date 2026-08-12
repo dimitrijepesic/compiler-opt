@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://mibench-v1/rsynth-2",
+  "suite": "mibench-v1",
+  "o0": {
+    "ic": 155,
+    "text": 832,
+    "total": 832
+  },
+  "oz": {
+    "ic": 44,
+    "text": 701,
+    "total": 701,
+    "opt_ms": 8.7
+  },
+  "rnd_bo8": {
+    "ic": 44,
+    "text": 701,
+    "total": 701,
+    "opt_ms": 7.8
+  },
+  "gnn_bo8": {
+    "ic": 44,
+    "text": 701,
+    "total": 701,
+    "opt_ms": 7.0
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://chstone-v0/dfadd",
+  "suite": "chstone-v0",
+  "o0": {
+    "ic": 991,
+    "text": 5158,
+    "total": 5166
+  },
+  "oz": {
+    "ic": 422,
+    "text": 4357,
+    "total": 4365,
+    "opt_ms": 23.2
+  },
+  "rnd_bo8": {
+    "ic": 408,
+    "text": 4776,
+    "total": 4784,
+    "opt_ms": 14.4
+  },
+  "gnn_bo8": {
+    "ic": 402,
+    "text": 4784,
+    "total": 4792,
+    "opt_ms": 14.0
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://blas-v0/80",
+  "suite": "blas-v0",
+  "o0": {
+    "ic": 427,
+    "text": 1760,
+    "total": 1760
+  },
+  "oz": {
+    "ic": 413,
+    "text": 1808,
+    "total": 1808,
+    "opt_ms": 26.9
+  },
+  "rnd_bo8": {
+    "ic": 412,
+    "text": 1760,
+    "total": 1760,
+    "opt_ms": 16.6
+  },
+  "gnn_bo8": {
+    "ic": 409,
+    "text": 1760,
+    "total": 1760,
+    "opt_ms": 15.0
+  }
+}

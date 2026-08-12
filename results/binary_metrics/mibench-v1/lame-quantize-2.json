@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://mibench-v1/lame-quantize-2",
+  "suite": "mibench-v1",
+  "o0": {
+    "ic": 129,
+    "text": 774,
+    "total": 774
+  },
+  "oz": {
+    "ic": 50,
+    "text": 641,
+    "total": 641,
+    "opt_ms": 8.5
+  },
+  "rnd_bo8": {
+    "ic": 52,
+    "text": 609,
+    "total": 609,
+    "opt_ms": 8.0
+  },
+  "gnn_bo8": {
+    "ic": 50,
+    "text": 609,
+    "total": 609,
+    "opt_ms": 8.2
+  }
+}

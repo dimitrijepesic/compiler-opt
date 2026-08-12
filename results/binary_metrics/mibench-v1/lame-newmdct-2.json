@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://mibench-v1/lame-newmdct-2",
+  "suite": "mibench-v1",
+  "o0": {
+    "ic": 189,
+    "text": 933,
+    "total": 933
+  },
+  "oz": {
+    "ic": 80,
+    "text": 779,
+    "total": 779,
+    "opt_ms": 10.0
+  },
+  "rnd_bo8": {
+    "ic": 82,
+    "text": 747,
+    "total": 747,
+    "opt_ms": 8.2
+  },
+  "gnn_bo8": {
+    "ic": 82,
+    "text": 747,
+    "total": 747,
+    "opt_ms": 12.3
+  }
+}

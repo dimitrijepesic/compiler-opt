@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://poj104-v1/47/5504",
+  "suite": "poj104-v1",
+  "o0": {
+    "ic": 131,
+    "text": 439,
+    "total": 448
+  },
+  "oz": {
+    "ic": 36,
+    "text": 305,
+    "total": 314,
+    "opt_ms": 14.9
+  },
+  "rnd_bo8": {
+    "ic": 42,
+    "text": 335,
+    "total": 344,
+    "opt_ms": 13.3
+  },
+  "gnn_bo8": {
+    "ic": 39,
+    "text": 348,
+    "total": 357,
+    "opt_ms": 14.0
+  }
+}

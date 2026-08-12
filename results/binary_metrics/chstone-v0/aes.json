@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://chstone-v0/aes",
+  "suite": "chstone-v0",
+  "o0": {
+    "ic": 4048,
+    "text": 12619,
+    "total": 12619
+  },
+  "oz": {
+    "ic": 1987,
+    "text": 10561,
+    "total": 10561,
+    "opt_ms": 62.5
+  },
+  "rnd_bo8": {
+    "ic": 2051,
+    "text": 10481,
+    "total": 10481,
+    "opt_ms": 71.9
+  },
+  "gnn_bo8": {
+    "ic": 1965,
+    "text": 10449,
+    "total": 10449,
+    "opt_ms": 64.4
+  }
+}

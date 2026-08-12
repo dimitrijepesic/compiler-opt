@@ -1,0 +1,21 @@
+{
+  "uri": "generator://csmith-v0/37",
+  "suite": "csmith-v0",
+  "o0": {
+    "ic": 6623,
+    "text": 28138,
+    "total": 34502
+  },
+  "oz": {
+    "ic": 889,
+    "text": 9384,
+    "total": 11900,
+    "opt_ms": 49.8
+  },
+  "rnd_bo8": {
+    "ic": 788,
+    "text": 9811,
+    "total": 14511,
+    "opt_ms": 32.1
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://mibench-v1/lame-psymodel",
+  "suite": "mibench-v1",
+  "o0": {
+    "ic": 1563,
+    "text": 6605,
+    "total": 6605
+  },
+  "oz": {
+    "ic": 507,
+    "text": 4942,
+    "total": 4942,
+    "opt_ms": 24.5
+  },
+  "rnd_bo8": {
+    "ic": 516,
+    "text": 4862,
+    "total": 4862,
+    "opt_ms": 17.6
+  },
+  "gnn_bo8": {
+    "ic": 511,
+    "text": 4894,
+    "total": 4894,
+    "opt_ms": 16.0
+  }
+}

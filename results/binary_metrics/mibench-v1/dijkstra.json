@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://mibench-v1/dijkstra",
+  "suite": "mibench-v1",
+  "o0": {
+    "ic": 121,
+    "text": 661,
+    "total": 661
+  },
+  "oz": {
+    "ic": 46,
+    "text": 562,
+    "total": 562,
+    "opt_ms": 8.5
+  },
+  "rnd_bo8": {
+    "ic": 44,
+    "text": 562,
+    "total": 562,
+    "opt_ms": 8.1
+  },
+  "gnn_bo8": {
+    "ic": 44,
+    "text": 562,
+    "total": 562,
+    "opt_ms": 9.0
+  }
+}

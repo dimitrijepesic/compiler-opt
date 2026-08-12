@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://chstone-v0/motion",
+  "suite": "chstone-v0",
+  "o0": {
+    "ic": 925,
+    "text": 7039,
+    "total": 7039
+  },
+  "oz": {
+    "ic": 384,
+    "text": 6408,
+    "total": 6408,
+    "opt_ms": 20.7
+  },
+  "rnd_bo8": {
+    "ic": 379,
+    "text": 6583,
+    "total": 6583,
+    "opt_ms": 17.6
+  },
+  "gnn_bo8": {
+    "ic": 373,
+    "text": 6543,
+    "total": 6543,
+    "opt_ms": 17.1
+  }
+}

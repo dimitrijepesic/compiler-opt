@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://chstone-v0/mips",
+  "suite": "chstone-v0",
+  "o0": {
+    "ic": 636,
+    "text": 2472,
+    "total": 2472
+  },
+  "oz": {
+    "ic": 392,
+    "text": 2138,
+    "total": 2138,
+    "opt_ms": 21.1
+  },
+  "rnd_bo8": {
+    "ic": 373,
+    "text": 2028,
+    "total": 2028,
+    "opt_ms": 13.3
+  },
+  "gnn_bo8": {
+    "ic": 373,
+    "text": 2028,
+    "total": 2028,
+    "opt_ms": 14.3
+  }
+}

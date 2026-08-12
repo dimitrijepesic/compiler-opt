@@ -1,0 +1,27 @@
+{
+  "uri": "benchmark://chstone-v0/gsm",
+  "suite": "chstone-v0",
+  "o0": {
+    "ic": 1809,
+    "text": 5844,
+    "total": 5844
+  },
+  "oz": {
+    "ic": 843,
+    "text": 5088,
+    "total": 5088,
+    "opt_ms": 35.8
+  },
+  "rnd_bo8": {
+    "ic": 755,
+    "text": 4329,
+    "total": 4329,
+    "opt_ms": 25.2
+  },
+  "gnn_bo8": {
+    "ic": 749,
+    "text": 4329,
+    "total": 4329,
+    "opt_ms": 27.5
+  }
+}
