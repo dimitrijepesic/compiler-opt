@@ -1,0 +1,138 @@
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+[ppo_autophase seed 42] lame: argmax=34859 best-of-8=21245 random-null=21529
+[ppo_autophase seed 42] crc32: argmax=124 best-of-8=114 random-null=115
+[ppo_autophase seed 42] qsort: argmax=308 best-of-8=277 random-null=281
+[ppo_autophase seed 42] stringsearch2: argmax=253 best-of-8=221 random-null=221
+[ppo_autophase seed 42] tiffmedian: argmax=60497 best-of-8=30920 random-null=31393
+[ppo_autophase seed 42] sha: argmax=452 best-of-8=354 random-null=356
+[ppo_autophase seed 42] jpeg-d: argmax=34503 best-of-8=27836 random-null=27901
+[ppo_autophase seed 42] patricia: argmax=648 best-of-8=398 random-null=397
+[ppo_autophase seed 42] tiff2rgba: argmax=57928 best-of-8=29737 random-null=30063
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+[ppo_autophase seed 123] lame: argmax=25183 best-of-8=22626 random-null=21529
+[ppo_autophase seed 123] crc32: argmax=119 best-of-8=114 random-null=115
+[ppo_autophase seed 123] qsort: argmax=309 best-of-8=273 random-null=281
+[ppo_autophase seed 123] stringsearch2: argmax=253 best-of-8=219 random-null=221
+[ppo_autophase seed 123] tiffmedian: argmax=35023 best-of-8=31117 random-null=31393
+[ppo_autophase seed 123] sha: argmax=400 best-of-8=353 random-null=356
+[ppo_autophase seed 123] jpeg-d: argmax=31004 best-of-8=28993 random-null=27901
+[ppo_autophase seed 123] patricia: argmax=657 best-of-8=409 random-null=397
+[ppo_autophase seed 123] tiff2rgba: argmax=33606 best-of-8=29942 random-null=30063
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+[ppo_autophase seed 456] lame: argmax=27557 best-of-8=21390 random-null=21529
+[ppo_autophase seed 456] crc32: argmax=119 best-of-8=114 random-null=115
+[ppo_autophase seed 456] qsort: argmax=281 best-of-8=271 random-null=281
+[ppo_autophase seed 456] stringsearch2: argmax=229 best-of-8=219 random-null=221
+[ppo_autophase seed 456] tiffmedian: argmax=36651 best-of-8=30827 random-null=31393
+[ppo_autophase seed 456] sha: argmax=385 best-of-8=360 random-null=356
+[ppo_autophase seed 456] jpeg-d: argmax=32692 best-of-8=27889 random-null=27901
+[ppo_autophase seed 456] patricia: argmax=648 best-of-8=393 random-null=397
+[ppo_autophase seed 456] tiff2rgba: argmax=35197 best-of-8=29650 random-null=30063
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+[ppo_gnn seed 42] lame: argmax=27797 best-of-8=21342 random-null=21529
+[ppo_gnn seed 42] crc32: argmax=120 best-of-8=114 random-null=115
+[ppo_gnn seed 42] qsort: argmax=319 best-of-8=271 random-null=281
+[ppo_gnn seed 42] stringsearch2: argmax=250 best-of-8=219 random-null=221
+[ppo_gnn seed 42] tiffmedian: argmax=36028 best-of-8=30802 random-null=31393
+[ppo_gnn seed 42] sha: argmax=429 best-of-8=354 random-null=356
+[ppo_gnn seed 42] jpeg-d: argmax=34609 best-of-8=27776 random-null=27901
+[ppo_gnn seed 42] patricia: argmax=751 best-of-8=393 random-null=397
+[ppo_gnn seed 42] tiff2rgba: argmax=34510 best-of-8=29542 random-null=30063
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+[ppo_gnn seed 123] lame: argmax=27851 best-of-8=21238 random-null=21529
+[ppo_gnn seed 123] crc32: argmax=120 best-of-8=114 random-null=115
+[ppo_gnn seed 123] qsort: argmax=319 best-of-8=281 random-null=281
+[ppo_gnn seed 123] stringsearch2: argmax=250 best-of-8=219 random-null=221
+[ppo_gnn seed 123] tiffmedian: argmax=36028 best-of-8=30879 random-null=31393
+[ppo_gnn seed 123] sha: argmax=450 best-of-8=355 random-null=356
+[ppo_gnn seed 123] jpeg-d: argmax=32909 best-of-8=27730 random-null=27901
+[ppo_gnn seed 123] patricia: argmax=751 best-of-8=393 random-null=397
+[ppo_gnn seed 123] tiff2rgba: argmax=34510 best-of-8=29732 random-null=30063
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+[ppo_gnn seed 456] lame: argmax=27851 best-of-8=21247 random-null=21529
+[ppo_gnn seed 456] crc32: argmax=120 best-of-8=114 random-null=115
+[ppo_gnn seed 456] qsort: argmax=319 best-of-8=271 random-null=281
+[ppo_gnn seed 456] stringsearch2: argmax=250 best-of-8=219 random-null=221
+[ppo_gnn seed 456] tiffmedian: argmax=36028 best-of-8=30819 random-null=31393
+[ppo_gnn seed 456] sha: argmax=450 best-of-8=354 random-null=356
+[ppo_gnn seed 456] jpeg-d: argmax=32909 best-of-8=27619 random-null=27901
+[ppo_gnn seed 456] patricia: argmax=751 best-of-8=394 random-null=397
+[ppo_gnn seed 456] tiff2rgba: argmax=34510 best-of-8=29576 random-null=30063
+Saved: results/sampling_evaluation.json
+
+SPLIT TOTALS (best-of-k vs argmax vs random-null):
+  ppo_autophase  test_seed123         argmax=  65667 best-of-8=  59697 null=  58717
+  ppo_autophase  test_seed42          argmax=  93531 best-of-8=  58325 null=  58717
+  ppo_autophase  test_seed456         argmax=  68922 best-of-8=  58292 null=  58717
+  ppo_autophase  validation_seed123   argmax=  60887 best-of-8=  54349 null=  53539
+  ppo_autophase  validation_seed42    argmax=  96041 best-of-8=  52777 null=  53539
+  ppo_autophase  validation_seed456   argmax=  64837 best-of-8=  52821 null=  53539
+  ppo_gnn        test_seed123         argmax=  68620 best-of-8=  58210 null=  58717
+  ppo_gnn        test_seed42          argmax=  70299 best-of-8=  58065 null=  58717
+  ppo_gnn        test_seed456         argmax=  68620 best-of-8=  57943 null=  58717
+  ppo_gnn        validation_seed123   argmax=  64568 best-of-8=  52731 null=  53539
+  ppo_gnn        validation_seed42    argmax=  64514 best-of-8=  52748 null=  53539
+  ppo_gnn        validation_seed456   argmax=  64568 best-of-8=  52670 null=  53539
+=== TRACK-A-DONE ===
