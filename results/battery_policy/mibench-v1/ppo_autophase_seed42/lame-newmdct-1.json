@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://mibench-v1/lame-newmdct-1",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "o0": 569,
+  "oz": 313,
+  "argmax_ic": 351,
+  "sample_ics": [
+    315,
+    332,
+    354,
+    354,
+    361,
+    354,
+    374,
+    357
+  ],
+  "best_of_k_ic": 315,
+  "random_null_best_of_k": 313
+}

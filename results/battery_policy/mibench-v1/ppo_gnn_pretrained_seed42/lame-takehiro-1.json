@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://mibench-v1/lame-takehiro-1",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "o0": 386,
+  "oz": 145,
+  "argmax_ic": 148,
+  "sample_ics": [
+    145,
+    145,
+    145,
+    138,
+    144,
+    145,
+    145,
+    143
+  ],
+  "best_of_k_ic": 138,
+  "random_null_best_of_k": 151
+}

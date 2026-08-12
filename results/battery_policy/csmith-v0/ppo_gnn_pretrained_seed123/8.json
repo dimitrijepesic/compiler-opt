@@ -1,0 +1,20 @@
+{
+  "uri": "generator://csmith-v0/8",
+  "suite": "csmith-v0",
+  "seed": 123,
+  "o0": 2565,
+  "oz": 687,
+  "argmax_ic": 873,
+  "sample_ics": [
+    604,
+    613,
+    700,
+    696,
+    793,
+    712,
+    703,
+    701
+  ],
+  "best_of_k_ic": 604,
+  "random_null_best_of_k": 620
+}

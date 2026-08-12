@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://mibench-v1/jpeg-c-3",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "o0": 325,
+  "oz": 132,
+  "argmax_ic": 163,
+  "sample_ics": [
+    135,
+    135,
+    135,
+    135,
+    135,
+    135,
+    135,
+    135
+  ],
+  "best_of_k_ic": 135,
+  "random_null_best_of_k": 132
+}

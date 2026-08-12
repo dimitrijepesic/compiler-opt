@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://chstone-v0/dfdiv",
+  "suite": "chstone-v0",
+  "seed": 42,
+  "o0": 1083,
+  "oz": 435,
+  "argmax_ic": 559,
+  "sample_ics": [
+    436,
+    431,
+    429,
+    425,
+    425,
+    437,
+    430,
+    429
+  ],
+  "best_of_k_ic": 425,
+  "random_null_best_of_k": 429
+}

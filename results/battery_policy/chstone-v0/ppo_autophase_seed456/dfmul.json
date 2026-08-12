@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://chstone-v0/dfmul",
+  "suite": "chstone-v0",
+  "seed": 456,
+  "o0": 859,
+  "oz": 349,
+  "argmax_ic": 398,
+  "sample_ics": [
+    343,
+    340,
+    339,
+    343,
+    333,
+    344,
+    338,
+    339
+  ],
+  "best_of_k_ic": 333,
+  "random_null_best_of_k": 334
+}

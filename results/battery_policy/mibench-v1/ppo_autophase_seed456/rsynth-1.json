@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://mibench-v1/rsynth-1",
+  "suite": "mibench-v1",
+  "seed": 456,
+  "o0": 224,
+  "oz": 65,
+  "argmax_ic": 67,
+  "sample_ics": [
+    65,
+    65,
+    65,
+    65,
+    65,
+    65,
+    65,
+    67
+  ],
+  "best_of_k_ic": 65,
+  "random_null_best_of_k": 67
+}

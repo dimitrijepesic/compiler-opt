@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://chstone-v0/motion",
+  "suite": "chstone-v0",
+  "seed": 123,
+  "o0": 925,
+  "oz": 384,
+  "argmax_ic": 465,
+  "sample_ics": [
+    383,
+    421,
+    376,
+    373,
+    406,
+    416,
+    438,
+    386
+  ],
+  "best_of_k_ic": 373,
+  "random_null_best_of_k": 380
+}

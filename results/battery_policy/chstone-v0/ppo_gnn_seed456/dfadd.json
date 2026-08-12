@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://chstone-v0/dfadd",
+  "suite": "chstone-v0",
+  "seed": 456,
+  "o0": 991,
+  "oz": 422,
+  "argmax_ic": 471,
+  "sample_ics": [
+    407,
+    409,
+    409,
+    409,
+    409,
+    402,
+    407,
+    407
+  ],
+  "best_of_k_ic": 402,
+  "random_null_best_of_k": 403
+}

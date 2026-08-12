@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://chstone-v0/jpeg",
+  "suite": "chstone-v0",
+  "seed": 42,
+  "o0": 3186,
+  "oz": 1590,
+  "argmax_ic": 1757,
+  "sample_ics": [
+    1499,
+    1535,
+    1536,
+    1552,
+    1543,
+    1527,
+    1483,
+    1532
+  ],
+  "best_of_k_ic": 1483,
+  "random_null_best_of_k": 1476
+}

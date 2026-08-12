@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://mibench-v1/tiffmedian-1",
+  "suite": "mibench-v1",
+  "seed": 456,
+  "o0": 229,
+  "oz": 72,
+  "argmax_ic": 74,
+  "sample_ics": [
+    73,
+    72,
+    73,
+    73,
+    73,
+    78,
+    68,
+    77
+  ],
+  "best_of_k_ic": 68,
+  "random_null_best_of_k": 69
+}

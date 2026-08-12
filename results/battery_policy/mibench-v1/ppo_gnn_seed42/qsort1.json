@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://mibench-v1/qsort1",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "o0": 114,
+  "oz": 47,
+  "argmax_ic": 51,
+  "sample_ics": [
+    47,
+    47,
+    47,
+    47,
+    48,
+    47,
+    52,
+    49
+  ],
+  "best_of_k_ic": 47,
+  "random_null_best_of_k": 48
+}

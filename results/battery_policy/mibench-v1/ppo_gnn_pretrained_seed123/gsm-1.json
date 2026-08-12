@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://mibench-v1/gsm-1",
+  "suite": "mibench-v1",
+  "seed": 123,
+  "o0": 218,
+  "oz": 95,
+  "argmax_ic": 111,
+  "sample_ics": [
+    89,
+    88,
+    104,
+    104,
+    93,
+    93,
+    93,
+    93
+  ],
+  "best_of_k_ic": 88,
+  "random_null_best_of_k": 80
+}

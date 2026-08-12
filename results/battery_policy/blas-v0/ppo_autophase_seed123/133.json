@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://blas-v0/133",
+  "suite": "blas-v0",
+  "seed": 123,
+  "o0": 1234,
+  "oz": 1150,
+  "argmax_ic": 1151,
+  "sample_ics": [
+    1140,
+    1143,
+    1148,
+    1154,
+    1154,
+    1138,
+    1153,
+    1142
+  ],
+  "best_of_k_ic": 1138,
+  "random_null_best_of_k": 1142
+}

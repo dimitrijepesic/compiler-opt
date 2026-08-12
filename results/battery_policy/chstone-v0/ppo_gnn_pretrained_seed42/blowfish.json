@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://chstone-v0/blowfish",
+  "suite": "chstone-v0",
+  "seed": 42,
+  "o0": 2134,
+  "oz": 1214,
+  "argmax_ic": 1218,
+  "sample_ics": [
+    1146,
+    1146,
+    1149,
+    1149,
+    1146,
+    1151,
+    1150,
+    1148
+  ],
+  "best_of_k_ic": 1146,
+  "random_null_best_of_k": 1144
+}

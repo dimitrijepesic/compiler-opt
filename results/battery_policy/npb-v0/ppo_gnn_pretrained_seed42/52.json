@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://npb-v0/52",
+  "suite": "npb-v0",
+  "seed": 42,
+  "o0": 831,
+  "oz": 517,
+  "argmax_ic": 506,
+  "sample_ics": [
+    469,
+    469,
+    469,
+    408,
+    470,
+    470,
+    469,
+    470
+  ],
+  "best_of_k_ic": 408,
+  "random_null_best_of_k": 305
+}

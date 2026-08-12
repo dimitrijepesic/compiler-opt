@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://mibench-v1/bitcount-2",
+  "suite": "mibench-v1",
+  "seed": 123,
+  "o0": 131,
+  "oz": 49,
+  "argmax_ic": 57,
+  "sample_ics": [
+    49,
+    49,
+    49,
+    49,
+    49,
+    49,
+    51,
+    49
+  ],
+  "best_of_k_ic": 49,
+  "random_null_best_of_k": 49
+}

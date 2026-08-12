@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://chstone-v0/gsm",
+  "suite": "chstone-v0",
+  "seed": 123,
+  "o0": 1809,
+  "oz": 843,
+  "argmax_ic": 1001,
+  "sample_ics": [
+    889,
+    915,
+    920,
+    909,
+    930,
+    894,
+    892,
+    793
+  ],
+  "best_of_k_ic": 793,
+  "random_null_best_of_k": 775
+}

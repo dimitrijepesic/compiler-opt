@@ -137,15 +137,30 @@ Napomena: RndRed-1ep ≈ -Oz na većini suite-ova (npr. cBench val-small:
 
 ### IV-B. Argmax vs sampling (TABLE II) — glavna tabela rada
 
-Policy eval (k=8) preko 4 suite-a (295 programa, IC≤6K), medijalni seed;
-[TBD: mibench+chstone gap-fill — ažuriraj kad legne]:
+Policy eval (k=8) preko 6 suite-ova (347 programa, IC≤6K), medijalni seed:
 
-| Suite | Null bo8 | -Oz | AP argmax | AP bo8 | GNN argmax | GNN bo8 |
-|---|---|---|---|---|---|---|
-| BLAS | 37,099 | 37,838 | 40,264 | 36,998 | 40,500 | 36,847 |
-| csmith | 17,555 | 20,226 | 33,325 | 17,179 | 39,323 | 17,064 |
-| NPB | 40,301 | 53,085 | 57,498 | 40,822 | 79,686 | 39,909 |
-| POJ-104 | 7,853 | 8,334 | 11,708 | 7,917 | 12,846 | 7,730 |
+| Suite | n | Null bo8 | -Oz | AP argmax | AP bo8 | GNN argmax | GNN bo8 |
+|---|---|---|---|---|---|---|---|
+| MiBench | 40 | 4,828 | 4,841 | — | 4,783 | — | 4,782 |
+| CHStone | 12 | 9,241 | 9,834 | — | 9,133 | — | 9,120 |
+| BLAS | 50 | 37,099 | 37,838 | 40,264 | 36,998 | 40,500 | 36,847 |
+| csmith | 28 | 17,555 | 20,226 | 33,325 | 17,179 | 39,323 | 17,064 |
+| NPB | 120 | 40,301 | 53,085 | 57,498 | 40,822 | 79,686 | 39,909 |
+| POJ-104 | 97 | 7,853 | 8,334 | 11,708 | 7,917 | 12,846 | 7,730 |
+
+(argmax kolone za mibench/chstone dopuni iz per-program JSON-ova ako
+treba; bo8 i null su glavna poruka tabele — argmax možda i izbaciti iz
+tabele i pomenuti samo u tekstu, zbog prostora)
+
+**FINALNA STATISTIKA (compute_stats.py, sve izmereno):**
+- **GNN vs null: 24/24 pobeda (7 suite-ova × seed-ovi), sign test
+  p = 5.96e-08; Wilcoxon značajan na SVIH 7 suite-ova** (cbench 0.0039,
+  blas 0.0020, chstone 0.0146, csmith 0.0001, mibench 0.0499,
+  npb <1e-4, poj104 <1e-4).
+- AP vs null: 15/24, p = 0.154 (neznačajno). Pretrained-as-sampler:
+  7/12, p = 0.39 (neznačajno).
+- Rečenica za rad: identičan trening i evaluacija — flat reprezentacija
+  daje hit-or-miss sampler, grafovska daje sampler koji pobeđuje svuda.
 
 Plus cBench iz kontrolisane studije (pun val/test): GNN bo8
 52,716/58,073 vs null 53,539/58,717 vs greedy 52,481/58,069.

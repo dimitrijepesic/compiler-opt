@@ -1,0 +1,144 @@
+{
+  "agent": "ppo_autophase",
+  "timestamp": "2026-08-12T13:55:00.135296",
+  "per_suite": {
+    "blas-v0": {
+      "123": {
+        "n": 50,
+        "argmax": 38583,
+        "best_of_k": 36998,
+        "null_best_of_k": 37099,
+        "oz": 37838
+      },
+      "42": {
+        "n": 50,
+        "argmax": 40371,
+        "best_of_k": 36871,
+        "null_best_of_k": 37099,
+        "oz": 37838
+      },
+      "456": {
+        "n": 50,
+        "argmax": 40264,
+        "best_of_k": 37195,
+        "null_best_of_k": 37099,
+        "oz": 37838
+      }
+    },
+    "chstone-v0": {
+      "123": {
+        "n": 12,
+        "argmax": 10595,
+        "best_of_k": 9233,
+        "null_best_of_k": 9241,
+        "oz": 9834
+      },
+      "42": {
+        "n": 12,
+        "argmax": 11844,
+        "best_of_k": 9129,
+        "null_best_of_k": 9241,
+        "oz": 9834
+      },
+      "456": {
+        "n": 12,
+        "argmax": 10719,
+        "best_of_k": 9133,
+        "null_best_of_k": 9241,
+        "oz": 9834
+      }
+    },
+    "csmith-v0": {
+      "123": {
+        "n": 28,
+        "argmax": 35531,
+        "best_of_k": 17664,
+        "null_best_of_k": 17555,
+        "oz": 20226
+      },
+      "42": {
+        "n": 28,
+        "argmax": 33325,
+        "best_of_k": 17179,
+        "null_best_of_k": 17555,
+        "oz": 20226
+      },
+      "456": {
+        "n": 28,
+        "argmax": 29674,
+        "best_of_k": 17048,
+        "null_best_of_k": 17555,
+        "oz": 20226
+      }
+    },
+    "mibench-v1": {
+      "123": {
+        "n": 40,
+        "argmax": 5509,
+        "best_of_k": 4801,
+        "null_best_of_k": 4828,
+        "oz": 4841
+      },
+      "42": {
+        "n": 40,
+        "argmax": 6106,
+        "best_of_k": 4783,
+        "null_best_of_k": 4828,
+        "oz": 4841
+      },
+      "456": {
+        "n": 40,
+        "argmax": 5420,
+        "best_of_k": 4765,
+        "null_best_of_k": 4828,
+        "oz": 4841
+      }
+    },
+    "npb-v0": {
+      "123": {
+        "n": 120,
+        "argmax": 57498,
+        "best_of_k": 42668,
+        "null_best_of_k": 40301,
+        "oz": 53085
+      },
+      "42": {
+        "n": 120,
+        "argmax": 64022,
+        "best_of_k": 40675,
+        "null_best_of_k": 40301,
+        "oz": 53085
+      },
+      "456": {
+        "n": 120,
+        "argmax": 50531,
+        "best_of_k": 40822,
+        "null_best_of_k": 40301,
+        "oz": 53085
+      }
+    },
+    "poj104-v1": {
+      "123": {
+        "n": 97,
+        "argmax": 11708,
+        "best_of_k": 7917,
+        "null_best_of_k": 7853,
+        "oz": 8334
+      },
+      "42": {
+        "n": 97,
+        "argmax": 12951,
+        "best_of_k": 7956,
+        "null_best_of_k": 7853,
+        "oz": 8334
+      },
+      "456": {
+        "n": 97,
+        "argmax": 11000,
+        "best_of_k": 7752,
+        "null_best_of_k": 7853,
+        "oz": 8334
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://mibench-v1/lame-psymodel",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "o0": 1563,
+  "oz": 507,
+  "argmax_ic": 604,
+  "sample_ics": [
+    540,
+    566,
+    521,
+    545,
+    518,
+    522,
+    537,
+    550
+  ],
+  "best_of_k_ic": 518,
+  "random_null_best_of_k": 513
+}

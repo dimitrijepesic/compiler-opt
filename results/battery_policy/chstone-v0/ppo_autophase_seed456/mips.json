@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://chstone-v0/mips",
+  "suite": "chstone-v0",
+  "seed": 456,
+  "o0": 636,
+  "oz": 392,
+  "argmax_ic": 408,
+  "sample_ics": [
+    373,
+    373,
+    378,
+    378,
+    378,
+    373,
+    379,
+    373
+  ],
+  "best_of_k_ic": 373,
+  "random_null_best_of_k": 379
+}

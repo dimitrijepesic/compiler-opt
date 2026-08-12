@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://mibench-v1/dijkstra",
+  "suite": "mibench-v1",
+  "seed": 456,
+  "o0": 121,
+  "oz": 46,
+  "argmax_ic": 56,
+  "sample_ics": [
+    45,
+    45,
+    45,
+    45,
+    44,
+    44,
+    46,
+    45
+  ],
+  "best_of_k_ic": 44,
+  "random_null_best_of_k": 44
+}

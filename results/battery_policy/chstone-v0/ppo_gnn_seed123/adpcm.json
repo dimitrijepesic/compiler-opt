@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://chstone-v0/adpcm",
+  "suite": "chstone-v0",
+  "seed": 123,
+  "o0": 1474,
+  "oz": 966,
+  "argmax_ic": 842,
+  "sample_ics": [
+    732,
+    780,
+    720,
+    739,
+    753,
+    733,
+    745,
+    727
+  ],
+  "best_of_k_ic": 720,
+  "random_null_best_of_k": 739
+}

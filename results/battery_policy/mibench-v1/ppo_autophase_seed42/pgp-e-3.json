@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://mibench-v1/pgp-e-3",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "o0": 171,
+  "oz": 63,
+  "argmax_ic": 72,
+  "sample_ics": [
+    70,
+    68,
+    63,
+    63,
+    63,
+    68,
+    65,
+    65
+  ],
+  "best_of_k_ic": 63,
+  "random_null_best_of_k": 63
+}

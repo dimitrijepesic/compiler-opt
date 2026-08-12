@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://poj104-v1/80/1396",
+  "suite": "poj104-v1",
+  "seed": 456,
+  "o0": 344,
+  "oz": 154,
+  "argmax_ic": 254,
+  "sample_ics": [
+    166,
+    162,
+    171,
+    171,
+    167,
+    172,
+    174,
+    172
+  ],
+  "best_of_k_ic": 162,
+  "random_null_best_of_k": 163
+}

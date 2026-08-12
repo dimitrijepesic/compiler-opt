@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://chstone-v0/aes",
+  "suite": "chstone-v0",
+  "seed": 456,
+  "o0": 4048,
+  "oz": 1987,
+  "argmax_ic": 2075,
+  "sample_ics": [
+    1987,
+    1995,
+    1978,
+    1986,
+    1996,
+    2058,
+    1978,
+    1968
+  ],
+  "best_of_k_ic": 1968,
+  "random_null_best_of_k": 2018
+}

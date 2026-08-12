@@ -1,0 +1,20 @@
+{
+  "uri": "benchmark://mibench-v1/susan-e-2",
+  "suite": "mibench-v1",
+  "seed": 123,
+  "o0": 1629,
+  "oz": 610,
+  "argmax_ic": 857,
+  "sample_ics": [
+    702,
+    814,
+    782,
+    705,
+    786,
+    783,
+    712,
+    804
+  ],
+  "best_of_k_ic": 702,
+  "random_null_best_of_k": 704
+}
