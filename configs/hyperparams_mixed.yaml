@@ -1,0 +1,44 @@
+# configs/hyperparams_mixed.yaml
+# Track B: mixed-size training. Identical to hyperparams.yaml except the
+# benchmark size cap — 20000 admits 9 training benchmarks (450..15184 O0 IC),
+# testing whether training on a wider size range fixes the scale-
+# generalization failure seen with the <3000 set.
+
+rl_max_benchmark_ic: 20000
+
+ppo:
+  clip_ratio: 0.2
+  gae_lambda: 0.95
+  entropy_coeff: 0.01
+  entropy_coeff_final: 0.001
+  target_kl: 0.02
+  learning_rate: 3.0e-4
+  lr_schedule: cosine
+  batch_size: 64
+  ppo_epochs: 4
+  collect_steps: 2048
+  max_episode_steps: 45
+  gamma: 0.99
+  total_env_steps: 100000
+  val_interval_steps: 5000
+
+gnn:
+  num_layers: 3
+  hidden_dim: 128
+  embedding_dim: 64
+  aggregation: mean
+  pooling: mean
+  dropout: 0.1
+  encoder_lr: 1.0e-4
+
+policy_mlp:
+  hidden_dim: 256
+  num_layers: 2
+  activation: relu
+
+value_mlp:
+  hidden_dim: 256
+  num_layers: 2
+  activation: relu
+
+seeds: [42, 123, 456]

@@ -21,6 +21,9 @@ def main():
     parser.add_argument("--passes", type=str, default="configs/passes.yaml")
     parser.add_argument("--benchmarks", type=str, default="configs/benchmarks.yaml")
     parser.add_argument("--save-dir", type=str, default="results/ppo_gnn")
+    parser.add_argument("--init-encoder", type=str, default=None,
+                        help="Path to pretrained encoder checkpoint "
+                             "(scripts/pretrain_gnn.py output)")
     args = parser.parse_args()
 
     seeds = [args.seed] if args.seed is not None else [42, 123, 456]
@@ -35,6 +38,7 @@ def main():
             passes_path=args.passes,
             benchmarks_path=args.benchmarks,
             seed=seed,
+            init_encoder_path=args.init_encoder,
         )
 
         try:

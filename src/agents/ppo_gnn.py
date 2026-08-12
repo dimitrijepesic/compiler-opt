@@ -70,7 +70,7 @@ class PPOGNNAgent:
     def __init__(self, config_path="configs/hyperparams.yaml",
                  passes_path="configs/passes.yaml",
                  benchmarks_path="configs/benchmarks.yaml",
-                 seed=42):
+                 seed=42, init_encoder_path=None):
 
         # Load configs
         with open(config_path) as f:
@@ -141,6 +141,14 @@ class PPOGNNAgent:
             dropout=gnn_cfg["dropout"],
             aggregation=gnn_cfg["aggregation"],
         )
+
+        # Optionally warm-start the encoder from a pretrained checkpoint
+        # (e.g. Autophase distillation — scripts/pretrain_gnn.py)
+        if init_encoder_path:
+            ckpt = torch.load(init_encoder_path, weights_only=True)
+            self.gnn.load_state_dict(ckpt["encoder_state_dict"])
+            print(f"  Initialized encoder from {init_encoder_path} "
+                  f"(pretrain val MSE {ckpt.get('val_mse', '?')})")
 
         # Policy and value heads take GNN output as input
         gnn_output_dim = gnn_cfg["hidden_dim"]
