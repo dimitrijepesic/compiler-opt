@@ -1,0 +1,607 @@
+{
+  "timestamp": "2026-08-12T08:44:41.598696",
+  "baselines_file": "results/full_baselines_v2.json",
+  "splits": {
+    "validation": {
+      "benchmarks": [
+        "lame",
+        "crc32",
+        "qsort",
+        "stringsearch2",
+        "tiffmedian"
+      ],
+      "method_ics": {
+        "o0": [
+          49131,
+          242,
+          638,
+          482,
+          61265
+        ],
+        "o3": [
+          35594,
+          164,
+          1163,
+          281,
+          40651
+        ],
+        "oz": [
+          22785,
+          114,
+          315,
+          214,
+          31984
+        ],
+        "greedy": [
+          21058,
+          114,
+          271,
+          219,
+          30819
+        ],
+        "random": [
+          24527,
+          117,
+          289,
+          232,
+          34407
+        ],
+        "random_reduced_search": [
+          21027,
+          114,
+          271,
+          219,
+          31094
+        ],
+        "ppo_autophase": [
+          34859,
+          119,
+          308,
+          253,
+          47396
+        ],
+        "ppo_gnn": [
+          27602,
+          120,
+          310,
+          250,
+          36676
+        ]
+      },
+      "geomean_vs_o3": {
+        "o0": 0.8088,
+        "o3": 1.0,
+        "oz": 1.6915,
+        "greedy": 1.7758,
+        "random": 1.6358,
+        "random_reduced_search": 1.7732,
+        "ppo_autophase": 1.3831,
+        "ppo_gnn": 1.5246
+      },
+      "agents": {
+        "ppo_autophase": {
+          "runs": [
+            {
+              "seed": 42,
+              "checkpoint": "checkpoint_best_seed42.pt",
+              "total_ic": 82935,
+              "reduction_pct": 25.79,
+              "ics": [
+                34859,
+                119,
+                308,
+                253,
+                47396
+              ],
+              "details": [
+                {
+                  "uri": "benchmark://cBench-v1/lame",
+                  "short_name": "lame",
+                  "initial_ic": 49131,
+                  "final_ic": 34859,
+                  "reduction_pct": 29.05
+                },
+                {
+                  "uri": "benchmark://cBench-v1/crc32",
+                  "short_name": "crc32",
+                  "initial_ic": 242,
+                  "final_ic": 119,
+                  "reduction_pct": 50.83
+                },
+                {
+                  "uri": "benchmark://cBench-v1/qsort",
+                  "short_name": "qsort",
+                  "initial_ic": 638,
+                  "final_ic": 308,
+                  "reduction_pct": 51.72
+                },
+                {
+                  "uri": "benchmark://cBench-v1/stringsearch2",
+                  "short_name": "stringsearch2",
+                  "initial_ic": 482,
+                  "final_ic": 253,
+                  "reduction_pct": 47.51
+                },
+                {
+                  "uri": "benchmark://cBench-v1/tiffmedian",
+                  "short_name": "tiffmedian",
+                  "initial_ic": 61265,
+                  "final_ic": 47396,
+                  "reduction_pct": 22.64
+                }
+              ]
+            },
+            {
+              "seed": 123,
+              "checkpoint": "checkpoint_best_seed123.pt",
+              "total_ic": 60798,
+              "reduction_pct": 45.6,
+              "ics": [
+                25145,
+                120,
+                281,
+                250,
+                35002
+              ],
+              "details": [
+                {
+                  "uri": "benchmark://cBench-v1/lame",
+                  "short_name": "lame",
+                  "initial_ic": 49131,
+                  "final_ic": 25145,
+                  "reduction_pct": 48.82
+                },
+                {
+                  "uri": "benchmark://cBench-v1/crc32",
+                  "short_name": "crc32",
+                  "initial_ic": 242,
+                  "final_ic": 120,
+                  "reduction_pct": 50.41
+                },
+                {
+                  "uri": "benchmark://cBench-v1/qsort",
+                  "short_name": "qsort",
+                  "initial_ic": 638,
+                  "final_ic": 281,
+                  "reduction_pct": 55.96
+                },
+                {
+                  "uri": "benchmark://cBench-v1/stringsearch2",
+                  "short_name": "stringsearch2",
+                  "initial_ic": 482,
+                  "final_ic": 250,
+                  "reduction_pct": 48.13
+                },
+                {
+                  "uri": "benchmark://cBench-v1/tiffmedian",
+                  "short_name": "tiffmedian",
+                  "initial_ic": 61265,
+                  "final_ic": 35002,
+                  "reduction_pct": 42.87
+                }
+              ]
+            },
+            {
+              "seed": 456,
+              "checkpoint": "checkpoint_best_seed456.pt",
+              "total_ic": 111077,
+              "reduction_pct": 0.61,
+              "ics": [
+                49131,
+                124,
+                308,
+                249,
+                61265
+              ],
+              "details": [
+                {
+                  "uri": "benchmark://cBench-v1/lame",
+                  "short_name": "lame",
+                  "initial_ic": 49131,
+                  "final_ic": 49131,
+                  "reduction_pct": 0.0
+                },
+                {
+                  "uri": "benchmark://cBench-v1/crc32",
+                  "short_name": "crc32",
+                  "initial_ic": 242,
+                  "final_ic": 124,
+                  "reduction_pct": 48.76
+                },
+                {
+                  "uri": "benchmark://cBench-v1/qsort",
+                  "short_name": "qsort",
+                  "initial_ic": 638,
+                  "final_ic": 308,
+                  "reduction_pct": 51.72
+                },
+                {
+                  "uri": "benchmark://cBench-v1/stringsearch2",
+                  "short_name": "stringsearch2",
+                  "initial_ic": 482,
+                  "final_ic": 249,
+                  "reduction_pct": 48.34
+                },
+                {
+                  "uri": "benchmark://cBench-v1/tiffmedian",
+                  "short_name": "tiffmedian",
+                  "initial_ic": 61265,
+                  "final_ic": 61265,
+                  "reduction_pct": 0.0
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "seeds": [
+              42,
+              123,
+              456
+            ],
+            "total_ics": [
+              82935,
+              60798,
+              111077
+            ],
+            "mean_total_ic": 84936.7,
+            "std_total_ic": 20575.1,
+            "bootstrap_ci_95": [
+              60798.0,
+              111077.0
+            ],
+            "median_seed": 42
+          }
+        },
+        "ppo_gnn": {
+          "runs": [
+            {
+              "seed": 42,
+              "checkpoint": "checkpoint_best_seed42.pt",
+              "total_ic": 64958,
+              "reduction_pct": 41.88,
+              "ics": [
+                27602,
+                120,
+                310,
+                250,
+                36676
+              ],
+              "details": [
+                {
+                  "uri": "benchmark://cBench-v1/lame",
+                  "short_name": "lame",
+                  "initial_ic": 49131,
+                  "final_ic": 27602,
+                  "reduction_pct": 43.82
+                },
+                {
+                  "uri": "benchmark://cBench-v1/crc32",
+                  "short_name": "crc32",
+                  "initial_ic": 242,
+                  "final_ic": 120,
+                  "reduction_pct": 50.41
+                },
+                {
+                  "uri": "benchmark://cBench-v1/qsort",
+                  "short_name": "qsort",
+                  "initial_ic": 638,
+                  "final_ic": 310,
+                  "reduction_pct": 51.41
+                },
+                {
+                  "uri": "benchmark://cBench-v1/stringsearch2",
+                  "short_name": "stringsearch2",
+                  "initial_ic": 482,
+                  "final_ic": 250,
+                  "reduction_pct": 48.13
+                },
+                {
+                  "uri": "benchmark://cBench-v1/tiffmedian",
+                  "short_name": "tiffmedian",
+                  "initial_ic": 61265,
+                  "final_ic": 36676,
+                  "reduction_pct": 40.14
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "seeds": [
+              42
+            ],
+            "total_ics": [
+              64958
+            ],
+            "mean_total_ic": 64958.0,
+            "std_total_ic": 0.0,
+            "median_seed": 42
+          }
+        }
+      },
+      "wilcoxon_ap_vs_gnn": {
+        "statistic": 3.0,
+        "p_value": 0.3125
+      }
+    },
+    "test": {
+      "benchmarks": [
+        "sha",
+        "jpeg-d",
+        "patricia",
+        "tiff2rgba"
+      ],
+      "method_ics": {
+        "o0": [
+          799,
+          59942,
+          1282,
+          58661
+        ],
+        "o3": [
+          789,
+          45383,
+          566,
+          39243
+        ],
+        "oz": [
+          500,
+          28883,
+          383,
+          30809
+        ],
+        "greedy": [
+          358,
+          27671,
+          401,
+          29639
+        ],
+        "random": [
+          388,
+          29037,
+          416,
+          34097
+        ],
+        "random_reduced_search": [
+          353,
+          27833,
+          397,
+          29698
+        ],
+        "ppo_autophase": [
+          405,
+          43489,
+          877,
+          45471
+        ],
+        "ppo_gnn": [
+          436,
+          32692,
+          754,
+          35222
+        ]
+      },
+      "geomean_vs_o3": {
+        "o0": 0.6855,
+        "o3": 1.0,
+        "oz": 1.4698,
+        "greedy": 1.6122,
+        "random": 1.4936,
+        "random_reduced_search": 1.6187,
+        "ppo_autophase": 1.0316,
+        "ppo_gnn": 1.204
+      },
+      "agents": {
+        "ppo_autophase": {
+          "runs": [
+            {
+              "seed": 42,
+              "checkpoint": "checkpoint_best_seed42.pt",
+              "total_ic": 90242,
+              "reduction_pct": 25.22,
+              "ics": [
+                405,
+                43489,
+                877,
+                45471
+              ],
+              "details": [
+                {
+                  "uri": "benchmark://cBench-v1/sha",
+                  "short_name": "sha",
+                  "initial_ic": 799,
+                  "final_ic": 405,
+                  "reduction_pct": 49.31
+                },
+                {
+                  "uri": "benchmark://cBench-v1/jpeg-d",
+                  "short_name": "jpeg-d",
+                  "initial_ic": 59942,
+                  "final_ic": 43489,
+                  "reduction_pct": 27.45
+                },
+                {
+                  "uri": "benchmark://cBench-v1/patricia",
+                  "short_name": "patricia",
+                  "initial_ic": 1282,
+                  "final_ic": 877,
+                  "reduction_pct": 31.59
+                },
+                {
+                  "uri": "benchmark://cBench-v1/tiff2rgba",
+                  "short_name": "tiff2rgba",
+                  "initial_ic": 58661,
+                  "final_ic": 45471,
+                  "reduction_pct": 22.49
+                }
+              ]
+            },
+            {
+              "seed": 123,
+              "checkpoint": "checkpoint_best_seed123.pt",
+              "total_ic": 65711,
+              "reduction_pct": 45.55,
+              "ics": [
+                474,
+                31004,
+                648,
+                33585
+              ],
+              "details": [
+                {
+                  "uri": "benchmark://cBench-v1/sha",
+                  "short_name": "sha",
+                  "initial_ic": 799,
+                  "final_ic": 474,
+                  "reduction_pct": 40.68
+                },
+                {
+                  "uri": "benchmark://cBench-v1/jpeg-d",
+                  "short_name": "jpeg-d",
+                  "initial_ic": 59942,
+                  "final_ic": 31004,
+                  "reduction_pct": 48.28
+                },
+                {
+                  "uri": "benchmark://cBench-v1/patricia",
+                  "short_name": "patricia",
+                  "initial_ic": 1282,
+                  "final_ic": 648,
+                  "reduction_pct": 49.45
+                },
+                {
+                  "uri": "benchmark://cBench-v1/tiff2rgba",
+                  "short_name": "tiff2rgba",
+                  "initial_ic": 58661,
+                  "final_ic": 33585,
+                  "reduction_pct": 42.75
+                }
+              ]
+            },
+            {
+              "seed": 456,
+              "checkpoint": "checkpoint_best_seed456.pt",
+              "total_ic": 119827,
+              "reduction_pct": 0.71,
+              "ics": [
+                474,
+                59941,
+                751,
+                58661
+              ],
+              "details": [
+                {
+                  "uri": "benchmark://cBench-v1/sha",
+                  "short_name": "sha",
+                  "initial_ic": 799,
+                  "final_ic": 474,
+                  "reduction_pct": 40.68
+                },
+                {
+                  "uri": "benchmark://cBench-v1/jpeg-d",
+                  "short_name": "jpeg-d",
+                  "initial_ic": 59942,
+                  "final_ic": 59941,
+                  "reduction_pct": 0.0
+                },
+                {
+                  "uri": "benchmark://cBench-v1/patricia",
+                  "short_name": "patricia",
+                  "initial_ic": 1282,
+                  "final_ic": 751,
+                  "reduction_pct": 41.42
+                },
+                {
+                  "uri": "benchmark://cBench-v1/tiff2rgba",
+                  "short_name": "tiff2rgba",
+                  "initial_ic": 58661,
+                  "final_ic": 58661,
+                  "reduction_pct": 0.0
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "seeds": [
+              42,
+              123,
+              456
+            ],
+            "total_ics": [
+              90242,
+              65711,
+              119827
+            ],
+            "mean_total_ic": 91926.7,
+            "std_total_ic": 22124.9,
+            "bootstrap_ci_95": [
+              65711.0,
+              119827.0
+            ],
+            "median_seed": 42
+          }
+        },
+        "ppo_gnn": {
+          "runs": [
+            {
+              "seed": 42,
+              "checkpoint": "checkpoint_best_seed42.pt",
+              "total_ic": 69104,
+              "reduction_pct": 42.74,
+              "ics": [
+                436,
+                32692,
+                754,
+                35222
+              ],
+              "details": [
+                {
+                  "uri": "benchmark://cBench-v1/sha",
+                  "short_name": "sha",
+                  "initial_ic": 799,
+                  "final_ic": 436,
+                  "reduction_pct": 45.43
+                },
+                {
+                  "uri": "benchmark://cBench-v1/jpeg-d",
+                  "short_name": "jpeg-d",
+                  "initial_ic": 59942,
+                  "final_ic": 32692,
+                  "reduction_pct": 45.46
+                },
+                {
+                  "uri": "benchmark://cBench-v1/patricia",
+                  "short_name": "patricia",
+                  "initial_ic": 1282,
+                  "final_ic": 754,
+                  "reduction_pct": 41.19
+                },
+                {
+                  "uri": "benchmark://cBench-v1/tiff2rgba",
+                  "short_name": "tiff2rgba",
+                  "initial_ic": 58661,
+                  "final_ic": 35222,
+                  "reduction_pct": 39.96
+                }
+              ]
+            }
+          ],
+          "summary": {
+            "seeds": [
+              42
+            ],
+            "total_ics": [
+              69104
+            ],
+            "mean_total_ic": 69104.0,
+            "std_total_ic": 0.0,
+            "median_seed": 42
+          }
+        }
+      },
+      "wilcoxon_ap_vs_gnn": {
+        "statistic": 1.0,
+        "p_value": 0.25
+      }
+    }
+  }
+}
