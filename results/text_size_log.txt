@@ -1,0 +1,48 @@
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+[1/36] lame: o0: ic=49131 text=170207 oz: ic=22785 text=150387 random36_best: ic=22273 text=136185
+[2/36] crc32: o0: ic=242 text=967 oz: ic=114 text=2947 random36_best: ic=114 text=2947
+[3/36] qsort: o0: ic=638 text=2302 oz: ic=315 text=2162 random36_best: ic=272 text=2115
+[4/36] stringsearch2: o0: ic=482 text=1990 oz: ic=214 text=1474 random36_best: ic=219 text=1522
+[5/36] tiffmedian: o0: ic=61265 text=296394 oz: ic=31984 text=260537 random36_best: ic=31396 text=259636
+[6/36] sha: o0: ic=799 text=2661 oz: ic=500 text=2517 random36_best: ic=354 text=2349
+[7/36] jpeg-d: o0: ic=59942 text=165207 oz: ic=28883 text=129051 random36_best: ic=27823 text=126431
+[8/36] patricia: o0: ic=1282 text=3868 oz: ic=383 text=2019 random36_best: ic=404 text=2210
+[9/36] tiff2rgba: o0: ic=58661 text=289107 oz: ic=30809 text=255940 random36_best: ic=29921 text=258055
+[10/36] adpcm: o0: ic=1474 text=7045 oz: ic=966 text=7917 random36_best: ic=728 text=5853
+[11/36] aes: o0: ic=4048 text=12619 oz: ic=1987 text=10561 random36_best: ic=2000 text=11251
+[12/36] blowfish: o0: ic=2134 text=23935 oz: ic=1214 text=22486 random36_best: ic=1171 text=22782
+[13/36] dfadd: o0: ic=991 text=5158 oz: ic=422 text=4357 random36_best: ic=401 text=4768
+[14/36] dfdiv: o0: ic=1083 text=4838 oz: ic=435 text=3806 random36_best: ic=426 text=4240
+[15/36] dfmul: o0: ic=859 text=4014 oz: ic=349 text=3366 random36_best: ic=333 text=3680
+[16/36] dfsin: o0: ic=2070 text=7715 oz: ic=904 text=6047 random36_best: ic=866 text=6799
+[17/36] gsm: o0: ic=1809 text=5844 oz: ic=843 text=5088 random36_best: ic=744 text=4281
+[18/36] jpeg: o0: ic=3186 text=32809 oz: ic=1590 text=31669 random36_best: ic=1474 text=30775
+[19/36] mips: o0: ic=636 text=2472 oz: ic=392 text=2138 random36_best: ic=374 text=2052
+[20/36] motion: o0: ic=925 text=7039 oz: ic=384 text=6408 random36_best: ic=383 text=6540
+[21/36] sha: o0: ic=642 text=18252 oz: ic=348 text=17998 random36_best: ic=299 text=17910
+Installing the benchmark://mibench-v1 dataset. This may take a few moments ...
+[22/36] dijkstra: o0: ic=121 text=661 oz: ic=46 text=562 random36_best: ic=44 text=562
+[23/36] fft-1: o0: ic=131 text=748 oz: ic=47 text=600 random36_best: ic=47 text=616
+[24/36] gsm-1: o0: ic=218 text=860 oz: ic=95 text=695 random36_best: ic=80 text=855
+[25/36] lame-newmdct-1: o0: ic=569 text=1715 oz: ic=313 text=1521 random36_best: ic=313 text=1521
+[26/36] lame-takehiro-2: o0: ic=162 text=932 oz: ic=60 text=827 random36_best: ic=58 text=811
+[27/36] mad-2: o0: ic=243 text=1021 oz: ic=97 text=873 random36_best: ic=99 text=873
+[28/36] pgp-e-2: o0: ic=158 text=845 oz: ic=58 text=698 random36_best: ic=58 text=698
+[29/36] rsynth-1: o0: ic=224 text=1225 oz: ic=65 text=972 random36_best: ic=65 text=972
+[30/36] rsynth-2: o0: ic=155 text=832 oz: ic=44 text=701 random36_best: ic=44 text=701
+[31/36] susan-e-1: o0: ic=215 text=873 oz: ic=88 text=647 random36_best: ic=89 text=647
+[32/36] susan-e-2: o0: ic=1629 text=4131 oz: ic=610 text=3836 random36_best: ic=683 text=3628
+[33/36] tiff2rgba: o0: ic=340 text=982 oz: ic=165 text=736 random36_best: ic=145 text=848
+[34/36] tiffmedian-1: o0: ic=229 text=917 oz: ic=72 text=735 random36_best: ic=73 text=735
+[35/36] tiffmedian-2: o0: ic=158 text=797 oz: ic=61 text=681 random36_best: ic=61 text=697
+[36/36] tiffmedian-4: o0: ic=251 text=1132 oz: ic=90 text=917 random36_best: ic=90 text=901
+
+IC vs .text relative reduction: Pearson r=0.1863 (p=1.2e-01), Spearman rho=0.4383
+Saved: results/text_size_anchor.json
