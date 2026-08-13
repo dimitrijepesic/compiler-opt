@@ -63,8 +63,14 @@ def expected_best_of_k(episode_ics, k, rng, n_resample=2000):
 def main():
     os.makedirs(OUT_DIR, exist_ok=True)
 
-    with open("results/sampling_evaluation.json") as f:
+    # Prefer the k=32 evaluation (longer curves) when available
+    sampling_path = "results/sampling_evaluation_k32.json"
+    if not os.path.exists(sampling_path):
+        sampling_path = "results/sampling_evaluation.json"
+    with open(sampling_path) as f:
         sampling = json.load(f)
+    max_k = sampling.get("k", 8)
+    policy_ks = [k for k in [1, 2, 3, 4, 6, 8, 12, 16, 24, 32] if k <= max_k]
     with open("results/full_baselines_v2.json") as f:
         baselines = {b["short_name"]: b for b in json.load(f)["baselines"]}
 
@@ -83,10 +89,9 @@ def main():
     ]:
         seed_curves = []
         for seed, per_bm in sampling["agents"][agent_key].items():
-            ks = range(1, 9)
             totals = []
-            for k in ks:
-                # expected best-of-k from the 8 stored samples (resampled)
+            for k in policy_ks:
+                # expected best-of-k from the stored samples (resampled)
                 total = sum(
                     expected_best_of_k(r["sample_ics"], k, rng)
                     for r in per_bm.values()
@@ -124,16 +129,16 @@ def main():
 
     for agent_key in ["ppo_autophase", "ppo_gnn"]:
         totals, color, label = curves[agent_key]
-        x = [k * EPISODE_STEPS for k in range(1, 9)]
+        x = [k * EPISODE_STEPS for k in policy_ks]
         ax.plot(x, totals, color=color, linewidth=1.8, marker="o",
                 markersize=3.5, label=label)
 
     ax.scatter([greedy_cost], [greedy_total], color=INK, marker="*",
                s=90, zorder=5, label="Greedy search (measured)")
     ax.axhline(oz_total, color=MUTED, linestyle="--", linewidth=1.1)
-    ax.annotate("-Oz", xy=(1.0, oz_total), xycoords=("axes fraction", "data"),
-                xytext=(-4, 3), textcoords="offset points",
-                ha="right", fontsize=8, color=INK_2)
+    ax.annotate("-Oz", xy=(0.02, oz_total), xycoords=("axes fraction", "data"),
+                xytext=(0, 3), textcoords="offset points",
+                ha="left", fontsize=8, color=INK_2)
 
     ax.set_xscale("log")
     ax.set_xlabel("Compilations per program (log scale)")

@@ -1,0 +1,144 @@
+{
+  "agent": "ppo_gnn",
+  "timestamp": "2026-08-12T23:13:55.302300",
+  "per_suite": {
+    "blas-v0": {
+      "123": {
+        "n": 50,
+        "argmax": 40500,
+        "best_of_k": 36675,
+        "null_best_of_k": 36812,
+        "oz": 37838
+      },
+      "42": {
+        "n": 50,
+        "argmax": 40500,
+        "best_of_k": 36758,
+        "null_best_of_k": 36812,
+        "oz": 37838
+      },
+      "456": {
+        "n": 50,
+        "argmax": 40500,
+        "best_of_k": 36765,
+        "null_best_of_k": 36812,
+        "oz": 37838
+      }
+    },
+    "chstone-v0": {
+      "123": {
+        "n": 12,
+        "argmax": 11357,
+        "best_of_k": 9068,
+        "null_best_of_k": 9111,
+        "oz": 9834
+      },
+      "42": {
+        "n": 12,
+        "argmax": 11325,
+        "best_of_k": 9080,
+        "null_best_of_k": 9111,
+        "oz": 9834
+      },
+      "456": {
+        "n": 12,
+        "argmax": 11357,
+        "best_of_k": 9065,
+        "null_best_of_k": 9111,
+        "oz": 9834
+      }
+    },
+    "csmith-v0": {
+      "123": {
+        "n": 28,
+        "argmax": 39330,
+        "best_of_k": 16954,
+        "null_best_of_k": 17180,
+        "oz": 20226
+      },
+      "42": {
+        "n": 28,
+        "argmax": 39323,
+        "best_of_k": 16894,
+        "null_best_of_k": 17180,
+        "oz": 20226
+      },
+      "456": {
+        "n": 28,
+        "argmax": 38997,
+        "best_of_k": 16888,
+        "null_best_of_k": 17180,
+        "oz": 20226
+      }
+    },
+    "mibench-v1": {
+      "123": {
+        "n": 40,
+        "argmax": 6316,
+        "best_of_k": 4763,
+        "null_best_of_k": 4782,
+        "oz": 4841
+      },
+      "42": {
+        "n": 40,
+        "argmax": 6273,
+        "best_of_k": 4762,
+        "null_best_of_k": 4782,
+        "oz": 4841
+      },
+      "456": {
+        "n": 40,
+        "argmax": 6311,
+        "best_of_k": 4753,
+        "null_best_of_k": 4782,
+        "oz": 4841
+      }
+    },
+    "npb-v0": {
+      "123": {
+        "n": 120,
+        "argmax": 79943,
+        "best_of_k": 38707,
+        "null_best_of_k": 38586,
+        "oz": 53085
+      },
+      "42": {
+        "n": 120,
+        "argmax": 79240,
+        "best_of_k": 39084,
+        "null_best_of_k": 38586,
+        "oz": 53085
+      },
+      "456": {
+        "n": 120,
+        "argmax": 79686,
+        "best_of_k": 39771,
+        "null_best_of_k": 38586,
+        "oz": 53085
+      }
+    },
+    "poj104-v1": {
+      "123": {
+        "n": 97,
+        "argmax": 12846,
+        "best_of_k": 7556,
+        "null_best_of_k": 7637,
+        "oz": 8334
+      },
+      "42": {
+        "n": 97,
+        "argmax": 12871,
+        "best_of_k": 7581,
+        "null_best_of_k": 7637,
+        "oz": 8334
+      },
+      "456": {
+        "n": 97,
+        "argmax": 12702,
+        "best_of_k": 7639,
+        "null_best_of_k": 7637,
+        "oz": 8334
+      }
+    }
+  }
+}

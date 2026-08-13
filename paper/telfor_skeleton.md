@@ -89,10 +89,19 @@ independent sources, that both choices materially change the conclusions."
   i to je nalaz: GNN jeste, AP nije.
 - [TBD nakon battery podataka: sign test 18/18 → p≈3.8e-6]
 
-### Pareto figura (gotova: paper/figures/pareto.pdf):
-- GNN k=8 (360 komp./program): 110.789 — bolje od random k=50 (2.250
-  komp.): 111.006; greedy 110.550 uz ~1.970 komp. → "greedy kvalitet za
-  18% cene; random na 6× budžetu i dalje gori".
+### Pareto figura (gotova: paper/figures/pareto.pdf, k=1..32):
+- GNN k=8 (360 komp./program): ~110.6K — bolje od random k=50 (2.250
+  komp.): 111.006; greedy 110.550 uz ~1.970 komp.
+- **k=32 PRESUDA (1.440 komp. = 73% greedy budžeta): GNN 110.494 /
+  110.527 / 110.787 — 2/3 seed-a nominalno ISPOD greedy-ja (110.550),
+  medijan −0.02%.** Formulacija: "reaches exhaustive greedy-search
+  quality at 73% of its compilation budget, nominally surpassing it in
+  2 of 3 seeds" — NE tvrditi "beats" (margina 23-56 IC nije značajna).
+- Battery k=32: GNN vs null 14/18 (prednost najveća na malim k;
+  NPB granica gde random sustiže na 0/3). csmith k=32: GNN 16.5%
+  ispod Oz na sintetici.
+- Oblik krive za diskusiju: naučeni sampler dominira male budžete;
+  random sustiže tek uz 4-6× veći budžet.
 
 ## III. EXPERIMENTAL PROTOCOL (~0.75 kolone)
 
