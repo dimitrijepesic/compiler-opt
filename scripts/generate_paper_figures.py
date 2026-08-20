@@ -141,13 +141,17 @@ def main():
                 ha="left", fontsize=8, color=INK_2)
 
     ax.set_xscale("log")
-    ax.set_xlabel("Compilations per program (log scale)")
-    ax.set_ylabel("Total IC, cBench val+test")
+    ax.set_xlabel("Compilations per program (log scale)", labelpad=1.5)
+    ax.set_ylabel("Total instruction count", labelpad=1.5)
+    ax.tick_params(pad=1.5)
     ax.legend(frameon=True, framealpha=0.95, edgecolor="none",
-              fontsize=7.2, loc="upper right")
-    fig.tight_layout()
-    fig.savefig(os.path.join(OUT_DIR, "pareto.pdf"))
-    fig.savefig(os.path.join(OUT_DIR, "pareto.png"), dpi=300)
+              fontsize=7.2, loc="upper right", borderpad=0.4,
+              handlelength=1.6, labelspacing=0.35)
+    fig.tight_layout(pad=0.25)
+    fig.savefig(os.path.join(OUT_DIR, "pareto.pdf"),
+                bbox_inches="tight", pad_inches=0.02)
+    fig.savefig(os.path.join(OUT_DIR, "pareto.png"), dpi=300,
+                bbox_inches="tight", pad_inches=0.02)
     plt.close(fig)
 
     print(f"greedy: total={greedy_total} avg cost={greedy_cost:.0f} compiles")
