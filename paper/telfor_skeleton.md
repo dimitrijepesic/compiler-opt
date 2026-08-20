@@ -190,6 +190,23 @@ tabele i pomenuti samo u tekstu, zbog prostora)
   multi-line instrukcije) — rad ga i opisuje kao custom parser; GNN
   pobeđuje UPRKOS šumu u grafovima.
 
+**DOPUNSKI AUDIT ZATVOREN (2026-08-14) — presude sa repro dokazima:**
+- env.step izuzeci: 0 od 5.400 poziva na 15 raznovrsnih programa →
+  null/policy asimetrija u obradi padova NIKAD ne okida; bez uticaja.
+- Parser bagovi potvrđeni (num_uses broji labele; cross-function
+  curenje samo za parametre funkcija; multi-line switch/invoke pravi
+  lažne čvorove i gubi CFG ivice) — SVI nematerijalni: DFG ivice
+  ostaju ispravne za SSA vrednosti, rad ne tvrdi egzaktnost parsera,
+  rezultati su izmereni na ovim grafovima kakvi jesu. Popravka parsera
+  = future work za proširenu verziju.
+- IrInstructionCountO3/Oz semantika potvrđena iz CompilerGym izvora:
+  pravi -O3/-Oz pipeline (deterministička servisna observacija) —
+  "-Oz (real)" etiketa tačna; nezavisni opt -Oz prolaz u binary
+  merenjima konzistentan sa observacijom.
+- Battery: 20/50 episode pool uredno etiketiran; reproducibilnost
+  epizoda se nigde ne tvrdi (uzorci distribucije); 347/371 podskupovi
+  eksplicitno označeni u radu. NEMA izmena rada ni koda.
+
 Plus cBench iz kontrolisane studije (pun val/test): GNN bo8
 52,716/58,073 vs null 53,539/58,717 vs greedy 52,481/58,069.
 
