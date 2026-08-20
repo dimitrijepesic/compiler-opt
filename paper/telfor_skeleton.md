@@ -161,15 +161,34 @@ Policy eval (k=8) preko 6 suite-ova (347 programa, IC≤6K), medijalni seed:
 treba; bo8 i null su glavna poruka tabele — argmax možda i izbaciti iz
 tabele i pomenuti samo u tekstu, zbog prostora)
 
-**FINALNA STATISTIKA (compute_stats.py, sve izmereno):**
-- **GNN vs null: 24/24 pobeda (7 suite-ova × seed-ovi), sign test
-  p = 5.96e-08; Wilcoxon značajan na SVIH 7 suite-ova** (cbench 0.0039,
-  blas 0.0020, chstone 0.0146, csmith 0.0001, mibench 0.0499,
-  npb <1e-4, poj104 <1e-4).
-- AP vs null: 15/24, p = 0.154 (neznačajno). Pretrained-as-sampler:
-  7/12, p = 0.39 (neznačajno).
+**FINALNA STATISTIKA — REVIDIRANA posle adversarijalne verifikacije
+(compute_stats.py; NE koristiti staro p=6e-8!):**
+- Deskriptivno: GNN 24/24 suite×seed pobeda; ROBUSNOST sa disjunktnim
+  per-seed null slice-ovima (nezavisnost obnovljena): **i dalje 24/24**.
+- **Primarni test: 8/8 nezavisnih suite/split jedinica pod SVAKIM
+  seed-om, egzaktni sign test p = 3.91e-3.** (24 para nisu nezavisna
+  jer seed-ovi dele iste stored null epizode — zato jedinice.)
+- **Jednostrani Wilcoxon (agent < null), medijalni seed — značajan na
+  svih 7 suite-ova**: blas 1.0e-3, cbench 2.0e-3, chstone 7.3e-3,
+  csmith 3.2e-5, mibench 2.5e-2 (najveći), npb 6.6e-6, poj104 1.8e-6.
+  (Dvostrani scipy 0.0499 na mibench NE prolazi replikaciju u R-u —
+  zato jednostrani, konzistentno sa smerom hipoteze.)
+- AP: 15/24 parova, 2/8 jedinica (p=0.97), Wilcoxon značajan na 4/7.
 - Rečenica za rad: identičan trening i evaluacija — flat reprezentacija
   daje hit-or-miss sampler, grafovska daje sampler koji pobeđuje svuda.
+
+**OBELODANJENE OGRADE (ugrađene u tekst rada, ne dirati bez razloga):**
+- GNN sampling je rađen sa aktivnim dropout-om enkodera (dodatna
+  eksploraciona buka) — disclosure u Protocol/Evaluation.
+- Optimizatorska topologija nije identična (zajednički Adam za GNN vs
+  odvojeni za AP — arhitektonski prinuđeno) — "apart from the joint
+  optimizer..." rečenica u Protocol.
+- Pretrain MSE broj UKLONJEN iz rada (duplikati stanja preko train/val
+  granice ga čine optimističnim; nije nosiv ni za šta).
+- Footprint: ">99.9% data/bss, <0.03% promene" umesto "unchanged".
+- Custom IR parser je aproksimacija (cross-function DFG curenje,
+  multi-line instrukcije) — rad ga i opisuje kao custom parser; GNN
+  pobeđuje UPRKOS šumu u grafovima.
 
 Plus cBench iz kontrolisane studije (pun val/test): GNN bo8
 52,716/58,073 vs null 53,539/58,717 vs greedy 52,481/58,069.

@@ -1,10 +1,12 @@
 % TELFOR 2026 — IEEE conference paper (A4, two-column)
-% Overleaf: New Project -> Upload -> this file + refs.bib + figures/pareto.pdf
+% Overleaf: New Project -> Upload -> telfor_paper.tex + refs.bib + figures/pareto.pdf
 % Compile with pdfLaTeX. Page limit: 4.
 %
-% NAPOMENA: sav prozni tekst pišeš TI — mesta su označena sa:
-%   % ================= TVOJ TEKST =================
-% Tabele, figura i brojevi su izmereni podaci i spremni su.
+% Pre predaje:
+%  1. Popuni afilijaciju u \author bloku.
+%  2. Odkomentariši i popuni copyright red (tačan string sa telfor.rs).
+%  3. Odluči o Acknowledgment sekciji (na dnu).
+%  4. Prođi kroz tekst i prilagodi ga svojim rečima / proveri svaku tvrdnju.
 
 \documentclass[conference,a4paper]{IEEEtran}
 \usepackage[utf8]{inputenc}
@@ -13,8 +15,6 @@
 \usepackage{booktabs}
 \usepackage{amsmath}
 
-% Copyright red za TELFOR — tačan string proveri u uputstvima na telfor.rs
-% (obično oblika 979-8-3315-XXXX-X/26/\$31.00 ©2026 IEEE), pa odkomentariši:
 % \IEEEoverridecommandlockouts
 % \IEEEpubid{\makebox[\columnwidth]{XXX-X-XXXX-XXXX-X/26/\$31.00~\copyright2026 IEEE \hfill}}
 
@@ -24,25 +24,32 @@
 Reinforcement Learning for LLVM Pass Ordering}
 
 \author{\IEEEauthorblockN{Dimitrije Pe\v{s}i\'c}
-\IEEEauthorblockA{\textit{[Afilijacija — fakultet ili Independent Researcher]}\\
+\IEEEauthorblockA{\textit{[Afilijacija]}\\
 Belgrade, Serbia\\
 dimitrije.pesicc@gmail.com}}
 
 \maketitle
 
 \begin{abstract}
-% ================= TVOJ TEKST =================
-% Tačke koje apstrakt mora da pokrije (vidi telfor_skeleton.md):
-% RL za pass ordering se meri protiv -O3/-Oz sa argmax rollout-ima;
-% mi uvodimo null-modele u kuriranom 36-pass prostoru + best-of-k
-% sampling evaluaciju; 371+9 programa, 7 izvora; tri nalaza:
-% (1) kurirani prostor + random pretraga tuče -Oz na svim real-code
-% suite-ovima (granica: sintetički kod);
-% (2) GNN politika kao sampler tuče fer null 24/24 (p=6e-8), dostiže
-% greedy uz ~5x manje kompilacija;
-% (3) RL sam ne trenira enkoder — distilacija Autophase featura ga
-% otključava. Poruka: izbor merenja menja zaključke više nego izbor
-% reprezentacije.
+Reinforcement learning (RL) for compiler pass ordering is commonly
+evaluated by comparing a deterministic policy rollout against a fixed
+optimization level such as \texttt{-O3}. We show that both choices can
+reverse conclusions. We introduce two null models defined in the same
+curated 36-pass action space that the learned policies act in---a single
+random episode and best-of-$N$ random search---and evaluate policies by
+sampling rather than by their argmax mode. Across 380~programs from seven
+independent sources, random search in the curated space alone beats
+\texttt{-Oz} on every real-code suite (1.6--24.5\%), while a graph-neural
+policy trained on only four small programs beats the budget-matched
+random null on 24 of 24 suite--seed combinations --- significant within
+every suite (one-sided Wilcoxon, largest $p{=}0.025$) --- reaches
+exhaustive greedy-search quality at 73\% of its compilation budget, and produces \texttt{.text} sections 10.6\%
+smaller than \texttt{-Oz} with pass sequences that apply faster than the
+\texttt{-Oz} pipeline itself. An identically trained flat-feature policy
+achieves neither. Finally, RL gradients alone fail to train the graph
+encoder; distilling hand-crafted features into it before RL removes this
+failure. Measurement choices, not representation choices, dominate the
+reported conclusions in this domain.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -51,26 +58,137 @@ graph neural networks, evaluation methodology
 \end{IEEEkeywords}
 
 \section{Introduction}
-% ================= TVOJ TEKST =================
-% (skica u telfor_skeleton.md, sekcija I)
+The order in which a compiler applies its optimization passes changes
+the quality of the generated code, and choosing a good order per program
+--- the \emph{phase-ordering problem} --- is NP-hard. Fixed pipelines such
+as LLVM's \texttt{-O3} and \texttt{-Oz} apply one hand-tuned sequence to
+every program, which makes program-specific orderings an attractive
+target for machine learning, and a line of work has applied deep
+reinforcement learning to the problem~\cite{autophase,compilergym,posetrl,coreset}.
+
+Reported results in this area, however, rest on two evaluation
+conventions that are rarely questioned. First, learned policies are
+compared against fixed optimization levels --- often \texttt{-O3}, a
+\emph{speed}-oriented pipeline, even when the objective is code
+\emph{size} --- rather than against a null model that measures how much of
+the gain is available without any learning. Second, policies are
+evaluated by a single deterministic (argmax) rollout, which measures the
+mode of the policy distribution rather than the distribution itself.
+
+This paper asks what remains of an RL pass-ordering system once both
+conventions are replaced. We train proximal policy optimization
+(PPO)~\cite{ppo} agents with two state representations --- the flat
+56-dimensional Autophase feature vector~\cite{autophase} and a custom
+GraphSAGE~\cite{graphsage} encoder over control- and data-flow graphs
+parsed from LLVM IR --- under a controlled protocol in which the
+representation is the only variable, and we evaluate them on
+380~programs drawn from seven independent sources against null models
+defined in the same action space and with the same step budget.
+
+Our contributions are threefold. (1)~We show that a curated 36-pass
+action space is itself the dominant effect: best-of-50 random search
+inside it matches greedy search and beats \texttt{-Oz} on every
+real-code suite, a fact that any evaluation in this domain should
+control for. (2)~We show that the evaluation mode reverses the ranking
+of representations: under argmax rollouts the two agents are
+indistinguishable, while under best-of-$k$ sampling the graph-based
+policy beats the paired random null on every one of 24 suite--seed
+combinations and reaches exhaustive greedy-search quality at 73\% of its
+compilation budget --- a property the flat-feature policy does not have.
+(3)~We show that RL gradients alone fail to train the graph encoder,
+and that distilling Autophase features into the encoder before RL
+removes the failure, improving deterministic-rollout generalization by
+9--10\%. All results are reproducible from a public repository with
+pinned dependencies.\footnote{\texttt{https://github.com/dimitrijepesic/compiler-opt}}
 
 \section{Related Work}
-% ================= TVOJ TEKST =================
-% Obavezno: AutoPhase \cite{autophase}, CompilerGym \cite{compilergym},
-% ProGraML \cite{programl}, MLGO \cite{mlgo}, POSET-RL \cite{posetrl},
-% Coreset \cite{coreset} (najbliži sused — diferencijacija!),
-% Mammadli \cite{mammadli}, LLM Compiler \cite{llmcompiler}.
+AutoPhase~\cite{autophase} introduced deep RL over a flat feature vector
+for phase ordering; CompilerGym~\cite{compilergym} standardized the
+environment we build on. ProGraML~\cite{programl} showed that graph
+representations of programs outperform flat features on supervised
+compiler tasks, and MLGO~\cite{mlgo} deployed learned policies inside
+production LLVM for inlining and register allocation. POSET-RL~\cite{posetrl}
+and the coreset approach of Liang et al.~\cite{coreset} reduce the
+action space before learning; the latter is the closest work to ours,
+selecting from a coreset of 50 pass sequences with a GNN and reporting
+an average 4.7\% improvement over \texttt{-Oz}. Our study is
+complementary: rather than proposing a new agent, it measures
+\emph{where such gains come from}, using null models defined inside the
+same reduced space --- a control absent from prior evaluations --- and
+shows that the decoding mode (argmax vs.\ sampling) changes conclusions.
+Mammadli et al.~\cite{mammadli} observed that random search is a strong
+competitor to RL in this domain; we formalize that observation into an
+evaluation protocol and replicate it across seven suites. Large language
+models have also been applied to this problem~\cite{llmcompiler}, at a
+very different computational budget.
 
 \section{Experimental Protocol}
-% ================= TVOJ TEKST =================
-% (skica u telfor_skeleton.md, sekcija III: CompilerGym llvm-ic-v0,
-% 36-pass action space, PPO agenti, null-modeli, argmax vs sampling,
-% suite-ovi, pretraining postupak)
+\textbf{Environment and metric.} We use CompilerGym~0.2.5
+(\texttt{llvm-ic-v0}, LLVM~10)~\cite{compilergym}. The optimization
+objective is LLVM IR instruction count (IC); Section~\ref{sec:binary}
+validates IC against actual binary section sizes.
+\texttt{-O3}/\texttt{-Oz} baselines are the environment's real
+optimization-level observations, not approximated pass lists.
+
+\textbf{Action space.} Profiling all 124 available passes on the
+training programs yields 36 passes that each improve at least one
+program; these cover 100\% of the observed single-pass improvement.
+All agents, null models, and searches operate in this space with
+45-step episodes.
+
+\textbf{Agents and training.} Both agents use PPO (clip 0.2,
+$\gamma{=}0.99$, GAE $\lambda{=}0.95$) with truncation-aware advantage
+bootstrapping, KL-based early stopping of update epochs (target 0.02),
+and a linearly decaying entropy coefficient. The Autophase agent
+observes a $\log(1{+}x)$-transformed 56-dimensional feature vector; the
+GNN agent parses the IR into a graph (one-hot opcode plus four scalar
+features per instruction; separate control-flow and data-flow edge
+types) and encodes it with a three-layer edge-type-aware GraphSAGE
+network. Both train on the \emph{same} four small cBench programs
+($<$3000 instructions), for the same 100\,000 environment steps, with
+three seeds each; checkpoints are selected on a three-program validation
+subset. Apart from the joint optimizer that the shared trainable encoder
+requires (encoder learning rate $10^{-4}$), the representation is the
+only variable.
+
+\textbf{Null models.} Two null models are measured in the same 36-pass
+space: (a)~a single random 45-step episode (the null for one policy
+rollout) and (b)~the best of $N$ random episodes (the null for search).
+When a policy is evaluated by best-of-$k$ sampling, its null is the best
+of the \emph{same number} $k$ of stored random episodes on the same
+program --- paired by construction.
+
+\textbf{Evaluation.} Policies are evaluated in two modes: a single
+deterministic argmax rollout, and best-of-$k$ stochastic rollouts
+sampled from the policy distribution (GNN rollouts sample with the
+encoder's dropout active, which adds exploration noise). The evaluation battery spans
+seven sources: cBench (val{+}test, 9), MiBench~\cite{mibench} (40),
+CHStone~\cite{chstone} (12), NPB (122), BLAS (50), a 97-program POJ-104
+sample, and 50 csmith-generated~\cite{csmith} synthetic programs ---
+371~battery programs plus cBench, none seen in training. Battery
+policy evaluations use programs up to 6000 instructions (347 of 371)
+to bound graph-extraction cost.
+
+\textbf{Encoder pretraining.} In one arm, the GNN encoder is first
+trained to regress the Autophase vector from the program graph (2430
+states collected by random episodes on the training programs) and then
+fine-tuned with RL.
 
 \section{Results}
 
-\subsection{Curated action space vs. -Oz}
-% ================= TVOJ TEKST ================= (opis Tabele I)
+\subsection{The curated action space, not learning, is the main effect}
+Table~\ref{tab:nulls} compares real optimization levels against
+best-of-50 random episodes in the 36-pass space. Random search beats
+\texttt{-Oz} on all six real-code suites, by 1.6\% (MiBench) up to
+24.5\% (NPB); on NPB even a \emph{single} random episode beats
+\texttt{-Oz} by 11\% on average. Two boundaries are equally
+consistent: \texttt{-O3} is the wrong yardstick for size (on small
+programs it \emph{increases} IC above \texttt{-O0}), and on synthetic
+csmith programs the full \texttt{-Oz} pipeline retains a 5.2\%
+advantage --- the curated space was distilled from real code and
+transfers across real code only. Any learned-policy result in this
+domain should therefore be read relative to these nulls, not to
+optimization levels alone.
 
 \begin{table}[t]
 \caption{Total IR instruction count per suite: real optimization levels
@@ -78,26 +196,49 @@ vs.\ best-of-50 random episodes in the curated 36-pass space.}
 \label{tab:nulls}
 \centering
 \small
+\setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{lrrrrr}
 \toprule
 Suite ($n$) & O0 & -O3 & -Oz & Rnd-50 & $\Delta$Oz \\
 \midrule
-MiBench (40)   & 12{,}270  & 6{,}317  & 4{,}841  & \textbf{4{,}765}  & $+1.6\%$ \\
-BLAS (50)      & 40{,}745  & 39{,}141 & 37{,}838 & \textbf{36{,}757} & $+2.9\%$ \\
-cBench (9)     & 232{,}442 & 163{,}834& 115{,}987& \textbf{111{,}006}& $+4.3\%$ \\
-CHStone (12)   & 19{,}857  & 14{,}182 & 9{,}834  & \textbf{9{,}097}  & $+7.5\%$ \\
-POJ-104 (97)   & 21{,}099  & 11{,}083 & 8{,}334  & \textbf{7{,}622}  & $+8.5\%$ \\
-NPB (122)      & 130{,}327 & 70{,}659 & 59{,}542 & \textbf{44{,}981} & $+24.5\%$ \\
+MiBench (40)   & 12\,270  & 6\,317  & 4\,841  & \textbf{4\,765}  & $+1.6\%$ \\
+BLAS (50)      & 40\,745  & 39\,141 & 37\,838 & \textbf{36\,757} & $+2.9\%$ \\
+cBench (9)     & 232\,442 & 163\,834& 115\,987& \textbf{111\,006}& $+4.3\%$ \\
+CHStone (12)   & 19\,857  & 14\,182 & 9\,834  & \textbf{9\,097}  & $+7.5\%$ \\
+POJ-104 (97)   & 21\,099  & 11\,083 & 8\,334  & \textbf{7\,622}  & $+8.5\%$ \\
+NPB (122)      & 130\,327 & 70\,659 & 59\,542 & \textbf{44\,981} & $+24.5\%$ \\
 \midrule
-csmith (50)    & 352{,}963 & 82{,}950 & \textbf{57{,}625} & 60{,}626 & $-5.2\%$ \\
+csmith (50)    & 352\,963 & 82\,950 & \textbf{57\,625} & 60\,626 & $-5.2\%$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-\subsection{Argmax vs.\ sampling evaluation}
-% ================= TVOJ TEKST ================= (opis Tabele II + statistika:
-% GNN 24/24, sign test p=5.96e-8, Wilcoxon značajan na svih 7 suite-ova;
-% AP 15/24, p=0.15 — identičan trening, drugačija reprezentacija)
+\subsection{Sampling reverses the ranking of representations}
+Under argmax rollouts, both trained policies transfer poorly to programs
+one to two orders of magnitude larger than their training set --- the GNN
+policy's deterministic mode degenerates (e.g., 79\,686 total IC on NPB
+against an \texttt{-Oz} of 53\,085) --- and the two representations are
+statistically indistinguishable. Sampling the same checkpoints changes
+the picture completely. Table~\ref{tab:sampling} reports best-of-8
+sampled rollouts against the paired best-of-8 random null: the GNN
+policy beats its null on \emph{every} suite--seed combination --- 24 of
+24 across the seven sources. Because the three seeds within a suite are
+compared against the same stored null episodes, we test at the level of
+the eight independent suite/split units: the GNN policy wins all eight
+under every seed (exact sign test $p{=}3.9{\times}10^{-3}$); one-sided
+Wilcoxon tests against the per-program nulls are significant within
+every suite (largest $p{=}0.025$ on MiBench, down to $p{<}10^{-5}$ on
+NPB and POJ-104); and re-pairing each seed with a disjoint slice of the
+stored episodes, which restores independence across all 24 pairs,
+leaves the count at 24 of 24. The identically trained Autophase policy
+wins 15 of 24 pairs, two of the eight units, and is significant on four
+of the seven suites. The margin over the null is
+modest (1--2\%) but perfectly systematic, and it holds on the synthetic
+csmith programs where pure random search \emph{loses} to \texttt{-Oz}:
+there the sampled GNN policy is 16\% below \texttt{-Oz}. A policy
+trained on four toy programs thus carries transferable ordering
+knowledge to seven foreign program sources --- but only sampling can see
+it.
 
 \begin{table}[t]
 \caption{Best-of-8 sampled rollouts (median seed) vs.\ the paired
@@ -110,68 +251,119 @@ cBench programs only.}
 \toprule
 Suite ($n$) & Null & -Oz & AP & GNN \\
 \midrule
-MiBench (40) & 4{,}828 & 4{,}841 & 4{,}783 & \textbf{4{,}782} \\
-CHStone (12) & 9{,}241 & 9{,}834 & 9{,}133 & \textbf{9{,}120} \\
-BLAS (50) & 37{,}099 & 37{,}838 & 36{,}998 & \textbf{36{,}847} \\
-csmith (28) & 17{,}555 & 20{,}226 & 17{,}179 & \textbf{17{,}064} \\
-NPB (120) & 40{,}301 & 53{,}085 & 40{,}822 & \textbf{39{,}909} \\
-POJ-104 (97) & 7{,}853 & 8{,}334 & 7{,}917 & \textbf{7{,}730} \\
+MiBench (40) & 4\,828 & 4\,841 & 4\,783 & \textbf{4\,782} \\
+CHStone (12) & 9\,241 & 9\,834 & 9\,133 & \textbf{9\,120} \\
+BLAS (50) & 37\,099 & 37\,838 & 36\,998 & \textbf{36\,847} \\
+csmith (28) & 17\,555 & 20\,226 & 17\,179 & \textbf{17\,064} \\
+NPB (120) & 40\,301 & 53\,085 & 40\,822 & \textbf{39\,909} \\
+POJ-104 (97) & 7\,853 & 8\,334 & 7\,917 & \textbf{7\,730} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+Fig.~\ref{fig:pareto} places these results on a quality-vs.-budget
+front on cBench. At $k{=}8$ (360 compilations per program) the sampled
+GNN policy is within 0.3\% of exhaustive greedy search, which costs
+about 1\,970 compilations per program; at $k{=}32$ (73\% of greedy's
+budget) it reaches greedy quality, nominally surpassing it in two of
+three seeds (110\,494 and 110\,527 vs.\ 110\,550), while all three
+seeds beat the paired null. Within the measured budgets random search
+never catches the sampler on cBench; on the battery it does so only at
+$k{=}32$, and first on NPB --- precisely the suite where random search
+is strongest. The learned sampler, in other words, buys down the cost
+of search: it dominates the front at the budgets where search is
+expensive.
+
 \begin{figure}[t]
 \centering
 \includegraphics[width=\columnwidth]{figures/pareto.pdf}
-\caption{Solution quality vs.\ compilation budget on cBench val+test.
-Best-of-$k$ policy sampling against expected best-of-$k$ random search
-and measured greedy search.
-% NAPOMENA: posle k=32 sweep-a regeneriši figuru i ažuriraj opis.
-}
+\caption{Solution quality vs.\ compilation budget on cBench val{+}test:
+best-of-$k$ policy sampling ($k{=}1..32$) against the expected
+best-of-$k$ of random search in the same space and measured greedy
+search.}
 \label{fig:pareto}
 \end{figure}
 
-\subsection{Encoder pretraining}
-% ================= TVOJ TEKST ================= (opis Tabele III: 0/3 -> 2/2
-% proboja platoa; popravlja argmax transfer ~9-12%; trade-off mod/distribucija)
+\subsection{Pretraining unlocks the encoder}
+All three from-scratch GNN seeds converge to the same validation
+plateau (689), the value a nearly untrained policy already reaches: RL
+gradients alone do not teach the encoder useful features. Distilling
+Autophase into the encoder before RL (a one-hour CPU job) removes the
+failure in two of two seeds (Table~\ref{tab:pretrain}), and improves
+full-split deterministic-rollout totals by 9--10\% on average, with the better
+seed within 0.5\% of \texttt{-Oz} --- the first deterministic policy in
+the study to beat the single-episode random null on both held-out
+splits. Pretraining repairs the policy's \emph{mode}; the from-scratch
+policy remains the better \emph{sampler}. The two fixes are
+complementary: pretrain when only one rollout is affordable, sample
+when eight are.
 
 \begin{table}[t]
-\caption{Effect of Autophase-distillation pretraining on the GNN agent.}
+\caption{Effect of Autophase-distillation pretraining on the GNN agent:
+best in-training validation score per seed, and mean argmax totals on
+the full held-out splits (3 seeds from scratch, 2 pretrained).}
 \label{tab:pretrain}
 \centering
 \small
 \begin{tabular}{lccc}
 \toprule
 GNN variant & val-small best & Full val & Full test \\
- & (per seed) & (argmax) & (argmax) \\
 \midrule
-From scratch & 689 / 689 / 689 & 64{,}550 & 69{,}180 \\
-+ pretraining & \textbf{651 / 668} & \textbf{55{,}593} & \textbf{61{,}015} \\
+From scratch & 689 / 689 / 689 & 64\,550 & 69\,180 \\
++ pretraining & \textbf{651 / 668} & \textbf{57\,980} & \textbf{63\,229} \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Binary-level metrics}
-% ================= TVOJ TEKST =================
-% IZMERENO (results/binary_metrics/_aggregate.json, 371 programa):
-% - .text (upareni skup, n=347): Oz 967,878 B; Rnd-bo8 866,989 B (+10.4%);
-%   GNN-bo8 864,887 B (+10.6% manje od -Oz).
-% - .text (pun skup, n=371, ukljucuje najvece csmith): Rnd-bo8 +4.0% vs Oz.
-% - Primena sekvence (opt CLI, medijan po programu): nase sekvence
-%   15.0-15.8 ms vs -Oz pipeline 19.5 ms (~20-25% brze) - sekvence rade
-%   i van CompilerGym-a, kroz cist opt poziv.
-% - IC->.text korelacija: r=0.78 (p=2.2e-6) na programima >=1000
-%   instrukcija; ispod toga fiksni codegen overhead dominira.
-% - footprint (text+data+bss) se ne menja - data/bss ne zavise od
-%   redosleda prolaza (jedna recenica, posteno).
+\label{sec:binary}
+IC is a proxy, so we compiled the optimized modules to objects with the
+environment's own LLVM~10 code generator and measured section sizes.
+On programs with at least 1000 instructions, relative IC reduction
+strongly predicts relative \texttt{.text} reduction (Pearson
+$r{=}0.78$, $p{=}2.2{\times}10^{-6}$); below that size, fixed
+code-generation overheads dominate and the proxy weakens --- a boundary
+we report rather than hide. The IC gains translate into bytes: across
+the 347 paired battery programs, best-of-8 GNN sampling produces
+\texttt{.text} sections 10.6\% smaller than \texttt{-Oz} (864\,887
+vs.\ 967\,878 bytes; the random null achieves 10.4\%), and across all
+371 programs random search alone is 4.0\% below \texttt{-Oz}. The
+discovered 45-pass sequences also apply \emph{faster} than the
+\texttt{-Oz} pipeline (median 15.0--15.8\,ms vs.\ 19.5\,ms per module
+through the plain \texttt{opt} CLI, which also demonstrates the
+sequences work outside the RL environment). Total object footprint is
+dominated ($>$99.9\%) by data and BSS sections, which are essentially
+invariant under pass ordering ($<$0.03\% change), so \texttt{.text} is
+the informative size metric.
 
 \section{Discussion and Limitations}
-% ================= TVOJ TEKST =================
-% (skica u telfor_skeleton.md, sekcija V — uključi .text anchor granicu,
-% csmith granicu, CompilerGym 0.2.5 stack, preporuke za praksu evaluacije)
+Three practices follow from these results. Evaluations of learned pass
+ordering should (1)~report a random null inside the same action space
+and budget, since a curated space plus trivial search already beats
+\texttt{-Oz}; (2)~report sampling-based in addition to deterministic
+evaluation, since the two can reverse rankings; and (3)~never use
+\texttt{-O3} as a size baseline. Our own limitations are measured
+rather than hypothetical: the study optimizes IR instruction count with
+a validated but size-bounded correlation to binary sections; training
+used four small programs by design (as the experimental control), and
+a mixed-size training arm did not improve generalization; runtime
+performance is not measured; and the stack is CompilerGym~0.2.5
+(LLVM~10). The per-step cost of the GNN representation
+($\sim$17$\times$ the flat features during training) is real, though at
+deployment the cost of a sampled rollout is dominated by compilation
+itself.
 
 \section{Conclusion}
-% ================= TVOJ TEKST =================
+Under controlled measurement, the value of RL for LLVM pass ordering
+redistributes: most of the headline gain over \texttt{-Oz} belongs to
+the curated action space; the genuine, statistically unambiguous
+contribution of the learned graph policy is that of an \emph{amortized
+searcher} --- greedy-search quality at a fraction of its compilation
+budget, transferable from four toy programs to seven foreign suites ---
+and the encoder that carries it can only be trained with a pretraining
+step that costs an hour of CPU. Evaluation choices dominated
+representation choices at every step of this study; we suggest treating
+that as the default hypothesis in this domain.
 
 % \section*{Acknowledgment}
 % The author thanks Prof.~[ime] for an early discussion of this work.
