@@ -1,0 +1,63 @@
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+Suite generator://llvm-stress-v0: 50 programs (seed 42, max-ic 120000)
+[1/50] 0: Oz=3 RndRed50=3 (23s, total 0m)
+[2/50] 1: Oz=2 RndRed50=5 (20s, total 1m)
+[3/50] 2: Oz=6 RndRed50=7 (6s, total 1m)
+[4/50] 3: Oz=2 RndRed50=2 (6s, total 1m)
+[5/50] 4: Oz=4 RndRed50=4 (6s, total 1m)
+[6/50] 5: Oz=3 RndRed50=3 (6s, total 1m)
+[7/50] 6: Oz=3 RndRed50=3 (5s, total 1m)
+[8/50] 7: Oz=3 RndRed50=3 (9s, total 1m)
+[9/50] 8: Oz=2 RndRed50=2 (6s, total 1m)
+[10/50] 9: Oz=3 RndRed50=3 (6s, total 2m)
+[11/50] 10: Oz=3 RndRed50=3 (24s, total 2m)
+[12/50] 11: Oz=4 RndRed50=5 (24s, total 2m)
+[13/50] 12: Oz=8 RndRed50=11 (10s, total 3m)
+[14/50] 13: Oz=3 RndRed50=3 (6s, total 3m)
+[15/50] 14: Oz=3 RndRed50=4 (8s, total 3m)
+[16/50] 15: Oz=3 RndRed50=3 (7s, total 3m)
+[17/50] 16: Oz=3 RndRed50=3 (6s, total 3m)
+[18/50] 17: Oz=15 RndRed50=15 (6s, total 3m)
+[19/50] 18: Oz=22 RndRed50=18 (3s, total 3m)
+[20/50] 19: Oz=8 RndRed50=6 (5s, total 3m)
+[21/50] 20: Oz=8 RndRed50=7 (6s, total 3m)
+[22/50] 21: Oz=3 RndRed50=3 (6s, total 3m)
+[23/50] 22: Oz=7 RndRed50=2 (6s, total 4m)
+[24/50] 23: Oz=2 RndRed50=5 (6s, total 4m)
+[25/50] 24: Oz=3 RndRed50=3 (4s, total 4m)
+[26/50] 25: Oz=3 RndRed50=3 (6s, total 4m)
+[27/50] 26: Oz=5 RndRed50=5 (6s, total 4m)
+[28/50] 27: Oz=3 RndRed50=4 (7s, total 4m)
+[29/50] 28: Oz=3 RndRed50=4 (6s, total 4m)
+[30/50] 29: Oz=3 RndRed50=3 (4s, total 4m)
+[31/50] 30: Oz=10 RndRed50=12 (7s, total 4m)
+[32/50] 31: Oz=3 RndRed50=3 (6s, total 4m)
+[33/50] 32: Oz=4 RndRed50=4 (7s, total 5m)
+[34/50] 33: Oz=2 RndRed50=2 (7s, total 5m)
+[35/50] 34: Oz=2 RndRed50=2 (5s, total 5m)
+[36/50] 35: Oz=3 RndRed50=3 (6s, total 5m)
+[37/50] 36: Oz=8 RndRed50=7 (7s, total 5m)
+[38/50] 37: Oz=5 RndRed50=6 (6s, total 5m)
+[39/50] 38: Oz=3 RndRed50=4 (4s, total 5m)
+[40/50] 39: Oz=3 RndRed50=3 (6s, total 5m)
+[41/50] 40: Oz=3 RndRed50=4 (7s, total 5m)
+[42/50] 41: Oz=3 RndRed50=4 (7s, total 5m)
+[43/50] 42: Oz=2 RndRed50=2 (7s, total 6m)
+[44/50] 43: Oz=16 RndRed50=14 (5s, total 6m)
+[45/50] 44: Oz=5 RndRed50=6 (7s, total 6m)
+[46/50] 45: Oz=3 RndRed50=3 (8s, total 6m)
+[47/50] 46: Oz=4 RndRed50=4 (6s, total 6m)
+[48/50] 47: Oz=3 RndRed50=3 (6s, total 6m)
+[49/50] 48: Oz=4 RndRed50=4 (4s, total 6m)
+[50/50] 49: Oz=5 RndRed50=3 (7s, total 6m)
+
+Done: 50 measured/existing, 0 skipped, 0 failed
+Aggregated 50 measured (0 skipped/failed) -> results/battery/llvm-stress-v0/_aggregate.json
+  totals: O0=5739 O3=238 Oz=234 RndRed50=238
