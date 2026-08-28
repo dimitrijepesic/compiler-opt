@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/drivers/infiniband/hw/qib/extr_qib_sdma.c_complete_sdma_err_req",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 26,
+  "oz": 12,
+  "argmax_ic": 16,
+  "sample_ics": [
+    12,
+    12,
+    12,
+    13,
+    13,
+    12,
+    13,
+    13
+  ],
+  "best_of_k_ic": 12,
+  "random_null_best_of_k": 12
+}

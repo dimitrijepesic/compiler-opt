@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/net/ethernet/freescale/dpaa2/extr_dpaa2-eth.c_setup_xdp",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 215,
+  "oz": 81,
+  "argmax_ic": 91,
+  "sample_ics": [
+    82,
+    80,
+    82,
+    85,
+    81,
+    81,
+    82,
+    80
+  ],
+  "best_of_k_ic": 80,
+  "random_null_best_of_k": 80
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/esp-idf/components/console/argtable3/extr_argtable3.c_trex_getsubexp",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 33,
+  "oz": 16,
+  "argmax_ic": 18,
+  "sample_ics": [
+    16,
+    16,
+    16,
+    16,
+    16,
+    17,
+    16,
+    16
+  ],
+  "best_of_k_ic": 16,
+  "random_null_best_of_k": 16
+}

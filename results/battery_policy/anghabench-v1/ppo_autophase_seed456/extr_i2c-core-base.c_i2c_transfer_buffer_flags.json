@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/i2c/extr_i2c-core-base.c_i2c_transfer_buffer_flags",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 52,
+  "oz": 25,
+  "argmax_ic": 28,
+  "sample_ics": [
+    24,
+    24,
+    24,
+    26,
+    26,
+    25,
+    24,
+    26
+  ],
+  "best_of_k_ic": 24,
+  "random_null_best_of_k": 24
+}

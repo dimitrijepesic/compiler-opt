@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/reactos/dll/win32/wldap32/extr_wldap32.h_strWtoA",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn",
+  "o0": 34,
+  "oz": 12,
+  "argmax_ic": 12,
+  "sample_ics": [
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12
+  ],
+  "best_of_k_ic": 12,
+  "random_null_best_of_k": 12
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/net/batman-adv/extr_bridge_loop_avoidance.h_batadv_bla_tx",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 7,
+  "oz": 1,
+  "argmax_ic": 1,
+  "sample_ics": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "best_of_k_ic": 1,
+  "random_null_best_of_k": 1
+}

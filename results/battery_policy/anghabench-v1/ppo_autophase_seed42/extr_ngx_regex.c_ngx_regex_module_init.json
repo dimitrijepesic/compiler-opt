@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/nginx/src/core/extr_ngx_regex.c_ngx_regex_module_init",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 103,
+  "oz": 53,
+  "argmax_ic": 63,
+  "sample_ics": [
+    54,
+    53,
+    53,
+    56,
+    54,
+    54,
+    60,
+    54
+  ],
+  "best_of_k_ic": 53,
+  "random_null_best_of_k": 53
+}

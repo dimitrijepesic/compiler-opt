@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/zfs/cmd/zed/agents/extr_fmd_api.c_fmd_hdl_alloc",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 10,
+  "oz": 2,
+  "argmax_ic": 2,
+  "sample_ics": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "best_of_k_ic": 2,
+  "random_null_best_of_k": 2
+}

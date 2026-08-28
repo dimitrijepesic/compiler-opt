@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/fs/ocfs2/dlmfs/extr_userdlm.c_user_dlm_write_lvb",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 47,
+  "oz": 18,
+  "argmax_ic": 19,
+  "sample_ics": [
+    19,
+    18,
+    18,
+    19,
+    18,
+    19,
+    19,
+    19
+  ],
+  "best_of_k_ic": 18,
+  "random_null_best_of_k": 18
+}

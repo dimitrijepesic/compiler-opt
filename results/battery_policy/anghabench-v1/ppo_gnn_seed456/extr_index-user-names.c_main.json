@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/kphp-kdb/msg-search/extr_index-user-names.c_main",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 284,
+  "oz": 176,
+  "argmax_ic": 199,
+  "sample_ics": [
+    176,
+    176,
+    183,
+    179,
+    177,
+    178,
+    180,
+    176,
+    176,
+    176,
+    178,
+    177,
+    180,
+    179,
+    180,
+    178
+  ],
+  "best_of_k_ic": 176,
+  "random_null_best_of_k": 178
+}

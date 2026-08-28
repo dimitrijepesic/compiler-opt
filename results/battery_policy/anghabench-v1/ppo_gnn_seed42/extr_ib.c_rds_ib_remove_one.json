@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/net/rds/extr_ib.c_rds_ib_remove_one",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn",
+  "o0": 38,
+  "oz": 14,
+  "argmax_ic": 14,
+  "sample_ics": [
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14
+  ],
+  "best_of_k_ic": 14,
+  "random_null_best_of_k": 14
+}

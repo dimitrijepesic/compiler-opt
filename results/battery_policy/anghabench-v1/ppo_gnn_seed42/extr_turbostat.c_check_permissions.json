@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/tools/power/x86/turbostat/extr_turbostat.c_check_permissions",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn",
+  "o0": 90,
+  "oz": 52,
+  "argmax_ic": 63,
+  "sample_ics": [
+    54,
+    52,
+    51,
+    53,
+    54,
+    53,
+    54,
+    56,
+    51,
+    51,
+    52,
+    52,
+    51,
+    51,
+    51,
+    51
+  ],
+  "best_of_k_ic": 51,
+  "random_null_best_of_k": 52
+}

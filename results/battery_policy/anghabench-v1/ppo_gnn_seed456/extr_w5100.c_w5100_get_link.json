@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/net/ethernet/wiznet/extr_w5100.c_w5100_get_link",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 34,
+  "oz": 13,
+  "argmax_ic": 16,
+  "sample_ics": [
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13,
+    13
+  ],
+  "best_of_k_ic": 13,
+  "random_null_best_of_k": 13
+}

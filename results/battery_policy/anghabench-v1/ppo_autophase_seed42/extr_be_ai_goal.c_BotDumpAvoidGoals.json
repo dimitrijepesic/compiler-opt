@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/Quake-III-Arena/code/botlib/extr_be_ai_goal.c_BotDumpAvoidGoals",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 81,
+  "oz": 38,
+  "argmax_ic": 45,
+  "sample_ics": [
+    40,
+    41,
+    38,
+    40,
+    44,
+    38,
+    42,
+    48
+  ],
+  "best_of_k_ic": 38,
+  "random_null_best_of_k": 42
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/contrib/gdb/gdb/extr_dwarf2read.c_dwarf2_lookup_abbrev",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 61,
+  "oz": 18,
+  "argmax_ic": 24,
+  "sample_ics": [
+    20,
+    21,
+    18,
+    19,
+    18,
+    22,
+    18,
+    19
+  ],
+  "best_of_k_ic": 18,
+  "random_null_best_of_k": 18
+}

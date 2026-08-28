@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/contrib/unbound/validator/extr_val_utils.c_val_reply_remove_auth",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 60,
+  "oz": 34,
+  "argmax_ic": 41,
+  "sample_ics": [
+    35,
+    34,
+    34,
+    34,
+    34,
+    35,
+    34,
+    34,
+    35,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34
+  ],
+  "best_of_k_ic": 34,
+  "random_null_best_of_k": 34
+}

@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/openpilot/selfdrive/controls/lib/lateral_mpc/lib_mpc_export/extr_acado_solver.c_acado_multRDy",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 49,
+  "oz": 29,
+  "argmax_ic": 32,
+  "sample_ics": [
+    29,
+    29,
+    27,
+    29,
+    29,
+    29,
+    27,
+    29,
+    27,
+    29,
+    29,
+    29,
+    27,
+    27,
+    27,
+    27
+  ],
+  "best_of_k_ic": 27,
+  "random_null_best_of_k": 27
+}

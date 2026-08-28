@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/drivers/net/extr_ppp_generic.c_find_compressor",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 36,
+  "oz": 15,
+  "argmax_ic": 17,
+  "sample_ics": [
+    15,
+    15,
+    17,
+    16,
+    15,
+    15,
+    17,
+    15
+  ],
+  "best_of_k_ic": 15,
+  "random_null_best_of_k": 15
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/vlc/modules/access/dsm/extr_sd.c_bdsm_SdOpen",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 81,
+  "oz": 37,
+  "argmax_ic": 44,
+  "sample_ics": [
+    43,
+    38,
+    43,
+    38,
+    38,
+    46,
+    39,
+    39
+  ],
+  "best_of_k_ic": 38,
+  "random_null_best_of_k": 38
+}

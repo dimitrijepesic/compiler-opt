@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/sys/dev/filemon/extr_filemon.c_filemon_release",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn",
+  "o0": 30,
+  "oz": 18,
+  "argmax_ic": 21,
+  "sample_ics": [
+    18,
+    18,
+    18,
+    18,
+    18,
+    18,
+    18,
+    18,
+    18,
+    18,
+    18,
+    18,
+    18,
+    18,
+    18,
+    18
+  ],
+  "best_of_k_ic": 18,
+  "random_null_best_of_k": 18
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/h2o/deps/picotls/deps/cifra/src/extr_curve25519.donna.c_crecip",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 278,
+  "oz": 146,
+  "argmax_ic": 248,
+  "sample_ics": [
+    136,
+    136,
+    142,
+    136,
+    136,
+    136,
+    136,
+    136
+  ],
+  "best_of_k_ic": 136,
+  "random_null_best_of_k": 136
+}

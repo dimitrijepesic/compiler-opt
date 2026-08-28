@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/platform/x86/extr_acerhdf.c_str_starts_with",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 42,
+  "oz": 10,
+  "argmax_ic": 11,
+  "sample_ics": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    11,
+    10,
+    10
+  ],
+  "best_of_k_ic": 10,
+  "random_null_best_of_k": 10
+}

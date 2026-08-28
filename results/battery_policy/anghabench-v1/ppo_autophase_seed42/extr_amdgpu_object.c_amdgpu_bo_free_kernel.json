@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/gpu/drm/amd/amdgpu/extr_amdgpu_object.c_amdgpu_bo_free_kernel",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 48,
+  "oz": 29,
+  "argmax_ic": 31,
+  "sample_ics": [
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29
+  ],
+  "best_of_k_ic": 29,
+  "random_null_best_of_k": 29
+}

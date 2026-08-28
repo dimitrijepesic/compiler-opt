@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/scsi/extr_hpsa.c_hpsa_set_bus_target_lun",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 21,
+  "oz": 7,
+  "argmax_ic": 7,
+  "sample_ics": [
+    7,
+    6,
+    7,
+    7,
+    6,
+    6,
+    7,
+    7
+  ],
+  "best_of_k_ic": 6,
+  "random_null_best_of_k": 6
+}

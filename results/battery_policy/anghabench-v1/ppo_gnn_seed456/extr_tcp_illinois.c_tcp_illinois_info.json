@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/net/ipv4/extr_tcp_illinois.c_tcp_illinois_info",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 85,
+  "oz": 31,
+  "argmax_ic": 43,
+  "sample_ics": [
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31
+  ],
+  "best_of_k_ic": 31,
+  "random_null_best_of_k": 31
+}

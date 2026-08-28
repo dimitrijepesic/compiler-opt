@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/libgit2/examples/extr_clone.c_fetch_progress",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 20,
+  "oz": 6,
+  "argmax_ic": 6,
+  "sample_ics": [
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6
+  ],
+  "best_of_k_ic": 6,
+  "random_null_best_of_k": 6
+}

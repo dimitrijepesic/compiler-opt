@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/atm/extr_lanai.c_iter_transmit",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 35,
+  "oz": 16,
+  "argmax_ic": 18,
+  "sample_ics": [
+    16,
+    16,
+    16,
+    16,
+    17,
+    17,
+    16,
+    17
+  ],
+  "best_of_k_ic": 16,
+  "random_null_best_of_k": 16
+}

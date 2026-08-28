@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/nvdimm/extr_btt.c_btt_fini",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 15,
+  "oz": 9,
+  "argmax_ic": 9,
+  "sample_ics": [
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9
+  ],
+  "best_of_k_ic": 9,
+  "random_null_best_of_k": 9
+}

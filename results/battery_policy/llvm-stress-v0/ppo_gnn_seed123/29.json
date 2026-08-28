@@ -1,0 +1,29 @@
+{
+  "uri": "generator://llvm-stress-v0/29",
+  "suite": "llvm-stress-v0",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 118,
+  "oz": 3,
+  "argmax_ic": 118,
+  "sample_ics": [
+    4,
+    4,
+    3,
+    3,
+    3,
+    4,
+    3,
+    4,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+  ],
+  "best_of_k_ic": 3,
+  "random_null_best_of_k": 3
+}

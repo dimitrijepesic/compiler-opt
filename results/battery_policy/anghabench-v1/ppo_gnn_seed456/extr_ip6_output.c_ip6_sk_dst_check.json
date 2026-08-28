@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/net/ipv6/extr_ip6_output.c_ip6_sk_dst_check",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 77,
+  "oz": 34,
+  "argmax_ic": 36,
+  "sample_ics": [
+    36,
+    36,
+    34,
+    34,
+    44,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34,
+    36
+  ],
+  "best_of_k_ic": 34,
+  "random_null_best_of_k": 34
+}

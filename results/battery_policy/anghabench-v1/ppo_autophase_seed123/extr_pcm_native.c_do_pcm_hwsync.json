@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/sound/core/extr_pcm_native.c_do_pcm_hwsync",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 42,
+  "oz": 28,
+  "argmax_ic": 30,
+  "sample_ics": [
+    28,
+    28,
+    28,
+    28,
+    28,
+    28,
+    28,
+    28
+  ],
+  "best_of_k_ic": 28,
+  "random_null_best_of_k": 28
+}

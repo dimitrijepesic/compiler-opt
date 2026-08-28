@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/postgres/src/interfaces/libpq/extr_fe-protocol2.c_pqBuildStartupPacket2",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 78,
+  "oz": 42,
+  "argmax_ic": 44,
+  "sample_ics": [
+    42,
+    42,
+    42,
+    42,
+    42,
+    42,
+    42,
+    42,
+    42,
+    42,
+    42,
+    42,
+    42,
+    42,
+    42,
+    42
+  ],
+  "best_of_k_ic": 42,
+  "random_null_best_of_k": 42
+}

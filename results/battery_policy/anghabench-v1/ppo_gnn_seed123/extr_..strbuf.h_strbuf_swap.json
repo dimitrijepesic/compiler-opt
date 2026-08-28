@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/git/refs/extr_..strbuf.h_strbuf_swap",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 12,
+  "oz": 6,
+  "argmax_ic": 6,
+  "sample_ics": [
+    6,
+    6,
+    6,
+    6,
+    6,
+    10,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6
+  ],
+  "best_of_k_ic": 6,
+  "random_null_best_of_k": 6
+}

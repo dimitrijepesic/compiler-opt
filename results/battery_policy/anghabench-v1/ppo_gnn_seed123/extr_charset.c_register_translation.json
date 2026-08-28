@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/contrib/gdb/gdb/extr_charset.c_register_translation",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 9,
+  "oz": 5,
+  "argmax_ic": 5,
+  "sample_ics": [
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    6,
+    5,
+    5,
+    5,
+    5,
+    6,
+    5
+  ],
+  "best_of_k_ic": 5,
+  "random_null_best_of_k": 5
+}

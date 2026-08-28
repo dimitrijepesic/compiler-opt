@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/hwmon/extr_nct6775.c_step_time_from_reg",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 15,
+  "oz": 4,
+  "argmax_ic": 5,
+  "sample_ics": [
+    4,
+    4,
+    5,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    5,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "best_of_k_ic": 4,
+  "random_null_best_of_k": 4
+}

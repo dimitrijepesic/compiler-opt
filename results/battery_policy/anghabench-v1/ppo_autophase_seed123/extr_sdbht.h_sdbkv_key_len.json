@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/radare2/shlr/sdb/src/extr_sdbht.h_sdbkv_key_len",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 7,
+  "oz": 3,
+  "argmax_ic": 4,
+  "sample_ics": [
+    4,
+    4,
+    4,
+    3,
+    3,
+    3,
+    3,
+    4
+  ],
+  "best_of_k_ic": 3,
+  "random_null_best_of_k": 3
+}

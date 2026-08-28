@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/usb/usbip/extr_vhci_sysfs.c_status_show",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 56,
+  "oz": 19,
+  "argmax_ic": 23,
+  "sample_ics": [
+    19,
+    19,
+    23,
+    23,
+    19,
+    21,
+    23,
+    19
+  ],
+  "best_of_k_ic": 19,
+  "random_null_best_of_k": 19
+}

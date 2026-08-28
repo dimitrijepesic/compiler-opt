@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/tools/testing/selftests/bpf/progs/extr_test_xdp_noinline.c_decap_v6",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 78,
+  "oz": 29,
+  "argmax_ic": 38,
+  "sample_ics": [
+    33,
+    31,
+    34,
+    35,
+    38,
+    37,
+    35,
+    38
+  ],
+  "best_of_k_ic": 31,
+  "random_null_best_of_k": 30
+}

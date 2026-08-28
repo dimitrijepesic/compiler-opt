@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/Provenance/Cores/Yabause/yabause/src/extr_thr-macosx.c_YabThreadStart",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 105,
+  "oz": 57,
+  "argmax_ic": 65,
+  "sample_ics": [
+    57,
+    65,
+    57,
+    57,
+    57,
+    57,
+    57,
+    57
+  ],
+  "best_of_k_ic": 57,
+  "random_null_best_of_k": 57
+}

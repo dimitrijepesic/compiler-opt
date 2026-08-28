@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/sys/mips/nlm/extr_board.c_nlm_print_processor_info",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 64,
+  "oz": 19,
+  "argmax_ic": 21,
+  "sample_ics": [
+    19,
+    21,
+    19,
+    19,
+    21,
+    19,
+    19,
+    19
+  ],
+  "best_of_k_ic": 19,
+  "random_null_best_of_k": 19
+}

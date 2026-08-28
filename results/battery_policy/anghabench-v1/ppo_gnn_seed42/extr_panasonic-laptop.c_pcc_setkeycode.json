@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/drivers/platform/x86/extr_panasonic-laptop.c_pcc_setkeycode",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn",
+  "o0": 82,
+  "oz": 33,
+  "argmax_ic": 39,
+  "sample_ics": [
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33,
+    33
+  ],
+  "best_of_k_ic": 33,
+  "random_null_best_of_k": 33
+}

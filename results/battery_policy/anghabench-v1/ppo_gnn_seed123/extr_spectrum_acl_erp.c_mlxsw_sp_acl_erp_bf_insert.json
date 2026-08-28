@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/net/ethernet/mellanox/mlxsw/extr_spectrum_acl_erp.c_mlxsw_sp_acl_erp_bf_insert",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 60,
+  "oz": 17,
+  "argmax_ic": 18,
+  "sample_ics": [
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17
+  ],
+  "best_of_k_ic": 17,
+  "random_null_best_of_k": 17
+}

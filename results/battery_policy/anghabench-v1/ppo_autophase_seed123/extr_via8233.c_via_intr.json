@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/sys/dev/sound/pci/extr_via8233.c_via_intr",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 315,
+  "oz": 176,
+  "argmax_ic": 190,
+  "sample_ics": [
+    176,
+    182,
+    176,
+    175,
+    176,
+    182,
+    176,
+    181
+  ],
+  "best_of_k_ic": 175,
+  "random_null_best_of_k": 176
+}

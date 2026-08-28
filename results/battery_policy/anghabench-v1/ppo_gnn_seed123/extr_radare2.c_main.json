@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/radare2/binr/radare2/extr_radare2.c_main",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 27,
+  "oz": 12,
+  "argmax_ic": 13,
+  "sample_ics": [
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12
+  ],
+  "best_of_k_ic": 12,
+  "random_null_best_of_k": 12
+}

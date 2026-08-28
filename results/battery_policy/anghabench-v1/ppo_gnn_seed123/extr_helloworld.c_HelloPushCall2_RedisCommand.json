@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/redis/src/modules/extr_helloworld.c_HelloPushCall2_RedisCommand",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 38,
+  "oz": 15,
+  "argmax_ic": 15,
+  "sample_ics": [
+    15,
+    15,
+    15,
+    15,
+    15,
+    18,
+    18,
+    15,
+    15,
+    15,
+    15,
+    15,
+    18,
+    15,
+    15,
+    15
+  ],
+  "best_of_k_ic": 15,
+  "random_null_best_of_k": 15
+}

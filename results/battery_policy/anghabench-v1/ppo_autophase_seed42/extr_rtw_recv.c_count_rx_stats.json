@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/staging/rtl8188eu/core/extr_rtw_recv.c_count_rx_stats",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 102,
+  "oz": 39,
+  "argmax_ic": 48,
+  "sample_ics": [
+    44,
+    44,
+    43,
+    42,
+    44,
+    46,
+    41,
+    48
+  ],
+  "best_of_k_ic": 41,
+  "random_null_best_of_k": 41
+}

@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/scsi/mpt3sas/extr_mpt3sas_ctl.c_reply_queue_count_show",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn",
+  "o0": 52,
+  "oz": 19,
+  "argmax_ic": 20,
+  "sample_ics": [
+    19,
+    19,
+    19,
+    19,
+    19,
+    19,
+    19,
+    19,
+    19,
+    19,
+    19,
+    19,
+    19,
+    19,
+    19,
+    19
+  ],
+  "best_of_k_ic": 19,
+  "random_null_best_of_k": 19
+}

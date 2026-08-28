@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/darwin-xnu/libkern/kxld/extr_kxld_seg.c_kxld_seg_is_data_seg",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 22,
+  "oz": 8,
+  "argmax_ic": 10,
+  "sample_ics": [
+    9,
+    9,
+    8,
+    9,
+    8,
+    8,
+    9,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    9,
+    8,
+    9
+  ],
+  "best_of_k_ic": 8,
+  "random_null_best_of_k": 8
+}

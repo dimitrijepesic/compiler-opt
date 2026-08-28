@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/net/tipc/extr_link.c_tipc_link_send",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 74,
+  "oz": 34,
+  "argmax_ic": 34,
+  "sample_ics": [
+    34,
+    42,
+    34,
+    34,
+    34,
+    34,
+    34,
+    34
+  ],
+  "best_of_k_ic": 34,
+  "random_null_best_of_k": 34
+}

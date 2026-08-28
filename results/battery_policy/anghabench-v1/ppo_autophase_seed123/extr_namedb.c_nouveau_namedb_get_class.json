@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/drivers/gpu/drm/nouveau/core/core/extr_namedb.c_nouveau_namedb_get_class",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 25,
+  "oz": 8,
+  "argmax_ic": 8,
+  "sample_ics": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "best_of_k_ic": 8,
+  "random_null_best_of_k": 8
+}

@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/drivers/staging/phison/extr_phison.c_phison_ide_init",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 2,
+  "oz": 2,
+  "argmax_ic": 2,
+  "sample_ics": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "best_of_k_ic": 2,
+  "random_null_best_of_k": 2
+}

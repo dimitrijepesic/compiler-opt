@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/net/ethernet/xilinx/extr_ll_temac_main.c__temac_ior_be",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 12,
+  "oz": 6,
+  "argmax_ic": 6,
+  "sample_ics": [
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6,
+    6
+  ],
+  "best_of_k_ic": 6,
+  "random_null_best_of_k": 6
+}

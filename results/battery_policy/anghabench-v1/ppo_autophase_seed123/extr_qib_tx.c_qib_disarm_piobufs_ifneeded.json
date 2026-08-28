@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/drivers/infiniband/hw/qib/extr_qib_tx.c_qib_disarm_piobufs_ifneeded",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 109,
+  "oz": 49,
+  "argmax_ic": 55,
+  "sample_ics": [
+    54,
+    54,
+    54,
+    54,
+    54,
+    50,
+    53,
+    54
+  ],
+  "best_of_k_ic": 50,
+  "random_null_best_of_k": 49
+}

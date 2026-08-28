@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/lab/engine/code/renderergl2/extr_tr_postprocess.c_RB_BlurAxis",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 217,
+  "oz": 54,
+  "argmax_ic": 68,
+  "sample_ics": [
+    60,
+    60,
+    58,
+    60,
+    58,
+    60,
+    70,
+    60
+  ],
+  "best_of_k_ic": 58,
+  "random_null_best_of_k": 54
+}

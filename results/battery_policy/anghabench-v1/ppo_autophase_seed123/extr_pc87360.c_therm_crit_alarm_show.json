@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/hwmon/extr_pc87360.c_therm_crit_alarm_show",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 40,
+  "oz": 15,
+  "argmax_ic": 15,
+  "sample_ics": [
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15
+  ],
+  "best_of_k_ic": 15,
+  "random_null_best_of_k": 15
+}

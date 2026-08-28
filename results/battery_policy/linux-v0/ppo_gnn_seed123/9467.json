@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://linux-v0/9467",
+  "suite": "linux-v0",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 326,
+  "oz": 326,
+  "argmax_ic": 326,
+  "sample_ics": [
+    326,
+    326,
+    326,
+    326,
+    326,
+    326,
+    326,
+    326,
+    326,
+    326,
+    326,
+    326,
+    326,
+    326,
+    326,
+    326
+  ],
+  "best_of_k_ic": 326,
+  "random_null_best_of_k": 326
+}

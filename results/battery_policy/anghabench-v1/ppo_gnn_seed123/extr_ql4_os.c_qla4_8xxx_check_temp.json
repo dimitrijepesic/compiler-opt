@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/drivers/scsi/qla4xxx/extr_ql4_os.c_qla4_8xxx_check_temp",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 80,
+  "oz": 32,
+  "argmax_ic": 33,
+  "sample_ics": [
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32,
+    32
+  ],
+  "best_of_k_ic": 32,
+  "random_null_best_of_k": 32
+}

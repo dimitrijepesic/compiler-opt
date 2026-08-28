@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/gpu/drm/panel/extr_panel-sony-acx565akm.c_acx565akm_bl_get_intensity",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn",
+  "o0": 44,
+  "oz": 18,
+  "argmax_ic": 22,
+  "sample_ics": [
+    18,
+    18,
+    18,
+    18,
+    18,
+    18,
+    19,
+    18,
+    18,
+    19,
+    19,
+    18,
+    18,
+    18,
+    18,
+    18
+  ],
+  "best_of_k_ic": 18,
+  "random_null_best_of_k": 18
+}

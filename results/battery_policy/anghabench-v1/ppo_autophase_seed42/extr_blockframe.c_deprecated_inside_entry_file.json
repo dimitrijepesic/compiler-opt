@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/contrib/gdb/gdb/extr_blockframe.c_deprecated_inside_entry_file",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 48,
+  "oz": 29,
+  "argmax_ic": 48,
+  "sample_ics": [
+    31,
+    39,
+    32,
+    34,
+    31,
+    31,
+    34,
+    32
+  ],
+  "best_of_k_ic": 31,
+  "random_null_best_of_k": 29
+}

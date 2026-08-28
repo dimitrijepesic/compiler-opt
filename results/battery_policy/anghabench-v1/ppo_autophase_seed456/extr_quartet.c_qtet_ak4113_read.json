@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/sound/pci/ice1712/extr_quartet.c_qtet_ak4113_read",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 10,
+  "oz": 4,
+  "argmax_ic": 4,
+  "sample_ics": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "best_of_k_ic": 4,
+  "random_null_best_of_k": 4
+}

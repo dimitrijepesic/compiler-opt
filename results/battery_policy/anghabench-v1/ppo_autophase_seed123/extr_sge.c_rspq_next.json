@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/net/ethernet/chelsio/cxgb4/extr_sge.c_rspq_next",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 42,
+  "oz": 30,
+  "argmax_ic": 31,
+  "sample_ics": [
+    30,
+    29,
+    31,
+    30,
+    29,
+    29,
+    30,
+    28
+  ],
+  "best_of_k_ic": 28,
+  "random_null_best_of_k": 28
+}

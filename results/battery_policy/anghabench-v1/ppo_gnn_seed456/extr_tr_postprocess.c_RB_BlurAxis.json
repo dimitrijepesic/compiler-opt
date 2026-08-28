@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/lab/engine/code/renderergl2/extr_tr_postprocess.c_RB_BlurAxis",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 217,
+  "oz": 54,
+  "argmax_ic": 102,
+  "sample_ics": [
+    58,
+    58,
+    54,
+    58,
+    58,
+    58,
+    70,
+    54,
+    58,
+    54,
+    58,
+    54,
+    58,
+    58,
+    58,
+    58
+  ],
+  "best_of_k_ic": 54,
+  "random_null_best_of_k": 54
+}

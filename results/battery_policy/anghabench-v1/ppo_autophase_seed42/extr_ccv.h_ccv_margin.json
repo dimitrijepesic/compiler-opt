@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/ccv/lib/extr_ccv.h_ccv_margin",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 24,
+  "oz": 11,
+  "argmax_ic": 17,
+  "sample_ics": [
+    10,
+    11,
+    11,
+    11,
+    11,
+    11,
+    11,
+    10
+  ],
+  "best_of_k_ic": 10,
+  "random_null_best_of_k": 10
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/libgit2/src/xdiff/extr_xprepare.c_xdl_prepare_env",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 148,
+  "oz": 69,
+  "argmax_ic": 74,
+  "sample_ics": [
+    69,
+    73,
+    74,
+    69,
+    74,
+    69,
+    69,
+    69
+  ],
+  "best_of_k_ic": 69,
+  "random_null_best_of_k": 68
+}

@@ -1,0 +1,190 @@
+ppo_autophase: 484 eligible programs (max-ic 6000), k=8
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  [20/484] seed 42 (2m)
+  [40/484] seed 42 (4m)
+  [60/484] seed 42 (5m)
+  [80/484] seed 42 (7m)
+  [100/484] seed 42 (9m)
+  [120/484] seed 42 (10m)
+  [140/484] seed 42 (12m)
+  [160/484] seed 42 (14m)
+  [164/484] 1544: FAILED ZeroDivisionError('division by zero')
+  [180/484] seed 42 (15m)
+  [185/484] 22468: FAILED ZeroDivisionError('division by zero')
+  [200/484] seed 42 (17m)
+  [211/484] 30603: FAILED ZeroDivisionError('division by zero')
+  [220/484] seed 42 (19m)
+  [240/484] seed 42 (19m)
+  [260/484] seed 42 (20m)
+  [280/484] seed 42 (21m)
+  [300/484] 10503: FAILED ZeroDivisionError('division by zero')
+  [300/484] seed 42 (22m)
+  [320/484] seed 42 (22m)
+  [342/484] 13446: FAILED ZeroDivisionError('division by zero')
+  [340/484] seed 42 (23m)
+ppo_autophase: 484 eligible programs (max-ic 6000), k=8
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  [164/484] 1544: FAILED ZeroDivisionError('division by zero')
+  [185/484] 22468: FAILED ZeroDivisionError('division by zero')
+  [211/484] 30603: FAILED ZeroDivisionError('division by zero')
+  [300/484] 10503: FAILED ZeroDivisionError('division by zero')
+  [342/484] 13446: FAILED ZeroDivisionError('division by zero')
+  [360/484] seed 42 (0m)
+  [377/484] 5069: FAILED ZeroDivisionError('division by zero')
+  [380/484] seed 42 (1m)
+  [406/484] 7559: FAILED ZeroDivisionError('division by zero')
+  [400/484] seed 42 (2m)
+  [422/484] 9018: FAILED ZeroDivisionError('division by zero')
+  [420/484] seed 42 (2m)
+  [440/484] seed 42 (3m)
+  [460/484] seed 42 (4m)
+seed 42 complete (4m)
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  [20/484] seed 123 (1m)
+  [40/484] seed 123 (1m)
+  [60/484] seed 123 (2m)
+  [80/484] seed 123 (2m)
+  [100/484] seed 123 (2m)
+  [120/484] seed 123 (3m)
+  [140/484] seed 123 (3m)
+  [160/484] seed 123 (4m)
+  [164/484] 1544: FAILED ZeroDivisionError('division by zero')
+  [180/484] seed 123 (4m)
+  [185/484] 22468: FAILED ZeroDivisionError('division by zero')
+  [200/484] seed 123 (5m)
+  [211/484] 30603: FAILED ZeroDivisionError('division by zero')
+  [220/484] seed 123 (5m)
+  [240/484] seed 123 (6m)
+  [260/484] seed 123 (6m)
+  [280/484] seed 123 (7m)
+  [300/484] 10503: FAILED ZeroDivisionError('division by zero')
+  [300/484] seed 123 (7m)
+  [320/484] seed 123 (8m)
+  [342/484] 13446: FAILED ZeroDivisionError('division by zero')
+  [340/484] seed 123 (8m)
+  [360/484] seed 123 (9m)
+  [377/484] 5069: FAILED ZeroDivisionError('division by zero')
+  [380/484] seed 123 (9m)
+  [406/484] 7559: FAILED ZeroDivisionError('division by zero')
+  [400/484] seed 123 (10m)
+  [422/484] 9018: FAILED ZeroDivisionError('division by zero')
+  [420/484] seed 123 (10m)
+  [440/484] seed 123 (11m)
+  [460/484] seed 123 (11m)
+seed 123 complete (12m)
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  [20/484] seed 456 (0m)
+  [40/484] seed 456 (1m)
+  [60/484] seed 456 (2m)
+  [80/484] seed 456 (2m)
+  [100/484] seed 456 (3m)
+  [120/484] seed 456 (4m)
+  [140/484] seed 456 (4m)
+  [160/484] seed 456 (5m)
+  [164/484] 1544: FAILED ZeroDivisionError('division by zero')
+  [180/484] seed 456 (5m)
+  [185/484] 22468: FAILED ZeroDivisionError('division by zero')
+  [200/484] seed 456 (6m)
+  [211/484] 30603: FAILED ZeroDivisionError('division by zero')
+  [220/484] seed 456 (6m)
+  [240/484] seed 456 (7m)
+  [260/484] seed 456 (7m)
+  [280/484] seed 456 (8m)
+  [300/484] 10503: FAILED ZeroDivisionError('division by zero')
+  [300/484] seed 456 (8m)
+  [320/484] seed 456 (9m)
+  [342/484] 13446: FAILED ZeroDivisionError('division by zero')
+  [340/484] seed 456 (9m)
+  [360/484] seed 456 (10m)
+  [377/484] 5069: FAILED ZeroDivisionError('division by zero')
+  [380/484] seed 456 (10m)
+  [406/484] 7559: FAILED ZeroDivisionError('division by zero')
+  [400/484] seed 456 (11m)
+  [422/484] 9018: FAILED ZeroDivisionError('division by zero')
+  [420/484] seed 456 (11m)
+  [440/484] seed 456 (12m)
+  [460/484] seed 456 (12m)
+seed 456 complete (13m)
+Aggregated -> results/battery_policy/_aggregate_ppo_autophase.json
+  anghabench-v1  seed 123  n=150 argmax=   4537 best-of-k=   4055 null=   4049 oz=   4043
+  anghabench-v1  seed 42   n=150 argmax=   5061 best-of-k=   4052 null=   4049 oz=   4043
+  anghabench-v1  seed 456  n=150 argmax=   4419 best-of-k=   4044 null=   4049 oz=   4043
+  blas-v0        seed 123  n= 50 argmax=  38583 best-of-k=  36998 null=  37099 oz=  37838
+  blas-v0        seed 42   n= 50 argmax=  40371 best-of-k=  36871 null=  37099 oz=  37838
+  blas-v0        seed 456  n= 50 argmax=  40264 best-of-k=  37195 null=  37099 oz=  37838
+  chstone-v0     seed 123  n= 12 argmax=  10595 best-of-k=   9233 null=   9241 oz=   9834
+  chstone-v0     seed 42   n= 12 argmax=  11844 best-of-k=   9129 null=   9241 oz=   9834
+  chstone-v0     seed 456  n= 12 argmax=  10719 best-of-k=   9133 null=   9241 oz=   9834
+  csmith-v0      seed 123  n= 28 argmax=  35531 best-of-k=  17664 null=  17555 oz=  20226
+  csmith-v0      seed 42   n= 28 argmax=  33325 best-of-k=  17179 null=  17555 oz=  20226
+  csmith-v0      seed 456  n= 28 argmax=  29674 best-of-k=  17048 null=  17555 oz=  20226
+  github-v0      seed 123  n=140 argmax=  80711 best-of-k=  79738 null=  79713 oz=  80661
+  github-v0      seed 42   n=140 argmax=  81302 best-of-k=  79692 null=  79713 oz=  80661
+  github-v0      seed 456  n=140 argmax=  81292 best-of-k=  80810 null=  79713 oz=  80661
+  linux-v0       seed 123  n=136 argmax= 150458 best-of-k= 147278 null= 147216 oz= 148029
+  linux-v0       seed 42   n=136 argmax= 150458 best-of-k= 147208 null= 147216 oz= 148029
+  linux-v0       seed 456  n=136 argmax= 150458 best-of-k= 150340 null= 147216 oz= 148029
+  llvm-stress-v0 seed 123  n= 50 argmax=   4765 best-of-k=    247 null=    255 oz=    234
+  llvm-stress-v0 seed 42   n= 50 argmax=   5478 best-of-k=    245 null=    255 oz=    234
+  llvm-stress-v0 seed 456  n= 50 argmax=   3386 best-of-k=    245 null=    255 oz=    234
+  mibench-v1     seed 123  n= 40 argmax=   5509 best-of-k=   4801 null=   4828 oz=   4841
+  mibench-v1     seed 42   n= 40 argmax=   6106 best-of-k=   4783 null=   4828 oz=   4841
+  mibench-v1     seed 456  n= 40 argmax=   5420 best-of-k=   4765 null=   4828 oz=   4841
+  npb-v0         seed 123  n=120 argmax=  57498 best-of-k=  42668 null=  40301 oz=  53085
+  npb-v0         seed 42   n=120 argmax=  64022 best-of-k=  40675 null=  40301 oz=  53085
+  npb-v0         seed 456  n=120 argmax=  50531 best-of-k=  40822 null=  40301 oz=  53085
+  poj104-v1      seed 123  n= 97 argmax=  11708 best-of-k=   7917 null=   7853 oz=   8334
+  poj104-v1      seed 42   n= 97 argmax=  12951 best-of-k=   7956 null=   7853 oz=   8334
+  poj104-v1      seed 456  n= 97 argmax=  11000 best-of-k=   7752 null=   7853 oz=   8334

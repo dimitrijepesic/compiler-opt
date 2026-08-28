@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/jemalloc/test/unit/extr_hook.c_test_dalloc_hook",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 22,
+  "oz": 10,
+  "argmax_ic": 10,
+  "sample_ics": [
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10,
+    10
+  ],
+  "best_of_k_ic": 10,
+  "random_null_best_of_k": 10
+}

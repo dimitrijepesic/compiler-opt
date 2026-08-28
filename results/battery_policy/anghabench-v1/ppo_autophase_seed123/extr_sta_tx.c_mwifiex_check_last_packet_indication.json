@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/net/wireless/marvell/mwifiex/extr_sta_tx.c_mwifiex_check_last_packet_indication",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 68,
+  "oz": 28,
+  "argmax_ic": 36,
+  "sample_ics": [
+    29,
+    29,
+    29,
+    29,
+    29,
+    28,
+    29,
+    28
+  ],
+  "best_of_k_ic": 28,
+  "random_null_best_of_k": 28
+}

@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/netdata/collectors/tc.plugin/extr_....daemon..libnetdataadaptive_resortable_listadaptive_resortable_list.h_arl_check",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 108,
+  "oz": 61,
+  "argmax_ic": 66,
+  "sample_ics": [
+    60,
+    60,
+    60,
+    61,
+    58,
+    60,
+    63,
+    61,
+    60,
+    61,
+    60,
+    60,
+    61,
+    60,
+    60,
+    63
+  ],
+  "best_of_k_ic": 58,
+  "random_null_best_of_k": 58
+}

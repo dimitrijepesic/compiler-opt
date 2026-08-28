@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/arch/x86/kvm/extr_x86.c_retry_instruction",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 123,
+  "oz": 42,
+  "argmax_ic": 55,
+  "sample_ics": [
+    43,
+    47,
+    42,
+    42,
+    42,
+    44,
+    43,
+    46,
+    43,
+    44,
+    43,
+    42,
+    43,
+    44,
+    43,
+    44
+  ],
+  "best_of_k_ic": 42,
+  "random_null_best_of_k": 42
+}

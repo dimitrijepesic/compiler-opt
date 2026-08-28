@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/fs/btrfs/extr_disk-io.c_btrfs_check_super_csum",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 64,
+  "oz": 29,
+  "argmax_ic": 37,
+  "sample_ics": [
+    30,
+    30,
+    30,
+    33,
+    30,
+    30,
+    30,
+    30
+  ],
+  "best_of_k_ic": 30,
+  "random_null_best_of_k": 30
+}

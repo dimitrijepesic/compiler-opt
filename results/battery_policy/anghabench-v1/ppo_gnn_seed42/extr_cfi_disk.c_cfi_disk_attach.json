@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/sys/dev/cfi/extr_cfi_disk.c_cfi_disk_attach",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn",
+  "o0": 206,
+  "oz": 95,
+  "argmax_ic": 153,
+  "sample_ics": [
+    112,
+    116,
+    112,
+    113,
+    118,
+    107,
+    120,
+    116,
+    107,
+    111,
+    113,
+    107,
+    107,
+    116,
+    113,
+    110
+  ],
+  "best_of_k_ic": 107,
+  "random_null_best_of_k": 106
+}

@@ -1,7 +1,30 @@
 {
   "agent": "ppo_autophase",
-  "timestamp": "2026-08-12T13:55:00.135296",
+  "timestamp": "2026-08-29T00:55:28.234966",
   "per_suite": {
+    "anghabench-v1": {
+      "123": {
+        "n": 150,
+        "argmax": 4537,
+        "best_of_k": 4055,
+        "null_best_of_k": 4049,
+        "oz": 4043
+      },
+      "42": {
+        "n": 150,
+        "argmax": 5061,
+        "best_of_k": 4052,
+        "null_best_of_k": 4049,
+        "oz": 4043
+      },
+      "456": {
+        "n": 150,
+        "argmax": 4419,
+        "best_of_k": 4044,
+        "null_best_of_k": 4049,
+        "oz": 4043
+      }
+    },
     "blas-v0": {
       "123": {
         "n": 50,
@@ -69,6 +92,75 @@
         "best_of_k": 17048,
         "null_best_of_k": 17555,
         "oz": 20226
+      }
+    },
+    "github-v0": {
+      "123": {
+        "n": 140,
+        "argmax": 80711,
+        "best_of_k": 79738,
+        "null_best_of_k": 79713,
+        "oz": 80661
+      },
+      "42": {
+        "n": 140,
+        "argmax": 81302,
+        "best_of_k": 79692,
+        "null_best_of_k": 79713,
+        "oz": 80661
+      },
+      "456": {
+        "n": 140,
+        "argmax": 81292,
+        "best_of_k": 80810,
+        "null_best_of_k": 79713,
+        "oz": 80661
+      }
+    },
+    "linux-v0": {
+      "123": {
+        "n": 136,
+        "argmax": 150458,
+        "best_of_k": 147278,
+        "null_best_of_k": 147216,
+        "oz": 148029
+      },
+      "42": {
+        "n": 136,
+        "argmax": 150458,
+        "best_of_k": 147208,
+        "null_best_of_k": 147216,
+        "oz": 148029
+      },
+      "456": {
+        "n": 136,
+        "argmax": 150458,
+        "best_of_k": 150340,
+        "null_best_of_k": 147216,
+        "oz": 148029
+      }
+    },
+    "llvm-stress-v0": {
+      "123": {
+        "n": 50,
+        "argmax": 4765,
+        "best_of_k": 247,
+        "null_best_of_k": 255,
+        "oz": 234
+      },
+      "42": {
+        "n": 50,
+        "argmax": 5478,
+        "best_of_k": 245,
+        "null_best_of_k": 255,
+        "oz": 234
+      },
+      "456": {
+        "n": 50,
+        "argmax": 3386,
+        "best_of_k": 245,
+        "null_best_of_k": 255,
+        "oz": 234
       }
     },
     "mibench-v1": {

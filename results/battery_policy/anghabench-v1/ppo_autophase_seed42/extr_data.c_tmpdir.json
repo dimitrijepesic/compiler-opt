@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/reactos/modules/rostests/apitests/dbghelp/extr_data.c_tmpdir",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 14,
+  "oz": 12,
+  "argmax_ic": 14,
+  "sample_ics": [
+    12,
+    12,
+    12,
+    12,
+    12,
+    13,
+    12,
+    13
+  ],
+  "best_of_k_ic": 12,
+  "random_null_best_of_k": 11
+}

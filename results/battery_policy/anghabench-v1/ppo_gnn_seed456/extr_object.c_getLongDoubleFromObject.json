@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/disque/src/extr_object.c_getLongDoubleFromObject",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 92,
+  "oz": 53,
+  "argmax_ic": 60,
+  "sample_ics": [
+    53,
+    53,
+    53,
+    53,
+    53,
+    53,
+    53,
+    53,
+    53,
+    53,
+    53,
+    53,
+    56,
+    53,
+    53,
+    53
+  ],
+  "best_of_k_ic": 53,
+  "random_null_best_of_k": 53
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/exploitdb/exploits/linux/remote/extr_22894.c_printe",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 13,
+  "oz": 7,
+  "argmax_ic": 7,
+  "sample_ics": [
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7,
+    7
+  ],
+  "best_of_k_ic": 7,
+  "random_null_best_of_k": 7
+}

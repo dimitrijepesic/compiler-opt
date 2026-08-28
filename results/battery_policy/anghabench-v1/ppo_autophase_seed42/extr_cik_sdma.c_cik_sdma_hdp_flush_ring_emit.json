@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/gpu/drm/radeon/extr_cik_sdma.c_cik_sdma_hdp_flush_ring_emit",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 60,
+  "oz": 23,
+  "argmax_ic": 26,
+  "sample_ics": [
+    23,
+    26,
+    23,
+    23,
+    26,
+    23,
+    23,
+    24
+  ],
+  "best_of_k_ic": 23,
+  "random_null_best_of_k": 23
+}

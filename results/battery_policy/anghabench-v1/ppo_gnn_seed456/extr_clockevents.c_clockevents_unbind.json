@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/kernel/time/extr_clockevents.c_clockevents_unbind",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 22,
+  "oz": 14,
+  "argmax_ic": 16,
+  "sample_ics": [
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14
+  ],
+  "best_of_k_ic": 14,
+  "random_null_best_of_k": 14
+}

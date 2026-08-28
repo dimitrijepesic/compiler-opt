@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/phy/amlogic/extr_phy-meson-g12a-usb3-pcie.c_phy_g12a_usb3_pcie_exit",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 15,
+  "oz": 5,
+  "argmax_ic": 5,
+  "sample_ics": [
+    5,
+    5,
+    5,
+    5,
+    12,
+    5,
+    5,
+    5
+  ],
+  "best_of_k_ic": 5,
+  "random_null_best_of_k": 5
+}

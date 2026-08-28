@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/timescaledb/src/extr_process_utility.c_process_drop_table",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn",
+  "o0": 33,
+  "oz": 17,
+  "argmax_ic": 19,
+  "sample_ics": [
+    19,
+    19,
+    19,
+    17,
+    19,
+    17,
+    17,
+    17,
+    19,
+    17,
+    17,
+    17,
+    17,
+    19,
+    20,
+    17
+  ],
+  "best_of_k_ic": 17,
+  "random_null_best_of_k": 17
+}

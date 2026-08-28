@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/mongoose/examples/ESP8266_RTOS/user/extr_mongoose.c_mg_start_process",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 85,
+  "oz": 31,
+  "argmax_ic": 43,
+  "sample_ics": [
+    32,
+    31,
+    31,
+    34,
+    31,
+    34,
+    31,
+    35
+  ],
+  "best_of_k_ic": 31,
+  "random_null_best_of_k": 31
+}

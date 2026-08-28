@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/security/apparmor/extr_policy_ns.c_aa_prepare_ns",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 34,
+  "oz": 14,
+  "argmax_ic": 15,
+  "sample_ics": [
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14
+  ],
+  "best_of_k_ic": 14,
+  "random_null_best_of_k": 14
+}

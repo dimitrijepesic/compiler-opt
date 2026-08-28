@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/h2o/t/00unit/lib/common/extr_........libcommonsocket.c_h2o_socket_read_start",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 12,
+  "oz": 4,
+  "argmax_ic": 5,
+  "sample_ics": [
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "best_of_k_ic": 4,
+  "random_null_best_of_k": 4
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/net/ethernet/intel/ice/extr_ice_virtchnl_pf.c_ice_vf_set_vsi_promisc",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 99,
+  "oz": 30,
+  "argmax_ic": 32,
+  "sample_ics": [
+    30,
+    32,
+    30,
+    30,
+    30,
+    32,
+    32,
+    30
+  ],
+  "best_of_k_ic": 30,
+  "random_null_best_of_k": 28
+}

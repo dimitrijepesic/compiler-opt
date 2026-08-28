@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/net/dccp/ccids/extr_ccid3.c_ccid3_hc_tx_update_s",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn",
+  "o0": 31,
+  "oz": 9,
+  "argmax_ic": 14,
+  "sample_ics": [
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9,
+    9
+  ],
+  "best_of_k_ic": 9,
+  "random_null_best_of_k": 9
+}

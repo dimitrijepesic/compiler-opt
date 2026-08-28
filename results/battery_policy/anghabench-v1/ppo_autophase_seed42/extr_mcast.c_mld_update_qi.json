@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/net/ipv6/extr_mcast.c_mld_update_qi",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 56,
+  "oz": 19,
+  "argmax_ic": 25,
+  "sample_ics": [
+    19,
+    21,
+    20,
+    19,
+    20,
+    19,
+    21,
+    19
+  ],
+  "best_of_k_ic": 19,
+  "random_null_best_of_k": 19
+}

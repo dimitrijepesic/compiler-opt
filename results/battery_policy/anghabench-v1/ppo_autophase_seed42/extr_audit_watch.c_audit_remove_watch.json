@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/kernel/extr_audit_watch.c_audit_remove_watch",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 15,
+  "oz": 8,
+  "argmax_ic": 9,
+  "sample_ics": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "best_of_k_ic": 8,
+  "random_null_best_of_k": 8
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/crypto/openssl/crypto/ct/extr_ct_sct.c_SCT_signature_is_complete",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 20,
+  "oz": 15,
+  "argmax_ic": 18,
+  "sample_ics": [
+    15,
+    17,
+    15,
+    15,
+    15,
+    15,
+    15,
+    15
+  ],
+  "best_of_k_ic": 15,
+  "random_null_best_of_k": 15
+}

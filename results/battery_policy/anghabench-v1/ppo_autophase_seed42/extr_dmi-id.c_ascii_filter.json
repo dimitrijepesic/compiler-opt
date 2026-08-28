@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/drivers/firmware/extr_dmi-id.c_ascii_filter",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 39,
+  "oz": 17,
+  "argmax_ic": 39,
+  "sample_ics": [
+    18,
+    24,
+    22,
+    23,
+    20,
+    20,
+    22,
+    22
+  ],
+  "best_of_k_ic": 18,
+  "random_null_best_of_k": 17
+}

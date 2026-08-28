@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/net/ethernet/intel/e1000e/extr_ich8lan.c_e1000_phy_hw_reset_ich8lan",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 43,
+  "oz": 20,
+  "argmax_ic": 22,
+  "sample_ics": [
+    20,
+    22,
+    20,
+    21,
+    21,
+    20,
+    20,
+    22
+  ],
+  "best_of_k_ic": 20,
+  "random_null_best_of_k": 20
+}

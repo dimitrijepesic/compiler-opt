@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/drivers/net/bnx2x/extr_bnx2x_main.c_bnx2x_fill",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 58,
+  "oz": 19,
+  "argmax_ic": 27,
+  "sample_ics": [
+    25,
+    23,
+    21,
+    26,
+    25,
+    21,
+    23,
+    21
+  ],
+  "best_of_k_ic": 21,
+  "random_null_best_of_k": 23
+}

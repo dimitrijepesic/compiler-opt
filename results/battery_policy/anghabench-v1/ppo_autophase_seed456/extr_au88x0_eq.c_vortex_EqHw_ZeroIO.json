@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/sound/pci/au88x0/extr_au88x0_eq.c_vortex_EqHw_ZeroIO",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 46,
+  "oz": 48,
+  "argmax_ic": 26,
+  "sample_ics": [
+    26,
+    26,
+    26,
+    27,
+    27,
+    26,
+    26,
+    26
+  ],
+  "best_of_k_ic": 26,
+  "random_null_best_of_k": 26
+}

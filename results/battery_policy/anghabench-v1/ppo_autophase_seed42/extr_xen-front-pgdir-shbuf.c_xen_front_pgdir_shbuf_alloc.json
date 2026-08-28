@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/xen/extr_xen-front-pgdir-shbuf.c_xen_front_pgdir_shbuf_alloc",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 88,
+  "oz": 39,
+  "argmax_ic": 48,
+  "sample_ics": [
+    39,
+    41,
+    45,
+    41,
+    45,
+    43,
+    45,
+    41
+  ],
+  "best_of_k_ic": 39,
+  "random_null_best_of_k": 39
+}

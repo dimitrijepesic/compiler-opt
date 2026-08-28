@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/kphp-kdb/mutual-friends/extr_hash_table.c_htbl_find_or_create",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 96,
+  "oz": 39,
+  "argmax_ic": 43,
+  "sample_ics": [
+    43,
+    46,
+    40,
+    43,
+    41,
+    43,
+    43,
+    43
+  ],
+  "best_of_k_ic": 40,
+  "random_null_best_of_k": 41
+}

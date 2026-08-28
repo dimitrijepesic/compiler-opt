@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/esp-idf/examples/provisioning/softap_prov/main/extr_app_prov.c_app_prov_get_wifi_disconnect_reason",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 31,
+  "oz": 17,
+  "argmax_ic": 23,
+  "sample_ics": [
+    17,
+    17,
+    17,
+    19,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17
+  ],
+  "best_of_k_ic": 17,
+  "random_null_best_of_k": 17
+}

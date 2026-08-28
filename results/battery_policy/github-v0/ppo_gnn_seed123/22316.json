@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://github-v0/22316",
+  "suite": "github-v0",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 420,
+  "oz": 420,
+  "argmax_ic": 420,
+  "sample_ics": [
+    420,
+    420,
+    420,
+    420,
+    420,
+    420,
+    420,
+    420,
+    420,
+    420,
+    420,
+    420,
+    420,
+    420,
+    420,
+    420
+  ],
+  "best_of_k_ic": 420,
+  "random_null_best_of_k": 420
+}

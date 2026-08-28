@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/block/extr_blk-sysfs.c_queue_wb_lat_store",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 101,
+  "oz": 43,
+  "argmax_ic": 53,
+  "sample_ics": [
+    43,
+    43,
+    43,
+    43,
+    45,
+    43,
+    43,
+    43
+  ],
+  "best_of_k_ic": 43,
+  "random_null_best_of_k": 43
+}

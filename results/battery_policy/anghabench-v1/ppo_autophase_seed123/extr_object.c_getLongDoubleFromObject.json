@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/disque/src/extr_object.c_getLongDoubleFromObject",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 92,
+  "oz": 53,
+  "argmax_ic": 62,
+  "sample_ics": [
+    56,
+    56,
+    56,
+    54,
+    56,
+    53,
+    54,
+    56
+  ],
+  "best_of_k_ic": 53,
+  "random_null_best_of_k": 53
+}

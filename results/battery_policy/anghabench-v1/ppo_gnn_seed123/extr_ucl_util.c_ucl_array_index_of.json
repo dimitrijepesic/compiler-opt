@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/contrib/libucl/src/extr_ucl_util.c_ucl_array_index_of",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 50,
+  "oz": 19,
+  "argmax_ic": 21,
+  "sample_ics": [
+    19,
+    19,
+    20,
+    20,
+    19,
+    19,
+    19,
+    18,
+    22,
+    19,
+    19,
+    18,
+    22,
+    19,
+    21,
+    20
+  ],
+  "best_of_k_ic": 18,
+  "random_null_best_of_k": 18
+}

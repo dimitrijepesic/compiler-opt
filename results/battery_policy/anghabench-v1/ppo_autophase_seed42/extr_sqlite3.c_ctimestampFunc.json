@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/mongoose/examples/api_server/extr_sqlite3.c_ctimestampFunc",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 12,
+  "oz": 3,
+  "argmax_ic": 3,
+  "sample_ics": [
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3
+  ],
+  "best_of_k_ic": 3,
+  "random_null_best_of_k": 3
+}

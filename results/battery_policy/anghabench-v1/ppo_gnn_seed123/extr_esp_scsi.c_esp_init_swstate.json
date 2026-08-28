@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/scsi/extr_esp_scsi.c_esp_init_swstate",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 68,
+  "oz": 20,
+  "argmax_ic": 44,
+  "sample_ics": [
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    31,
+    36,
+    31,
+    31,
+    36,
+    31,
+    31,
+    31,
+    31,
+    31
+  ],
+  "best_of_k_ic": 31,
+  "random_null_best_of_k": 31
+}

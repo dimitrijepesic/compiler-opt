@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/kernel/extr_signal.c_sigprocmask",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 60,
+  "oz": 37,
+  "argmax_ic": 38,
+  "sample_ics": [
+    37,
+    37,
+    35,
+    35,
+    37,
+    37,
+    35,
+    37
+  ],
+  "best_of_k_ic": 35,
+  "random_null_best_of_k": 37
+}

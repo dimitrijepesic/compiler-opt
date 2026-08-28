@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://github-v0/41692",
+  "suite": "github-v0",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 125,
+  "oz": 126,
+  "argmax_ic": 125,
+  "sample_ics": [
+    126,
+    126,
+    126,
+    126,
+    126,
+    126,
+    126,
+    126
+  ],
+  "best_of_k_ic": 126,
+  "random_null_best_of_k": 126
+}

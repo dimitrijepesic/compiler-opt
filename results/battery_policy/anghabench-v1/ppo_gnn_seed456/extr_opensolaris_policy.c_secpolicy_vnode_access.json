@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/sys/cddl/compat/opensolaris/kern/extr_opensolaris_policy.c_secpolicy_vnode_access",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 78,
+  "oz": 48,
+  "argmax_ic": 48,
+  "sample_ics": [
+    48,
+    48,
+    48,
+    48,
+    48,
+    48,
+    48,
+    48,
+    48,
+    48,
+    48,
+    48,
+    48,
+    48,
+    48,
+    48
+  ],
+  "best_of_k_ic": 48,
+  "random_null_best_of_k": 48
+}

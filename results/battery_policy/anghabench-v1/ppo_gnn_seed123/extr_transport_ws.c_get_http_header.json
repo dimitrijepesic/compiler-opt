@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/esp-idf/components/tcp_transport/extr_transport_ws.c_get_http_header",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_gnn",
+  "o0": 53,
+  "oz": 14,
+  "argmax_ic": 20,
+  "sample_ics": [
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    14,
+    18,
+    14,
+    14,
+    14,
+    14,
+    14,
+    18
+  ],
+  "best_of_k_ic": 14,
+  "random_null_best_of_k": 14
+}

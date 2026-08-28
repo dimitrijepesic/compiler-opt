@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/net/wireless/intel/iwlwifi/pcie/extr_tx.c_iwl_pcie_txq_set_ratid_map",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 66,
+  "oz": 17,
+  "argmax_ic": 21,
+  "sample_ics": [
+    21,
+    21,
+    21,
+    21,
+    21,
+    21,
+    21,
+    21,
+    21,
+    21,
+    21,
+    21,
+    21,
+    21,
+    21,
+    21
+  ],
+  "best_of_k_ic": 21,
+  "random_null_best_of_k": 21
+}

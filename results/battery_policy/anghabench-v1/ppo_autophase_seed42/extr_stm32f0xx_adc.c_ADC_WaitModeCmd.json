@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/anypixel/firmware/display/ThirdParty/SPL/src/extr_stm32f0xx_adc.c_ADC_WaitModeCmd",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 30,
+  "oz": 20,
+  "argmax_ic": 21,
+  "sample_ics": [
+    20,
+    18,
+    18,
+    18,
+    15,
+    20,
+    18,
+    18
+  ],
+  "best_of_k_ic": 15,
+  "random_null_best_of_k": 15
+}

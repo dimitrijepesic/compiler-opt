@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/net/nfc/extr_digital_dep.c_digital_recv_dep_data_gather",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 151,
+  "oz": 66,
+  "argmax_ic": 84,
+  "sample_ics": [
+    78,
+    66,
+    69,
+    74,
+    69,
+    69,
+    94,
+    75,
+    66,
+    69,
+    68,
+    69,
+    75,
+    69,
+    69,
+    74
+  ],
+  "best_of_k_ic": 66,
+  "random_null_best_of_k": 66
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/sound/pci/ice1712/extr_phase.c_wm_mute_info",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 26,
+  "oz": 13,
+  "argmax_ic": 17,
+  "sample_ics": [
+    15,
+    13,
+    13,
+    13,
+    15,
+    13,
+    15,
+    13
+  ],
+  "best_of_k_ic": 13,
+  "random_null_best_of_k": 13
+}

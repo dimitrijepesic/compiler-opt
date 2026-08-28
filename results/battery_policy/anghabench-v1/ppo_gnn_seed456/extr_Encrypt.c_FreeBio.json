@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/SoftEtherVPN/src/Mayaqua/extr_Encrypt.c_FreeBio",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 10,
+  "oz": 5,
+  "argmax_ic": 5,
+  "sample_ics": [
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+  ],
+  "best_of_k_ic": 5,
+  "random_null_best_of_k": 5
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/gpu/drm/vc4/extr_vc4_v3d.c_vc4_v3d_bind",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 221,
+  "oz": 96,
+  "argmax_ic": 113,
+  "sample_ics": [
+    96,
+    96,
+    93,
+    93,
+    95,
+    93,
+    99,
+    101
+  ],
+  "best_of_k_ic": 93,
+  "random_null_best_of_k": 93
+}

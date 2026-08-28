@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/gpu/drm/msm/adreno/extr_a4xx.xml.h_A4XX_TPL1_TP_TEX_COUNT_DS",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 8,
+  "oz": 5,
+  "argmax_ic": 5,
+  "sample_ics": [
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5,
+    5
+  ],
+  "best_of_k_ic": 5,
+  "random_null_best_of_k": 5
+}

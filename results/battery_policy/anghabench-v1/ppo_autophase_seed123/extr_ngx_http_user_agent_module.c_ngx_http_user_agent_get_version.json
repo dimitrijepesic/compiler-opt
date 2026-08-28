@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/tengine/modules/ngx_http_user_agent_module/extr_ngx_http_user_agent_module.c_ngx_http_user_agent_get_version",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 345,
+  "oz": 119,
+  "argmax_ic": 181,
+  "sample_ics": [
+    124,
+    134,
+    122,
+    130,
+    140,
+    136,
+    136,
+    128
+  ],
+  "best_of_k_ic": 122,
+  "random_null_best_of_k": 124
+}

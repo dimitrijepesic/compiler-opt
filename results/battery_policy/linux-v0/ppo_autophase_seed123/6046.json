@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://linux-v0/6046",
+  "suite": "linux-v0",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 202,
+  "oz": 202,
+  "argmax_ic": 202,
+  "sample_ics": [
+    202,
+    202,
+    202,
+    202,
+    202,
+    202,
+    202,
+    202
+  ],
+  "best_of_k_ic": 202,
+  "random_null_best_of_k": 202
+}

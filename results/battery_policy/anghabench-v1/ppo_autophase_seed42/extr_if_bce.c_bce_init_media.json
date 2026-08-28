@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/sys/dev/bce/extr_if_bce.c_bce_init_media",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 41,
+  "oz": 27,
+  "argmax_ic": 32,
+  "sample_ics": [
+    29,
+    31,
+    29,
+    29,
+    30,
+    27,
+    27,
+    29
+  ],
+  "best_of_k_ic": 27,
+  "random_null_best_of_k": 27
+}

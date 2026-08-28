@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/security/selinux/extr_hooks.c_selinux_secmark_relabel_packet",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_gnn",
+  "o0": 25,
+  "oz": 8,
+  "argmax_ic": 8,
+  "sample_ics": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "best_of_k_ic": 8,
+  "random_null_best_of_k": 8
+}

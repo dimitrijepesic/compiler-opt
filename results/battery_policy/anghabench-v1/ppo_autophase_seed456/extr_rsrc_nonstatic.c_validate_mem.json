@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/pcmcia/extr_rsrc_nonstatic.c_validate_mem",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 75,
+  "oz": 26,
+  "argmax_ic": 26,
+  "sample_ics": [
+    26,
+    26,
+    27,
+    27,
+    26,
+    26,
+    26,
+    26
+  ],
+  "best_of_k_ic": 26,
+  "random_null_best_of_k": 26
+}

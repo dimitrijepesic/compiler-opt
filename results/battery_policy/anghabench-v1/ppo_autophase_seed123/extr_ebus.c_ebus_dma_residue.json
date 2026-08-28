@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/fastsocket/kernel/arch/sparc/kernel/extr_ebus.c_ebus_dma_residue",
+  "suite": "anghabench-v1",
+  "seed": 123,
+  "variant": "ppo_autophase",
+  "o0": 9,
+  "oz": 6,
+  "argmax_ic": 6,
+  "sample_ics": [
+    6,
+    6,
+    6,
+    8,
+    6,
+    6,
+    6,
+    6
+  ],
+  "best_of_k_ic": 6,
+  "random_null_best_of_k": 6
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/gpu/drm/radeon/extr_radeon_dp_mst.c_radeon_dp_mst_set_vcp_size",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 116,
+  "oz": 33,
+  "argmax_ic": 34,
+  "sample_ics": [
+    33,
+    34,
+    33,
+    37,
+    33,
+    33,
+    33,
+    34
+  ],
+  "best_of_k_ic": 33,
+  "random_null_best_of_k": 34
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/h2o/deps/mruby/src/extr_class.c_check_if_class_or_module",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 16,
+  "oz": 8,
+  "argmax_ic": 8,
+  "sample_ics": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "best_of_k_ic": 8,
+  "random_null_best_of_k": 8
+}

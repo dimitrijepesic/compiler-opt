@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/sys/contrib/libnv/extr_nvlist.c_nvlist_take_binary",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 40,
+  "oz": 12,
+  "argmax_ic": 12,
+  "sample_ics": [
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12,
+    12
+  ],
+  "best_of_k_ic": 12,
+  "random_null_best_of_k": 12
+}

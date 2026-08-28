@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/h2o/lib/extr_http1.c_close_connection",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 48,
+  "oz": 29,
+  "argmax_ic": 33,
+  "sample_ics": [
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29,
+    29
+  ],
+  "best_of_k_ic": 29,
+  "random_null_best_of_k": 29
+}

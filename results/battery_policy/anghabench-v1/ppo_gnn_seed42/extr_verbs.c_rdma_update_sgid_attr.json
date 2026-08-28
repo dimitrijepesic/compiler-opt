@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/linux/drivers/infiniband/core/extr_verbs.c_rdma_update_sgid_attr",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn",
+  "o0": 33,
+  "oz": 17,
+  "argmax_ic": 20,
+  "sample_ics": [
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17,
+    17
+  ],
+  "best_of_k_ic": 17,
+  "random_null_best_of_k": 17
+}

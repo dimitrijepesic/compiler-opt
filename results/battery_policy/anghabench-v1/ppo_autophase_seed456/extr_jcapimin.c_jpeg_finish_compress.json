@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/Quake-III-Arena/code/jpeg-6/extr_jcapimin.c_jpeg_finish_compress",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 149,
+  "oz": 88,
+  "argmax_ic": 94,
+  "sample_ics": [
+    94,
+    93,
+    94,
+    93,
+    94,
+    94,
+    93,
+    94
+  ],
+  "best_of_k_ic": 93,
+  "random_null_best_of_k": 92
+}

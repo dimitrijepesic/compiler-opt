@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/mongoose/examples/api_server/extr_sqlite3.c_generateColumnTypes",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 73,
+  "oz": 29,
+  "argmax_ic": 31,
+  "sample_ics": [
+    29,
+    30,
+    32,
+    30,
+    30,
+    32,
+    32,
+    31
+  ],
+  "best_of_k_ic": 29,
+  "random_null_best_of_k": 30
+}

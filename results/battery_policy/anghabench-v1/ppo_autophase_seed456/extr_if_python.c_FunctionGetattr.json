@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/macvim/src/extr_if_python.c_FunctionGetattr",
+  "suite": "anghabench-v1",
+  "seed": 456,
+  "variant": "ppo_autophase",
+  "o0": 44,
+  "oz": 18,
+  "argmax_ic": 20,
+  "sample_ics": [
+    18,
+    18,
+    18,
+    20,
+    18,
+    18,
+    18,
+    18
+  ],
+  "best_of_k_ic": 18,
+  "random_null_best_of_k": 18
+}

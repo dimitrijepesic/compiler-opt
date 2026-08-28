@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://anghabench-v1/freebsd/sys/dev/fb/extr_machfb.c_machfb_init",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_autophase",
+  "o0": 528,
+  "oz": 293,
+  "argmax_ic": 357,
+  "sample_ics": [
+    311,
+    299,
+    311,
+    313,
+    308,
+    306,
+    312,
+    313
+  ],
+  "best_of_k_ic": 299,
+  "random_null_best_of_k": 297
+}

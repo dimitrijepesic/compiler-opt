@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://anghabench-v1/openssl/crypto/extr_core_namemap.c_namenum_free",
+  "suite": "anghabench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn",
+  "o0": 13,
+  "oz": 8,
+  "argmax_ic": 8,
+  "sample_ics": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "best_of_k_ic": 8,
+  "random_null_best_of_k": 8
+}
