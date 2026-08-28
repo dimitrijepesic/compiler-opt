@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://mibench-v1/rsynth-2",
+  "suite": "mibench-v1",
+  "variant": "portfolio",
+  "o0": 155,
+  "oz": 44,
+  "sample_ics": [
+    44,
+    44,
+    44,
+    44,
+    44,
+    44,
+    44,
+    44,
+    44,
+    49,
+    46,
+    44,
+    44,
+    44,
+    44,
+    44
+  ],
+  "best_of_8_ic": 44,
+  "best_of_16_ic": 44,
+  "random_null_best_of_8": 44,
+  "random_null_best_of_16": 44
+}

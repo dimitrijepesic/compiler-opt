@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://chstone-v0/jpeg",
+  "suite": "chstone-v0",
+  "variant": "portfolio",
+  "o0": 3186,
+  "oz": 1590,
+  "sample_ics": [
+    1469,
+    1490,
+    1494,
+    1475,
+    1477,
+    1478,
+    1476,
+    1474,
+    1483,
+    1489,
+    1510,
+    1472,
+    1496,
+    1482,
+    1489,
+    1480
+  ],
+  "best_of_8_ic": 1469,
+  "best_of_16_ic": 1469,
+  "random_null_best_of_8": 1476,
+  "random_null_best_of_16": 1476
+}

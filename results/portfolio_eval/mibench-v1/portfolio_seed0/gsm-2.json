@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://mibench-v1/gsm-2",
+  "suite": "mibench-v1",
+  "variant": "portfolio",
+  "o0": 222,
+  "oz": 85,
+  "sample_ics": [
+    86,
+    87,
+    83,
+    86,
+    86,
+    86,
+    83,
+    84,
+    88,
+    89,
+    88,
+    86,
+    88,
+    88,
+    86,
+    86
+  ],
+  "best_of_8_ic": 83,
+  "best_of_16_ic": 83,
+  "random_null_best_of_8": 86,
+  "random_null_best_of_16": 83
+}

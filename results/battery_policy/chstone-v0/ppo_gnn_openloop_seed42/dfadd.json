@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://chstone-v0/dfadd",
+  "suite": "chstone-v0",
+  "seed": 42,
+  "variant": "ppo_gnn_openloop",
+  "o0": 991,
+  "oz": 422,
+  "argmax_ic": 463,
+  "sample_ics": [
+    406,
+    409,
+    412,
+    404,
+    409,
+    414,
+    453,
+    407
+  ],
+  "best_of_k_ic": 404,
+  "random_null_best_of_k": 403
+}

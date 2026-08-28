@@ -1,0 +1,36 @@
+{
+  "uri": "benchmark://mibench-v1/susan-e-1",
+  "suite": "mibench-v1",
+  "mtriple": "thumbv7m-none-eabi",
+  "o0": {
+    "ic": 215,
+    "text": 873,
+    "total": 873,
+    "text_arm": 566,
+    "total_arm": 566
+  },
+  "oz": {
+    "ic": 88,
+    "text": 647,
+    "total": 647,
+    "text_arm": 474,
+    "total_arm": 474,
+    "opt_ms": 14.3
+  },
+  "rnd_bo8": {
+    "ic": 88,
+    "text": 679,
+    "total": 679,
+    "text_arm": 494,
+    "total_arm": 494,
+    "opt_ms": 12.2
+  },
+  "gnn_bo8": {
+    "ic": 88,
+    "text": 679,
+    "total": 679,
+    "text_arm": 494,
+    "total_arm": 494,
+    "opt_ms": 12.0
+  }
+}

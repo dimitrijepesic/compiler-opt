@@ -1,0 +1,29 @@
+{
+  "uri": "generator://csmith-v0/19",
+  "suite": "csmith-v0",
+  "variant": "portfolio",
+  "o0": 1843,
+  "oz": 508,
+  "sample_ics": [
+    468,
+    459,
+    456,
+    442,
+    443,
+    474,
+    624,
+    520,
+    472,
+    501,
+    607,
+    474,
+    433,
+    448,
+    467,
+    522
+  ],
+  "best_of_8_ic": 442,
+  "best_of_16_ic": 433,
+  "random_null_best_of_8": 452,
+  "random_null_best_of_16": 452
+}

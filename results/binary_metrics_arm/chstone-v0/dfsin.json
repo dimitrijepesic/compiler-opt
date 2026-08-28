@@ -1,0 +1,36 @@
+{
+  "uri": "benchmark://chstone-v0/dfsin",
+  "suite": "chstone-v0",
+  "mtriple": "thumbv7m-none-eabi",
+  "o0": {
+    "ic": 2070,
+    "text": 7715,
+    "total": 7723,
+    "text_arm": 6361,
+    "total_arm": 6369
+  },
+  "oz": {
+    "ic": 904,
+    "text": 6047,
+    "total": 6055,
+    "text_arm": 5399,
+    "total_arm": 5407,
+    "opt_ms": 46.9
+  },
+  "rnd_bo8": {
+    "ic": 890,
+    "text": 6830,
+    "total": 6838,
+    "text_arm": 5579,
+    "total_arm": 5587,
+    "opt_ms": 32.3
+  },
+  "gnn_bo8": {
+    "ic": 862,
+    "text": 6807,
+    "total": 6815,
+    "text_arm": 5615,
+    "total_arm": 5623,
+    "opt_ms": 41.3
+  }
+}

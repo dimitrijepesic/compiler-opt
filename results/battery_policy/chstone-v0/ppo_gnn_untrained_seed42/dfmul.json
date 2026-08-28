@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://chstone-v0/dfmul",
+  "suite": "chstone-v0",
+  "seed": 42,
+  "variant": "ppo_gnn_untrained",
+  "o0": 859,
+  "oz": 349,
+  "argmax_ic": 859,
+  "sample_ics": [
+    348,
+    342,
+    360,
+    365,
+    359,
+    342,
+    364,
+    351
+  ],
+  "best_of_k_ic": 342,
+  "random_null_best_of_k": 334
+}

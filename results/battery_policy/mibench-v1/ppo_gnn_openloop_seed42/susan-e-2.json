@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://mibench-v1/susan-e-2",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn_openloop",
+  "o0": 1629,
+  "oz": 610,
+  "argmax_ic": 1027,
+  "sample_ics": [
+    713,
+    684,
+    693,
+    749,
+    688,
+    737,
+    768,
+    690
+  ],
+  "best_of_k_ic": 684,
+  "random_null_best_of_k": 704
+}

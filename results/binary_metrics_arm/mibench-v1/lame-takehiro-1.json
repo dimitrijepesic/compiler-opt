@@ -1,0 +1,36 @@
+{
+  "uri": "benchmark://mibench-v1/lame-takehiro-1",
+  "suite": "mibench-v1",
+  "mtriple": "thumbv7m-none-eabi",
+  "o0": {
+    "ic": 386,
+    "text": 1449,
+    "total": 1449,
+    "text_arm": 1110,
+    "total_arm": 1110
+  },
+  "oz": {
+    "ic": 145,
+    "text": 1250,
+    "total": 1250,
+    "text_arm": 1022,
+    "total_arm": 1022,
+    "opt_ms": 17.6
+  },
+  "rnd_bo8": {
+    "ic": 142,
+    "text": 1250,
+    "total": 1250,
+    "text_arm": 966,
+    "total_arm": 966,
+    "opt_ms": 15.0
+  },
+  "gnn_bo8": {
+    "ic": 145,
+    "text": 1298,
+    "total": 1298,
+    "text_arm": 978,
+    "total_arm": 978,
+    "opt_ms": 15.0
+  }
+}

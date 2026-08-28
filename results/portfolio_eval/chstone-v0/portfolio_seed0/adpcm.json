@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://chstone-v0/adpcm",
+  "suite": "chstone-v0",
+  "variant": "portfolio",
+  "o0": 1474,
+  "oz": 966,
+  "sample_ics": [
+    723,
+    729,
+    743,
+    731,
+    752,
+    721,
+    736,
+    725,
+    749,
+    736,
+    760,
+    740,
+    763,
+    733,
+    749,
+    723
+  ],
+  "best_of_8_ic": 721,
+  "best_of_16_ic": 721,
+  "random_null_best_of_8": 739,
+  "random_null_best_of_16": 736
+}

@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://chstone-v0/motion",
+  "suite": "chstone-v0",
+  "variant": "portfolio",
+  "o0": 925,
+  "oz": 384,
+  "sample_ics": [
+    379,
+    374,
+    381,
+    380,
+    385,
+    372,
+    392,
+    384,
+    384,
+    379,
+    393,
+    387,
+    380,
+    390,
+    388,
+    385
+  ],
+  "best_of_8_ic": 372,
+  "best_of_16_ic": 372,
+  "random_null_best_of_8": 380,
+  "random_null_best_of_16": 374
+}

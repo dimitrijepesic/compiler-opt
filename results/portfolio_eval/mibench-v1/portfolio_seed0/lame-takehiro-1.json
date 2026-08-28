@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://mibench-v1/lame-takehiro-1",
+  "suite": "mibench-v1",
+  "variant": "portfolio",
+  "o0": 386,
+  "oz": 145,
+  "sample_ics": [
+    142,
+    148,
+    146,
+    146,
+    142,
+    145,
+    145,
+    143,
+    142,
+    148,
+    146,
+    143,
+    137,
+    145,
+    143,
+    143
+  ],
+  "best_of_8_ic": 142,
+  "best_of_16_ic": 137,
+  "random_null_best_of_8": 151,
+  "random_null_best_of_16": 137
+}

@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://mibench-v1/lame-newmdct-2",
+  "suite": "mibench-v1",
+  "variant": "portfolio",
+  "o0": 189,
+  "oz": 80,
+  "sample_ics": [
+    83,
+    82,
+    82,
+    83,
+    83,
+    85,
+    83,
+    83,
+    83,
+    86,
+    84,
+    83,
+    85,
+    83,
+    83,
+    83
+  ],
+  "best_of_8_ic": 82,
+  "best_of_16_ic": 82,
+  "random_null_best_of_8": 83,
+  "random_null_best_of_16": 82
+}

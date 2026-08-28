@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://mibench-v1/lame-quantize-2",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn_untrained",
+  "o0": 129,
+  "oz": 50,
+  "argmax_ic": 129,
+  "sample_ics": [
+    59,
+    57,
+    52,
+    59,
+    55,
+    57,
+    61,
+    65
+  ],
+  "best_of_k_ic": 52,
+  "random_null_best_of_k": 50
+}

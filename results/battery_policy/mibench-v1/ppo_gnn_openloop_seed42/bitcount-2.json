@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://mibench-v1/bitcount-2",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn_openloop",
+  "o0": 131,
+  "oz": 49,
+  "argmax_ic": 57,
+  "sample_ics": [
+    49,
+    50,
+    50,
+    50,
+    49,
+    49,
+    50,
+    49
+  ],
+  "best_of_k_ic": 49,
+  "random_null_best_of_k": 49
+}

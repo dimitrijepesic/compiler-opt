@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://npb-v0/103",
+  "suite": "npb-v0",
+  "variant": "portfolio",
+  "o0": 198,
+  "oz": 69,
+  "sample_ics": [
+    69,
+    69,
+    69,
+    69,
+    69,
+    69,
+    69,
+    69,
+    69,
+    69,
+    69,
+    69,
+    69,
+    69,
+    69,
+    69
+  ],
+  "best_of_8_ic": 69,
+  "best_of_16_ic": 69,
+  "random_null_best_of_8": 69,
+  "random_null_best_of_16": 69
+}

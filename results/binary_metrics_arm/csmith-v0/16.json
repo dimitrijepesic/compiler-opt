@@ -1,0 +1,28 @@
+{
+  "uri": "generator://csmith-v0/16",
+  "suite": "csmith-v0",
+  "mtriple": "thumbv7m-none-eabi",
+  "o0": {
+    "ic": 9800,
+    "text": 41057,
+    "total": 50521,
+    "text_arm": 29426,
+    "total_arm": 36950
+  },
+  "oz": {
+    "ic": 865,
+    "text": 10131,
+    "total": 12359,
+    "text_arm": 9094,
+    "total_arm": 11318,
+    "opt_ms": 88.3
+  },
+  "rnd_bo8": {
+    "ic": 975,
+    "text": 9908,
+    "total": 12768,
+    "text_arm": 8416,
+    "total_arm": 11012,
+    "opt_ms": 81.4
+  }
+}

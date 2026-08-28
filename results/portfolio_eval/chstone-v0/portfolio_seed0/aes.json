@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://chstone-v0/aes",
+  "suite": "chstone-v0",
+  "variant": "portfolio",
+  "o0": 4048,
+  "oz": 1987,
+  "sample_ics": [
+    1970,
+    1991,
+    2020,
+    1969,
+    1975,
+    2012,
+    1991,
+    1947,
+    2015,
+    2139,
+    2041,
+    1965,
+    2016,
+    1989,
+    2014,
+    1989
+  ],
+  "best_of_8_ic": 1947,
+  "best_of_16_ic": 1947,
+  "random_null_best_of_8": 2018,
+  "random_null_best_of_16": 1971
+}

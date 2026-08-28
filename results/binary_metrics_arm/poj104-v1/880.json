@@ -1,0 +1,36 @@
+{
+  "uri": "benchmark://poj104-v1/50/880",
+  "suite": "poj104-v1",
+  "mtriple": "thumbv7m-none-eabi",
+  "o0": {
+    "ic": 96,
+    "text": 501,
+    "total": 510,
+    "text_arm": 319,
+    "total_arm": 324
+  },
+  "oz": {
+    "ic": 36,
+    "text": 340,
+    "total": 349,
+    "text_arm": 231,
+    "total_arm": 236,
+    "opt_ms": 11.8
+  },
+  "rnd_bo8": {
+    "ic": 37,
+    "text": 388,
+    "total": 397,
+    "text_arm": 235,
+    "total_arm": 240,
+    "opt_ms": 9.8
+  },
+  "gnn_bo8": {
+    "ic": 37,
+    "text": 388,
+    "total": 397,
+    "text_arm": 235,
+    "total_arm": 240,
+    "opt_ms": 10.5
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://mibench-v1/jpeg-c-3",
+  "suite": "mibench-v1",
+  "variant": "portfolio",
+  "o0": 325,
+  "oz": 132,
+  "sample_ics": [
+    132,
+    133,
+    135,
+    132,
+    131,
+    135,
+    132,
+    133,
+    135,
+    132,
+    138,
+    135,
+    135,
+    135,
+    135,
+    135
+  ],
+  "best_of_8_ic": 131,
+  "best_of_16_ic": 131,
+  "random_null_best_of_8": 132,
+  "random_null_best_of_16": 132
+}

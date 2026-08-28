@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://mibench-v1/ghostscript",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn_openloop",
+  "o0": 194,
+  "oz": 54,
+  "argmax_ic": 74,
+  "sample_ics": [
+    54,
+    56,
+    54,
+    54,
+    54,
+    54,
+    54,
+    60
+  ],
+  "best_of_k_ic": 54,
+  "random_null_best_of_k": 54
+}

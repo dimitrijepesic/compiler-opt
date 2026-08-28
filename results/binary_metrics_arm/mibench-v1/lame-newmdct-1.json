@@ -1,0 +1,36 @@
+{
+  "uri": "benchmark://mibench-v1/lame-newmdct-1",
+  "suite": "mibench-v1",
+  "mtriple": "thumbv7m-none-eabi",
+  "o0": {
+    "ic": 569,
+    "text": 1715,
+    "total": 1715,
+    "text_arm": 2167,
+    "total_arm": 2167
+  },
+  "oz": {
+    "ic": 313,
+    "text": 1521,
+    "total": 1521,
+    "text_arm": 2135,
+    "total_arm": 2135,
+    "opt_ms": 17.1
+  },
+  "rnd_bo8": {
+    "ic": 313,
+    "text": 1521,
+    "total": 1521,
+    "text_arm": 2107,
+    "total_arm": 2107,
+    "opt_ms": 15.1
+  },
+  "gnn_bo8": {
+    "ic": 313,
+    "text": 1521,
+    "total": 1521,
+    "text_arm": 2107,
+    "total_arm": 2107,
+    "opt_ms": 14.9
+  }
+}

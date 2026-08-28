@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://chstone-v0/dfmul",
+  "suite": "chstone-v0",
+  "variant": "portfolio",
+  "o0": 859,
+  "oz": 349,
+  "sample_ics": [
+    342,
+    340,
+    345,
+    346,
+    345,
+    347,
+    340,
+    338,
+    345,
+    339,
+    335,
+    342,
+    336,
+    341,
+    340,
+    336
+  ],
+  "best_of_8_ic": 338,
+  "best_of_16_ic": 335,
+  "random_null_best_of_8": 334,
+  "random_null_best_of_16": 334
+}

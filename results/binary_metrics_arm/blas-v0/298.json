@@ -1,0 +1,36 @@
+{
+  "uri": "benchmark://blas-v0/298",
+  "suite": "blas-v0",
+  "mtriple": "thumbv7m-none-eabi",
+  "o0": {
+    "ic": 836,
+    "text": 3829,
+    "total": 3829,
+    "text_arm": 5148,
+    "total_arm": 5148
+  },
+  "oz": {
+    "ic": 812,
+    "text": 3818,
+    "total": 3818,
+    "text_arm": 5078,
+    "total_arm": 5078,
+    "opt_ms": 39.8
+  },
+  "rnd_bo8": {
+    "ic": 773,
+    "text": 3750,
+    "total": 3750,
+    "text_arm": 5082,
+    "total_arm": 5082,
+    "opt_ms": 37.8
+  },
+  "gnn_bo8": {
+    "ic": 764,
+    "text": 3798,
+    "total": 3798,
+    "text_arm": 5022,
+    "total_arm": 5022,
+    "opt_ms": 29.5
+  }
+}

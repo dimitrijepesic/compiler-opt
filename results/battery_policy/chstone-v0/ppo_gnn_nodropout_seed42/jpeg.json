@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://chstone-v0/jpeg",
+  "suite": "chstone-v0",
+  "seed": 42,
+  "variant": "ppo_gnn_nodropout",
+  "o0": 3186,
+  "oz": 1590,
+  "argmax_ic": 1666,
+  "sample_ics": [
+    1500,
+    1476,
+    1478,
+    1494,
+    1532,
+    1476,
+    1488,
+    1533
+  ],
+  "best_of_k_ic": 1476,
+  "random_null_best_of_k": 1476
+}

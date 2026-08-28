@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://chstone-v0/blowfish",
+  "suite": "chstone-v0",
+  "seed": 42,
+  "variant": "ppo_gnn_openloop",
+  "o0": 2134,
+  "oz": 1214,
+  "argmax_ic": 1264,
+  "sample_ics": [
+    1175,
+    1162,
+    1171,
+    1153,
+    1147,
+    1163,
+    1172,
+    1210
+  ],
+  "best_of_k_ic": 1147,
+  "random_null_best_of_k": 1144
+}

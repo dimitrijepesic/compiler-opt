@@ -1,0 +1,60 @@
+{
+  "agent": "ppo_gnn_untrained",
+  "timestamp": "2026-08-28T13:45:18.184114",
+  "per_suite": {
+    "blas-v0": {
+      "42": {
+        "n": 50,
+        "argmax": 40841,
+        "best_of_k": 37162,
+        "null_best_of_k": 37099,
+        "oz": 37838
+      }
+    },
+    "chstone-v0": {
+      "42": {
+        "n": 12,
+        "argmax": 19856,
+        "best_of_k": 9288,
+        "null_best_of_k": 9241,
+        "oz": 9834
+      }
+    },
+    "csmith-v0": {
+      "42": {
+        "n": 28,
+        "argmax": 59484,
+        "best_of_k": 17649,
+        "null_best_of_k": 17555,
+        "oz": 20226
+      }
+    },
+    "mibench-v1": {
+      "42": {
+        "n": 40,
+        "argmax": 12228,
+        "best_of_k": 4838,
+        "null_best_of_k": 4828,
+        "oz": 4841
+      }
+    },
+    "npb-v0": {
+      "42": {
+        "n": 120,
+        "argmax": 100549,
+        "best_of_k": 40127,
+        "null_best_of_k": 40301,
+        "oz": 53085
+      }
+    },
+    "poj104-v1": {
+      "42": {
+        "n": 97,
+        "argmax": 21014,
+        "best_of_k": 7877,
+        "null_best_of_k": 7853,
+        "oz": 8334
+      }
+    }
+  }
+}

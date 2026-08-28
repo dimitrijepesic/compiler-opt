@@ -1,0 +1,36 @@
+{
+  "uri": "benchmark://mibench-v1/lame-psymodel",
+  "suite": "mibench-v1",
+  "mtriple": "thumbv7m-none-eabi",
+  "o0": {
+    "ic": 1563,
+    "text": 6605,
+    "total": 6605,
+    "text_arm": 5062,
+    "total_arm": 5062
+  },
+  "oz": {
+    "ic": 507,
+    "text": 4942,
+    "total": 4942,
+    "text_arm": 4902,
+    "total_arm": 4902,
+    "opt_ms": 29.4
+  },
+  "rnd_bo8": {
+    "ic": 537,
+    "text": 4974,
+    "total": 4974,
+    "text_arm": 4626,
+    "total_arm": 4626,
+    "opt_ms": 27.0
+  },
+  "gnn_bo8": {
+    "ic": 511,
+    "text": 4894,
+    "total": 4894,
+    "text_arm": 4614,
+    "total_arm": 4614,
+    "opt_ms": 23.3
+  }
+}

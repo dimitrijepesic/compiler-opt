@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://blas-v0/285",
+  "suite": "blas-v0",
+  "variant": "portfolio",
+  "o0": 1670,
+  "oz": 1651,
+  "sample_ics": [
+    1620,
+    1564,
+    1583,
+    1620,
+    1650,
+    1548,
+    1617,
+    1553,
+    1632,
+    1551,
+    1690,
+    1613,
+    1574,
+    1620,
+    1628,
+    1615
+  ],
+  "best_of_8_ic": 1548,
+  "best_of_16_ic": 1548,
+  "random_null_best_of_8": 1568,
+  "random_null_best_of_16": 1568
+}

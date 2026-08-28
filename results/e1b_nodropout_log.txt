@@ -1,0 +1,44 @@
+ppo_gnn: 347 eligible programs (max-ic 6000), k=8
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+  [20/347] seed 42 (4m)
+  [40/347] seed 42 (7m)
+  [60/347] seed 42 (11m)
+  [80/347] seed 42 (16m)
+  [100/347] seed 42 (21m)
+  [120/347] seed 42 (23m)
+  [140/347] seed 42 (26m)
+  [160/347] seed 42 (29m)
+  [180/347] seed 42 (32m)
+  [200/347] seed 42 (35m)
+  [220/347] seed 42 (38m)
+  [240/347] seed 42 (40m)
+  [260/347] seed 42 (44m)
+  [280/347] seed 42 (46m)
+  [300/347] seed 42 (49m)
+  [320/347] seed 42 (51m)
+  [340/347] seed 42 (54m)
+seed 42 complete (55m)
+Aggregated -> results/battery_policy/_aggregate_ppo_gnn_nodropout.json
+  blas-v0        seed 42   n= 50 argmax=  40500 best-of-k=  36843 null=  37099 oz=  37838
+  chstone-v0     seed 42   n= 12 argmax=  11325 best-of-k=   9121 null=   9241 oz=   9834
+  csmith-v0      seed 42   n= 28 argmax=  39323 best-of-k=  17012 null=  17555 oz=  20226
+  mibench-v1     seed 42   n= 40 argmax=   6273 best-of-k=   4783 null=   4828 oz=   4841
+  npb-v0         seed 42   n=120 argmax=  79240 best-of-k=  40280 null=  40301 oz=  53085
+  poj104-v1      seed 42   n= 97 argmax=  12871 best-of-k=   7722 null=   7853 oz=   8334

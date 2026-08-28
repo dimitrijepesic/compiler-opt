@@ -1,0 +1,21 @@
+{
+  "uri": "generator://csmith-v0/19",
+  "suite": "csmith-v0",
+  "seed": 42,
+  "variant": "ppo_gnn_openloop",
+  "o0": 1843,
+  "oz": 508,
+  "argmax_ic": 1061,
+  "sample_ics": [
+    524,
+    470,
+    462,
+    508,
+    615,
+    451,
+    674,
+    475
+  ],
+  "best_of_k_ic": 451,
+  "random_null_best_of_k": 452
+}

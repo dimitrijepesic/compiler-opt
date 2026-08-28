@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://mibench-v1/lame-quantize-1",
+  "suite": "mibench-v1",
+  "variant": "portfolio",
+  "o0": 161,
+  "oz": 61,
+  "sample_ics": [
+    62,
+    64,
+    62,
+    62,
+    62,
+    62,
+    62,
+    62,
+    62,
+    68,
+    64,
+    62,
+    62,
+    62,
+    62,
+    62
+  ],
+  "best_of_8_ic": 62,
+  "best_of_16_ic": 62,
+  "random_null_best_of_8": 62,
+  "random_null_best_of_16": 62
+}

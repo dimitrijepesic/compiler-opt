@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://npb-v0/98",
+  "suite": "npb-v0",
+  "variant": "portfolio",
+  "o0": 1536,
+  "oz": 877,
+  "sample_ics": [
+    633,
+    637,
+    653,
+    635,
+    633,
+    634,
+    633,
+    633,
+    638,
+    706,
+    688,
+    633,
+    634,
+    633,
+    652,
+    633
+  ],
+  "best_of_8_ic": 633,
+  "best_of_16_ic": 633,
+  "random_null_best_of_8": 653,
+  "random_null_best_of_16": 633
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://mibench-v1/lame-newmdct-1",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn_untrained",
+  "o0": 569,
+  "oz": 313,
+  "argmax_ic": 567,
+  "sample_ics": [
+    313,
+    407,
+    366,
+    367,
+    365,
+    315,
+    354,
+    362
+  ],
+  "best_of_k_ic": 313,
+  "random_null_best_of_k": 313
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://npb-v0/22",
+  "suite": "npb-v0",
+  "seed": 42,
+  "variant": "ppo_gnn_openloop",
+  "o0": 1795,
+  "oz": 836,
+  "argmax_ic": 994,
+  "sample_ics": [
+    801,
+    805,
+    872,
+    838,
+    810,
+    821,
+    820,
+    880
+  ],
+  "best_of_k_ic": 801,
+  "random_null_best_of_k": 794
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://chstone-v0/motion",
+  "suite": "chstone-v0",
+  "seed": 42,
+  "variant": "ppo_gnn_openloop",
+  "o0": 925,
+  "oz": 384,
+  "argmax_ic": 463,
+  "sample_ics": [
+    373,
+    376,
+    413,
+    391,
+    403,
+    417,
+    377,
+    418
+  ],
+  "best_of_k_ic": 373,
+  "random_null_best_of_k": 380
+}

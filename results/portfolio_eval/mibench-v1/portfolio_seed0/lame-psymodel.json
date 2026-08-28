@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://mibench-v1/lame-psymodel",
+  "suite": "mibench-v1",
+  "variant": "portfolio",
+  "o0": 1563,
+  "oz": 507,
+  "sample_ics": [
+    511,
+    511,
+    529,
+    514,
+    513,
+    513,
+    522,
+    515,
+    511,
+    617,
+    523,
+    511,
+    515,
+    513,
+    518,
+    513
+  ],
+  "best_of_8_ic": 511,
+  "best_of_16_ic": 511,
+  "random_null_best_of_8": 513,
+  "random_null_best_of_16": 511
+}

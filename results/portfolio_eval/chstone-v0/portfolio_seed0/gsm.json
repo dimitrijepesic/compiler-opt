@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://chstone-v0/gsm",
+  "suite": "chstone-v0",
+  "variant": "portfolio",
+  "o0": 1809,
+  "oz": 843,
+  "sample_ics": [
+    744,
+    758,
+    793,
+    756,
+    744,
+    803,
+    761,
+    741,
+    755,
+    811,
+    769,
+    743,
+    759,
+    755,
+    759,
+    746
+  ],
+  "best_of_8_ic": 741,
+  "best_of_16_ic": 741,
+  "random_null_best_of_8": 775,
+  "random_null_best_of_16": 767
+}

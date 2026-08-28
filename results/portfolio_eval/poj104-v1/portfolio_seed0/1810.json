@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://poj104-v1/10/1810",
+  "suite": "poj104-v1",
+  "variant": "portfolio",
+  "o0": 165,
+  "oz": 66,
+  "sample_ics": [
+    69,
+    69,
+    74,
+    69,
+    69,
+    69,
+    72,
+    71,
+    69,
+    75,
+    75,
+    69,
+    71,
+    70,
+    73,
+    71
+  ],
+  "best_of_8_ic": 69,
+  "best_of_16_ic": 69,
+  "random_null_best_of_8": 70,
+  "random_null_best_of_16": 70
+}

@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://poj104-v1/17/778",
+  "suite": "poj104-v1",
+  "seed": 42,
+  "variant": "ppo_gnn_openloop",
+  "o0": 475,
+  "oz": 100,
+  "argmax_ic": 277,
+  "sample_ics": [
+    145,
+    100,
+    77,
+    155,
+    145,
+    153,
+    82,
+    103
+  ],
+  "best_of_k_ic": 77,
+  "random_null_best_of_k": 61
+}

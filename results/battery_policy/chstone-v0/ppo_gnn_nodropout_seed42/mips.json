@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://chstone-v0/mips",
+  "suite": "chstone-v0",
+  "seed": 42,
+  "variant": "ppo_gnn_nodropout",
+  "o0": 636,
+  "oz": 392,
+  "argmax_ic": 395,
+  "sample_ics": [
+    383,
+    380,
+    378,
+    379,
+    379,
+    379,
+    374,
+    378
+  ],
+  "best_of_k_ic": 374,
+  "random_null_best_of_k": 379
+}

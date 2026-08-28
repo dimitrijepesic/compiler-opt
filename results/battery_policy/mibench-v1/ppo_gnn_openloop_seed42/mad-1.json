@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://mibench-v1/mad-1",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn_openloop",
+  "o0": 391,
+  "oz": 297,
+  "argmax_ic": 237,
+  "sample_ics": [
+    206,
+    208,
+    199,
+    213,
+    199,
+    199,
+    201,
+    206
+  ],
+  "best_of_k_ic": 199,
+  "random_null_best_of_k": 195
+}

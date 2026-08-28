@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://mibench-v1/gsm-2",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn_untrained",
+  "o0": 222,
+  "oz": 85,
+  "argmax_ic": 220,
+  "sample_ics": [
+    148,
+    90,
+    87,
+    92,
+    90,
+    88,
+    87,
+    92
+  ],
+  "best_of_k_ic": 87,
+  "random_null_best_of_k": 86
+}

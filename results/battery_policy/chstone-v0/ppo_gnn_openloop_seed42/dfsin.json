@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://chstone-v0/dfsin",
+  "suite": "chstone-v0",
+  "seed": 42,
+  "variant": "ppo_gnn_openloop",
+  "o0": 2070,
+  "oz": 904,
+  "argmax_ic": 1006,
+  "sample_ics": [
+    879,
+    880,
+    865,
+    885,
+    894,
+    881,
+    904,
+    931
+  ],
+  "best_of_k_ic": 865,
+  "random_null_best_of_k": 866
+}

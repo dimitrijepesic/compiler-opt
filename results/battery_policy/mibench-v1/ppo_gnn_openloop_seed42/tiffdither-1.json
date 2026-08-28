@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://mibench-v1/tiffdither-1",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn_openloop",
+  "o0": 331,
+  "oz": 145,
+  "argmax_ic": 168,
+  "sample_ics": [
+    153,
+    154,
+    153,
+    151,
+    146,
+    146,
+    146,
+    146
+  ],
+  "best_of_k_ic": 146,
+  "random_null_best_of_k": 145
+}

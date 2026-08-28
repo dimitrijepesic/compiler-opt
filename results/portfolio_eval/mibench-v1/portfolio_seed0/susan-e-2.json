@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://mibench-v1/susan-e-2",
+  "suite": "mibench-v1",
+  "variant": "portfolio",
+  "o0": 1629,
+  "oz": 610,
+  "sample_ics": [
+    670,
+    681,
+    686,
+    672,
+    686,
+    718,
+    684,
+    681,
+    692,
+    799,
+    703,
+    676,
+    700,
+    679,
+    688,
+    688
+  ],
+  "best_of_8_ic": 670,
+  "best_of_16_ic": 670,
+  "random_null_best_of_8": 704,
+  "random_null_best_of_16": 701
+}

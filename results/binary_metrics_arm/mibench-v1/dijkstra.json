@@ -1,0 +1,36 @@
+{
+  "uri": "benchmark://mibench-v1/dijkstra",
+  "suite": "mibench-v1",
+  "mtriple": "thumbv7m-none-eabi",
+  "o0": {
+    "ic": 121,
+    "text": 661,
+    "total": 661,
+    "text_arm": 461,
+    "total_arm": 461
+  },
+  "oz": {
+    "ic": 46,
+    "text": 562,
+    "total": 562,
+    "text_arm": 429,
+    "total_arm": 429,
+    "opt_ms": 12.0
+  },
+  "rnd_bo8": {
+    "ic": 44,
+    "text": 562,
+    "total": 562,
+    "text_arm": 421,
+    "total_arm": 421,
+    "opt_ms": 10.6
+  },
+  "gnn_bo8": {
+    "ic": 44,
+    "text": 562,
+    "total": 562,
+    "text_arm": 421,
+    "total_arm": 421,
+    "opt_ms": 10.2
+  }
+}

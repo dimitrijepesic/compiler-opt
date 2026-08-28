@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://mibench-v1/bitcount-1",
+  "suite": "mibench-v1",
+  "variant": "portfolio",
+  "o0": 124,
+  "oz": 45,
+  "sample_ics": [
+    45,
+    45,
+    47,
+    45,
+    45,
+    45,
+    45,
+    45,
+    45,
+    47,
+    49,
+    45,
+    45,
+    45,
+    46,
+    45
+  ],
+  "best_of_8_ic": 45,
+  "best_of_16_ic": 45,
+  "random_null_best_of_8": 46,
+  "random_null_best_of_16": 45
+}

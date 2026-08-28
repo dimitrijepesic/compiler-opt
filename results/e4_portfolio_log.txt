@@ -1,0 +1,118 @@
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+  benchmark://cBench-v1/adpcm: best 208 (3s)
+  benchmark://cBench-v1/gsm: best 6200 (15s)
+  benchmark://cBench-v1/blowfish: best 1924 (8s)
+  benchmark://cBench-v1/rijndael: best 3252 (16s)
+  benchmark://cBench-v1/bzip2: best 13364 (46s)
+  benchmark://cBench-v1/jpeg-c: best 29138 (78s)
+  benchmark://cBench-v1/dijkstra: best 255 (0s)
+  benchmark://cBench-v1/bitcount: best 403 (3s)
+  benchmark://cBench-v1/ispell: best 8061 (26s)
+  benchmark://cBench-v1/stringsearch: best 608 (2s)
+  benchmark://cBench-v1/susan: best 5377 (23s)
+  benchmark://cBench-v1/tiff2bw: best 29921 (74s)
+  benchmark://cBench-v1/tiffdither: best 29688 (74s)
+  benchmark://cBench-v1/ghostscript: best 172471 (553s)
+-> results/portfolio_mining.json
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+42 candidates x 14 programs
+  candidate 1/42 (origin adpcm)
+  candidate 2/42 (origin adpcm)
+  candidate 3/42 (origin adpcm)
+  candidate 4/42 (origin gsm)
+  candidate 5/42 (origin gsm)
+  candidate 6/42 (origin gsm)
+  candidate 7/42 (origin blowfish)
+  candidate 8/42 (origin blowfish)
+  candidate 9/42 (origin blowfish)
+  candidate 10/42 (origin rijndael)
+  candidate 11/42 (origin rijndael)
+  candidate 12/42 (origin rijndael)
+  candidate 13/42 (origin bzip2)
+  candidate 14/42 (origin bzip2)
+  candidate 15/42 (origin bzip2)
+  candidate 16/42 (origin jpeg-c)
+  candidate 17/42 (origin jpeg-c)
+  candidate 18/42 (origin jpeg-c)
+  candidate 19/42 (origin dijkstra)
+  candidate 20/42 (origin dijkstra)
+  candidate 21/42 (origin dijkstra)
+  candidate 22/42 (origin bitcount)
+  candidate 23/42 (origin bitcount)
+  candidate 24/42 (origin bitcount)
+  candidate 25/42 (origin ispell)
+  candidate 26/42 (origin ispell)
+  candidate 27/42 (origin ispell)
+  candidate 28/42 (origin stringsearch)
+  candidate 29/42 (origin stringsearch)
+  candidate 30/42 (origin stringsearch)
+  candidate 31/42 (origin susan)
+  candidate 32/42 (origin susan)
+  candidate 33/42 (origin susan)
+  candidate 34/42 (origin tiff2bw)
+  candidate 35/42 (origin tiff2bw)
+  candidate 36/42 (origin tiff2bw)
+  candidate 37/42 (origin tiffdither)
+  candidate 38/42 (origin tiffdither)
+  candidate 39/42 (origin tiffdither)
+  candidate 40/42 (origin ghostscript)
+  candidate 41/42 (origin ghostscript)
+  candidate 42/42 (origin ghostscript)
+  rank  1 from ghostscript    train total 300482
+  rank  2 from bzip2          train total 299775
+  rank  3 from gsm            train total 299650
+  rank  4 from susan          train total 299612
+  rank  5 from blowfish       train total 299598
+  rank  6 from gsm            train total 299592
+  rank  7 from tiff2bw        train total 299591
+  rank  8 from adpcm          train total 299591
+  rank  9 from adpcm          train total 299591
+  rank 10 from adpcm          train total 299591
+  rank 11 from gsm            train total 299591
+  rank 12 from blowfish       train total 299591
+  rank 13 from blowfish       train total 299591
+  rank 14 from rijndael       train total 299591
+  rank 15 from rijndael       train total 299591
+  rank 16 from rijndael       train total 299591
+-> results/portfolio_selection.json
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+347 programs x 16 sequences
+  [20/347] (1m)
+  [40/347] (1m)
+  [60/347] (2m)
+  [80/347] (5m)
+  [100/347] (7m)
+  [120/347] (7m)
+  [140/347] (8m)
+  [160/347] (8m)
+  [180/347] (9m)
+  [200/347] (9m)
+  [220/347] (10m)
+  [240/347] (10m)
+  [260/347] (11m)
+  [280/347] (12m)
+  [300/347] (12m)
+  [320/347] (12m)
+  [340/347] (13m)
+portfolio eval complete

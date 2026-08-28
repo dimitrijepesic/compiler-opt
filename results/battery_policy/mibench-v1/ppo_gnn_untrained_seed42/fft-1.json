@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://mibench-v1/fft-1",
+  "suite": "mibench-v1",
+  "seed": 42,
+  "variant": "ppo_gnn_untrained",
+  "o0": 131,
+  "oz": 47,
+  "argmax_ic": 131,
+  "sample_ics": [
+    47,
+    50,
+    49,
+    49,
+    48,
+    47,
+    49,
+    48
+  ],
+  "best_of_k_ic": 47,
+  "random_null_best_of_k": 47
+}

@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://chstone-v0/dfadd",
+  "suite": "chstone-v0",
+  "variant": "portfolio",
+  "o0": 991,
+  "oz": 422,
+  "sample_ics": [
+    406,
+    404,
+    407,
+    409,
+    409,
+    411,
+    407,
+    403,
+    407,
+    406,
+    400,
+    406,
+    404,
+    409,
+    409,
+    405
+  ],
+  "best_of_8_ic": 403,
+  "best_of_16_ic": 400,
+  "random_null_best_of_8": 403,
+  "random_null_best_of_16": 400
+}

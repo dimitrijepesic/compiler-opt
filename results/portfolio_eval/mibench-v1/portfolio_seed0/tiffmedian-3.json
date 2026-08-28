@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://mibench-v1/tiffmedian-3",
+  "suite": "mibench-v1",
+  "variant": "portfolio",
+  "o0": 220,
+  "oz": 99,
+  "sample_ics": [
+    99,
+    99,
+    99,
+    99,
+    99,
+    99,
+    99,
+    99,
+    99,
+    101,
+    101,
+    99,
+    99,
+    99,
+    99,
+    99
+  ],
+  "best_of_8_ic": 99,
+  "best_of_16_ic": 99,
+  "random_null_best_of_8": 99,
+  "random_null_best_of_16": 99
+}

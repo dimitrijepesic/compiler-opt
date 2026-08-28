@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://chstone-v0/mips",
+  "suite": "chstone-v0",
+  "variant": "portfolio",
+  "o0": 636,
+  "oz": 392,
+  "sample_ics": [
+    379,
+    373,
+    381,
+    378,
+    380,
+    378,
+    379,
+    378,
+    379,
+    378,
+    381,
+    379,
+    378,
+    379,
+    380,
+    373
+  ],
+  "best_of_8_ic": 373,
+  "best_of_16_ic": 373,
+  "random_null_best_of_8": 379,
+  "random_null_best_of_16": 373
+}

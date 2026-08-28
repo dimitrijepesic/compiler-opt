@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://blas-v0/25",
+  "suite": "blas-v0",
+  "seed": 42,
+  "variant": "ppo_gnn_nodropout",
+  "o0": 3219,
+  "oz": 2624,
+  "argmax_ic": 3215,
+  "sample_ics": [
+    2683,
+    2636,
+    2607,
+    2568,
+    2683,
+    2650,
+    2681,
+    2649
+  ],
+  "best_of_k_ic": 2568,
+  "random_null_best_of_k": 2566
+}

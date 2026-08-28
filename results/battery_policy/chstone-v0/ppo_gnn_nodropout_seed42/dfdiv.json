@@ -1,0 +1,21 @@
+{
+  "uri": "benchmark://chstone-v0/dfdiv",
+  "suite": "chstone-v0",
+  "seed": 42,
+  "variant": "ppo_gnn_nodropout",
+  "o0": 1083,
+  "oz": 435,
+  "argmax_ic": 510,
+  "sample_ics": [
+    459,
+    430,
+    439,
+    430,
+    432,
+    431,
+    428,
+    439
+  ],
+  "best_of_k_ic": 428,
+  "random_null_best_of_k": 429
+}

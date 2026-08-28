@@ -1,0 +1,36 @@
+{
+  "uri": "benchmark://chstone-v0/blowfish",
+  "suite": "chstone-v0",
+  "mtriple": "thumbv7m-none-eabi",
+  "o0": {
+    "ic": 2134,
+    "text": 23935,
+    "total": 23935,
+    "text_arm": 23204,
+    "total_arm": 23204
+  },
+  "oz": {
+    "ic": 1214,
+    "text": 22486,
+    "total": 22486,
+    "text_arm": 22704,
+    "total_arm": 22704,
+    "opt_ms": 54.2
+  },
+  "rnd_bo8": {
+    "ic": 1162,
+    "text": 22782,
+    "total": 22782,
+    "text_arm": 22180,
+    "total_arm": 22180,
+    "opt_ms": 89.5
+  },
+  "gnn_bo8": {
+    "ic": 1150,
+    "text": 22590,
+    "total": 22590,
+    "text_arm": 22140,
+    "total_arm": 22140,
+    "opt_ms": 90.9
+  }
+}

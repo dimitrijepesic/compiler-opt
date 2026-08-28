@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://npb-v0/97",
+  "suite": "npb-v0",
+  "variant": "portfolio",
+  "o0": 4942,
+  "oz": 2475,
+  "sample_ics": [
+    1897,
+    1904,
+    1973,
+    1949,
+    1927,
+    1909,
+    1937,
+    1912,
+    1974,
+    1937,
+    2013,
+    1934,
+    1926,
+    1938,
+    1948,
+    1909
+  ],
+  "best_of_8_ic": 1897,
+  "best_of_16_ic": 1897,
+  "random_null_best_of_8": 1947,
+  "random_null_best_of_16": 1926
+}

@@ -1,0 +1,29 @@
+{
+  "uri": "benchmark://chstone-v0/dfdiv",
+  "suite": "chstone-v0",
+  "variant": "portfolio",
+  "o0": 1083,
+  "oz": 435,
+  "sample_ics": [
+    434,
+    432,
+    439,
+    436,
+    439,
+    438,
+    435,
+    430,
+    438,
+    430,
+    428,
+    434,
+    430,
+    433,
+    432,
+    428
+  ],
+  "best_of_8_ic": 430,
+  "best_of_16_ic": 428,
+  "random_null_best_of_8": 429,
+  "random_null_best_of_16": 425
+}

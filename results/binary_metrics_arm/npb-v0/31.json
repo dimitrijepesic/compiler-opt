@@ -1,0 +1,36 @@
+{
+  "uri": "benchmark://npb-v0/31",
+  "suite": "npb-v0",
+  "mtriple": "thumbv7m-none-eabi",
+  "o0": {
+    "ic": 26,
+    "text": 156,
+    "total": 160,
+    "text_arm": 120,
+    "total_arm": 124
+  },
+  "oz": {
+    "ic": 21,
+    "text": 157,
+    "total": 161,
+    "text_arm": 100,
+    "total_arm": 104,
+    "opt_ms": 9.8
+  },
+  "rnd_bo8": {
+    "ic": 21,
+    "text": 158,
+    "total": 162,
+    "text_arm": 100,
+    "total_arm": 104,
+    "opt_ms": 9.1
+  },
+  "gnn_bo8": {
+    "ic": 21,
+    "text": 157,
+    "total": 161,
+    "text_arm": 100,
+    "total_arm": 104,
+    "opt_ms": 9.3
+  }
+}

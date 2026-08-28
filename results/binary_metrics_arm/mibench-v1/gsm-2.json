@@ -1,0 +1,36 @@
+{
+  "uri": "benchmark://mibench-v1/gsm-2",
+  "suite": "mibench-v1",
+  "mtriple": "thumbv7m-none-eabi",
+  "o0": {
+    "ic": 222,
+    "text": 977,
+    "total": 977,
+    "text_arm": 809,
+    "total_arm": 809
+  },
+  "oz": {
+    "ic": 85,
+    "text": 801,
+    "total": 801,
+    "text_arm": 693,
+    "total_arm": 693,
+    "opt_ms": 15.1
+  },
+  "rnd_bo8": {
+    "ic": 86,
+    "text": 799,
+    "total": 799,
+    "text_arm": 705,
+    "total_arm": 705,
+    "opt_ms": 12.1
+  },
+  "gnn_bo8": {
+    "ic": 84,
+    "text": 1023,
+    "total": 1023,
+    "text_arm": 733,
+    "total_arm": 733,
+    "opt_ms": 12.5
+  }
+}
