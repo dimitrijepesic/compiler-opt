@@ -1,5 +1,23 @@
 # GNN vs. Flat Features for LLVM Pass Ordering with RL: A Controlled Study
 
+> **Update (Aug 2026).** The study grew into a TELFOR 2026 paper
+> (`paper/telfor_paper.tex`): 880 programs from 11 independent sources,
+> two null models in the curated 36-pass space, sampling-based (best-of-k)
+> policy evaluation, and four controls (untrained policy, dropout-off,
+> open-loop, fixed-portfolio). Headline results: best-of-50 random search
+> in the curated space beats `-Oz` on all nine real-code sources
+> (0.9-24.5%); the sampled GNN policy beats the budget-matched random
+> null on 33/36 suite-seed totals (significant on 10/11 sources; Linux
+> kernel code is the measured boundary) and reaches greedy-search quality
+> at 73% of its compilation budget; `.text` sections come out 10.6%
+> smaller than `-Oz` on x86 and 14.9-15.0% smaller cross-compiled for a
+> Cortex-M target. Reproduce with `scripts/benchmark_battery.py`,
+> `scripts/evaluate_policy_battery.py` (`--untrained/--no-dropout/`
+> `--open-loop`), `scripts/mine_portfolio.py`,
+> `scripts/measure_binary_metrics.py --mtriple`, and
+> `scripts/compute_stats.py` (`--reframe/--controls/--e5`).
+> The controlled two-representation comparison below is unchanged.
+
 ## Overview
 
 This project trains reinforcement-learning agents to choose LLVM optimization

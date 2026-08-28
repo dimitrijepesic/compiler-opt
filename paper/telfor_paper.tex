@@ -14,6 +14,9 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{amsmath}
+\setlength{\textfloatsep}{7pt plus 2pt minus 3pt}
+\setlength{\floatsep}{6pt plus 2pt minus 2pt}
+\setlength{\abovecaptionskip}{4pt}
 
 % \IEEEoverridecommandlockouts
 % \IEEEpubid{\makebox[\columnwidth]{XXX-X-XXXX-XXXX-X/26/\$31.00~\copyright2026 IEEE \hfill}}
@@ -34,18 +37,22 @@ dimitrije.pesicc@gmail.com}}
 Reinforcement learning (RL) for compiler pass ordering is commonly
 evaluated by comparing a deterministic policy rollout against a fixed
 optimization level such as \texttt{-O3}. We show that both choices can
-reverse conclusions. We introduce two null models defined in the same
-curated 36-pass action space that the learned policies act in---a single
-random episode and best-of-$N$ random search---and evaluate policies by
-sampling rather than by their argmax mode. Across 380~programs from seven
-independent sources, random search in the curated space alone beats
-\texttt{-Oz} on every real-code suite (1.6--24.5\%), while a graph-neural
-policy trained on only four small programs beats the budget-matched
-random null on 24 of 24 suite--seed combinations --- significant within
-every suite (one-sided Wilcoxon, largest $p{=}0.025$) --- reaches
-exhaustive greedy-search quality at 73\% of its compilation budget, and produces \texttt{.text} sections 10.6\%
-smaller than \texttt{-Oz} with pass sequences that apply faster than the
-\texttt{-Oz} pipeline itself. An identically trained flat-feature policy
+reverse conclusions. We introduce two null models in the same curated
+36-pass action space the policies act in: a single random episode, and
+best-of-$N$ random search. Policies are read by sampling as well as by
+argmax. Across 880~programs from eleven independent sources, random search
+in the curated space alone beats \texttt{-Oz} on all nine real-code
+sources (0.9--24.5\%), while a graph-neural policy trained on only four
+small programs beats the budget-matched random null on 33 of 36
+suite--seed combinations, significant within ten of eleven sources
+(one-sided Wilcoxon); closing that margin costs random search
+1.4--6$\times$ the compilation budget. Linux kernel code, where random
+search alone already suffices, is the measured boundary. The
+same policy reaches exhaustive greedy-search quality at 73\% of its
+compilation budget, and produces \texttt{.text} sections 10.6\% smaller than
+\texttt{-Oz} (14.9\% when cross-compiled for a Cortex-M embedded
+target) with pass sequences that apply faster than the \texttt{-Oz}
+pipeline itself. An identically trained flat-feature policy
 achieves neither. Finally, RL gradients alone fail to train the graph
 encoder; distilling hand-crafted features into it before RL removes this
 failure. Measurement choices, not representation choices, dominate the
@@ -59,46 +66,46 @@ graph neural networks, evaluation methodology
 
 \section{Introduction}
 The order in which a compiler applies its optimization passes changes
-the quality of the generated code, and choosing a good order per program
---- the \emph{phase-ordering problem} --- is NP-hard. Fixed pipelines such
+the quality of the generated code, and choosing a good order per
+program, the \emph{phase-ordering problem}, is undecidable in
+general~\cite{touati2006} and intractable to search exhaustively in
+practice~\cite{kulkarni2006}. Fixed pipelines such
 as LLVM's \texttt{-O3} and \texttt{-Oz} apply one hand-tuned sequence to
-every program, which makes program-specific orderings an attractive
-target for machine learning, and a line of work has applied deep
-reinforcement learning to the problem~\cite{autophase,compilergym,posetrl,coreset}.
+every program, which makes program-specific orderings an attractive target for
+machine learning; a line of work applies deep reinforcement learning
+to the problem~\cite{autophase,compilergym,posetrl,coreset}.
 
-Reported results in this area, however, rest on two evaluation
-conventions that are rarely questioned. First, learned policies are
-compared against fixed optimization levels --- often \texttt{-O3}, a
+Reported results, however, rest on two rarely questioned evaluation
+conventions. First, learned policies are compared against fixed optimization levels (often \texttt{-O3}, a
 \emph{speed}-oriented pipeline, even when the objective is code
-\emph{size} --- rather than against a null model that measures how much of
-the gain is available without any learning. Second, policies are
-evaluated by a single deterministic (argmax) rollout, which measures the
-mode of the policy distribution rather than the distribution itself.
+\emph{size}) rather than against a null model measuring how much of
+the gain needs no learning.
+Second, policies are evaluated by a single deterministic (argmax)
+rollout: the mode of the policy distribution, not the distribution.
 
 This paper asks what remains of an RL pass-ordering system once both
 conventions are replaced. We train proximal policy optimization
-(PPO)~\cite{ppo} agents with two state representations --- the flat
-56-dimensional Autophase feature vector~\cite{autophase} and a custom
+(PPO)~\cite{ppo} agents with two state representations, the flat 56-dimensional
+Autophase feature vector~\cite{autophase} and a custom
 GraphSAGE~\cite{graphsage} encoder over control- and data-flow graphs
-parsed from LLVM IR --- under a controlled protocol in which the
-representation is the only variable, and we evaluate them on
-380~programs drawn from seven independent sources against null models
-defined in the same action space and with the same step budget.
+parsed from LLVM IR, under a controlled protocol in which the
+representation is the only variable, and we evaluate them on 880~programs drawn from eleven independent
+sources against null models defined in the same action space and with
+the same step budget.
 
 Our contributions are threefold. (1)~We show that a curated 36-pass
 action space is itself the dominant effect: best-of-50 random search
-inside it matches greedy search and beats \texttt{-Oz} on every
-real-code suite, a fact that any evaluation in this domain should
-control for. (2)~We show that the evaluation mode reverses the ranking
-of representations: under argmax rollouts the two agents are
-indistinguishable, while under best-of-$k$ sampling the graph-based
-policy beats the paired random null on every one of 24 suite--seed
-combinations and reaches exhaustive greedy-search quality at 73\% of its
-compilation budget --- a property the flat-feature policy does not have.
+inside it comes within 0.5\% of greedy search and beats \texttt{-Oz} on
+every real-code suite, a fact any evaluation should control for. (2)~The evaluation mode reverses the ranking of representations:
+under argmax the two agents are indistinguishable, while under
+best-of-$k$ sampling the graph policy beats the paired null on 33 of 36
+suite--seed combinations (24 of 24 on the original seven sources) and
+reaches greedy-search quality at 73\% of its budget, a property the
+flat policy lacks.
 (3)~We show that RL gradients alone fail to train the graph encoder,
 and that distilling Autophase features into the encoder before RL
 removes the failure, improving deterministic-rollout generalization by
-9--10\%. All results are reproducible from a public repository with
+about 9\%. All results are reproducible from a public repository with
 pinned dependencies.\footnote{\texttt{https://github.com/dimitrijepesic/compiler-opt}}
 
 \section{Related Work}
@@ -107,20 +114,19 @@ for phase ordering; CompilerGym~\cite{compilergym} standardized the
 environment we build on. ProGraML~\cite{programl} showed that graph
 representations of programs outperform flat features on supervised
 compiler tasks, and MLGO~\cite{mlgo} deployed learned policies inside
-production LLVM for inlining and register allocation. POSET-RL~\cite{posetrl}
+production LLVM for inlining. POSET-RL~\cite{posetrl}
 and the coreset approach of Liang et al.~\cite{coreset} reduce the
-action space before learning; the latter is the closest work to ours,
-selecting from a coreset of 50 pass sequences with a GNN and reporting
-an average 4.7\% improvement over \texttt{-Oz}. Our study is
-complementary: rather than proposing a new agent, it measures
-\emph{where such gains come from}, using null models defined inside the
-same reduced space --- a control absent from prior evaluations --- and
-shows that the decoding mode (argmax vs.\ sampling) changes conclusions.
-Mammadli et al.~\cite{mammadli} observed that random search is a strong
-competitor to RL in this domain; we formalize that observation into an
-evaluation protocol and replicate it across seven suites. Large language
-models have also been applied to this problem~\cite{llmcompiler}, at a
-very different computational budget.
+action space before learning; the latter, closest to ours, selects from a 50-sequence coreset with
+a GNN and reports an average 4.7\% gain over \texttt{-Oz}. Our study is complementary: it measures \emph{where such gains come
+from}, with null models inside the same reduced space, a control
+absent from prior evaluations, and shows that the decoding mode
+changes conclusions.
+Cummins et al.~\cite{compilergym} report that plain random search is
+competitive with several sophisticated autotuners on cBench; we formalize that observation into a null-model protocol and
+replicate it across nine real-code sources. Mammadli et al.~\cite{mammadli} train RL
+over \texttt{-O3} sub-sequences and find it inferior to \texttt{-O3} on
+held-out programs, consistent with our argmax findings. Large language models have been applied at a very
+different budget~\cite{llmcompiler}.
 
 \section{Experimental Protocol}
 \textbf{Environment and metric.} We use CompilerGym~0.2.5
@@ -131,7 +137,7 @@ validates IC against actual binary section sizes.
 optimization-level observations, not approximated pass lists.
 
 \textbf{Action space.} Profiling all 124 available passes on the
-training programs yields 36 passes that each improve at least one
+14-program cBench training split yields 36 passes that each improve at least one
 program; these cover 100\% of the observed single-pass improvement.
 All agents, null models, and searches operate in this space with
 45-step episodes.
@@ -155,19 +161,22 @@ only variable.
 space: (a)~a single random 45-step episode (the null for one policy
 rollout) and (b)~the best of $N$ random episodes (the null for search).
 When a policy is evaluated by best-of-$k$ sampling, its null is the best
-of the \emph{same number} $k$ of stored random episodes on the same
-program --- paired by construction.
+of the \emph{same number} $k$ of stored random episodes on the same program, paired by construction.
 
 \textbf{Evaluation.} Policies are evaluated in two modes: a single
 deterministic argmax rollout, and best-of-$k$ stochastic rollouts
 sampled from the policy distribution (GNN rollouts sample with the
-encoder's dropout active, which adds exploration noise). The evaluation battery spans
-seven sources: cBench (val{+}test, 9), MiBench~\cite{mibench} (40),
-CHStone~\cite{chstone} (12), NPB (122), BLAS (50), a 97-program POJ-104
-sample, and 50 csmith-generated~\cite{csmith} synthetic programs ---
-371~battery programs plus cBench, none seen in training. Battery
-policy evaluations use programs up to 6000 instructions (347 of 371)
-to bound graph-extraction cost.
+encoder's dropout active, which adds exploration noise). The evaluation battery spans eleven sources: cBench (val{+}test, 9),
+MiBench~\cite{mibench} (40), CHStone~\cite{chstone} (12), NPB (122),
+BLAS (50), a 97-program POJ-104 sample, 150-program samples of the
+AnghaBench, GitHub and Linux-kernel datasets shipped with
+CompilerGym~\cite{compilergym}, and two synthetic generators
+(csmith~\cite{csmith}, 50; llvm-stress, 50); in total 871 battery
+programs plus cBench, none seen in training. Policy evaluation uses
+programs up to 6000 instructions (831 eligible; eight fail feature
+extraction, leaving 823) to bound rollout cost. The four added sources store 16 samples per program: the first eight
+for comparability, the disjoint second eight as a built-in resampling
+check.
 
 \textbf{Encoder pretraining.} In one arm, the GNN encoder is first
 trained to regress the Autophase vector from the program graph (2430
@@ -178,30 +187,37 @@ fine-tuned with RL.
 
 \subsection{The curated action space, not learning, is the main effect}
 Table~\ref{tab:nulls} compares real optimization levels against
-best-of-50 random episodes in the 36-pass space. Random search beats
-\texttt{-Oz} on all six real-code suites, by 1.6\% (MiBench) up to
-24.5\% (NPB); on NPB even a \emph{single} random episode beats
-\texttt{-Oz} by 11\% on average. Two boundaries are equally
-consistent: \texttt{-O3} is the wrong yardstick for size (on small
-programs it \emph{increases} IC above \texttt{-O0}), and on synthetic
-csmith programs the full \texttt{-Oz} pipeline retains a 5.2\%
-advantage --- the curated space was distilled from real code and
-transfers across real code only. Any learned-policy result in this
-domain should therefore be read relative to these nulls, not to
-optimization levels alone.
+best-of-50 random episodes in the 36-pass space. Random search
+beats \texttt{-Oz} on all nine real-code sources, by 0.9\% (AnghaBench) up to
+24.5\% (NPB); on NPB the summed IC of even \emph{single} random
+episodes is 12\% below \texttt{-Oz}, a total driven by the largest
+programs (only 32\% of individual episodes win). The margins are thinnest on AnghaBench, GitHub and Linux
+(0.9--2.0\%), whose code largely arrives pre-optimized (on GitHub
+\texttt{-Oz} removes only 0.14\% of O0 IC; on both, \texttt{-O3} beats
+\texttt{-Oz}). Two boundaries are equally
+consistent: \texttt{-O3} is the wrong
+yardstick for size (on 8\% of the programs under 500 instructions it
+\emph{increases} IC above \texttt{-O0}), and on the synthetic
+generators the full \texttt{-Oz} pipeline keeps its advantage (csmith 5.2\%,
+llvm-stress 1.7\%): the curated space was distilled from real code and
+transfers across real code only. Learned-policy results should therefore be read relative to these
+nulls, not to optimization levels alone.
 
 \begin{table}[t]
 \caption{Total IR instruction count per suite: real optimization levels
 vs.\ best-of-50 random episodes in the curated 36-pass space.}
 \label{tab:nulls}
 \centering
-\small
+\footnotesize
 \setlength{\tabcolsep}{3.5pt}
 \begin{tabular}{lrrrrr}
 \toprule
 Suite ($n$) & O0 & -O3 & -Oz & Rnd-50 & $\Delta$Oz \\
 \midrule
+AnghaBench (150) & 8\,902 & 4\,193 & 4\,043 & \textbf{4\,006} & $+0.9\%$ \\
+GitHub (150)   & 224\,490 & 222\,369& 224\,171& \textbf{221\,297}& $+1.3\%$ \\
 MiBench (40)   & 12\,270  & 6\,317  & 4\,841  & \textbf{4\,765}  & $+1.6\%$ \\
+Linux (150)    & 255\,140 & 250\,862& 252\,031& \textbf{246\,983}& $+2.0\%$ \\
 BLAS (50)      & 40\,745  & 39\,141 & 37\,838 & \textbf{36\,757} & $+2.9\%$ \\
 cBench (9)     & 232\,442 & 163\,834& 115\,987& \textbf{111\,006}& $+4.3\%$ \\
 CHStone (12)   & 19\,857  & 14\,182 & 9\,834  & \textbf{9\,097}  & $+7.5\%$ \\
@@ -209,161 +225,221 @@ POJ-104 (97)   & 21\,099  & 11\,083 & 8\,334  & \textbf{7\,622}  & $+8.5\%$ \\
 NPB (122)      & 130\,327 & 70\,659 & 59\,542 & \textbf{44\,981} & $+24.5\%$ \\
 \midrule
 csmith (50)    & 352\,963 & 82\,950 & \textbf{57\,625} & 60\,626 & $-5.2\%$ \\
+llvm-stress (50) & 5\,739 & 238 & \textbf{234} & 238 & $-1.7\%$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 \subsection{Sampling reverses the ranking of representations}
-Under argmax rollouts, both trained policies transfer poorly to programs
-one to two orders of magnitude larger than their training set --- the GNN
-policy's deterministic mode degenerates (e.g., 79\,686 total IC on NPB
-against an \texttt{-Oz} of 53\,085) --- and the two representations are
-statistically indistinguishable. Sampling the same checkpoints changes
-the picture completely. Table~\ref{tab:sampling} reports best-of-8
+Under argmax, both policies transfer poorly to programs one to two
+orders of magnitude larger than the training set (the GNN's
+deterministic mode degenerates to 79\,686 total IC on NPB vs.\
+\texttt{-Oz} 53\,085), and the representations are statistically
+indistinguishable. Sampling the same checkpoints changes the picture. Table~\ref{tab:sampling} reports best-of-8
 sampled rollouts against the paired best-of-8 random null: the GNN
-policy beats its null on \emph{every} suite--seed combination --- 24 of
-24 across the seven sources. Because the three seeds within a suite are
-compared against the same stored null episodes, we test at the level of
-the eight independent suite/split units: the GNN policy wins all eight
-under every seed (exact sign test $p{=}3.9{\times}10^{-3}$); one-sided
-Wilcoxon tests against the per-program nulls are significant within
-every suite (largest $p{=}0.025$ on MiBench, down to $p{<}10^{-5}$ on
-NPB and POJ-104); and re-pairing each seed with a disjoint slice of the
-stored episodes, which restores independence across all 24 pairs,
-leaves the count at 24 of 24. The identically trained Autophase policy
-wins 15 of 24 pairs, two of the eight units, and is significant on four
-of the seven suites. The margin over the null is
-modest (1--2\%) but perfectly systematic, and it holds on the synthetic
+policy beats its null on 33 of 36 suite--seed totals across the
+eleven sources, 24 of 24 on the original seven. Since seeds within a
+suite share the stored null episodes, the primary test uses the twelve
+independent suite/split units: the GNN wins ten under every seed
+(exact sign test $p{=}0.019$; the original eight alone give
+$p{=}3.9{\times}10^{-3}$), and one-sided Wilcoxon tests are
+significant within ten of eleven sources (largest $p{=}0.025$ on
+MiBench). The exception is Linux kernel code: the random null itself
+beats \texttt{-Oz} there by 2\%, and the policy adds nothing (per-program
+$p{\ge}0.24$ in two of three seeds; zero of three second-slice wins).
+GitHub mirrors NPB: one seed loses the summed IC by 17 while the
+per-program test is significant under every seed
+($p{\le}2{\times}10^{-3}$).
+The identically trained Autophase policy wins 21 of 36 pairs and is
+significant on five of eleven sources. The margin over the null is
+modest (0.7--2.8\% of suite totals on the original battery) but
+systematic, and it holds on the synthetic
 csmith programs where pure random search \emph{loses} to \texttt{-Oz}:
-there the sampled GNN policy is 16\% below \texttt{-Oz}. A policy
-trained on four toy programs thus carries transferable ordering
-knowledge to seven foreign program sources --- but only sampling can see
-it.
+there the sampled GNN policy is 16\% below \texttt{-Oz}. Read as \emph{search}, the same margin is large: on eight of the ten sources where the GNN wins, matching its eight
+samples takes random search a median of 11--49 episodes (1.4--6$\times$
+the budget); on the other two, cBench and csmith, no seed and one of
+three seeds respectively are matched within the 50 stored episodes. On Linux, where the policy does not win, two
+random episodes suffice (Table~\ref{tab:sampling}, iso-$k$). Per program on the original battery, the GNN sampler is at least as
+good as its null on 88--92\% of the 347 programs (175W/145T/27L, seed
+42), and because the $(k{+}1)$-th candidate can be \texttt{-Oz} itself
+at no extra cost, the deployed sampler is never worse than \texttt{-Oz}
+by construction while averaging 0.4--18.2\% per-program savings
+(Table~\ref{tab:sampling}, safe\%). A policy trained on four toy programs thus carries ordering
+knowledge to ten of eleven program sources, but only sampling can
+see it.
+
+\textbf{Robustness.} A $k{=}32$ rerun of the original suites
+reproduces the suite-total win everywhere except NPB (one seed of
+three; the total flips in 7 of 12 disjoint eight-sample slices), yet the per-program Wilcoxon on NPB stays significant in every
+resampling ($p{<}0.05$ in all twelve slices, $p{<}10^{-3}$ in each
+rerun's first eight). Where totals are dominated by a few large programs
+(NPB, GitHub, Linux), per-suite tests, not win counts, are the primary
+evidence.
 
 \begin{table}[t]
-\caption{Best-of-8 sampled rollouts (median seed) vs.\ the paired
-best-of-8 random null and -Oz. Policies were trained on four small
-cBench programs only.}
+\caption{Best-of-8 sampled rollouts (per-cell median over three seeds)
+vs.\ the paired best-of-8 random null and -Oz. Policies were trained on four small
+cBench programs only. iso-$k$: median random episodes to match the GNN best-of-8; safe\%:
+mean per-program gain of $\min(\text{best-of-8},\texttt{-Oz})$ over
+\texttt{-Oz} (median seed). Added sources use the first 8 of 16 stored
+samples; $n$ counts programs where all seeds succeeded.}
 \label{tab:sampling}
 \centering
-\small
-\begin{tabular}{lrrrr}
+\footnotesize
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lrrrrrr}
 \toprule
-Suite ($n$) & Null & -Oz & AP & GNN \\
+Suite ($n$) & Null & -Oz & AP & GNN & iso-$k$ & safe\% \\
 \midrule
-MiBench (40) & 4\,828 & 4\,841 & 4\,783 & \textbf{4\,782} \\
-CHStone (12) & 9\,241 & 9\,834 & 9\,133 & \textbf{9\,120} \\
-BLAS (50) & 37\,099 & 37\,838 & 36\,998 & \textbf{36\,847} \\
-csmith (28) & 17\,555 & 20\,226 & 17\,179 & \textbf{17\,064} \\
-NPB (120) & 40\,301 & 53\,085 & 40\,822 & \textbf{39\,909} \\
-POJ-104 (97) & 7\,853 & 8\,334 & 7\,917 & \textbf{7\,730} \\
+MiBench (40) & 4\,828 & 4\,841 & 4\,783 & \textbf{4\,782} & 23 & 1.8 \\
+CHStone (12) & 9\,241 & 9\,834 & 9\,133 & \textbf{9\,120} & 32 & 7.3 \\
+BLAS (50) & 37\,099 & 37\,838 & 36\,998 & \textbf{36\,847} & 20 & 2.0 \\
+csmith (28) & 17\,555 & 20\,226 & 17\,179 & \textbf{17\,064} & $>$50 & 18.2 \\
+NPB (120) & 40\,301 & 53\,085 & 40\,822 & \textbf{39\,909} & 11 & 10.0 \\
+POJ-104 (97) & 7\,853 & 8\,334 & 7\,917 & \textbf{7\,730} & 12 & 7.9 \\
+AnghaB. (150) & 4\,049 & 4\,043 & 4\,052 & \textbf{4\,027} & 17 & 1.2 \\
+GitHub (140) & 79\,713 & 80\,661 & 79\,738 & \textbf{79\,676} & 17 & 1.2 \\
+Linux (136) & \textbf{147\,216} & 148\,029 & 147\,278 & 147\,378 & 2 & 0.4 \\
+llvm-str. (50) & 255 & \textbf{234} & 245 & 240 & 49 & 3.7 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 Fig.~\ref{fig:pareto} places these results on a quality-vs.-budget
 front on cBench. At $k{=}8$ (360 compilations per program) the sampled
-GNN policy is within 0.3\% of exhaustive greedy search, which costs
-about 1\,970 compilations per program; at $k{=}32$ (73\% of greedy's
+GNN policy is within 0.4\% of exhaustive greedy search (0.06--0.35\%
+across seeds), which costs ${\approx}1\,970$ compilations per program; at $k{=}32$ (73\% of greedy's
 budget) it reaches greedy quality, nominally surpassing it in two of
 three seeds (110\,494 and 110\,527 vs.\ 110\,550), while all three
 seeds beat the paired null. Within the measured budgets random search
-never catches the sampler on cBench; on the battery it does so only at
-$k{=}32$, and first on NPB --- precisely the suite where random search
-is strongest. The learned sampler, in other words, buys down the cost
+never catches the sampler on cBench; on the battery it does so at the
+larger measured budget ($k{=}32$), first on NPB, precisely the suite
+where random search is strongest. The learned sampler, in other words, buys down the cost
 of search: it dominates the front at the budgets where search is
 expensive.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{figures/pareto.pdf}
-\caption{Solution quality vs.\ compilation budget on cBench val{+}test:
-best-of-$k$ policy sampling ($k{=}1..32$) against the expected
-best-of-$k$ of random search in the same space and measured greedy
-search.}
+\includegraphics[width=0.8\columnwidth]{figures/pareto.pdf}
+\caption{Quality vs.\ budget on cBench val{+}test: best-of-$k$
+sampling ($k{=}1..32$) vs.\ expected best-of-$k$ random search and
+measured greedy search.}
 \label{fig:pareto}
 \end{figure}
 
-\subsection{Pretraining unlocks the encoder}
-All three from-scratch GNN seeds converge to the same validation
-plateau (689), the value a nearly untrained policy already reaches: RL
-gradients alone do not teach the encoder useful features. Distilling
-Autophase into the encoder before RL (a one-hour CPU job) removes the
-failure in two of two seeds (Table~\ref{tab:pretrain}), and improves
-full-split deterministic-rollout totals by 9--10\% on average, with the better
-seed within 0.5\% of \texttt{-Oz} --- the first deterministic policy in
-the study to beat the single-episode random null on both held-out
-splits. Pretraining repairs the policy's \emph{mode}; the from-scratch
-policy remains the better \emph{sampler}. The two fixes are
-complementary: pretrain when only one rollout is affordable, sample
-when eight are.
+\subsection{Controls: where the sampling advantage lives}
+Four controls on the same 347 programs and nulls (seed 42;
+Table~\ref{tab:controls}) decompose the margin. An
+\emph{untrained} policy with identical architecture and sampling
+protocol is statistically
+indistinguishable from random search on every suite (all one-sided
+$p{\ge}0.12$) and loses five of six suite totals:
+the advantage is learned. Disabling dropout reproduces the result on all six suites (largest
+$p{=}0.016$) and is indistinguishable from dropout-active sampling
+(58W/226T/63L): the exploration comes from the policy distribution
+itself. An \emph{open-loop} variant sampling all 45 actions from
+$\pi(\cdot\,|\,s_0)$ (one graph pass; best-of-8 then costs eight
+sequence applications, ${\approx}0.13$\,s per module) retains 90--141\% of the closed-loop gain on MiBench,
+BLAS and CHStone but loses it on NPB and POJ-104 (overall 0.35): the
+learned per-program \emph{prior} suffices on simpler suites; state
+feedback pays off on harder ones. Finally, a fixed eight-sequence \emph{portfolio} mined by greedy set
+cover from random search on the 14 training programs (no model at
+inference) beats the null on five of six suites and the learned
+sampler on MiBench, BLAS and CHStone (one-sided $p{\le}0.006$); the
+policy keeps better totals on csmith, NPB and POJ-104, on csmith
+significantly (one-sided $p{=}0.004$ on per-program medians across
+seeds). Much of the
+sampler's value on small, regular programs is thus distillable into a
+static sequence list, in direct support of coreset-style
+approaches~\cite{coreset}, while per-program adaptation earns its keep where random search is
+weakest.
 
 \begin{table}[t]
-\caption{Effect of Autophase-distillation pretraining on the GNN agent:
-best in-training validation score per seed, and mean argmax totals on
-the full held-out splits (3 seeds from scratch, 2 pretrained).}
-\label{tab:pretrain}
+\caption{Controls (seed 42, 347 programs): summed IC of best-of-8
+variants vs.\ the stored best-of-8 null (116\,877); wins = suites (of 6) beating it. Portfolio-16 is scored
+against the best-of-16 null (115\,158).}
+\label{tab:controls}
 \centering
-\small
-\begin{tabular}{lccc}
+\footnotesize
+\begin{tabular}{lrr}
 \toprule
-GNN variant & val-small best & Full val & Full test \\
+Variant & Wins & Total IC \\
 \midrule
-From scratch & 689 / 689 / 689 & 64\,550 & 69\,180 \\
-+ pretraining & \textbf{651 / 668} & \textbf{57\,980} & \textbf{63\,229} \\
+Untrained policy, best-of-8 & 1/6 & 116\,941 \\
+Open-loop $\pi(\cdot|s_0)$, best-of-8 & 4/6 & 116\,377 \\
+Portfolio-8 (no model) & 5/6 & 115\,972 \\
+GNN best-of-8 (no dropout: 115\,761) & 6/6 & 115\,451 \\
+\midrule
+Portfolio-16 (no model, $2{\times}$ budget) & 6/6 & 114\,407 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+\subsection{Pretraining unlocks the encoder}
+All three from-scratch GNN seeds reach the same validation plateau
+(689) within the first 10--17\% of the budget and never leave it; the
+plateau is \emph{worse} than \texttt{-Oz} (643) and a single random
+episode (640): RL gradients alone do not teach the encoder useful
+features. Distilling Autophase into the encoder before RL (about an hour of
+CPU) removes the failure in two of two seeds (best validation 651 and
+668) and improves the mean full-split argmax totals from 64\,550 to
+57\,980 (validation) and 69\,180 to 63\,229 (test), 10.2\% and 8.6\% (9.4\% on
+average), with the better seed within 0.8\% of \texttt{-Oz}
+on both splits; it is the first deterministic policy here to beat the
+single-episode random null on both. Pretraining repairs the policy's \emph{mode}; the from-scratch
+policy remains the better \emph{sampler}. The two fixes are
+complementary: pretrain when only one rollout is affordable, sample
+when eight are.
+
 \subsection{Binary-level metrics}
 \label{sec:binary}
-IC is a proxy, so we compiled the optimized modules to objects with the
+IC is a proxy, so we compiled the optimized modules with the
 environment's own LLVM~10 code generator and measured section sizes.
 On programs with at least 1000 instructions, relative IC reduction
 strongly predicts relative \texttt{.text} reduction (Pearson
-$r{=}0.78$, $p{=}2.2{\times}10^{-6}$); below that size, fixed
-code-generation overheads dominate and the proxy weakens --- a boundary
-we report rather than hide. The IC gains translate into bytes: across
-the 347 paired battery programs, best-of-8 GNN sampling produces
-\texttt{.text} sections 10.6\% smaller than \texttt{-Oz} (864\,887
-vs.\ 967\,878 bytes; the random null achieves 10.4\%), and across all
-371 programs random search alone is 4.0\% below \texttt{-Oz}. The
-discovered 45-pass sequences also apply \emph{faster} than the
-\texttt{-Oz} pipeline (median 15.0--15.8\,ms vs.\ 19.5\,ms per module
-through the plain \texttt{opt} CLI, which also demonstrates the
-sequences work outside the RL environment). Total object footprint is
-dominated ($>$99.9\%) by data and BSS sections, which are essentially
-invariant under pass ordering ($<$0.03\% change), so \texttt{.text} is
-the informative size metric.
+$r{=}0.78$, $p{=}2.2{\times}10^{-6}$; $n{=}26$ points from 13 programs);
+below that size, fixed
+code-generation overheads
+dominate and the proxy weakens, a boundary we report. The IC gains translate into bytes on the original battery: across
+its 347 paired programs, best-of-8 GNN sampling produces \texttt{.text}
+sections 10.6\% smaller than \texttt{-Oz} (864\,887 vs.\ 967\,878
+bytes; the random null achieves 10.4\%), and across all 371 random
+search alone is 4.0\% below \texttt{-Oz}. The
+45-pass sequences also apply \emph{faster} than the \texttt{-Oz}
+pipeline (median 15.0--15.8\,ms vs.\ 19.5\,ms per module via the plain
+\texttt{opt} CLI; the sequences work outside the RL environment).
+Cross-compiling the same modules for a Cortex-M-class embedded target
+(\texttt{thumbv7m}, LLVM~10's ARM backend; an approximation, as the IR
+carries the x86 host datalayout) makes the savings \emph{larger}:
+best-of-8 sequences produce \texttt{.text} sections 14.9--15.0\% below
+\texttt{-Oz} (839 vs.\ 986\,kB over the same 347 programs), the sampler
+and the random null now equal: on this target the curated space
+delivers the entire margin. Total footprint is dominated ($>$99.9\%) by data and BSS sections,
+invariant under pass ordering ($<$0.03\%), so \texttt{.text} is the
+informative metric.
 
 \section{Discussion and Limitations}
-Three practices follow from these results. Evaluations of learned pass
-ordering should (1)~report a random null inside the same action space
-and budget, since a curated space plus trivial search already beats
-\texttt{-Oz}; (2)~report sampling-based in addition to deterministic
-evaluation, since the two can reverse rankings; and (3)~never use
-\texttt{-O3} as a size baseline. Our own limitations are measured
-rather than hypothetical: the study optimizes IR instruction count with
-a validated but size-bounded correlation to binary sections; training
-used four small programs by design (as the experimental control), and
-a mixed-size training arm did not improve generalization; runtime
-performance is not measured; and the stack is CompilerGym~0.2.5
-(LLVM~10). The per-step cost of the GNN representation
-($\sim$17$\times$ the flat features during training) is real, though at
-deployment the cost of a sampled rollout is dominated by compilation
-itself.
+Three practices follow from these results. Evaluations of learned pass ordering should (1)~report a random
+null inside the same action space and budget; (2)~report sampling-based
+in addition to deterministic evaluation, since the two can reverse
+rankings; and (3)~never use \texttt{-O3} as a size baseline. Our limitations are measured: the study optimizes IR instruction count with a
+validated but size-bounded correlation to binary sections; training
+used four small programs by design (the experimental control), and a
+single-seed mixed-size arm did not improve generalization; runtime is
+not measured; the stack is CompilerGym~0.2.5 (LLVM~10); and the GNN costs
+$\sim$19$\times$ more per training step, though open-loop deployment
+cuts inference to one graph pass.
 
 \section{Conclusion}
 Under controlled measurement, the value of RL for LLVM pass ordering
 redistributes: most of the headline gain over \texttt{-Oz} belongs to
 the curated action space; the genuine, statistically unambiguous
-contribution of the learned graph policy is that of an \emph{amortized
-searcher} --- greedy-search quality at a fraction of its compilation
-budget, transferable from four toy programs to seven foreign suites ---
-and the encoder that carries it can only be trained with a pretraining
-step that costs an hour of CPU. Evaluation choices dominated
-representation choices at every step of this study; we suggest treating
-that as the default hypothesis in this domain.
+contribution of the learned graph policy is that of
+an \emph{amortized searcher}: greedy-search quality at a fraction of
+its compilation budget, transferable from four toy programs to ten of eleven program
+sources. Its encoder trains only after a cheap pretraining step. Evaluation
+choices dominated representation choices at every step; we suggest
+treating that as the default hypothesis in this domain.
 
 % \section*{Acknowledgment}
 % The author thanks Prof.~[ime] for an early discussion of this work.
