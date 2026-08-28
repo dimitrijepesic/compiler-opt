@@ -41,10 +41,32 @@ AGENTS = {
 }
 
 
-def sample_rollout(agent, uri, is_gnn, rng_seed):
+def sample_rollout(agent, uri, is_gnn, rng_seed, no_dropout=False,
+                   open_loop=False):
     torch.manual_seed(rng_seed)
+    if is_gnn:
+        # Default sampling runs in train mode (encoder dropout active);
+        # --no-dropout is the E1b ablation that samples in eval mode.
+        (agent.gnn.eval() if no_dropout else agent.gnn.train())
+        (agent.policy.eval() if no_dropout else agent.policy.train())
     agent.env.reset(benchmark=uri)
     state = agent._get_graph() if is_gnn else agent._get_state()
+
+    if open_loop:
+        # E3: one state, one forward — 45 actions sampled i.i.d. from
+        # pi(.|s0); the environment is stepped only to apply them.
+        with torch.no_grad():
+            if is_gnn:
+                logits = agent.policy(agent.gnn(state))
+            else:
+                logits = agent.policy(state.unsqueeze(0))
+            dist = torch.distributions.Categorical(logits=logits)
+            for _ in range(agent.max_episode_steps):
+                try:
+                    agent.env.step(agent.action_map[dist.sample().item()])
+                except Exception:
+                    continue
+        return int(agent.env.observation["IrInstructionCount"])
 
     for _ in range(agent.max_episode_steps):
         with torch.no_grad():
@@ -63,10 +85,12 @@ def sample_rollout(agent, uri, is_gnn, rng_seed):
     return int(agent.env.observation["IrInstructionCount"])
 
 
-def load_battery_programs(battery_dir, max_ic):
+def load_battery_programs(battery_dir, max_ic, suites=None):
     """Yield (suite_key, record) for measured programs under the IC cap."""
     for agg in sorted(glob.glob(os.path.join(battery_dir, "*", "_aggregate.json"))):
         suite_key = os.path.basename(os.path.dirname(agg))
+        if suites and suite_key not in suites:
+            continue
         with open(agg) as f:
             data = json.load(f)
         for r in data["benchmarks"]:
@@ -114,33 +138,54 @@ def main():
     p.add_argument("--battery-dir", type=str, default="results/battery")
     p.add_argument("--out-dir", type=str, default="results/battery_policy")
     p.add_argument("--aggregate", action="store_true")
+    p.add_argument("--suites", type=str, default="",
+                   help="comma-separated battery suite dirs to evaluate "
+                        "(default: all present)")
+    p.add_argument("--untrained", action="store_true",
+                   help="E1a control: skip checkpoint loading and evaluate "
+                        "the randomly initialized policy (untrained-policy "
+                        "null)")
+    p.add_argument("--no-dropout", action="store_true",
+                   help="E1b ablation: sample with the encoder in eval mode "
+                        "(dropout off)")
+    p.add_argument("--open-loop", action="store_true",
+                   help="E3: sample all 45 actions i.i.d. from pi(.|s0) "
+                        "computed once at the initial state")
     args = p.parse_args()
 
+    variant = args.agent \
+        + ("_untrained" if args.untrained else "") \
+        + ("_nodropout" if args.no_dropout else "") \
+        + ("_openloop" if args.open_loop else "")
+
     if args.aggregate:
-        aggregate(args.out_dir, args.agent)
+        aggregate(args.out_dir, variant)
         return
 
     agent_class, ckpt_dir, is_gnn = AGENTS[args.agent]
-    programs = list(load_battery_programs(args.battery_dir, args.max_ic_policy))
+    suites = [x for x in args.suites.split(",") if x] or None
+    programs = list(load_battery_programs(args.battery_dir,
+                                          args.max_ic_policy, suites))
     print(f"{args.agent}: {len(programs)} eligible programs "
           f"(max-ic {args.max_ic_policy}), k={args.k}", flush=True)
 
     for seed in args.seeds:
         ckpt = os.path.join(ckpt_dir, f"checkpoint_best_seed{seed}.pt")
-        if not os.path.exists(ckpt):
+        if not args.untrained and not os.path.exists(ckpt):
             print(f"seed {seed}: no checkpoint at {ckpt}, skipping", flush=True)
             continue
 
         agent = agent_class(seed=seed)
         try:
-            agent.load_checkpoint(ckpt)
+            if not args.untrained:
+                agent.load_checkpoint(ckpt)
             t_start = time.time()
             done = 0
             for i, (suite_key, rec) in enumerate(programs):
                 uri = rec["uri"]
                 name = os.path.basename(uri.split("/")[-1]) or "unnamed"
                 out_sub = os.path.join(args.out_dir, suite_key,
-                                       f"{args.agent}_seed{seed}")
+                                       f"{variant}_seed{seed}")
                 os.makedirs(out_sub, exist_ok=True)
                 out_path = os.path.join(out_sub, f"{name}.json")
                 if os.path.exists(out_path):
@@ -150,7 +195,9 @@ def main():
                 try:
                     samples = [
                         sample_rollout(agent, uri, is_gnn,
-                                       rng_seed=seed * 100000 + i * 100 + j)
+                                       rng_seed=seed * 100000 + i * 100 + j,
+                                       no_dropout=args.no_dropout,
+                                       open_loop=args.open_loop)
                         for j in range(args.k)
                     ]
                     _, _, details = agent.evaluate([uri], "ref")
@@ -167,6 +214,7 @@ def main():
 
                 record = {
                     "uri": uri, "suite": suite_key, "seed": seed,
+                    "variant": variant,
                     "o0": rec["o0"], "oz": rec["oz"],
                     "argmax_ic": int(argmax_ic),
                     "sample_ics": [int(s) for s in samples],
@@ -185,7 +233,7 @@ def main():
         print(f"seed {seed} complete "
               f"({(time.time() - t_start) / 60:.0f}m)", flush=True)
 
-    aggregate(args.out_dir, args.agent)
+    aggregate(args.out_dir, variant)
 
 
 if __name__ == "__main__":

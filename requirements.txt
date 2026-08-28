@@ -36,3 +36,6 @@ typing_extensions==4.15.0
 urllib3==2.6.3
 wrapt==2.0.1
 zipp==3.23.0
+# PyTorch (CPU) and PyG, installed from the pytorch index in setup_wsl_env.sh
+torch==2.13.0+cpu
+torch-geometric==2.8.0.post1

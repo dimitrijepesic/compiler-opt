@@ -16,8 +16,8 @@ source "$VENV/bin/activate"
 pip install "pip<24.1" setuptools==65.5.0 wheel==0.38.4
 pip install gym==0.21.0
 pip install compiler-gym==0.2.5 "numpy<2" pyyaml tqdm scipy matplotlib
-pip install torch --index-url https://download.pytorch.org/whl/cpu
-pip install torch-geometric
+pip install torch==2.13.0+cpu --index-url https://download.pytorch.org/whl/cpu
+pip install torch-geometric==2.8.0.post1
 
 python - <<'EOF'
 import compiler_gym

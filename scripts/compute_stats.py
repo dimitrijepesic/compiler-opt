@@ -169,7 +169,227 @@ def analyze(agent):
               f"(effective n={nz:>3})  one-sided p = {p:.2e}")
 
 
+# ------------------------------------------------------- reframe metrics
+# Amortized-search reframe (REVIEW_2026-08-28.md section 7.2 / E2):
+#   iso_k     smallest random-search k whose per-suite total (prefix-min
+#             over the 50 stored episodes) matches the agent's best-of-8
+#   oz_safe   per-program gain of min(best-of-8, Oz) vs Oz - zero
+#             regression by construction - plus the strict-win share
+#   wtl       per-program win/tie/loss of best-of-8 vs the paired null
+#   npb_k32   robustness of suite totals under the independent k=32
+#             resampling (prefix-8 and four disjoint 8-sample slices)
+
+def reframe(agent="ppo_gnn"):
+    bat = battery_records(agent)
+    cb = cbench_records(agent)
+    bat_eps = load_battery_episodes()
+    cb_eps = load_cbench_episodes()
+    suites = sorted({s for s, _ in bat})
+    seeds = sorted({sd for _, sd in bat}, key=int)
+    out = {"agent": agent, "k": K, "iso_k": {}, "oz_safe": {},
+           "wtl": {}, "npb_k32": {}}
+
+    # --- iso-quality k per suite x seed (battery), plus cBench val+test
+    def iso_from(rows, eps_of):
+        best = sum(r["best_of_k_ic"] for r in rows)
+        for k in range(1, 51):
+            if sum(min(eps_of(r)[:k]) for r in rows) <= best:
+                return k
+        return None  # ">50"
+    for suite in suites:
+        out["iso_k"][suite] = {
+            sd: iso_from(bat[(suite, sd)],
+                         lambda r, s=suite: bat_eps[(s, r["uri"])])
+            for sd in seeds}
+    cb_all = {}
+    for (unit, sd), rows in cb.items():
+        cb_all.setdefault(sd, []).extend(rows)
+    out["iso_k"]["cbench"] = {
+        sd: iso_from(rows, lambda r: cb_eps[r["name"]])
+        for sd, rows in sorted(cb_all.items())}
+
+    # --- -Oz-safe and win/tie/loss per suite x seed (battery)
+    for suite in suites:
+        oz_row, wtl_row = {}, {}
+        for sd in seeds:
+            rows = bat[(suite, sd)]
+            gains = [(r["oz"] - min(r["best_of_k_ic"], r["oz"])) / r["oz"]
+                     for r in rows if r["oz"] > 0]
+            strict = sum(r["best_of_k_ic"] < r["oz"] for r in rows)
+            w = sum(r["best_of_k_ic"] < r["random_null_best_of_k"]
+                    for r in rows)
+            t = sum(r["best_of_k_ic"] == r["random_null_best_of_k"]
+                    for r in rows)
+            oz_row[sd] = {"mean_gain": float(np.mean(gains)),
+                          "strict_win_share": strict / len(rows),
+                          "n": len(rows)}
+            wtl_row[sd] = {"win": w, "tie": t, "loss": len(rows) - w - t}
+        out["oz_safe"][suite] = oz_row
+        out["wtl"][suite] = wtl_row
+
+    # --- NPB robustness under the independent k=32 resampling
+    k32 = {}
+    for path in sorted(glob.glob(
+            f"results/battery_policy_k32/npb-v0/{agent}_seed*/*.json")):
+        seed = path.replace("\\", "/").split("/")[-2].split("seed")[-1]
+        with open(path) as f:
+            k32.setdefault(seed, []).append(json.load(f))
+    for sd, rows in sorted(k32.items(), key=lambda x: int(x[0])):
+        null8 = sum(min(bat_eps[("npb-v0", r["uri"])][:K]) for r in rows)
+        prefix8 = sum(min(r["sample_ics"][:K]) for r in rows)
+        slices = []
+        for i in range(4):
+            a = sum(min(r["sample_ics"][K * i: K * i + K]) for r in rows)
+            z = sum(min(bat_eps[("npb-v0", r["uri"])][K * i: K * i + K])
+                    for r in rows)
+            slices.append({"agent": a, "null": z, "win": a < z})
+        out["npb_k32"][sd] = {"prefix8": prefix8, "null8": null8,
+                              "prefix8_win": prefix8 < null8,
+                              "slices": slices}
+
+    # --- print + persist
+    print(chr(10) + f"===== reframe metrics ({agent}, k={K})")
+    print("  iso-quality k (random k needed to match best-of-8):")
+    for suite, row in out["iso_k"].items():
+        vals = "  ".join(f"s{sd}:{v if v else '>50'}"
+                         for sd, v in row.items())
+        print(f"    {suite:<14} {vals}")
+    print("  -Oz-safe mean per-program gain / strict-win share "
+          "(median seed by gain):")
+    for suite, row in out["oz_safe"].items():
+        med = sorted(row, key=lambda sd: row[sd]["mean_gain"])[len(row) // 2]
+        r = row[med]
+        print(f"    {suite:<14} seed {med}: {100 * r['mean_gain']:.1f}%  "
+              f"strict {100 * r['strict_win_share']:.0f}%  (n={r['n']})")
+    for sd in seeds:
+        w = sum(out["wtl"][s][sd]["win"] for s in suites)
+        t = sum(out["wtl"][s][sd]["tie"] for s in suites)
+        l = sum(out["wtl"][s][sd]["loss"] for s in suites)
+        print(f"  W/T/L vs null, seed {sd}: {w}/{t}/{l} of {w + t + l}")
+    for sd, r in out["npb_k32"].items():
+        wins = sum(x["win"] for x in r["slices"])
+        print(f"  NPB k32 seed {sd}: prefix8 {r['prefix8']} vs "
+              f"{r['null8']} ({'W' if r['prefix8_win'] else 'L'}), "
+              f"slices {wins}/4")
+    path = f"results/reframe_stats_{agent}.json"
+    with open(path, "w") as f:
+        json.dump(out, f, indent=2)
+    print(f"  -> {path}")
+
+
+def controls():
+    """Table IV inputs: per-suite totals for the E1/E3 control variants
+    and the E4 portfolio, against the same stored nulls."""
+    bat_eps = load_battery_episodes()
+    variants = ["ppo_gnn", "ppo_gnn_untrained", "ppo_gnn_nodropout",
+                "ppo_gnn_openloop"]
+    print(chr(10) + "===== controls (battery, vs stored best-of-8 null)")
+    for var in variants:
+        rows = {}
+        for path in sorted(glob.glob(
+                f"results/battery_policy/*/{var}_seed*/*.json")):
+            parts = path.replace(chr(92), "/").split("/")
+            suite, seed = parts[-3], parts[-2].split("seed")[-1]
+            with open(path) as f:
+                rows.setdefault((suite, seed), []).append(json.load(f))
+        if not rows:
+            print(f"  {var:<24} (no data yet)")
+            continue
+        for (suite, seed), rs in sorted(rows.items()):
+            a = sum(r["best_of_k_ic"] for r in rs)
+            z = sum(r["random_null_best_of_k"] for r in rs)
+            w = sum(r["best_of_k_ic"] < r["random_null_best_of_k"]
+                    for r in rs)
+            t = sum(r["best_of_k_ic"] == r["random_null_best_of_k"]
+                    for r in rs)
+            print(f"  {var:<24} {suite:<12} s{seed} n={len(rs):>3} "
+                  f"total {a:>7} vs null {z:>7} "
+                  f"({'W' if a < z else 'L'})  W/T/L "
+                  f"{w}/{t}/{len(rs) - w - t}")
+    # portfolio (separate record schema)
+    rows = {}
+    for path in sorted(glob.glob(
+            "results/portfolio_eval/*/portfolio_seed0/*.json")):
+        parts = path.replace(chr(92), "/").split("/")
+        with open(path) as f:
+            rows.setdefault(parts[-3], []).append(json.load(f))
+    for suite, rs in sorted(rows.items()):
+        for k, akey, zkey in ((8, "best_of_8_ic", "random_null_best_of_8"),
+                              (16, "best_of_16_ic",
+                               "random_null_best_of_16")):
+            a = sum(r[akey] for r in rs)
+            z = sum(r[zkey] for r in rs)
+            print(f"  portfolio-{k:<15} {suite:<12} n={len(rs):>3} "
+                  f"total {a:>7} vs null-{k} {z:>7} "
+                  f"({'W' if a < z else 'L'})")
+    if not rows:
+        print("  portfolio (no data yet)")
+
+
+NEW_SUITES = ["anghabench-v1", "github-v0", "linux-v0", "llvm-stress-v0"]
+
+
+def e5():
+    """Added-source evaluation: k=16 stored, first 8 used for
+    comparability with the original battery; the disjoint second 8 is a
+    built-in resampling check. Prints per suite x seed totals, Wilcoxon,
+    iso-k / safe%% for the median seed, and the 12-unit sign test."""
+    eps = load_battery_episodes()
+    units = {}
+    print(chr(10) + "===== added sources (best-of-8 = first 8 of 16)")
+    for agent in ["ppo_gnn", "ppo_autophase"]:
+        print(f"  == {agent}")
+        for suite in NEW_SUITES:
+            per = {}
+            for path in sorted(glob.glob(
+                    f"results/battery_policy/{suite}/{agent}_seed*/*.json")):
+                seed = path.replace(chr(92), "/").split("/")[-2] \
+                    .split("seed")[-1]
+                with open(path) as f:
+                    per.setdefault(seed, []).append(json.load(f))
+            for seed, rows in sorted(per.items(), key=lambda x: int(x[0])):
+                a = [min(r["sample_ics"][:8]) for r in rows]
+                z = [min(eps[(suite, r["uri"])][:8]) for r in rows]
+                nz = sum(1 for x, y in zip(a, z) if x != y)
+                pv = stats.wilcoxon(a, z, alternative="less").pvalue \
+                    if nz else float("nan")
+                slice_b = ""
+                if all(len(r["sample_ics"]) >= 16 for r in rows):
+                    a2 = sum(min(r["sample_ics"][8:16]) for r in rows)
+                    z2 = sum(min(eps[(suite, r["uri"])][8:16])
+                             for r in rows)
+                    slice_b = f"  sliceB {'W' if a2 < z2 else 'L'}"
+                print(f"    {suite:<16} s{seed} n={len(rows):3d} "
+                      f"bo8 {sum(a):>7} null {sum(z):>7} "
+                      f"({'W' if sum(a) < sum(z) else 'L'}) "
+                      f"p={pv:.2g}{slice_b}")
+                if agent == "ppo_gnn":
+                    units.setdefault(suite, {})[seed] = \
+                        (sum(a), sum(z))
+    # 12-unit sign test (8 original units assumed won: verified by analyze)
+    new_unit_wins = sum(
+        all(a < z for a, z in seeds.values()) for seeds in units.values())
+    wins = 8 + new_unit_wins
+    print(f"  GNN units: {wins}/12 won under every seed "
+          f"(8 original + {new_unit_wins} of {len(units)} added); "
+          f"exact one-sided sign p = {sign_test_p(wins, 12):.2g}")
+    pair_w = sum(a < z for seeds in units.values()
+                 for a, z in seeds.values())
+    print(f"  GNN added-source pairs: {pair_w}/12 "
+          f"(descriptive total 24+{pair_w} of 36)")
+
+
 def main():
+    if "--e5" in sys.argv:
+        e5()
+        return
+    if "--controls" in sys.argv:
+        controls()
+        return
+    if "--reframe" in sys.argv:
+        for agent in ["ppo_gnn", "ppo_autophase"]:
+            reframe(agent)
+        return
     for agent in ["ppo_autophase", "ppo_gnn"]:
         analyze(agent)
 

@@ -46,15 +46,33 @@ EPISODE_STEPS = 45
 K = 8
 
 
-def sizes(bc_path, workdir):
+MTRIPLE = None  # set from --mtriple; adds text_arm/total_arm per record
+
+
+def sizes(bc_path, workdir, mtriple=None):
     obj = os.path.join(workdir, "out.o")
-    subprocess.run([os.path.join(LLVM_BIN, "llc"), "-filetype=obj",
-                    "-o", obj, bc_path], check=True, capture_output=True)
+    cmd = [os.path.join(LLVM_BIN, "llc"), "-filetype=obj"]
+    if mtriple:
+        cmd += [f"-mtriple={mtriple}"]
+    subprocess.run(cmd + ["-o", obj, bc_path],
+                   check=True, capture_output=True)
     out = subprocess.run([os.path.join(LLVM_BIN, "llvm-size"), obj],
                          check=True, capture_output=True, text=True).stdout
     parts = out.strip().splitlines()[1].split()
     text, data, bss = int(parts[0]), int(parts[1]), int(parts[2])
     return {"text": text, "total": text + data + bss}
+
+
+def all_sizes(bc_path, workdir):
+    """Native sizes, plus the cross-compiled target when --mtriple is set.
+    The bitcode carries the x86 host datalayout, so the cross-compiled
+    sections are an approximation to a native frontend for that target."""
+    d = sizes(bc_path, workdir)
+    if MTRIPLE:
+        a = sizes(bc_path, workdir, MTRIPLE)
+        d["text_arm"] = a["text"]
+        d["total_arm"] = a["total"]
+    return d
 
 
 def timed_opt(flags, in_bc, out_bc, runs=3):
@@ -120,6 +138,12 @@ def aggregate(out_dir):
             "text_total": totals(cond, "text"),
             "footprint_total": totals(cond, "total"),
         }
+        arm = [r for r in rows if cond in r and "text_arm" in r[cond]]
+        if arm:
+            summary[cond]["text_arm_total"] = sum(
+                r[cond]["text_arm"] for r in arm)
+            summary[cond]["footprint_arm_total"] = sum(
+                r[cond]["total_arm"] for r in arm)
         if cond != "o0":
             times = [r[cond]["opt_ms"] for r in rows
                      if cond in r and "opt_ms" in r[cond]]
@@ -135,6 +159,16 @@ def aggregate(out_dir):
             "rnd_text": sum(r["rnd_bo8"]["text"] for r in both),
             "gnn_text": sum(r["gnn_bo8"]["text"] for r in both),
         }
+        both_arm = [r for r in both if "text_arm" in r["gnn_bo8"]]
+        if both_arm:
+            summary["paired_gnn_subset_arm"] = {
+                "n": len(both_arm),
+                "oz_text": sum(r["oz"]["text_arm"] for r in both_arm),
+                "rnd_text": sum(r["rnd_bo8"]["text_arm"]
+                                for r in both_arm),
+                "gnn_text": sum(r["gnn_bo8"]["text_arm"]
+                                for r in both_arm),
+            }
     path = os.path.join(out_dir, "_aggregate.json")
     with open(path, "w") as f:
         json.dump({"summary": summary, "programs": rows}, f, indent=2)
@@ -151,8 +185,16 @@ def main():
     p.add_argument("--max-ic-policy", type=int, default=6000)
     p.add_argument("--max-ic", type=int, default=120000)
     p.add_argument("--seed", type=int, default=42)
+    p.add_argument("--mtriple", type=str, default="",
+                   help="also cross-compile every module for this target "
+                        "triple (e.g. thumbv7m-none-eabi) and record "
+                        "text_arm/total_arm")
+    p.add_argument("--suites", type=str, default="",
+                   help="comma-separated battery suite dirs (default: all)")
     p.add_argument("--aggregate", action="store_true")
     args = p.parse_args()
+    global MTRIPLE
+    MTRIPLE = args.mtriple or None
 
     if args.aggregate:
         aggregate(args.out_dir)
@@ -163,10 +205,13 @@ def main():
     action_map = [x["action_id"] for x in passes]
     id_to_flag = {x["action_id"]: x["name"] for x in passes}
 
+    only = [x for x in args.suites.split(",") if x]
     programs = []
     for agg in sorted(glob.glob(os.path.join(args.battery_dir, "*",
                                              "_aggregate.json"))):
         suite_key = os.path.basename(os.path.dirname(agg))
+        if only and suite_key not in only:
+            continue
         with open(agg) as f:
             for r in json.load(f)["benchmarks"]:
                 if "oz" in r and r.get("o0", 10**9) <= args.max_ic:
@@ -191,18 +236,20 @@ def main():
 
             try:
                 record = {"uri": uri, "suite": suite_key}
+                if MTRIPLE:
+                    record["mtriple"] = MTRIPLE
 
                 env.reset(benchmark=uri)
                 o0_bc = os.path.join(workdir, "o0.bc")
                 env.write_bitcode(o0_bc)
-                record["o0"] = {"ic": o0_ic, **sizes(o0_bc, workdir)}
+                record["o0"] = {"ic": o0_ic, **all_sizes(o0_bc, workdir)}
 
                 oz_bc = os.path.join(workdir, "oz.bc")
                 oz_ms = timed_opt(["-Oz"], o0_bc, oz_bc)
                 env.reset(benchmark=uri)
                 record["oz"] = {
                     "ic": int(env.observation["IrInstructionCountOz"]),
-                    **sizes(oz_bc, workdir), "opt_ms": oz_ms}
+                    **all_sizes(oz_bc, workdir), "opt_ms": oz_ms}
 
                 # random best-of-8 (by IC), replay best, export, time CLI
                 best = None
@@ -217,7 +264,7 @@ def main():
                 env.write_bitcode(rnd_bc)
                 flags = [id_to_flag[a] for a in applied]
                 record["rnd_bo8"] = {
-                    "ic": ic, **sizes(rnd_bc, workdir),
+                    "ic": ic, **all_sizes(rnd_bc, workdir),
                     "opt_ms": timed_opt(flags, o0_bc,
                                         os.path.join(workdir, "x.bc"))}
 
@@ -233,7 +280,7 @@ def main():
                     env.write_bitcode(gnn_bc)
                     flags = [id_to_flag[a] for a in applied]
                     record["gnn_bo8"] = {
-                        "ic": ic, **sizes(gnn_bc, workdir),
+                        "ic": ic, **all_sizes(gnn_bc, workdir),
                         "opt_ms": timed_opt(flags, o0_bc,
                                             os.path.join(workdir, "x.bc"))}
 
