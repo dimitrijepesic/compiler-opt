@@ -1,7 +1,7 @@
 """
 PPO + GNN Agent
 Proximal Policy Optimization with GraphSAGE encoder on LLVM IR graphs.
-This is the novel contribution — structural program representation for pass ordering.
+This is the novel contribution: structural program representation for pass ordering.
 """
 
 import torch
@@ -28,7 +28,7 @@ from src.features.programl import ir_to_pyg_data, IRGraphCache, NODE_FEATURE_DIM
 class GNNRolloutBuffer:
     """Stores transitions with graph states instead of flat vectors.
 
-    bootstraps[t] is V(s_{t+1}) for transitions where done=True — every
+    bootstraps[t] is V(s_{t+1}) for transitions where done=True: every
     episode here ends by truncation (time limit or collect boundary), so
     the return must bootstrap from the next state's value, not from 0.
     """
@@ -117,7 +117,7 @@ class PPOGNNAgent:
         # Environment (created early so _filter_benchmarks can use it)
         self.env = compiler_gym.make("llvm-ic-v0")
 
-        # Benchmark URIs — filter out benchmarks too large for RL loop
+        # Benchmark URIs, filter out benchmarks too large for RL loop
         max_ic_for_training = self.config.get("rl_max_benchmark_ic", 20000)
         self.train_uris = self._filter_benchmarks(
             benchmarks_config["train"], max_ic_for_training
@@ -143,7 +143,7 @@ class PPOGNNAgent:
         )
 
         # Optionally warm-start the encoder from a pretrained checkpoint
-        # (e.g. Autophase distillation — scripts/pretrain_gnn.py)
+        # (e.g. Autophase distillation, scripts/pretrain_gnn.py)
         if init_encoder_path:
             ckpt = torch.load(init_encoder_path, weights_only=True)
             self.gnn.load_state_dict(ckpt["encoder_state_dict"])
@@ -170,7 +170,7 @@ class PPOGNNAgent:
 
         # Single optimizer, two param groups: the encoder gets a lower lr
         # than the heads so RL gradients refine its features without
-        # destabilizing them. Joint training is still important — the GNN
+        # destabilizing them. Joint training is still important: the GNN
         # learns features guided by the RL objective.
         encoder_lr = gnn_cfg.get("encoder_lr", self.lr)
         self.optimizer = optim.Adam([
@@ -249,8 +249,8 @@ class PPOGNNAgent:
             return self.value_fn(embedding).item()
 
     def _compute_gae(self, rewards, values, dones, bootstraps):
-        """Compute GAE. Episodes here never truly terminate — they are
-        truncated (time limit / collect boundary) — so at done steps the
+        """Compute GAE. Episodes here never truly terminate; they are
+        truncated (time limit / collect boundary), so at done steps the
         delta bootstraps from V(s_next) instead of 0, and the advantage
         accumulator resets so nothing leaks across episode boundaries."""
         advantages = []
@@ -295,7 +295,7 @@ class PPOGNNAgent:
                 try:
                     self.env.step(cg_action)
                 except Exception:
-                    # Session died — end the episode, bootstrap from the
+                    # Session died; end the episode, bootstrap from the
                     # (unchanged) current state's value.
                     self.buffer.add(graph, action_idx, log_prob, 0.0, value,
                                     True, bootstrap=value)

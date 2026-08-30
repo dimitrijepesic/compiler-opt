@@ -1,6 +1,6 @@
 # configs/hyperparams_mixed.yaml
 # Track B: mixed-size training. Identical to hyperparams.yaml except the
-# benchmark size cap — 20000 admits 9 training benchmarks (450..15184 O0 IC),
+# benchmark size cap: 20000 admits 9 training benchmarks (450..15184 O0 IC),
 # testing whether training on a wider size range fixes the scale-
 # generalization failure seen with the <3000 set.
 

@@ -2,7 +2,7 @@
 # Full controlled-experiment pipeline. Run inside WSL from the repo root:
 #   bash scripts/run_experiment.sh
 #
-# Protocol (fixed before the run — see configs/hyperparams.yaml):
+# Protocol (fixed before the run, see configs/hyperparams.yaml):
 #   1. Augment baselines with real O3/Oz + random-in-reduced-space nulls
 #   2. Train PPO+Autophase and PPO+GNN: SAME training set, SAME budget
 #      (100K steps), 3 seeds each
@@ -14,7 +14,7 @@ cd "$(dirname "$0")/.."
 VENV="${VENV:-$HOME/venv-cgym}"
 source "$VENV/bin/activate"
 
-# Keep the graph cache off /mnt/c — many small files are slow over 9P
+# Keep the graph cache off /mnt/c: many small files are slow over 9P
 export COMPILER_OPT_CACHE_DIR="${COMPILER_OPT_CACHE_DIR:-$HOME/compiler_opt_graph_cache}"
 
 mkdir -p results

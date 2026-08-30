@@ -1,5 +1,6 @@
-# src/get_o3_baselines.py
-
+# Legacy: -O3 approximated by a hand-picked pass sequence, superseded by
+# CompilerGym's real IrInstructionCountO3 observation (see
+# scripts/augment_baselines.py). Kept for provenance only.
 import compiler_gym
 
 BENCHMARKS = [

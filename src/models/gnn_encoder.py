@@ -8,8 +8,8 @@ class GNNEncoder(nn.Module):
     """
     Edge-type-aware GraphSAGE encoder for program graphs.
 
-    Each layer runs two SAGEConv convolutions — one over control-flow
-    edges (edge_type == 0), one over data-flow edges (edge_type == 1) —
+    Each layer runs two SAGEConv convolutions: one over control-flow
+    edges (edge_type == 0), one over data-flow edges (edge_type == 1),
     and sums their outputs. This lets the encoder treat "next instruction"
     and "value dependency" as distinct relations instead of collapsing
     them into a single edge set.
@@ -77,7 +77,7 @@ class GNNEncoder(nn.Module):
 
         # Global mean pooling: aggregate all node embeddings into one vector
         if batch is None:
-            # Single graph — mean over all nodes
+            # Single graph, mean over all nodes
             x = x.mean(dim=0, keepdim=True)
         else:
             x = global_mean_pool(x, batch)

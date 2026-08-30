@@ -392,7 +392,7 @@ full-split argmax totals from 64\,550/69\,180 to 57\,980/63\,229
 (validation/test), 10.2\% and 8.6\%; it is the first deterministic
 policy here to beat the single-episode random null on both splits.
 Pretraining repairs the policy's \emph{mode}; the from-scratch policy
-remains the better \emph{sampler} -- pretrain when only one rollout is
+remains the better \emph{sampler}: pretrain when only one rollout is
 affordable, sample when eight are.
 
 \subsection{Binary-level metrics}
@@ -414,7 +414,7 @@ pipeline (median 15.0--15.8\,ms vs.\ 19.5\,ms per module).
 Cross-compiling for a Cortex-M target (\texttt{thumbv7m}; an
 approximation, as the IR keeps the x86 host datalayout) makes the
 savings \emph{larger} still: 14.9--15.0\% below \texttt{-Oz} (839 vs.\
-986\,kB), with the sampler and the random null equal -- on this target
+986\,kB), with the sampler and the random null equal: on this target
 the curated space delivers the entire margin. Footprint is dominated
 ($>$99.9\%) by data/BSS, invariant under ordering ($<$0.03\%);
 \texttt{.text} is the informative metric.

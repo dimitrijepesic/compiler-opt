@@ -3,7 +3,7 @@
 # 23 valid cBench-v1 benchmarks, 0 failures
 # Split: 14 train (61%), 5 val (22%), 4 test (17%)
 # Stratified by program category for diversity in each set
-# This split is FIXED — do not modify after experiments begin.
+# This split is FIXED: do not modify after experiments begin.
 
 split_seed: 42
 
@@ -44,7 +44,7 @@ validation:
 # Cheap subset of the validation split used ONLY for in-training
 # checkpoint selection (evaluated every val_interval_steps). The full
 # validation split above is evaluated once, at the end, in
-# scripts/evaluate_all.py — lame and tiffmedian are too large
+# scripts/evaluate_all.py: lame and tiffmedian are too large
 # (O0 IC 49K / 61K) for per-checkpoint GNN evaluation.
 validation_small:
   - benchmark://cBench-v1/crc32

@@ -11,8 +11,8 @@ was missing:
 2. Random null models in the REDUCED 36-pass action space, which is what
    the RL agents actually act in:
      - random_reduced_policy: mean final IC of N single 45-step random
-       episodes — the null model for a trained policy rollout.
-     - random_reduced_search: best of N episodes — the null model for
+       episodes: the null model for a trained policy rollout.
+     - random_reduced_search: best of N episodes: the null model for
        search-style baselines.
 
 Existing expensive fields (greedy, random over the full action space)
@@ -101,7 +101,7 @@ def main():
         )
 
         new_entry = dict(entry)
-        # The old fields were approximations — keep them, clearly labeled.
+        # The old fields were approximations; keep them, clearly labeled.
         new_entry["o3_seq"] = new_entry.pop("o3")
         new_entry["oz_seq"] = new_entry.pop("oz")
         new_entry["o3"] = o3_real

@@ -1,9 +1,10 @@
 from .base_agent import OptimizerAgent
 import sys
 
+
 class GreedyAgent(OptimizerAgent):
     def train(self, steps=15):
-        print(f"-- pokretanje greedy agenta na {self.env.benchmark}")
+        print(f"-- running greedy agent on {self.env.benchmark}")
         self.env.reset()
 
         current_size = self.env.observation["IrInstructionCount"]
@@ -13,7 +14,7 @@ class GreedyAgent(OptimizerAgent):
         actions_taken = []
 
         for step in range(1, steps + 1):
-            print(f"\n--korak {step}/{steps}")
+            print(f"\n-- step {step}/{steps}")
             best_action = None
             best_reduction = 0
             best_new_size = current_size
@@ -25,7 +26,6 @@ class GreedyAgent(OptimizerAgent):
                         # Get observation from the environment, not from step() return
                         observation = temp_env.observation["IrInstructionCount"]
 
-                        # Skip if observation is None
                         if observation is None:
                             continue
 
@@ -33,17 +33,16 @@ class GreedyAgent(OptimizerAgent):
                             best_new_size = observation
                             best_action = action
                             best_reduction = current_size - best_new_size
-                except Exception as e:
-                    # Some actions may fail, skip them
+                except Exception:
+                    # Some actions may fail; skip them
                     continue
-            
+
             if best_action is not None and best_reduction > 0:
                 action_name = self.env.action_space.to_string(best_action)
-                print(f"  Najbolja akcija: {action_name}")
-                print(f"  Smanjenje: {current_size} -> {best_new_size} (delta: -{best_reduction})")
+                print(f"  Best action: {action_name}")
+                print(f"  Reduction: {current_size} -> {best_new_size} (delta: -{best_reduction})")
 
                 self.env.step(best_action)
-                # Get observation from environment, not from step() return
                 current_size = self.env.observation["IrInstructionCount"]
                 actions_taken.append(best_action)
 
@@ -53,12 +52,12 @@ class GreedyAgent(OptimizerAgent):
                     "step": step,
                     "size": int(current_size),
                     "action_id": int(best_action),
-                    "action_name": action_name
+                    "action_name": action_name,
                 })
             else:
-                print("  Nijedna akcija ne smanjuje kod. Lokalni minimum.")
+                print("  No action reduces the code further. Local minimum.")
                 break
 
-        print("\n" + "="*40)
-        print(f"GREEDY ZAVRSIO. Najbolji rezultat: {self.best_score}")
-        print(f"Sekvenca: {self.best_sequence}")
+        print("\n" + "=" * 40)
+        print(f"GREEDY FINISHED. Best result: {self.best_score}")
+        print(f"Sequence: {self.best_sequence}")

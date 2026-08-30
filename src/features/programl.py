@@ -105,8 +105,8 @@ def parse_llvm_ir(ir_text):
 
     Returns:
         nodes: list of {"opcode": str, "opcode_idx": int, "block": str}
-        cfg_edges: list of (src_idx, dst_idx) — control flow
-        dfg_edges: list of (src_idx, dst_idx) — data flow
+        cfg_edges: list of (src_idx, dst_idx), control flow
+        dfg_edges: list of (src_idx, dst_idx), data flow
     """
     lines = ir_text.split("\n")
 

@@ -176,7 +176,7 @@ def main():
             record.update(measure(env, uri, action_map, rng, args.max_ic))
         except Exception as e:
             record["failed"] = repr(e)
-            # A dead service can poison later benchmarks — recreate.
+            # A dead service can poison later benchmarks; recreate.
             try:
                 env.close()
             except Exception:

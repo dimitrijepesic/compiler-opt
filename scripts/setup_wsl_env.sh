@@ -23,7 +23,7 @@ python - <<'EOF'
 import compiler_gym
 env = compiler_gym.make("llvm-ic-v0")
 env.reset(benchmark="benchmark://cBench-v1/crc32")
-print("smoke test OK — crc32 O0 IC:", env.observation["IrInstructionCount"])
+print("smoke test OK, crc32 O0 IC:", env.observation["IrInstructionCount"])
 print("real O3 IC:", env.observation["IrInstructionCountO3"])
 env.close()
 EOF

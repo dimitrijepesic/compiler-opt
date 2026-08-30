@@ -11,7 +11,7 @@
 #   test set are evaluated once, at the end, by scripts/evaluate_all.py.
 
 # Benchmarks with O0 IC above this threshold are excluded from RL
-# training (too slow for thousands of resets — the cost is dominated by
+# training (too slow for thousands of resets, the cost is dominated by
 # per-step graph extraction for the GNN agent, so the same cap is applied
 # to both agents to keep the comparison controlled). With 3000 this
 # selects: dijkstra, adpcm, bitcount, stringsearch.

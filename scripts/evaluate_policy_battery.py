@@ -6,7 +6,7 @@ For every battery program (measured by benchmark_battery.py) and every
 requested agent/seed, runs one argmax rollout and K sampled rollouts, and
 pairs them with the best-of-K random null computed from the episode ICs
 already stored in the battery JSONs (same programs, same action space,
-same K — a fair null by construction).
+same K, a fair null by construction).
 
 Interruption-proof like the battery itself: one JSON per
 (suite, agent, seed, program), skipped when present.
@@ -53,7 +53,7 @@ def sample_rollout(agent, uri, is_gnn, rng_seed, no_dropout=False,
     state = agent._get_graph() if is_gnn else agent._get_state()
 
     if open_loop:
-        # E3: one state, one forward — 45 actions sampled i.i.d. from
+        # E3: one state, one forward pass; 45 actions sampled i.i.d. from
         # pi(.|s0); the environment is stepped only to apply them.
         with torch.no_grad():
             if is_gnn:

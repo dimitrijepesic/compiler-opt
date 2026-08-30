@@ -4,8 +4,8 @@ nullcheck: apply this paper's evaluation protocol to any CompilerGym
 benchmark set in one command.
 
 Given a suite (any CompilerGym dataset or generator URI) it reports the
-null-model row of Table I -- O0/O3/Oz vs. best-of-N random search in the
-curated 36-pass space -- and, if a trained checkpoint is given, the
+null-model row of Table I (O0/O3/Oz vs. best-of-N random search in the
+curated 36-pass space) and, if a trained checkpoint is given, the
 Table II row for that suite: best-of-k policy sampling vs. the paired
 best-of-k random null, with a one-sided Wilcoxon test, the iso-quality
 search budget, and the -Oz-safe per-program gain.

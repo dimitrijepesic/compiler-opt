@@ -2,7 +2,7 @@
 """
 Portfolio null (E4, REVIEW_2026-08-28.md section 7.3): a fixed set of
 pass sequences mined from random search on the cBench TRAINING split
-only -- no learning, no held-out data. Tests whether a learned sampler
+only, no learning, no held-out data. Tests whether a learned sampler
 carries more than a fixed sequence list (the premise behind coreset-
 style approaches).
 

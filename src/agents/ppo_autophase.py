@@ -1,7 +1,7 @@
 """
 PPO + Autophase Agent
 Proximal Policy Optimization with 56-dim Autophase features.
-This is the baseline RL agent — the GNN agent replaces the feature extractor.
+This is the baseline RL agent; the GNN agent replaces the feature extractor.
 """
 
 import torch
@@ -26,7 +26,7 @@ from src.features.autophase import extract_autophase, AUTOPHASE_DIM
 class RolloutBuffer:
     """Stores transitions collected during rollout phase.
 
-    bootstraps[t] is V(s_{t+1}) for transitions where done=True — every
+    bootstraps[t] is V(s_{t+1}) for transitions where done=True: every
     episode here ends by truncation (time limit or collect boundary), so
     the return must bootstrap from the next state's value, not from 0.
     """
@@ -111,7 +111,7 @@ class PPOAutophaseAgent:
         # Environment (created early so _filter_benchmarks can use it)
         self.env = compiler_gym.make("llvm-ic-v0")
 
-        # Benchmark URIs — filter out benchmarks too large for RL loop
+        # Benchmark URIs, filter out benchmarks too large for RL loop
         max_ic_for_training = self.config.get("rl_max_benchmark_ic", 20000)
         self.train_uris = self._filter_benchmarks(
             benchmarks_config["train"], max_ic_for_training
@@ -199,8 +199,8 @@ class PPOAutophaseAgent:
             return self.value_fn(state.unsqueeze(0)).item()
 
     def _compute_gae(self, rewards, values, dones, bootstraps):
-        """Compute GAE. Episodes here never truly terminate — they are
-        truncated (time limit / collect boundary) — so at done steps the
+        """Compute GAE. Episodes here never truly terminate; they are
+        truncated (time limit / collect boundary), so at done steps the
         delta bootstraps from V(s_next) instead of 0, and the advantage
         accumulator resets so nothing leaks across episode boundaries."""
         advantages = []
@@ -246,7 +246,7 @@ class PPOAutophaseAgent:
                     self.env.step(cg_action)
                     current_ic = int(self.env.observation["IrInstructionCount"])
                 except Exception:
-                    # Session died — end the episode, bootstrap from the
+                    # Session died; end the episode, bootstrap from the
                     # (unchanged) current state's value.
                     self.buffer.add(state.numpy(), action_idx, log_prob, 0.0,
                                     value, True, bootstrap=value)

@@ -1,5 +1,6 @@
-# src/data/collect_and_save.py
-
+# Legacy: collects greedy-search (state, action) pairs to train the ML/NN
+# agents in legacy/agents/{ml_agent,nn_agent}.py, an approach superseded
+# by the PPO agents in src/agents/ppo_*.py. Kept for provenance only.
 import compiler_gym
 import numpy as np
 import json
@@ -82,12 +83,12 @@ def collect_greedy_data(num_trajectories=5, steps_per_trajectory=45):
     env.close()
     
     # Save to file
-    os.makedirs("data", exist_ok=True)
-    
-    with open("data/greedy_trajectories.json", "w") as f:
+    os.makedirs("legacy/results", exist_ok=True)
+
+    with open("legacy/results/greedy_trajectories.json", "w") as f:
         json.dump(all_data, f)
-    
-    print(f"\nTotal: {len(all_data)} samples saved to data/greedy_trajectories.json")
+
+    print(f"\nTotal: {len(all_data)} samples saved to legacy/results/greedy_trajectories.json")
     
     return all_data
 

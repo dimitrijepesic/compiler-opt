@@ -29,7 +29,7 @@ both by deterministic rollout and by best-of-k sampling. Paper source:
 > regenerates every number in the paper; `scripts/verify_paper_numbers.py`
 > (or `pytest scripts/test_paper_numbers.py`) checks all of them against
 > the tex source in one command, and `scripts/nullcheck.py` applies the
-> same protocol -- null models plus, optionally, a trained policy -- to
+> same protocol (null models plus, optionally, a trained policy) to
 > any CompilerGym benchmark set.
 > The controlled two-representation comparison below is unchanged.
 
@@ -100,12 +100,12 @@ random-1-episode 640, greedy = random-50 604):
    roughly matches -Oz. The 36-pass profiling step distills most of the
    available signal.
 
-2. **GNN ≠ more data-efficient — the representations are indistinguishable.**
+2. **GNN is not more data-efficient: the representations are indistinguishable.**
    With identical data, budget, and PPO loop, per-benchmark ICs differ
    insignificantly (Wilcoxon p = 0.625 validation, p = 0.875 test). The GNN's
    striking seed-consistency (std 25 vs 15,724) is not learned structure: all
    three GNN seeds converge to the same near-uniform-policy plateau (689 on
-   val-small — the same value a barely-trained policy reaches).
+   val-small, the same value a barely-trained policy reaches).
 
 3. **Neither representation generalizes across program scale.** Trained on
    programs with < 3,000 instructions, both agents underperform even a single
@@ -119,8 +119,8 @@ random-1-episode 640, greedy = random-50 604):
    (640), approaching greedy (604). One seed in three; no GNN seed did.
 
 5. **-O3 is the wrong yardstick for code size.** On the three small validation
-   programs real -O3 *increases* IC above O0 (1,608 vs 1,362 — inlining and
-   unrolling). Any size result advertised as "beats -O3" should be read as
+   programs real -O3 *increases* IC above O0 (1,608 vs 1,362, from inlining
+   and unrolling). Any size result advertised as "beats -O3" should be read as
    "beats a speed-oriented baseline at a size game." The honest compiler
    baseline is -Oz, and no learned policy here beats it on the full splits.
 
@@ -147,7 +147,7 @@ Fixes applied before the rerun (all in this repo's history):
   rollout cuts; KL-based epoch early stopping; linear entropy-coefficient
   decay; lower encoder learning rate for the GNN stack.
 - **GNN**: edge-type-aware GraphSAGE (separate CFG/DFG convolutions per
-  layer — `edge_type` was previously computed and ignored); node features
+  layer; `edge_type` was previously computed and ignored); node features
   extended with is-terminator / operand-count / defines-value / is-memory-op
   scalars; versioned graph cache.
 - **Baselines**: real -O3/-Oz observations; random null models in the reduced
@@ -176,9 +176,13 @@ compiler-opt/
 ├── src/
 │   ├── agents/ppo_autophase.py  # PPO + flat Autophase features
 │   ├── agents/ppo_gnn.py        # PPO + GraphSAGE encoder
+│   ├── agents/greedy.py, base_agent.py  # Used by scripts/demo_runner.py only
 │   ├── features/autophase.py    # 56-dim feature extraction
 │   ├── features/programl.py     # Custom LLVM IR → PyG graph parser + cache
 │   └── models/                  # policy_mlp, value_head, gnn_encoder
+├── legacy/                      # Pre-study prototypes, not part of the paper's
+│                                 # pipeline; see legacy/README.md
+├── demo/test.c                  # scripts/demo_runner.py: a two-minute demo
 ├── scripts/
 │   ├── setup_wsl_env.sh         # One-time environment setup (WSL/Ubuntu 22.04)
 │   ├── run_experiment.sh        # Full pipeline: baselines → training → eval → figures
@@ -215,7 +219,7 @@ compiler-opt/
 
 ## Reproduce
 
-Linux (or WSL2 Ubuntu 22.04) required — CompilerGym 0.2.5 is Linux-only.
+Linux (or WSL2 Ubuntu 22.04) required: CompilerGym 0.2.5 is Linux-only.
 
 ```bash
 bash scripts/setup_wsl_env.sh     # venv + pinned deps + smoke test (~10 min)
@@ -230,7 +234,7 @@ PPO+GNN ~50-70 min/seed, final evaluation ~15 min.
 The controlled study left three open leads. All three were run; two changed
 the conclusions materially.
 
-### Track A — sampling evaluation (best-of-8): the GNN's first real win
+### Track A: sampling evaluation (best-of-8) finds the GNN's first real win
 
 Argmax rollouts measure a policy's *mode*; sampling measures its
 *distribution*. Eight sampled rollouts per benchmark, best kept, against a
@@ -249,22 +253,22 @@ Every GNN seed beats every Autophase seed on both splits, beats the null
 greedy's measured ≈1,970 per program: (steps+1)×124 passes tried). The
 "plateau" policies were good *samplers* with a degenerate mode.
 
-### Track C — encoder pretraining breaks the plateau
+### Track C: encoder pretraining breaks the plateau
 
 Distilling Autophase into the encoder (regress log1p(Autophase) from the
 graph; 2,430 states; val MSE 0.025) before RL fine-tuning:
 
-- val-small best per seed: **651 / 668** — both below the 689 plateau that
+- val-small best per seed: **651 / 668**, both below the 689 plateau that
   0/3 from-scratch seeds escaped;
-- full-split argmax (best seed): validation **55,593**, test **61,015** —
+- full-split argmax (best seed): validation **55,593**, test **61,015**,
   vs 64,550 / 69,180 from scratch. First argmax policy in the study to beat
   the single-episode random null on both splits, and within 0.3-0.8% of -Oz
   (mean over the two seeds: 57,980 / 63,229).
 
 RL gradients alone could not train the encoder; a pretrained encoder + RL
-can. The representation was never the bottleneck — encoder optimization was.
+can. The representation was never the bottleneck; encoder optimization was.
 
-### Track B — mixed-size training does not fix scale generalization
+### Track B: mixed-size training does not fix scale generalization
 
 Training on 9 benchmarks (O0 IC 450-15,184) instead of 4 tiny ones:
 Autophase became *worse and less stable* (argmax validation totals 82,935 /
@@ -275,7 +279,7 @@ arm is reported as incomplete.
 
 ### Revised conclusion
 
-The graph representation is not the problem — measurement and optimization
+The graph representation is not the problem; measurement and optimization
 were. Evaluate the policy as a sampler (Track A) or give the encoder a
 pretrained start (Track C), and the GNN is the strongest agent in the
 study; train longer on bigger programs (Track B) and nothing improves.

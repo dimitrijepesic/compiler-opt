@@ -2,13 +2,13 @@
 """
 Generate paper figures from training logs + evaluation results.
 
-fig1 — training curves (avg episode reward vs steps), per-seed + mean
-fig2 — validation curves (val-small total IC vs steps) with baseline
+fig1: training curves (avg episode reward vs steps), per-seed + mean
+fig2: validation curves (val-small total IC vs steps) with baseline
        reference lines: the data-efficiency figure
-fig3 — policy entropy and approx KL (small multiples, shared x)
-fig4 — final comparison bars on validation-full and test splits
+fig3: policy entropy and approx KL (small multiples, shared x)
+fig4: final comparison bars on validation-full and test splits
 
-Inputs (all optional — missing ones skip their figure):
+Inputs (all optional, missing ones skip their figure):
   results/ppo_autophase/training_log_seed*.json
   results/ppo_gnn/training_log_seed*.json
   results/full_baselines_v2.json
@@ -30,8 +30,8 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 FIG_DIR = "results/figures"
 
 # Palette (light mode): categorical slots in fixed order; chrome inks.
-C_AP = "#2a78d6"       # slot 1 blue  — PPO + Autophase
-C_GNN = "#eb6834"      # slot 2 orange — PPO + GNN
+C_AP = "#2a78d6"       # slot 1 blue, PPO + Autophase
+C_GNN = "#eb6834"      # slot 2 orange, PPO + GNN
 INK = "#0b0b0b"
 INK_2 = "#52514e"
 MUTED = "#898781"
@@ -111,7 +111,7 @@ def fig1_training(all_logs):
                     label=f"{label} (mean of {len(logs)} seeds)")
     ax.set_xlabel("Environment steps")
     ax.set_ylabel("Avg episode reward")
-    ax.set_title("Training reward — identical budget and training set", color=INK)
+    ax.set_title("Training reward, identical budget and training set", color=INK)
     ax.legend(frameon=False)
     fig.tight_layout()
     fig.savefig(os.path.join(FIG_DIR, "fig1_training_curves.png"), dpi=200)
@@ -246,7 +246,7 @@ def fig4_final(final_eval):
         ax.set_title(f"{split} split", color=INK)
         ax.grid(axis="x", visible=False)
 
-    fig.suptitle("Final comparison — agents show mean ± std across seeds",
+    fig.suptitle("Final comparison, agents show mean ± std across seeds",
                  color=INK)
     fig.tight_layout()
     fig.savefig(os.path.join(FIG_DIR, "fig4_best_val_comparison.png"), dpi=200)
@@ -277,12 +277,12 @@ def main():
         fig2_validation(all_logs, baselines)
         fig3_entropy_kl(all_logs)
     else:
-        print("  (no training logs found — skipping fig1-3)")
+        print("  (no training logs found, skipping fig1-3)")
 
     if final_eval:
         fig4_final(final_eval)
     else:
-        print("  (no final_evaluation.json — skipping fig4)")
+        print("  (no final_evaluation.json, skipping fig4)")
 
 
 if __name__ == "__main__":

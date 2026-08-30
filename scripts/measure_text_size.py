@@ -5,7 +5,7 @@ IC -> .text sanity anchor.
 For a subset of programs, measures actual .text section size (bytes) of
 the compiled object under three conditions: O0, opt -Oz, and the best of
 N random episodes in the 36-pass space. Reports the correlation between
-relative IC reduction and relative .text reduction — the one number that
+relative IC reduction and relative .text reduction: the one number that
 defuses "IR instruction count is just a proxy".
 
 Uses the CompilerGym runtime's own llc/llvm-size (version-matched to the
@@ -63,7 +63,7 @@ def measure_program(env, uri, action_map, rng, workdir):
                           os.devnull], capture_output=True, text=True)
     # IC of the Oz module via the env observation is not available here;
     # count instructions with llvm-dis-free method: reuse env by applying
-    # nothing — instead record env's IrInstructionCountOz observation.
+    # nothing; instead record env's IrInstructionCountOz observation.
     env.reset(benchmark=uri)
     rows["oz"] = {"ic": int(env.observation["IrInstructionCountOz"]),
                   "text": text_size(oz_bc, workdir)}
