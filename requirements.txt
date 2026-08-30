@@ -37,6 +37,9 @@ typing_extensions==4.15.0
 urllib3==2.6.3
 wrapt==2.0.1
 zipp==3.23.0
-# PyTorch (CPU) and PyG, installed from the pytorch index in setup_wsl_env.sh
+# PyTorch and PyG, installed from the pytorch index in setup_wsl_env.sh.
+# The paper's runs used the CPU build; the mixed-size GNN rerun
+# (scripts/track_b_rerun.sh) used the same version's CUDA build,
+# torch==2.13.0+cu126, with --device cuda.
 torch==2.13.0+cpu
 torch-geometric==2.8.0.post1

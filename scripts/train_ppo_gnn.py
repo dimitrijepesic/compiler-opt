@@ -24,6 +24,12 @@ def main():
     parser.add_argument("--init-encoder", type=str, default=None,
                         help="Path to pretrained encoder checkpoint "
                              "(scripts/pretrain_gnn.py output)")
+    parser.add_argument("--device", type=str, default=None,
+                        help="cpu (default) or cuda; falls back to the "
+                             "COMPILER_OPT_DEVICE environment variable")
+    parser.add_argument("--total-steps", type=int, default=None,
+                        help="Override the config's total_env_steps "
+                             "(timing probes only)")
     args = parser.parse_args()
 
     seeds = [args.seed] if args.seed is not None else [42, 123, 456]
@@ -39,6 +45,8 @@ def main():
             benchmarks_path=args.benchmarks,
             seed=seed,
             init_encoder_path=args.init_encoder,
+            device=args.device,
+            total_env_steps=args.total_steps,
         )
 
         try:

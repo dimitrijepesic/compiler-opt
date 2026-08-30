@@ -70,7 +70,14 @@ class PPOGNNAgent:
     def __init__(self, config_path="configs/hyperparams.yaml",
                  passes_path="configs/passes.yaml",
                  benchmarks_path="configs/benchmarks.yaml",
-                 seed=42, init_encoder_path=None):
+                 seed=42, init_encoder_path=None, device=None,
+                 total_env_steps=None):
+        # device: "cpu" (default, the paper's setting) or "cuda". The
+        # encoder, heads and PPO batches live on it; graph extraction and
+        # the rollout buffer stay on the CPU. COMPILER_OPT_DEVICE overrides
+        # the default when the argument is not given.
+        # total_env_steps: optional override of the config budget (used
+        # for short timing probes; leave None for real runs).
 
         # Load configs
         with open(config_path) as f:
@@ -95,8 +102,19 @@ class PPOGNNAgent:
         self.collect_steps = ppo_cfg["collect_steps"]
         self.max_episode_steps = ppo_cfg["max_episode_steps"]
         self.gamma = ppo_cfg["gamma"]
-        self.total_env_steps = ppo_cfg["total_env_steps"]
+        self.total_env_steps = (total_env_steps if total_env_steps
+                                else ppo_cfg["total_env_steps"])
         self.val_interval = ppo_cfg["val_interval_steps"]
+        self.device = torch.device(
+            device or os.environ.get("COMPILER_OPT_DEVICE", "cpu"))
+        # Memory knob for small GPUs: each PPO batch of batch_size graphs
+        # is processed in micro-batches of this size with gradient
+        # accumulation. Losses are rescaled so the gradient equals the
+        # full-batch gradient; the default (= batch_size) is the plain
+        # single-pass update used on the CPU.
+        self.micro_batch_size = int(os.environ.get(
+            "COMPILER_OPT_MICRO_BATCH", ppo_cfg.get("micro_batch_size",
+                                                    self.batch_size)))
 
         # KL guard: stop PPO epochs early once the policy has moved too far
         # from the rollout policy. This is what prevents the collapse seen
@@ -145,7 +163,8 @@ class PPOGNNAgent:
         # Optionally warm-start the encoder from a pretrained checkpoint
         # (e.g. Autophase distillation, scripts/pretrain_gnn.py)
         if init_encoder_path:
-            ckpt = torch.load(init_encoder_path, weights_only=True)
+            ckpt = torch.load(init_encoder_path, weights_only=True,
+                              map_location="cpu")
             self.gnn.load_state_dict(ckpt["encoder_state_dict"])
             print(f"  Initialized encoder from {init_encoder_path} "
                   f"(pretrain val MSE {ckpt.get('val_mse', '?')})")
@@ -167,6 +186,9 @@ class PPOGNNAgent:
             hidden_dim=val_cfg["hidden_dim"],
             num_layers=val_cfg["num_layers"],
         )
+        self.gnn.to(self.device)
+        self.policy.to(self.device)
+        self.value_fn.to(self.device)
 
         # Single optimizer, two param groups: the encoder gets a lower lr
         # than the heads so RL gradients refine its features without
@@ -224,16 +246,24 @@ class PPOGNNAgent:
         self.total_graph_extractions += 1
         return graph
 
+    def _on_device(self, graph):
+        """Copy of a graph on the compute device. PyG's Data.to() moves
+        tensors in place, so a clone keeps the cached/buffered graph on
+        the CPU; on the CPU device the graph is returned untouched."""
+        if self.device.type == "cpu":
+            return graph
+        return graph.clone().to(self.device)
+
     def _encode_graph(self, graph):
         """Run GNN encoder on a single graph, return embedding vector."""
         with torch.no_grad():
-            embedding = self.gnn(graph)
+            embedding = self.gnn(self._on_device(graph))
         return embedding.squeeze(0)  # [output_dim]
 
     def _select_action(self, graph):
         """Sample action from policy given a program graph."""
         with torch.no_grad():
-            embedding = self.gnn(graph)  # [1, output_dim]
+            embedding = self.gnn(self._on_device(graph))  # [1, output_dim]
             logits = self.policy(embedding)
             dist = torch.distributions.Categorical(logits=logits)
             action_idx = dist.sample()
@@ -245,7 +275,7 @@ class PPOGNNAgent:
     def _state_value(self, graph):
         """Value estimate for a single graph state (no grad)."""
         with torch.no_grad():
-            embedding = self.gnn(graph)
+            embedding = self.gnn(self._on_device(graph))
             return self.value_fn(embedding).item()
 
     def _compute_gae(self, rewards, values, dones, bootstraps):
@@ -366,38 +396,54 @@ class PPOGNNAgent:
                 end = min(start + self.batch_size, dataset_size)
                 batch_idx = indices[start:end].tolist()
 
-                # Batch graphs using PyG
-                batch_graphs = Batch.from_data_list([graphs[i] for i in batch_idx])
-                batch_actions = actions[batch_idx]
-                batch_old_log_probs = old_log_probs[batch_idx]
-                batch_advantages = advantages[batch_idx]
-                batch_returns = returns[batch_idx]
-
-                # Forward pass through GNN + policy + value
-                embeddings = self.gnn(batch_graphs)  # [batch, output_dim]
-
-                logits = self.policy(embeddings)
-                dist = torch.distributions.Categorical(logits=logits)
-                new_log_probs = dist.log_prob(batch_actions)
-                entropy = dist.entropy().mean()
-
-                ratio = torch.exp(new_log_probs - batch_old_log_probs)
-                clipped_ratio = torch.clamp(ratio, 1 - self.clip_ratio, 1 + self.clip_ratio)
-
-                policy_loss = -torch.min(
-                    ratio * batch_advantages,
-                    clipped_ratio * batch_advantages,
-                ).mean()
-                policy_loss = policy_loss - self.current_entropy_coeff * entropy
-
-                values = self.value_fn(embeddings)
-                value_loss = nn.MSELoss()(values, batch_returns)
-
-                # Combined loss, single backward pass
-                total_loss = policy_loss + 0.5 * value_loss
-
+                n_batch = len(batch_idx)
                 self.optimizer.zero_grad()
-                total_loss.backward()
+                policy_loss_acc = value_loss_acc = entropy_acc = kl_acc = 0.0
+
+                # Micro-batches with gradient accumulation; every loss is a
+                # per-sample mean, so weighting each chunk by its share of
+                # the batch reproduces the single-pass full-batch gradient.
+                for mb_start in range(0, n_batch, self.micro_batch_size):
+                    mb_idx = batch_idx[mb_start:mb_start + self.micro_batch_size]
+                    w = len(mb_idx) / n_batch
+
+                    batch_graphs = Batch.from_data_list(
+                        [graphs[i] for i in mb_idx]).to(self.device)
+                    batch_actions = actions[mb_idx].to(self.device)
+                    batch_old_log_probs = old_log_probs[mb_idx].to(self.device)
+                    batch_advantages = advantages[mb_idx].to(self.device)
+                    batch_returns = returns[mb_idx].to(self.device)
+
+                    # Forward pass through GNN + policy + value
+                    embeddings = self.gnn(batch_graphs)  # [mb, output_dim]
+
+                    logits = self.policy(embeddings)
+                    dist = torch.distributions.Categorical(logits=logits)
+                    new_log_probs = dist.log_prob(batch_actions)
+                    entropy = dist.entropy().mean()
+
+                    ratio = torch.exp(new_log_probs - batch_old_log_probs)
+                    clipped_ratio = torch.clamp(ratio, 1 - self.clip_ratio, 1 + self.clip_ratio)
+
+                    policy_loss = -torch.min(
+                        ratio * batch_advantages,
+                        clipped_ratio * batch_advantages,
+                    ).mean()
+                    policy_loss = policy_loss - self.current_entropy_coeff * entropy
+
+                    values = self.value_fn(embeddings)
+                    value_loss = nn.MSELoss()(values, batch_returns)
+
+                    # Combined loss; the backward passes accumulate
+                    total_loss = (policy_loss + 0.5 * value_loss) * w
+                    total_loss.backward()
+
+                    with torch.no_grad():
+                        kl_acc += (batch_old_log_probs - new_log_probs).mean().item() * w
+                    policy_loss_acc += policy_loss.item() * w
+                    value_loss_acc += value_loss.item() * w
+                    entropy_acc += entropy.item() * w
+
                 nn.utils.clip_grad_norm_(
                     list(self.gnn.parameters()) +
                     list(self.policy.parameters()) +
@@ -406,12 +452,10 @@ class PPOGNNAgent:
                 )
                 self.optimizer.step()
 
-                with torch.no_grad():
-                    approx_kl = (batch_old_log_probs - new_log_probs).mean().item()
-
-                total_policy_loss += policy_loss.item()
-                total_value_loss += value_loss.item()
-                total_entropy += entropy.item()
+                approx_kl = kl_acc
+                total_policy_loss += policy_loss_acc
+                total_value_loss += value_loss_acc
+                total_entropy += entropy_acc
                 total_kl += approx_kl
                 epoch_kl += approx_kl
                 num_batches += 1
@@ -447,7 +491,7 @@ class PPOGNNAgent:
 
             for step in range(self.max_episode_steps):
                 with torch.no_grad():
-                    embedding = self.gnn(graph)
+                    embedding = self.gnn(self._on_device(graph))
                     logits = self.policy(embedding)
                     action_idx = torch.argmax(logits, dim=-1).item()
 
@@ -491,6 +535,7 @@ class PPOGNNAgent:
         print(f"  Train benchmarks: {len(self.train_uris)}")
         print(f"  Val benchmarks: {len(self.val_uris)}")
         print(f"  Total budget: {self.total_env_steps} steps")
+        print(f"  Device: {self.device}")
         print()
 
         start_time = time.time()
@@ -591,10 +636,16 @@ class PPOGNNAgent:
     def _save_checkpoint(self, save_dir, tag):
         """Save model checkpoint."""
         path = os.path.join(save_dir, f"checkpoint_{tag}_seed{self.seed}.pt")
+
+        def on_cpu(module):
+            return {k: v.detach().cpu() for k, v in module.state_dict().items()}
+
+        # Checkpoints are always stored on the CPU so that a GPU-trained
+        # policy loads on a CPU-only evaluation machine.
         torch.save({
-            "gnn_state_dict": self.gnn.state_dict(),
-            "policy_state_dict": self.policy.state_dict(),
-            "value_state_dict": self.value_fn.state_dict(),
+            "gnn_state_dict": on_cpu(self.gnn),
+            "policy_state_dict": on_cpu(self.policy),
+            "value_state_dict": on_cpu(self.value_fn),
             "total_steps": self.total_steps,
             "best_val_score": self.best_val_score,
             "seed": self.seed,
@@ -602,7 +653,7 @@ class PPOGNNAgent:
 
     def load_checkpoint(self, path):
         """Load model checkpoint."""
-        ckpt = torch.load(path, weights_only=True)
+        ckpt = torch.load(path, weights_only=True, map_location=self.device)
         self.gnn.load_state_dict(ckpt["gnn_state_dict"])
         self.policy.load_state_dict(ckpt["policy_state_dict"])
         self.value_fn.load_state_dict(ckpt["value_state_dict"])
