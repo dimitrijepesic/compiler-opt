@@ -1,0 +1,91 @@
+{
+  "uri": "generator://csmith-v0/14",
+  "suite": "csmith-v0",
+  "llvm": "18",
+  "o0": {
+    "text": 836
+  },
+  "oz": {
+    "text": 539
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 654
+    },
+    {
+      "rank": 2,
+      "text": 686
+    },
+    {
+      "rank": 3,
+      "text": 678
+    },
+    {
+      "rank": 4,
+      "text": 686
+    },
+    {
+      "rank": 5,
+      "text": 678
+    },
+    {
+      "rank": 6,
+      "text": 654
+    },
+    {
+      "rank": 7,
+      "text": 710
+    },
+    {
+      "rank": 8,
+      "text": 718
+    },
+    {
+      "rank": 9,
+      "text": 670
+    },
+    {
+      "rank": 10,
+      "text": 654
+    },
+    {
+      "rank": 11,
+      "text": 726
+    },
+    {
+      "rank": 12,
+      "text": 686
+    },
+    {
+      "rank": 13,
+      "text": 646
+    },
+    {
+      "rank": 14,
+      "text": 662
+    },
+    {
+      "rank": 15,
+      "text": 702
+    },
+    {
+      "rank": 16,
+      "text": 654
+    }
+  ],
+  "failed_sequences": [],
+  "llvm10": {
+    "oz_text": 539,
+    "rnd_text": 701,
+    "gnn_text": 741
+  },
+  "portfolio_bo8": {
+    "text": 654,
+    "rank": 1
+  },
+  "portfolio_bo16": {
+    "text": 646,
+    "rank": 13
+  }
+}

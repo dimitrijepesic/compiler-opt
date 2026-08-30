@@ -1,0 +1,91 @@
+{
+  "uri": "benchmark://mibench-v1/lame-quantize-1",
+  "suite": "mibench-v1",
+  "llvm": "18",
+  "o0": {
+    "text": 938
+  },
+  "oz": {
+    "text": 838
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 790
+    },
+    {
+      "rank": 2,
+      "text": 790
+    },
+    {
+      "rank": 3,
+      "text": 790
+    },
+    {
+      "rank": 4,
+      "text": 790
+    },
+    {
+      "rank": 5,
+      "text": 790
+    },
+    {
+      "rank": 6,
+      "text": 790
+    },
+    {
+      "rank": 7,
+      "text": 790
+    },
+    {
+      "rank": 8,
+      "text": 790
+    },
+    {
+      "rank": 9,
+      "text": 790
+    },
+    {
+      "rank": 10,
+      "text": 790
+    },
+    {
+      "rank": 11,
+      "text": 790
+    },
+    {
+      "rank": 12,
+      "text": 790
+    },
+    {
+      "rank": 13,
+      "text": 790
+    },
+    {
+      "rank": 14,
+      "text": 790
+    },
+    {
+      "rank": 15,
+      "text": 790
+    },
+    {
+      "rank": 16,
+      "text": 790
+    }
+  ],
+  "failed_sequences": [],
+  "llvm10": {
+    "oz_text": 838,
+    "rnd_text": 790,
+    "gnn_text": 790
+  },
+  "portfolio_bo8": {
+    "text": 790,
+    "rank": 1
+  },
+  "portfolio_bo16": {
+    "text": 790,
+    "rank": 1
+  }
+}

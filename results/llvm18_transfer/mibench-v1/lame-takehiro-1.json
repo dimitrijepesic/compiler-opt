@@ -1,0 +1,91 @@
+{
+  "uri": "benchmark://mibench-v1/lame-takehiro-1",
+  "suite": "mibench-v1",
+  "llvm": "18",
+  "o0": {
+    "text": 1449
+  },
+  "oz": {
+    "text": 1236
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 1236
+    },
+    {
+      "rank": 2,
+      "text": 1252
+    },
+    {
+      "rank": 3,
+      "text": 1252
+    },
+    {
+      "rank": 4,
+      "text": 1268
+    },
+    {
+      "rank": 5,
+      "text": 1236
+    },
+    {
+      "rank": 6,
+      "text": 1252
+    },
+    {
+      "rank": 7,
+      "text": 1252
+    },
+    {
+      "rank": 8,
+      "text": 1236
+    },
+    {
+      "rank": 9,
+      "text": 1252
+    },
+    {
+      "rank": 10,
+      "text": 1236
+    },
+    {
+      "rank": 11,
+      "text": 1236
+    },
+    {
+      "rank": 12,
+      "text": 1236
+    },
+    {
+      "rank": 13,
+      "text": 1252
+    },
+    {
+      "rank": 14,
+      "text": 1252
+    },
+    {
+      "rank": 15,
+      "text": 1236
+    },
+    {
+      "rank": 16,
+      "text": 1236
+    }
+  ],
+  "failed_sequences": [],
+  "llvm10": {
+    "oz_text": 1250,
+    "rnd_text": 1298,
+    "gnn_text": 1298
+  },
+  "portfolio_bo8": {
+    "text": 1236,
+    "rank": 1
+  },
+  "portfolio_bo16": {
+    "text": 1236,
+    "rank": 1
+  }
+}

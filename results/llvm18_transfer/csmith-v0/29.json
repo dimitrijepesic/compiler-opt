@@ -1,0 +1,92 @@
+{
+  "uri": "generator://csmith-v0/29",
+  "suite": "csmith-v0",
+  "llvm": "18",
+  "o0": {
+    "text": 19082
+  },
+  "oz": {
+    "text": 7839
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 8780
+    },
+    {
+      "rank": 2,
+      "text": 9444
+    },
+    {
+      "rank": 3,
+      "text": 4464
+    },
+    {
+      "rank": 4,
+      "text": 4896
+    },
+    {
+      "rank": 5,
+      "text": 7100
+    },
+    {
+      "rank": 6,
+      "text": 8868
+    },
+    {
+      "rank": 7,
+      "text": 10044
+    },
+    {
+      "rank": 8,
+      "text": 9129
+    },
+    {
+      "rank": 9,
+      "text": 7913
+    },
+    {
+      "rank": 12,
+      "text": 9364
+    },
+    {
+      "rank": 13,
+      "text": 4336
+    },
+    {
+      "rank": 14,
+      "text": 6648
+    },
+    {
+      "rank": 15,
+      "text": 5184
+    },
+    {
+      "rank": 16,
+      "text": 8260
+    }
+  ],
+  "failed_sequences": [
+    {
+      "rank": 10,
+      "error": "#20 0x000055c3794c4b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 11,
+      "error": "#20 0x00005afd56889b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    }
+  ],
+  "llvm10": {
+    "oz_text": 6804,
+    "rnd_text": 9075,
+    "gnn_text": 9059
+  },
+  "portfolio_bo8": {
+    "text": 4464,
+    "rank": 3
+  },
+  "portfolio_bo16": {
+    "text": 4336,
+    "rank": 13
+  }
+}

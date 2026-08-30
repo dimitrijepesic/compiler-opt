@@ -1,0 +1,92 @@
+{
+  "uri": "benchmark://blas-v0/65",
+  "suite": "blas-v0",
+  "llvm": "18",
+  "o0": {
+    "text": 3380
+  },
+  "oz": {
+    "text": 3381
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 3349
+    },
+    {
+      "rank": 3,
+      "text": 3333
+    },
+    {
+      "rank": 5,
+      "text": 3397
+    },
+    {
+      "rank": 6,
+      "text": 3333
+    },
+    {
+      "rank": 7,
+      "text": 3333
+    },
+    {
+      "rank": 8,
+      "text": 3333
+    },
+    {
+      "rank": 9,
+      "text": 3333
+    },
+    {
+      "rank": 11,
+      "text": 3332
+    },
+    {
+      "rank": 12,
+      "text": 3333
+    },
+    {
+      "rank": 14,
+      "text": 3349
+    },
+    {
+      "rank": 15,
+      "text": 3364
+    },
+    {
+      "rank": 16,
+      "text": 3333
+    }
+  ],
+  "failed_sequences": [
+    {
+      "rank": 2,
+      "error": "#20 0x0000565f1eb82b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 4,
+      "error": "#20 0x000060791cd2db25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 10,
+      "error": "#20 0x0000590e81b72b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 13,
+      "error": "#20 0x00005bb7dd094b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    }
+  ],
+  "llvm10": {
+    "oz_text": 3407,
+    "rnd_text": 3379,
+    "gnn_text": 3380
+  },
+  "portfolio_bo8": {
+    "text": 3333,
+    "rank": 3
+  },
+  "portfolio_bo16": {
+    "text": 3332,
+    "rank": 11
+  }
+}

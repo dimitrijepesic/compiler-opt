@@ -1,0 +1,92 @@
+{
+  "uri": "benchmark://mibench-v1/lame-quantize-2",
+  "suite": "mibench-v1",
+  "llvm": "18",
+  "o0": {
+    "text": 774
+  },
+  "oz": {
+    "text": 637
+  },
+  "sequences": [
+    {
+      "rank": 3,
+      "text": 605
+    },
+    {
+      "rank": 5,
+      "text": 605
+    },
+    {
+      "rank": 7,
+      "text": 605
+    },
+    {
+      "rank": 9,
+      "text": 605
+    },
+    {
+      "rank": 10,
+      "text": 605
+    },
+    {
+      "rank": 13,
+      "text": 605
+    },
+    {
+      "rank": 15,
+      "text": 605
+    },
+    {
+      "rank": 16,
+      "text": 605
+    }
+  ],
+  "failed_sequences": [
+    {
+      "rank": 1,
+      "error": "#20 0x00006541aad73b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 2,
+      "error": "#20 0x000062314a2b1b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 4,
+      "error": "#20 0x000056a399a31b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 6,
+      "error": "#20 0x0000584c9ce22b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 8,
+      "error": "#20 0x00005f7b9de69b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 11,
+      "error": "#20 0x00005cd4525fbb25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 12,
+      "error": "#20 0x00005a1274094b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 14,
+      "error": "#20 0x00006008bd088b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    }
+  ],
+  "llvm10": {
+    "oz_text": 641,
+    "rnd_text": 609,
+    "gnn_text": 609
+  },
+  "portfolio_bo8": {
+    "text": 605,
+    "rank": 3
+  },
+  "portfolio_bo16": {
+    "text": 605,
+    "rank": 3
+  }
+}

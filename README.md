@@ -17,12 +17,20 @@ both by deterministic rollout and by best-of-k sampling. Paper source:
 > budget in every seed. Best-of-8 sequences from the curated space, learned
 > or random, give `.text` sections 10.6% smaller than `-Oz` on x86 (random
 > null: 10.4%) and 14.9-15.0% smaller cross-compiled for a Cortex-M target
-> (policy and null equal). Reproduce with `scripts/benchmark_battery.py`,
+> (policy and null equal); the mined portfolio still beats LLVM 18's own
+> `-Oz` by 10.6-10.9% when ported to its new pass manager, on 314 of 319
+> attempted programs (`scripts/llvm18_transfer.py`, run under a separately
+> installed LLVM 18 toolchain). Reproduce with `scripts/benchmark_battery.py`,
 > `scripts/evaluate_policy_battery.py` (`--untrained/--no-dropout/`
 > `--open-loop`), `scripts/mine_portfolio.py`,
-> `scripts/measure_binary_metrics.py --mtriple`, and
+> `scripts/measure_binary_metrics.py --mtriple`,
+> `scripts/generate_battery_figure.py` (the paper's Fig. 1), and
 > `scripts/compute_stats.py` (`--reframe/--controls/--e5`), which
-> regenerates every number in the paper.
+> regenerates every number in the paper; `scripts/verify_paper_numbers.py`
+> (or `pytest scripts/test_paper_numbers.py`) checks all of them against
+> the tex source in one command, and `scripts/nullcheck.py` applies the
+> same protocol -- null models plus, optionally, a trained policy -- to
+> any CompilerGym benchmark set.
 > The controlled two-representation comparison below is unchanged.
 
 ## Overview
@@ -185,7 +193,11 @@ compiler-opt/
 │   ├── mine_portfolio.py        # Fixed-portfolio control (greedy set cover)
 │   ├── measure_binary_metrics.py   # .text/footprint/opt-time, --mtriple for ARM
 │   ├── compute_stats.py         # Every statistic in the paper
-│   └── generate_figures.py, generate_paper_figures.py
+│   ├── verify_paper_numbers.py, test_paper_numbers.py  # reproducibility check
+│   ├── nullcheck.py             # apply the protocol to any CompilerGym suite
+│   ├── llvm18_transfer.py       # portfolio ported to LLVM 18's new pass manager
+│   ├── generate_battery_figure.py  # the paper's Fig. 1 (347-program battery)
+│   └── generate_figures.py, generate_paper_figures.py  # cBench-only companion
 ├── data/                        # benchmark inventory, pass profiles
 ├── paper/                       # telfor_paper.tex, refs.bib, figures/
 └── results/
@@ -195,6 +207,7 @@ compiler-opt/
     ├── battery/                 # Null models per source
     ├── battery_policy/          # Best-of-k policy runs per source, seed, variant
     ├── portfolio_eval/, binary_metrics/, binary_metrics_arm/
+    ├── llvm18_transfer/         # Portfolio reapplied under LLVM 18
     ├── ppo_autophase/, ppo_gnn/, ppo_gnn_pretrained/  # Checkpoints + logs
     ├── figures/
     └── archive_2026-04_original/  # Pre-rerun artifacts, kept for provenance
@@ -291,4 +304,11 @@ match it at 73%.
   resampling on NPB (totals there are dominated by a few large programs); the
   per-suite Wilcoxon tests are the primary evidence.
 - The stack is CompilerGym 0.2.5 / LLVM 10; the GNN costs ~19× more wall-clock
-  per training step than the flat-feature agent.
+  per training step than the flat-feature agent. As a check against compiler
+  drift, the mined portfolio was ported to LLVM 18's new pass manager (three
+  of 36 passes approximated by their closest successor) and reapplied outside
+  CompilerGym: it still beats LLVM 18's own `-Oz` by 10.6% (best-of-8) to
+  10.9% (best-of-16) in `.text` bytes on 314 of 319 attempted programs from
+  five suites (p < 1e-11). csmith is excluded: 20 of its 28 programs fail to
+  compile at all under the ported sequences, a version-robustness boundary in
+  its own right rather than a property of the curated space.

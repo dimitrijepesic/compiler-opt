@@ -1,0 +1,92 @@
+{
+  "uri": "benchmark://chstone-v0/motion",
+  "suite": "chstone-v0",
+  "llvm": "18",
+  "o0": {
+    "text": 6993
+  },
+  "oz": {
+    "text": 6402
+  },
+  "sequences": [
+    {
+      "rank": 2,
+      "text": 6465
+    },
+    {
+      "rank": 3,
+      "text": 6377
+    },
+    {
+      "rank": 5,
+      "text": 6450
+    },
+    {
+      "rank": 6,
+      "text": 6401
+    },
+    {
+      "rank": 10,
+      "text": 6513
+    },
+    {
+      "rank": 13,
+      "text": 6489
+    },
+    {
+      "rank": 14,
+      "text": 6442
+    },
+    {
+      "rank": 16,
+      "text": 6442
+    }
+  ],
+  "failed_sequences": [
+    {
+      "rank": 1,
+      "error": "#20 0x0000597c8182ab25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 4,
+      "error": "#20 0x000058db2b039b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 7,
+      "error": "#20 0x000056de51cd3b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 8,
+      "error": "#20 0x00005e74f37aeb25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 9,
+      "error": "#20 0x000059f8731cab25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 11,
+      "error": "#20 0x000064bf3e83eb25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 12,
+      "error": "#20 0x00006261ed5fbb25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 15,
+      "error": "#20 0x00005f6b1830ab25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    }
+  ],
+  "llvm10": {
+    "oz_text": 6408,
+    "rnd_text": 6583,
+    "gnn_text": 6543
+  },
+  "portfolio_bo8": {
+    "text": 6377,
+    "rank": 3
+  },
+  "portfolio_bo16": {
+    "text": 6377,
+    "rank": 3
+  }
+}

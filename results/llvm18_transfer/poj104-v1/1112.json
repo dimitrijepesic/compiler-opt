@@ -1,0 +1,91 @@
+{
+  "uri": "benchmark://poj104-v1/60/1112",
+  "suite": "poj104-v1",
+  "llvm": "18",
+  "o0": {
+    "text": 444
+  },
+  "oz": {
+    "text": 382
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 373
+    },
+    {
+      "rank": 2,
+      "text": 373
+    },
+    {
+      "rank": 3,
+      "text": 373
+    },
+    {
+      "rank": 4,
+      "text": 373
+    },
+    {
+      "rank": 5,
+      "text": 373
+    },
+    {
+      "rank": 6,
+      "text": 373
+    },
+    {
+      "rank": 7,
+      "text": 397
+    },
+    {
+      "rank": 8,
+      "text": 397
+    },
+    {
+      "rank": 9,
+      "text": 373
+    },
+    {
+      "rank": 10,
+      "text": 397
+    },
+    {
+      "rank": 11,
+      "text": 373
+    },
+    {
+      "rank": 12,
+      "text": 373
+    },
+    {
+      "rank": 13,
+      "text": 397
+    },
+    {
+      "rank": 14,
+      "text": 397
+    },
+    {
+      "rank": 15,
+      "text": 373
+    },
+    {
+      "rank": 16,
+      "text": 397
+    }
+  ],
+  "failed_sequences": [],
+  "llvm10": {
+    "oz_text": 399,
+    "rnd_text": 374,
+    "gnn_text": 374
+  },
+  "portfolio_bo8": {
+    "text": 373,
+    "rank": 1
+  },
+  "portfolio_bo16": {
+    "text": 373,
+    "rank": 1
+  }
+}

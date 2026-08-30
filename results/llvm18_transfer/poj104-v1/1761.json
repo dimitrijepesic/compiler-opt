@@ -1,0 +1,92 @@
+{
+  "uri": "benchmark://poj104-v1/72/1761",
+  "suite": "poj104-v1",
+  "llvm": "18",
+  "o0": {
+    "text": 1775
+  },
+  "oz": {
+    "text": 1062
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 1140
+    },
+    {
+      "rank": 3,
+      "text": 1079
+    },
+    {
+      "rank": 4,
+      "text": 1046
+    },
+    {
+      "rank": 5,
+      "text": 1079
+    },
+    {
+      "rank": 6,
+      "text": 1079
+    },
+    {
+      "rank": 7,
+      "text": 1142
+    },
+    {
+      "rank": 8,
+      "text": 1115
+    },
+    {
+      "rank": 9,
+      "text": 1062
+    },
+    {
+      "rank": 11,
+      "text": 1227
+    },
+    {
+      "rank": 12,
+      "text": 1107
+    },
+    {
+      "rank": 13,
+      "text": 1196
+    },
+    {
+      "rank": 14,
+      "text": 1132
+    },
+    {
+      "rank": 15,
+      "text": 1113
+    },
+    {
+      "rank": 16,
+      "text": 1111
+    }
+  ],
+  "failed_sequences": [
+    {
+      "rank": 2,
+      "error": "#20 0x00005cf1b1e79b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 10,
+      "error": "#20 0x00005e56215f8b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    }
+  ],
+  "llvm10": {
+    "oz_text": 1048,
+    "rnd_text": 1010,
+    "gnn_text": 1026
+  },
+  "portfolio_bo8": {
+    "text": 1046,
+    "rank": 4
+  },
+  "portfolio_bo16": {
+    "text": 1046,
+    "rank": 4
+  }
+}

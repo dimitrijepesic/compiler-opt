@@ -1,0 +1,91 @@
+{
+  "uri": "benchmark://mibench-v1/tiffdither-3",
+  "suite": "mibench-v1",
+  "llvm": "18",
+  "o0": {
+    "text": 1090
+  },
+  "oz": {
+    "text": 1145
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 921
+    },
+    {
+      "rank": 2,
+      "text": 921
+    },
+    {
+      "rank": 3,
+      "text": 921
+    },
+    {
+      "rank": 4,
+      "text": 905
+    },
+    {
+      "rank": 5,
+      "text": 937
+    },
+    {
+      "rank": 6,
+      "text": 921
+    },
+    {
+      "rank": 7,
+      "text": 937
+    },
+    {
+      "rank": 8,
+      "text": 905
+    },
+    {
+      "rank": 9,
+      "text": 921
+    },
+    {
+      "rank": 10,
+      "text": 905
+    },
+    {
+      "rank": 11,
+      "text": 937
+    },
+    {
+      "rank": 12,
+      "text": 937
+    },
+    {
+      "rank": 13,
+      "text": 921
+    },
+    {
+      "rank": 14,
+      "text": 921
+    },
+    {
+      "rank": 15,
+      "text": 953
+    },
+    {
+      "rank": 16,
+      "text": 905
+    }
+  ],
+  "failed_sequences": [],
+  "llvm10": {
+    "oz_text": 871,
+    "rnd_text": 871,
+    "gnn_text": 871
+  },
+  "portfolio_bo8": {
+    "text": 905,
+    "rank": 4
+  },
+  "portfolio_bo16": {
+    "text": 905,
+    "rank": 4
+  }
+}

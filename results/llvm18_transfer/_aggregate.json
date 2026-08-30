@@ -1,0 +1,85 @@
+{
+  "llvm": "18",
+  "n": 322,
+  "timestamp": "2026-08-30T09:49:27.950437",
+  "approximated_passes": [
+    "-constprop",
+    "-die",
+    "-prune-eh"
+  ],
+  "text_total": {
+    "o0": 827450,
+    "oz": 755942,
+    "portfolio_bo8": 674537,
+    "portfolio_bo16": 672087,
+    "oz_llvm10": 746276,
+    "gnn_bo8_llvm10": 681776
+  },
+  "sequence_failures": 164,
+  "portfolio_bo8": {
+    "text_vs_oz_pct": 10.77,
+    "wins": 170,
+    "ties": 56,
+    "losses": 96,
+    "wilcoxon_one_sided_p": 1.84884654951261e-10,
+    "safe_text_total": 667013
+  },
+  "portfolio_bo16": {
+    "text_vs_oz_pct": 11.09,
+    "wins": 176,
+    "ties": 57,
+    "losses": 89,
+    "wilcoxon_one_sided_p": 3.913631194592861e-13,
+    "safe_text_total": 665703
+  },
+  "per_suite": {
+    "blas-v0": {
+      "n": 50,
+      "oz": 178686,
+      "bo8": 178089,
+      "bo16": 177599,
+      "oz10": 183721,
+      "gnn10": 183481
+    },
+    "chstone-v0": {
+      "n": 11,
+      "oz": 114078,
+      "bo8": 113180,
+      "bo16": 112980,
+      "oz10": 113924,
+      "gnn10": 113967
+    },
+    "csmith-v0": {
+      "n": 8,
+      "oz": 12101,
+      "bo8": 9372,
+      "bo16": 9076,
+      "oz10": 11101,
+      "gnn10": 14451
+    },
+    "mibench-v1": {
+      "n": 40,
+      "oz": 41350,
+      "bo8": 39604,
+      "bo16": 39508,
+      "oz10": 41222,
+      "gnn10": 40596
+    },
+    "npb-v0": {
+      "n": 118,
+      "oz": 356429,
+      "bo8": 283469,
+      "bo16": 282812,
+      "oz10": 344701,
+      "gnn10": 277382
+    },
+    "poj104-v1": {
+      "n": 95,
+      "oz": 53298,
+      "bo8": 50823,
+      "bo16": 50112,
+      "oz10": 51607,
+      "gnn10": 51899
+    }
+  }
+}

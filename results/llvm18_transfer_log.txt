@@ -1,0 +1,443 @@
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+347 programs, 16 sequences, opt-18
+  [1/347] benchmark://blas-v0/101: Oz 4326 bo8 4342 bo16 4326 (LLVM10 Oz 4452)
+  [2/347] benchmark://blas-v0/105: Oz 1821 bo8 1821 bo16 1821 (LLVM10 Oz 1845)
+  [3/347] benchmark://blas-v0/111: Oz 2532 bo8 2530 bo16 2514 (LLVM10 Oz 2706)
+  [4/347] benchmark://blas-v0/112: Oz 240 bo8 240 bo16 240 (LLVM10 Oz 240)
+  [5/347] benchmark://blas-v0/122: Oz 5621 bo8 5798 bo16 5734 (LLVM10 Oz 5640)
+  [6/347] benchmark://blas-v0/125: Oz 7560 bo8 7432 bo16 7432 (LLVM10 Oz 7686)
+  [7/347] benchmark://blas-v0/127: Oz 574 bo8 553 bo16 553 (LLVM10 Oz 590)
+  [8/347] benchmark://blas-v0/133: Oz 6252 bo8 6366 bo16 6366 (LLVM10 Oz 6428)
+  [9/347] benchmark://blas-v0/136: Oz 5628 bo8 5482 bo16 5482 (LLVM10 Oz 5831)
+  [10/347] benchmark://blas-v0/138: Oz 11266 bo8 11492 bo16 11412 (LLVM10 Oz 12212)
+  [11/347] benchmark://blas-v0/153: Oz 2996 bo8 3018 bo16 3006 (LLVM10 Oz 2985)
+  [12/347] benchmark://blas-v0/158: Oz 3772 bo8 3663 bo16 3663 (LLVM10 Oz 3810)
+  [13/347] benchmark://blas-v0/166: Oz 11439 bo8 11828 bo16 11828 (LLVM10 Oz 12228)
+  [14/347] benchmark://blas-v0/178: Oz 2037 bo8 2004 bo16 2004 (LLVM10 Oz 2006)
+  [15/347] benchmark://blas-v0/180: Oz 4755 bo8 4869 bo16 4709 (LLVM10 Oz 4696)
+  [16/347] benchmark://blas-v0/184: Oz 598 bo8 578 bo16 578 (LLVM10 Oz 598)
+  [17/347] benchmark://blas-v0/19: Oz 389 bo8 373 bo16 356 (LLVM10 Oz 341)
+  [18/347] benchmark://blas-v0/191: Oz 1235 bo8 1171 bo16 1171 (LLVM10 Oz 1162)
+  [19/347] benchmark://blas-v0/194: Oz 1235 bo8 1171 bo16 1171 (LLVM10 Oz 1162)
+  [20/347] benchmark://blas-v0/196: Oz 6221 bo8 6169 bo16 6169 (LLVM10 Oz 6471)
+  [21/347] benchmark://blas-v0/201: Oz 405 bo8 391 bo16 391 (LLVM10 Oz 405)
+  [22/347] benchmark://blas-v0/203: Oz 597 bo8 595 bo16 595 (LLVM10 Oz 599)
+  [23/347] benchmark://blas-v0/206: Oz 407 bo8 375 bo16 375 (LLVM10 Oz 393)
+  [24/347] benchmark://blas-v0/21: Oz 4776 bo8 4633 bo16 4589 (LLVM10 Oz 4801)
+  [25/347] benchmark://blas-v0/210: Oz 6101 bo8 6197 bo16 6197 (LLVM10 Oz 6336)
+  [26/347] benchmark://blas-v0/215: Oz 398 bo8 361 bo16 361 (LLVM10 Oz 398)
+  [27/347] benchmark://blas-v0/220: Oz 317 bo8 317 bo16 317 (LLVM10 Oz 310)
+  [28/347] benchmark://blas-v0/222: Oz 3555 bo8 3404 bo16 3388 (LLVM10 Oz 3588)
+  [29/347] benchmark://blas-v0/226: Oz 5790 bo8 5680 bo16 5680 (LLVM10 Oz 5949)
+  [30/347] benchmark://blas-v0/229: Oz 661 bo8 637 bo16 637 (LLVM10 Oz 693)
+  [31/347] benchmark://blas-v0/23: Oz 7551 bo8 7453 bo16 7453 (LLVM10 Oz 7730)
+  [32/347] benchmark://blas-v0/234: Oz 7307 bo8 7109 bo16 7109 (LLVM10 Oz 7501)
+  [33/347] benchmark://blas-v0/239: Oz 6404 bo8 6518 bo16 6454 (LLVM10 Oz 6603)
+  [34/347] benchmark://blas-v0/247: Oz 6566 bo8 6583 bo16 6583 (LLVM10 Oz 6614)
+  [35/347] benchmark://blas-v0/25: Oz 13907 bo8 13732 bo16 13732 (LLVM10 Oz 14390)
+  [36/347] benchmark://blas-v0/254: Oz 263 bo8 263 bo16 263 (LLVM10 Oz 273)
+  [37/347] benchmark://blas-v0/256: Oz 468 bo8 462 bo16 462 (LLVM10 Oz 452)
+  [38/347] benchmark://blas-v0/257: Oz 186 bo8 186 bo16 186 (LLVM10 Oz 202)
+  [39/347] benchmark://blas-v0/267: Oz 10447 bo8 10610 bo16 10610 (LLVM10 Oz 11173)
+  [40/347] benchmark://blas-v0/27: Oz 644 bo8 606 bo16 606 (LLVM10 Oz 644)
+  [41/347] benchmark://blas-v0/277: Oz 574 bo8 553 bo16 553 (LLVM10 Oz 590)
+  [42/347] benchmark://blas-v0/285: Oz 7691 bo8 7682 bo16 7682 (LLVM10 Oz 7734)
+  [43/347] benchmark://blas-v0/288: Oz 38 bo8 38 bo16 38 (LLVM10 Oz 38)
+  [44/347] benchmark://blas-v0/298: Oz 3755 bo8 3725 bo16 3725 (LLVM10 Oz 3818)
+  [45/347] benchmark://blas-v0/35: Oz 283 bo8 283 bo16 283 (LLVM10 Oz 287)
+  [46/347] benchmark://blas-v0/49: Oz 186 bo8 186 bo16 186 (LLVM10 Oz 202)
+  [47/347] benchmark://blas-v0/50: Oz 3257 bo8 3030 bo16 3030 (LLVM10 Oz 3207)
+  [48/347] benchmark://blas-v0/53: Oz 490 bo8 458 bo16 458 (LLVM10 Oz 487)
+  [49/347] benchmark://blas-v0/65: Oz 3381 bo8 3333 bo16 3332 (LLVM10 Oz 3407)
+  [50/347] benchmark://blas-v0/80: Oz 1784 bo8 1789 bo16 1789 (LLVM10 Oz 1808)
+  [51] benchmark://chstone-v0/adpcm: FAILED (min() arg is an empty sequence)
+  [52/347] benchmark://chstone-v0/aes: Oz 10625 bo8 10419 bo16 10419 (LLVM10 Oz 10561)
+  [53/347] benchmark://chstone-v0/blowfish: Oz 21854 bo8 22278 bo16 22278 (LLVM10 Oz 22486)
+  [54/347] benchmark://chstone-v0/dfadd: Oz 4302 bo8 4712 bo16 4672 (LLVM10 Oz 4357)
+  [55/347] benchmark://chstone-v0/dfdiv: Oz 3879 bo8 4272 bo16 4240 (LLVM10 Oz 3806)
+  [56/347] benchmark://chstone-v0/dfmul: Oz 3399 bo8 3656 bo16 3640 (LLVM10 Oz 3366)
+  [57/347] benchmark://chstone-v0/dfsin: Oz 6173 bo8 6797 bo16 6685 (LLVM10 Oz 6047)
+  [58/347] benchmark://chstone-v0/gsm: Oz 5224 bo8 4168 bo16 4168 (LLVM10 Oz 5088)
+  [59/347] benchmark://chstone-v0/jpeg: Oz 31663 bo8 30583 bo16 30583 (LLVM10 Oz 31669)
+  [60/347] benchmark://chstone-v0/mips: Oz 2218 bo8 2130 bo16 2130 (LLVM10 Oz 2138)
+  [61/347] benchmark://chstone-v0/motion: Oz 6402 bo8 6377 bo16 6377 (LLVM10 Oz 6408)
+  [62/347] benchmark://chstone-v0/sha: Oz 18339 bo8 17788 bo16 17788 (LLVM10 Oz 17998)
+  [63] generator://csmith-v0/1: FAILED (min() arg is an empty sequence)
+  [64] generator://csmith-v0/12: FAILED (min() arg is an empty sequence)
+  [65/347] generator://csmith-v0/13: Oz 536 bo8 622 bo16 590 (LLVM10 Oz 533)
+  [66/347] generator://csmith-v0/14: Oz 539 bo8 654 bo16 646 (LLVM10 Oz 539)
+  [67/347] generator://csmith-v0/17: Oz 701 bo8 806 bo16 806 (LLVM10 Oz 738)
+  [68/347] generator://csmith-v0/18: Oz 792 bo8 917 bo16 917 (LLVM10 Oz 789)
+  [69] generator://csmith-v0/19: FAILED (min() arg is an empty sequence)
+  [70/347] generator://csmith-v0/21: Oz 517 bo8 614 bo16 574 (LLVM10 Oz 517)
+  [71] generator://csmith-v0/24: FAILED (min() arg is an empty sequence)
+  [72] generator://csmith-v0/26: FAILED (min() arg is an empty sequence)
+  [73] generator://csmith-v0/27: FAILED (min() arg is an empty sequence)
+  [74/347] generator://csmith-v0/29: Oz 7839 bo8 4464 bo16 4336 (LLVM10 Oz 6804)
+  [75] generator://csmith-v0/30: FAILED (min() arg is an empty sequence)
+  [76] generator://csmith-v0/31: FAILED (min() arg is an empty sequence)
+  [77] generator://csmith-v0/32: FAILED (min() arg is an empty sequence)
+  [78] generator://csmith-v0/33: FAILED (min() arg is an empty sequence)
+  [79/347] generator://csmith-v0/34: Oz 502 bo8 595 bo16 555 (LLVM10 Oz 501)
+  [80] generator://csmith-v0/36: FAILED (min() arg is an empty sequence)
+  [81] generator://csmith-v0/38: FAILED (min() arg is an empty sequence)
+  [82] generator://csmith-v0/40: FAILED (min() arg is an empty sequence)
+  [83] generator://csmith-v0/41: FAILED (min() arg is an empty sequence)
+  [84] generator://csmith-v0/43: FAILED (min() arg is an empty sequence)
+  [85] generator://csmith-v0/44: FAILED (min() arg is an empty sequence)
+  [86] generator://csmith-v0/45: FAILED (min() arg is an empty sequence)
+  [87] generator://csmith-v0/46: FAILED (min() arg is an empty sequence)
+  [88/347] generator://csmith-v0/5: Oz 675 bo8 700 bo16 652 (LLVM10 Oz 680)
+  [89] generator://csmith-v0/6: FAILED (min() arg is an empty sequence)
+  [90] generator://csmith-v0/8: FAILED (min() arg is an empty sequence)
+  [91/347] benchmark://mibench-v1/bitcount-1: Oz 596 bo8 596 bo16 596 (LLVM10 Oz 600)
+  [92/347] benchmark://mibench-v1/bitcount-2: Oz 610 bo8 610 bo16 610 (LLVM10 Oz 614)
+  [93/347] benchmark://mibench-v1/dijkstra: Oz 558 bo8 558 bo16 558 (LLVM10 Oz 562)
+  [94/347] benchmark://mibench-v1/fft-1: Oz 596 bo8 596 bo16 596 (LLVM10 Oz 600)
+  [95/347] benchmark://mibench-v1/fft-2: Oz 1100 bo8 1116 bo16 1116 (LLVM10 Oz 1104)
+  [96/347] benchmark://mibench-v1/ghostscript: Oz 796 bo8 796 bo16 796 (LLVM10 Oz 796)
+  [97/347] benchmark://mibench-v1/gsm-1: Oz 675 bo8 675 bo16 675 (LLVM10 Oz 695)
+  [98/347] benchmark://mibench-v1/gsm-2: Oz 795 bo8 801 bo16 801 (LLVM10 Oz 801)
+  [99/347] benchmark://mibench-v1/jpeg-c-1: Oz 717 bo8 717 bo16 717 (LLVM10 Oz 715)
+  [100/347] benchmark://mibench-v1/jpeg-c-2: Oz 1247 bo8 1159 bo16 1159 (LLVM10 Oz 1247)
+  [101/347] benchmark://mibench-v1/jpeg-c-3: Oz 847 bo8 847 bo16 847 (LLVM10 Oz 811)
+  [102/347] benchmark://mibench-v1/jpeg-c: Oz 1703 bo8 1687 bo16 1687 (LLVM10 Oz 1685)
+  [103/347] benchmark://mibench-v1/lame-newmdct-1: Oz 1553 bo8 1521 bo16 1505 (LLVM10 Oz 1521)
+  [104/347] benchmark://mibench-v1/lame-newmdct-2: Oz 781 bo8 749 bo16 749 (LLVM10 Oz 779)
+  [105/347] benchmark://mibench-v1/lame-psymodel: Oz 4926 bo8 4798 bo16 4766 (LLVM10 Oz 4942)
+  [106/347] benchmark://mibench-v1/lame-quantize-1: Oz 838 bo8 790 bo16 790 (LLVM10 Oz 838)
+  [107/347] benchmark://mibench-v1/lame-quantize-2: Oz 637 bo8 605 bo16 605 (LLVM10 Oz 641)
+  [108/347] benchmark://mibench-v1/lame-takehiro-1: Oz 1236 bo8 1236 bo16 1236 (LLVM10 Oz 1250)
+  [109/347] benchmark://mibench-v1/lame-takehiro-2: Oz 891 bo8 827 bo16 827 (LLVM10 Oz 827)
+  [110/347] benchmark://mibench-v1/mad-1: Oz 1496 bo8 1128 bo16 1128 (LLVM10 Oz 1478)
+  [111/347] benchmark://mibench-v1/mad-2: Oz 889 bo8 889 bo16 889 (LLVM10 Oz 873)
+  [112/347] benchmark://mibench-v1/pgp-d: Oz 606 bo8 590 bo16 590 (LLVM10 Oz 594)
+  [113/347] benchmark://mibench-v1/pgp-e-1: Oz 606 bo8 590 bo16 590 (LLVM10 Oz 594)
+  [114/347] benchmark://mibench-v1/pgp-e-2: Oz 700 bo8 700 bo16 700 (LLVM10 Oz 698)
+  [115/347] benchmark://mibench-v1/pgp-e-3: Oz 803 bo8 803 bo16 803 (LLVM10 Oz 787)
+  [116/347] benchmark://mibench-v1/qsort1: Oz 568 bo8 568 bo16 568 (LLVM10 Oz 572)
+  [117/347] benchmark://mibench-v1/rsynth-1: Oz 986 bo8 986 bo16 986 (LLVM10 Oz 972)
+  [118/347] benchmark://mibench-v1/rsynth-2: Oz 703 bo8 703 bo16 703 (LLVM10 Oz 701)
+  [119/347] benchmark://mibench-v1/susan-e-1: Oz 675 bo8 643 bo16 643 (LLVM10 Oz 647)
+  [120/347] benchmark://mibench-v1/susan-e-2: Oz 3198 bo8 2894 bo16 2894 (LLVM10 Oz 3836)
+  [121/347] benchmark://mibench-v1/susan-s: Oz 969 bo8 969 bo16 969 (LLVM10 Oz 971)
+  [122/347] benchmark://mibench-v1/tiff2rgba: Oz 732 bo8 700 bo16 668 (LLVM10 Oz 736)
+  [123/347] benchmark://mibench-v1/tiffdither-1: Oz 1179 bo8 1019 bo16 1019 (LLVM10 Oz 1003)
+  [124/347] benchmark://mibench-v1/tiffdither-2: Oz 1194 bo8 1034 bo16 1034 (LLVM10 Oz 1034)
+  [125/347] benchmark://mibench-v1/tiffdither-3: Oz 1145 bo8 905 bo16 905 (LLVM10 Oz 871)
+  [126/347] benchmark://mibench-v1/tiffmedian-1: Oz 737 bo8 737 bo16 721 (LLVM10 Oz 735)
+  [127/347] benchmark://mibench-v1/tiffmedian-2: Oz 683 bo8 683 bo16 683 (LLVM10 Oz 681)
+  [128/347] benchmark://mibench-v1/tiffmedian-3: Oz 712 bo8 712 bo16 712 (LLVM10 Oz 742)
+  [129/347] benchmark://mibench-v1/tiffmedian-4: Oz 931 bo8 931 bo16 931 (LLVM10 Oz 917)
+  [130/347] benchmark://mibench-v1/tiffmedian-5: Oz 736 bo8 736 bo16 736 (LLVM10 Oz 752)
+  [131/347] benchmark://npb-v0/1: Oz 1387 bo8 1400 bo16 1400 (LLVM10 Oz 1401)
+  [132/347] benchmark://npb-v0/10: Oz 157 bo8 157 bo16 157 (LLVM10 Oz 157)
+  [133/347] benchmark://npb-v0/100: Oz 11753 bo8 6748 bo16 6748 (LLVM10 Oz 11859)
+  [134/347] benchmark://npb-v0/101: Oz 1387 bo8 1400 bo16 1400 (LLVM10 Oz 1401)
+  [135/347] benchmark://npb-v0/102: Oz 362 bo8 362 bo16 362 (LLVM10 Oz 362)
+  [136/347] benchmark://npb-v0/103: Oz 576 bo8 575 bo16 575 (LLVM10 Oz 594)
+  [137/347] benchmark://npb-v0/104: Oz 1442 bo8 1373 bo16 1372 (LLVM10 Oz 1449)
+  [138/347] benchmark://npb-v0/105: Oz 1387 bo8 1400 bo16 1400 (LLVM10 Oz 1401)
+  [139/347] benchmark://npb-v0/106: Oz 157 bo8 157 bo16 157 (LLVM10 Oz 157)
+  [140/347] benchmark://npb-v0/107: Oz 1442 bo8 1373 bo16 1372 (LLVM10 Oz 1449)
+  [141/347] benchmark://npb-v0/108: Oz 103 bo8 104 bo16 104 (LLVM10 Oz 103)
+  [142/347] benchmark://npb-v0/109: Oz 4357 bo8 3856 bo16 3756 (LLVM10 Oz 3926)
+  [143/347] benchmark://npb-v0/11: Oz 1999 bo8 1786 bo16 1786 (LLVM10 Oz 1981)
+  [144/347] benchmark://npb-v0/110: Oz 420 bo8 355 bo16 355 (LLVM10 Oz 356)
+  [145/347] benchmark://npb-v0/111: Oz 362 bo8 362 bo16 362 (LLVM10 Oz 362)
+  [146/347] benchmark://npb-v0/112: Oz 820 bo8 502 bo16 502 (LLVM10 Oz 869)
+  [147/347] benchmark://npb-v0/113: Oz 1282 bo8 751 bo16 751 (LLVM10 Oz 1265)
+  [148/347] benchmark://npb-v0/114: Oz 1442 bo8 1373 bo16 1372 (LLVM10 Oz 1449)
+  [149/347] benchmark://npb-v0/115: Oz 1049 bo8 874 bo16 874 (LLVM10 Oz 1044)
+  [150/347] benchmark://npb-v0/116: Oz 18231 bo8 9909 bo16 9896 (LLVM10 Oz 19625)
+  [151/347] benchmark://npb-v0/117: Oz 13039 bo8 11487 bo16 11487 (LLVM10 Oz 13064)
+  [152/347] benchmark://npb-v0/118: Oz 5521 bo8 4245 bo16 4245 (LLVM10 Oz 4847)
+  [153/347] benchmark://npb-v0/119: Oz 9775 bo8 9775 bo16 9775 (LLVM10 Oz 9775)
+  [154/347] benchmark://npb-v0/12: Oz 11571 bo8 9053 bo16 9018 (LLVM10 Oz 11103)
+  [155/347] benchmark://npb-v0/120: Oz 420 bo8 327 bo16 327 (LLVM10 Oz 372)
+  [156/347] benchmark://npb-v0/122: Oz 576 bo8 575 bo16 575 (LLVM10 Oz 594)
+  [157/347] benchmark://npb-v0/13: Oz 4036 bo8 2953 bo16 2953 (LLVM10 Oz 3762)
+  [158/347] benchmark://npb-v0/14: Oz 1442 bo8 1373 bo16 1372 (LLVM10 Oz 1449)
+  [159/347] benchmark://npb-v0/15: Oz 362 bo8 362 bo16 362 (LLVM10 Oz 362)
+  [160/347] benchmark://npb-v0/16: Oz 96 bo8 97 bo16 97 (LLVM10 Oz 96)
+  [161/347] benchmark://npb-v0/17: Oz 4307 bo8 2673 bo16 2673 (LLVM10 Oz 4302)
+  [162/347] benchmark://npb-v0/18: Oz 1706 bo8 885 bo16 885 (LLVM10 Oz 1838)
+  [163/347] benchmark://npb-v0/19: Oz 5585 bo8 4219 bo16 4219 (LLVM10 Oz 4847)
+  [164/347] benchmark://npb-v0/2: Oz 2758 bo8 2299 bo16 2299 (LLVM10 Oz 2830)
+  [165/347] benchmark://npb-v0/20: Oz 157 bo8 157 bo16 157 (LLVM10 Oz 157)
+  [166/347] benchmark://npb-v0/21: Oz 362 bo8 362 bo16 362 (LLVM10 Oz 362)
+  [167/347] benchmark://npb-v0/22: Oz 5229 bo8 5639 bo16 5612 (LLVM10 Oz 5102)
+  [168/347] benchmark://npb-v0/23: Oz 576 bo8 575 bo16 575 (LLVM10 Oz 594)
+  [169/347] benchmark://npb-v0/24: Oz 157 bo8 157 bo16 157 (LLVM10 Oz 157)
+  [170/347] benchmark://npb-v0/25: Oz 1387 bo8 1400 bo16 1400 (LLVM10 Oz 1401)
+  [171/347] benchmark://npb-v0/26: Oz 1442 bo8 1373 bo16 1372 (LLVM10 Oz 1449)
+  [172/347] benchmark://npb-v0/27: Oz 362 bo8 362 bo16 362 (LLVM10 Oz 362)
+  [173/347] benchmark://npb-v0/28: Oz 2886 bo8 2418 bo16 2418 (LLVM10 Oz 2788)
+  [174/347] benchmark://npb-v0/29: Oz 7301 bo8 7246 bo16 7246 (LLVM10 Oz 7158)
+  [175] benchmark://npb-v0/3: FAILED (all sequences failed)
+  [176/347] benchmark://npb-v0/30: Oz 11619 bo8 11283 bo16 11283 (LLVM10 Oz 11708)
+  [177/347] benchmark://npb-v0/31: Oz 157 bo8 157 bo16 157 (LLVM10 Oz 157)
+  [178/347] benchmark://npb-v0/32: Oz 362 bo8 362 bo16 362 (LLVM10 Oz 362)
+  [179/347] benchmark://npb-v0/33: Oz 453 bo8 387 bo16 387 (LLVM10 Oz 390)
+  [180/347] benchmark://npb-v0/34: Oz 4407 bo8 4030 bo16 3986 (LLVM10 Oz 3984)
+  [181/347] benchmark://npb-v0/35: Oz 2383 bo8 2383 bo16 2383 (LLVM10 Oz 2113)
+  [182/347] benchmark://npb-v0/36: Oz 1709 bo8 917 bo16 917 (LLVM10 Oz 1818)
+  [183/347] benchmark://npb-v0/37: Oz 232 bo8 207 bo16 207 (LLVM10 Oz 271)
+  [184/347] benchmark://npb-v0/38: Oz 3746 bo8 2832 bo16 2832 (LLVM10 Oz 3476)
+  [185/347] benchmark://npb-v0/39: Oz 11753 bo8 6748 bo16 6748 (LLVM10 Oz 11859)
+  [186/347] benchmark://npb-v0/4: Oz 2481 bo8 2457 bo16 2457 (LLVM10 Oz 2473)
+  [187/347] benchmark://npb-v0/40: Oz 834 bo8 768 bo16 768 (LLVM10 Oz 583)
+  [188/347] benchmark://npb-v0/41: Oz 157 bo8 157 bo16 157 (LLVM10 Oz 157)
+  [189/347] benchmark://npb-v0/42: Oz 5639 bo8 5791 bo16 5676 (LLVM10 Oz 5428)
+  [190/347] benchmark://npb-v0/43: Oz 1639 bo8 1262 bo16 1262 (LLVM10 Oz 1408)
+  [191/347] benchmark://npb-v0/44: Oz 1305 bo8 1323 bo16 1311 (LLVM10 Oz 1267)
+  [192/347] benchmark://npb-v0/45: Oz 951 bo8 742 bo16 742 (LLVM10 Oz 864)
+  [193/347] benchmark://npb-v0/46: Oz 721 bo8 721 bo16 721 (LLVM10 Oz 651)
+  [194/347] benchmark://npb-v0/47: Oz 3403 bo8 2944 bo16 2872 (LLVM10 Oz 3324)
+  [195/347] benchmark://npb-v0/48: Oz 269 bo8 269 bo16 269 (LLVM10 Oz 253)
+  [196/347] benchmark://npb-v0/49: Oz 576 bo8 575 bo16 575 (LLVM10 Oz 594)
+  [197/347] benchmark://npb-v0/5: Oz 4307 bo8 2673 bo16 2673 (LLVM10 Oz 4302)
+  [198/347] benchmark://npb-v0/50: Oz 5649 bo8 4254 bo16 4254 (LLVM10 Oz 4943)
+  [199/347] benchmark://npb-v0/51: Oz 2360 bo8 2360 bo16 2360 (LLVM10 Oz 2096)
+  [200/347] benchmark://npb-v0/52: Oz 3388 bo8 2372 bo16 2372 (LLVM10 Oz 3132)
+  [201/347] benchmark://npb-v0/53: Oz 13383 bo8 8379 bo16 8379 (LLVM10 Oz 11441)
+  [202/347] benchmark://npb-v0/54: Oz 1442 bo8 1373 bo16 1372 (LLVM10 Oz 1449)
+  [203] benchmark://npb-v0/55: FAILED (min() arg is an empty sequence)
+  [204/347] benchmark://npb-v0/56: Oz 1387 bo8 1400 bo16 1400 (LLVM10 Oz 1401)
+  [205/347] benchmark://npb-v0/57: Oz 1442 bo8 1373 bo16 1372 (LLVM10 Oz 1449)
+  [206/347] benchmark://npb-v0/58: Oz 1442 bo8 1373 bo16 1372 (LLVM10 Oz 1449)
+  [207/347] benchmark://npb-v0/59: Oz 576 bo8 575 bo16 575 (LLVM10 Oz 594)
+  [208/347] benchmark://npb-v0/6: Oz 4618 bo8 3062 bo16 3057 (LLVM10 Oz 4567)
+  [209/347] benchmark://npb-v0/60: Oz 597 bo8 681 bo16 636 (LLVM10 Oz 591)
+  [210/347] benchmark://npb-v0/61: Oz 6543 bo8 4073 bo16 4053 (LLVM10 Oz 4731)
+  [211/347] benchmark://npb-v0/62: Oz 1387 bo8 1400 bo16 1400 (LLVM10 Oz 1401)
+  [212/347] benchmark://npb-v0/63: Oz 576 bo8 575 bo16 575 (LLVM10 Oz 594)
+  [213/347] benchmark://npb-v0/64: Oz 362 bo8 362 bo16 362 (LLVM10 Oz 362)
+  [214/347] benchmark://npb-v0/65: Oz 2992 bo8 3008 bo16 3008 (LLVM10 Oz 3007)
+  [215/347] benchmark://npb-v0/66: Oz 5783 bo8 5691 bo16 5683 (LLVM10 Oz 5813)
+  [216/347] benchmark://npb-v0/67: Oz 1387 bo8 1400 bo16 1400 (LLVM10 Oz 1401)
+  [217/347] benchmark://npb-v0/68: Oz 816 bo8 744 bo16 744 (LLVM10 Oz 523)
+  [218/347] benchmark://npb-v0/69: Oz 2895 bo8 2305 bo16 2297 (LLVM10 Oz 2842)
+  [219/347] benchmark://npb-v0/7: Oz 726 bo8 506 bo16 506 (LLVM10 Oz 675)
+  [220/347] benchmark://npb-v0/70: Oz 452 bo8 381 bo16 381 (LLVM10 Oz 390)
+  [221/347] benchmark://npb-v0/71: Oz 2941 bo8 2426 bo16 2426 (LLVM10 Oz 2556)
+  [222/347] benchmark://npb-v0/72: Oz 5847 bo8 5828 bo16 5815 (LLVM10 Oz 5658)
+  [223/347] benchmark://npb-v0/73: Oz 1145 bo8 1145 bo16 1145 (LLVM10 Oz 1087)
+  [224/347] benchmark://npb-v0/74: Oz 2880 bo8 2395 bo16 2395 (LLVM10 Oz 3399)
+  [225/347] benchmark://npb-v0/75: Oz 1387 bo8 1400 bo16 1400 (LLVM10 Oz 1401)
+  [226/347] benchmark://npb-v0/76: Oz 362 bo8 362 bo16 362 (LLVM10 Oz 362)
+  [227/347] benchmark://npb-v0/78: Oz 1078 bo8 1158 bo16 1158 (LLVM10 Oz 990)
+  [228/347] benchmark://npb-v0/79: Oz 9758 bo8 8078 bo16 8078 (LLVM10 Oz 10544)
+  [229/347] benchmark://npb-v0/8: Oz 2917 bo8 2278 bo16 2230 (LLVM10 Oz 3326)
+  [230/347] benchmark://npb-v0/80: Oz 157 bo8 157 bo16 157 (LLVM10 Oz 157)
+  [231/347] benchmark://npb-v0/81: Oz 2606 bo8 2160 bo16 2160 (LLVM10 Oz 2585)
+  [232/347] benchmark://npb-v0/82: Oz 232 bo8 207 bo16 207 (LLVM10 Oz 271)
+  [233/347] benchmark://npb-v0/83: Oz 157 bo8 157 bo16 157 (LLVM10 Oz 157)
+  [234/347] benchmark://npb-v0/84: Oz 362 bo8 362 bo16 362 (LLVM10 Oz 362)
+  [235/347] benchmark://npb-v0/85: Oz 157 bo8 157 bo16 157 (LLVM10 Oz 157)
+  [236/347] benchmark://npb-v0/86: Oz 362 bo8 362 bo16 362 (LLVM10 Oz 362)
+  [237/347] benchmark://npb-v0/87: Oz 2059 bo8 1930 bo16 1930 (LLVM10 Oz 2066)
+  [238/347] benchmark://npb-v0/88: Oz 157 bo8 157 bo16 157 (LLVM10 Oz 157)
+  [239/347] benchmark://npb-v0/89: Oz 1442 bo8 1373 bo16 1372 (LLVM10 Oz 1449)
+  [240/347] benchmark://npb-v0/9: Oz 312 bo8 287 bo16 287 (LLVM10 Oz 335)
+  [241/347] benchmark://npb-v0/90: Oz 4407 bo8 3995 bo16 3963 (LLVM10 Oz 4078)
+  [242/347] benchmark://npb-v0/91: Oz 13543 bo8 8523 bo16 8507 (LLVM10 Oz 11441)
+  [243/347] benchmark://npb-v0/92: Oz 1387 bo8 1400 bo16 1400 (LLVM10 Oz 1401)
+  [244/347] benchmark://npb-v0/93: Oz 1442 bo8 1373 bo16 1372 (LLVM10 Oz 1449)
+  [245/347] benchmark://npb-v0/94: Oz 13468 bo8 7784 bo16 7784 (LLVM10 Oz 12998)
+  [246/347] benchmark://npb-v0/95: Oz 2265 bo8 1992 bo16 1992 (LLVM10 Oz 2099)
+  [247/347] benchmark://npb-v0/96: Oz 13434 bo8 8357 bo16 8346 (LLVM10 Oz 12230)
+  [248/347] benchmark://npb-v0/97: Oz 12921 bo8 10676 bo16 10653 (LLVM10 Oz 12599)
+  [249/347] benchmark://npb-v0/98: Oz 5383 bo8 4126 bo16 4126 (LLVM10 Oz 5350)
+  [250/347] benchmark://npb-v0/99: Oz 1387 bo8 1400 bo16 1400 (LLVM10 Oz 1401)
+  [251/347] benchmark://poj104-v1/26/100: Oz 347 bo8 337 bo16 337 (LLVM10 Oz 331)
+  [252/347] benchmark://poj104-v1/74/103: Oz 690 bo8 666 bo16 666 (LLVM10 Oz 654)
+  [253/347] benchmark://poj104-v1/38/1030: Oz 464 bo8 599 bo16 599 (LLVM10 Oz 465)
+  [254/347] benchmark://poj104-v1/58/1032: Oz 345 bo8 383 bo16 383 (LLVM10 Oz 336)
+  [255/347] benchmark://poj104-v1/80/1033: Oz 802 bo8 809 bo16 809 (LLVM10 Oz 787)
+  [256/347] benchmark://poj104-v1/22/1039: Oz 435 bo8 448 bo16 448 (LLVM10 Oz 415)
+  [257/347] benchmark://poj104-v1/74/1057: Oz 1180 bo8 727 bo16 727 (LLVM10 Oz 1113)
+  [258/347] benchmark://poj104-v1/50/106: Oz 378 bo8 446 bo16 446 (LLVM10 Oz 379)
+  [259/347] benchmark://poj104-v1/10/1069: Oz 404 bo8 435 bo16 435 (LLVM10 Oz 405)
+  [260/347] benchmark://poj104-v1/47/1100: Oz 349 bo8 373 bo16 373 (LLVM10 Oz 334)
+  [261/347] benchmark://poj104-v1/20/1110: Oz 376 bo8 423 bo16 423 (LLVM10 Oz 385)
+  [262/347] benchmark://poj104-v1/60/1112: Oz 382 bo8 373 bo16 373 (LLVM10 Oz 399)
+  [263/347] benchmark://poj104-v1/81/1124: Oz 1297 bo8 633 bo16 631 (LLVM10 Oz 964)
+  [264/347] benchmark://poj104-v1/97/1125: Oz 678 bo8 572 bo16 572 (LLVM10 Oz 678)
+  [265/347] benchmark://poj104-v1/8/1128: Oz 854 bo8 822 bo16 822 (LLVM10 Oz 886)
+  [266/347] benchmark://poj104-v1/58/1185: Oz 327 bo8 392 bo16 392 (LLVM10 Oz 343)
+  [267/347] benchmark://poj104-v1/17/1186: Oz 465 bo8 482 bo16 482 (LLVM10 Oz 434)
+  [268/347] benchmark://poj104-v1/56/1221: Oz 530 bo8 593 bo16 582 (LLVM10 Oz 537)
+  [269/347] benchmark://poj104-v1/35/1231: Oz 657 bo8 611 bo16 611 (LLVM10 Oz 672)
+  [270/347] benchmark://poj104-v1/80/1309: Oz 545 bo8 613 bo16 606 (LLVM10 Oz 545)
+  [271/347] benchmark://poj104-v1/44/1322: Oz 729 bo8 625 bo16 625 (LLVM10 Oz 736)
+  [272/347] benchmark://poj104-v1/95/1378: Oz 399 bo8 405 bo16 405 (LLVM10 Oz 398)
+  [273/347] benchmark://poj104-v1/80/1396: Oz 1493 bo8 882 bo16 882 (LLVM10 Oz 1376)
+  [274/347] benchmark://poj104-v1/102/1409: Oz 904 bo8 1278 bo16 1178 (LLVM10 Oz 922)
+  [275/347] benchmark://poj104-v1/82/1426: Oz 558 bo8 574 bo16 558 (LLVM10 Oz 505)
+  [276/347] benchmark://poj104-v1/53/1503: Oz 351 bo8 377 bo16 377 (LLVM10 Oz 346)
+  [277/347] benchmark://poj104-v1/48/1523: Oz 926 bo8 685 bo16 685 (LLVM10 Oz 798)
+  [278/347] benchmark://poj104-v1/14/1540: Oz 553 bo8 441 bo16 441 (LLVM10 Oz 504)
+  [279/347] benchmark://poj104-v1/48/1548: Oz 827 bo8 708 bo16 708 (LLVM10 Oz 839)
+  [280/347] benchmark://poj104-v1/88/1570: Oz 320 bo8 279 bo16 279 (LLVM10 Oz 329)
+  [281/347] benchmark://poj104-v1/18/1594: Oz 900 bo8 890 bo16 890 (LLVM10 Oz 882)
+  [282/347] benchmark://poj104-v1/87/160: Oz 356 bo8 404 bo16 404 (LLVM10 Oz 354)
+  [283/347] benchmark://poj104-v1/43/1604: Oz 372 bo8 314 bo16 314 (LLVM10 Oz 341)
+  [284/347] benchmark://poj104-v1/39/1624: Oz 542 bo8 542 bo16 542 (LLVM10 Oz 459)
+  [285/347] benchmark://poj104-v1/21/1658: Oz 475 bo8 540 bo16 540 (LLVM10 Oz 459)
+  [286/347] benchmark://poj104-v1/50/1711: Oz 400 bo8 413 bo16 413 (LLVM10 Oz 409)
+  [287/347] benchmark://poj104-v1/68/172: Oz 558 bo8 553 bo16 553 (LLVM10 Oz 432)
+  [288/347] benchmark://poj104-v1/72/1761: Oz 1062 bo8 1046 bo16 1046 (LLVM10 Oz 1048)
+  [289/347] benchmark://poj104-v1/72/1774: Oz 571 bo8 590 bo16 590 (LLVM10 Oz 568)
+  [290/347] benchmark://poj104-v1/47/1790: Oz 308 bo8 347 bo16 343 (LLVM10 Oz 291)
+  [291/347] benchmark://poj104-v1/90/18: Oz 482 bo8 458 bo16 458 (LLVM10 Oz 471)
+  [292/347] benchmark://poj104-v1/10/1810: Oz 399 bo8 420 bo16 420 (LLVM10 Oz 401)
+  [293/347] benchmark://poj104-v1/90/184: Oz 564 bo8 553 bo16 552 (LLVM10 Oz 546)
+  [294/347] benchmark://poj104-v1/93/1840: Oz 1048 bo8 965 bo16 965 (LLVM10 Oz 1089)
+  [295/347] benchmark://poj104-v1/78/1874: Oz 982 bo8 635 bo16 635 (LLVM10 Oz 1037)
+  [296/347] benchmark://poj104-v1/67/2016: Oz 364 bo8 424 bo16 424 (LLVM10 Oz 367)
+  [297/347] benchmark://poj104-v1/81/2076: Oz 1101 bo8 661 bo16 661 (LLVM10 Oz 1093)
+  [298/347] benchmark://poj104-v1/82/2137: Oz 350 bo8 379 bo16 379 (LLVM10 Oz 353)
+  [299/347] benchmark://poj104-v1/53/215: Oz 337 bo8 395 bo16 395 (LLVM10 Oz 338)
+  [300/347] benchmark://poj104-v1/35/2260: Oz 558 bo8 555 bo16 531 (LLVM10 Oz 543)
+  [301/347] benchmark://poj104-v1/97/2411: Oz 602 bo8 520 bo16 452 (LLVM10 Oz 603)
+  [302/347] benchmark://poj104-v1/94/2509: Oz 462 bo8 477 bo16 477 (LLVM10 Oz 418)
+  [303/347] benchmark://poj104-v1/46/2617: Oz 689 bo8 674 bo16 674 (LLVM10 Oz 700)
+  [304/347] benchmark://poj104-v1/11/266: Oz 528 bo8 549 bo16 501 (LLVM10 Oz 487)
+  [305/347] benchmark://poj104-v1/72/2766: Oz 814 bo8 664 bo16 664 (LLVM10 Oz 670)
+  [306/347] benchmark://poj104-v1/71/285: Oz 564 bo8 572 bo16 563 (LLVM10 Oz 567)
+  [307/347] benchmark://poj104-v1/10/288: Oz 541 bo8 542 bo16 542 (LLVM10 Oz 548)
+  [308] benchmark://poj104-v1/24/31: FAILED (min() arg is an empty sequence)
+  [309/347] benchmark://poj104-v1/33/3186: Oz 775 bo8 501 bo16 501 (LLVM10 Oz 460)
+  [310/347] benchmark://poj104-v1/24/334: Oz 390 bo8 420 bo16 415 (LLVM10 Oz 387)
+  [311/347] benchmark://poj104-v1/46/3555: Oz 557 bo8 609 bo16 609 (LLVM10 Oz 569)
+  [312/347] benchmark://poj104-v1/66/359: Oz 654 bo8 760 bo16 760 (LLVM10 Oz 703)
+  [313/347] benchmark://poj104-v1/47/4118: Oz 371 bo8 380 bo16 380 (LLVM10 Oz 356)
+  [314/347] benchmark://poj104-v1/39/429: Oz 497 bo8 543 bo16 543 (LLVM10 Oz 482)
+  [315/347] benchmark://poj104-v1/86/43: Oz 430 bo8 467 bo16 467 (LLVM10 Oz 433)
+  [316/347] benchmark://poj104-v1/77/432: Oz 551 bo8 604 bo16 480 (LLVM10 Oz 547)
+  [317/347] benchmark://poj104-v1/14/448: Oz 594 bo8 418 bo16 418 (LLVM10 Oz 417)
+  [318/347] benchmark://poj104-v1/78/486: Oz 668 bo8 578 bo16 578 (LLVM10 Oz 653)
+  [319/347] benchmark://poj104-v1/29/493: Oz 401 bo8 383 bo16 383 (LLVM10 Oz 360)
+  [320/347] benchmark://poj104-v1/47/5504: Oz 293 bo8 364 bo16 364 (LLVM10 Oz 305)
+  [321/347] benchmark://poj104-v1/88/57: Oz 248 bo8 290 bo16 290 (LLVM10 Oz 250)
+  [322/347] benchmark://poj104-v1/5/578: Oz 585 bo8 605 bo16 605 (LLVM10 Oz 586)
+  [323/347] benchmark://poj104-v1/66/587: Oz 728 bo8 742 bo16 742 (LLVM10 Oz 708)
+  [324/347] benchmark://poj104-v1/54/59: Oz 232 bo8 289 bo16 289 (LLVM10 Oz 223)
+  [325/347] benchmark://poj104-v1/49/591: Oz 604 bo8 576 bo16 452 (LLVM10 Oz 589)
+  [326/347] benchmark://poj104-v1/101/593: Oz 238 bo8 410 bo16 410 (LLVM10 Oz 453)
+  [327/347] benchmark://poj104-v1/7/628: Oz 666 bo8 700 bo16 696 (LLVM10 Oz 682)
+  [328/347] benchmark://poj104-v1/30/633: Oz 467 bo8 439 bo16 419 (LLVM10 Oz 380)
+  [329/347] benchmark://poj104-v1/84/635: Oz 416 bo8 425 bo16 425 (LLVM10 Oz 381)
+  [330/347] benchmark://poj104-v1/98/672: Oz 535 bo8 476 bo16 473 (LLVM10 Oz 541)
+  [331/347] benchmark://poj104-v1/83/70: Oz 596 bo8 604 bo16 604 (LLVM10 Oz 607)
+  [332/347] benchmark://poj104-v1/20/721: Oz 436 bo8 451 bo16 451 (LLVM10 Oz 443)
+  [333/347] benchmark://poj104-v1/75/742: Oz 428 bo8 437 bo16 437 (LLVM10 Oz 434)
+  [334/347] benchmark://poj104-v1/87/746: Oz 444 bo8 512 bo16 495 (LLVM10 Oz 442)
+  [335/347] benchmark://poj104-v1/82/76: Oz 565 bo8 589 bo16 589 (LLVM10 Oz 513)
+  [336/347] benchmark://poj104-v1/17/778: Oz 659 bo8 657 bo16 533 (LLVM10 Oz 636)
+  [337/347] benchmark://poj104-v1/87/779: Oz 455 bo8 439 bo16 439 (LLVM10 Oz 436)
+  [338] benchmark://poj104-v1/10/794: FAILED (min() arg is an empty sequence)
+  [339/347] benchmark://poj104-v1/70/868: Oz 512 bo8 501 bo16 501 (LLVM10 Oz 589)
+  [340/347] benchmark://poj104-v1/50/880: Oz 340 bo8 388 bo16 388 (LLVM10 Oz 340)
+  [341/347] benchmark://poj104-v1/101/888: Oz 133 bo8 176 bo16 176 (LLVM10 Oz 133)
+  [342/347] benchmark://poj104-v1/41/936: Oz 795 bo8 670 bo16 670 (LLVM10 Oz 909)
+  [343/347] benchmark://poj104-v1/104/939: Oz 382 bo8 361 bo16 361 (LLVM10 Oz 367)
+  [344/347] benchmark://poj104-v1/93/975: Oz 341 bo8 289 bo16 289 (LLVM10 Oz 329)
+  [345/347] benchmark://poj104-v1/58/981: Oz 583 bo8 469 bo16 469 (LLVM10 Oz 474)
+  [346/347] benchmark://poj104-v1/8/985: Oz 728 bo8 680 bo16 680 (LLVM10 Oz 677)
+  [347/347] benchmark://poj104-v1/38/992: Oz 507 bo8 548 bo16 548 (LLVM10 Oz 524)
+done: 322 new records
+{
+  "llvm": "18",
+  "n": 322,
+  "timestamp": "2026-08-30T09:49:27.950437",
+  "approximated_passes": [
+    "-constprop",
+    "-die",
+    "-prune-eh"
+  ],
+  "text_total": {
+    "o0": 827450,
+    "oz": 755942,
+    "portfolio_bo8": 674537,
+    "portfolio_bo16": 672087,
+    "oz_llvm10": 746276,
+    "gnn_bo8_llvm10": 681776
+  },
+  "sequence_failures": 164,
+  "portfolio_bo8": {
+    "text_vs_oz_pct": 10.77,
+    "wins": 170,
+    "ties": 56,
+    "losses": 96,
+    "wilcoxon_one_sided_p": 1.84884654951261e-10,
+    "safe_text_total": 667013
+  },
+  "portfolio_bo16": {
+    "text_vs_oz_pct": 11.09,
+    "wins": 176,
+    "ties": 57,
+    "losses": 89,
+    "wilcoxon_one_sided_p": 3.913631194592861e-13,
+    "safe_text_total": 665703
+  },
+  "per_suite": {
+    "blas-v0": {
+      "n": 50,
+      "oz": 178686,
+      "bo8": 178089,
+      "bo16": 177599,
+      "oz10": 183721,
+      "gnn10": 183481
+    },
+    "chstone-v0": {
+      "n": 11,
+      "oz": 114078,
+      "bo8": 113180,
+      "bo16": 112980,
+      "oz10": 113924,
+      "gnn10": 113967
+    },
+    "csmith-v0": {
+      "n": 8,
+      "oz": 12101,
+      "bo8": 9372,
+      "bo16": 9076,
+      "oz10": 11101,
+      "gnn10": 14451
+    },
+    "mibench-v1": {
+      "n": 40,
+      "oz": 41350,
+      "bo8": 39604,
+      "bo16": 39508,
+      "oz10": 41222,
+      "gnn10": 40596
+    },
+    "npb-v0": {
+      "n": 118,
+      "oz": 356429,
+      "bo8": 283469,
+      "bo16": 282812,
+      "oz10": 344701,
+      "gnn10": 277382
+    },
+    "poj104-v1": {
+      "n": 95,
+      "oz": 53298,
+      "bo8": 50823,
+      "bo16": 50112,
+      "oz10": 51607,
+      "gnn10": 51899
+    }
+  }
+}
+EXIT=0

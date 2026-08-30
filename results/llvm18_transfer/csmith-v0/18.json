@@ -1,0 +1,92 @@
+{
+  "uri": "generator://csmith-v0/18",
+  "suite": "csmith-v0",
+  "llvm": "18",
+  "o0": {
+    "text": 1067
+  },
+  "oz": {
+    "text": 792
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 917
+    },
+    {
+      "rank": 2,
+      "text": 949
+    },
+    {
+      "rank": 3,
+      "text": 925
+    },
+    {
+      "rank": 4,
+      "text": 949
+    },
+    {
+      "rank": 5,
+      "text": 925
+    },
+    {
+      "rank": 6,
+      "text": 933
+    },
+    {
+      "rank": 7,
+      "text": 965
+    },
+    {
+      "rank": 8,
+      "text": 949
+    },
+    {
+      "rank": 9,
+      "text": 933
+    },
+    {
+      "rank": 10,
+      "text": 917
+    },
+    {
+      "rank": 12,
+      "text": 949
+    },
+    {
+      "rank": 13,
+      "text": 917
+    },
+    {
+      "rank": 14,
+      "text": 917
+    },
+    {
+      "rank": 15,
+      "text": 949
+    },
+    {
+      "rank": 16,
+      "text": 917
+    }
+  ],
+  "failed_sequences": [
+    {
+      "rank": 11,
+      "error": "#20 0x00006375a66adb25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    }
+  ],
+  "llvm10": {
+    "oz_text": 789,
+    "rnd_text": 948,
+    "gnn_text": 980
+  },
+  "portfolio_bo8": {
+    "text": 917,
+    "rank": 1
+  },
+  "portfolio_bo16": {
+    "text": 917,
+    "rank": 1
+  }
+}

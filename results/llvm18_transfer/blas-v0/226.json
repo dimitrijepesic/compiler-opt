@@ -1,0 +1,91 @@
+{
+  "uri": "benchmark://blas-v0/226",
+  "suite": "blas-v0",
+  "llvm": "18",
+  "o0": {
+    "text": 6062
+  },
+  "oz": {
+    "text": 5790
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 5696
+    },
+    {
+      "rank": 2,
+      "text": 5696
+    },
+    {
+      "rank": 3,
+      "text": 5712
+    },
+    {
+      "rank": 4,
+      "text": 5696
+    },
+    {
+      "rank": 5,
+      "text": 5776
+    },
+    {
+      "rank": 6,
+      "text": 5680
+    },
+    {
+      "rank": 7,
+      "text": 5696
+    },
+    {
+      "rank": 8,
+      "text": 5680
+    },
+    {
+      "rank": 9,
+      "text": 5776
+    },
+    {
+      "rank": 10,
+      "text": 5720
+    },
+    {
+      "rank": 11,
+      "text": 5712
+    },
+    {
+      "rank": 12,
+      "text": 5712
+    },
+    {
+      "rank": 13,
+      "text": 5776
+    },
+    {
+      "rank": 14,
+      "text": 5680
+    },
+    {
+      "rank": 15,
+      "text": 5680
+    },
+    {
+      "rank": 16,
+      "text": 5680
+    }
+  ],
+  "failed_sequences": [],
+  "llvm10": {
+    "oz_text": 5949,
+    "rnd_text": 5743,
+    "gnn_text": 5759
+  },
+  "portfolio_bo8": {
+    "text": 5680,
+    "rank": 6
+  },
+  "portfolio_bo16": {
+    "text": 5680,
+    "rank": 6
+  }
+}

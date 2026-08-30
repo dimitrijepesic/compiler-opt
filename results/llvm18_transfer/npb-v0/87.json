@@ -1,0 +1,92 @@
+{
+  "uri": "benchmark://npb-v0/87",
+  "suite": "npb-v0",
+  "llvm": "18",
+  "o0": {
+    "text": 1936
+  },
+  "oz": {
+    "text": 2059
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 1954
+    },
+    {
+      "rank": 2,
+      "text": 1954
+    },
+    {
+      "rank": 3,
+      "text": 1930
+    },
+    {
+      "rank": 4,
+      "text": 1930
+    },
+    {
+      "rank": 5,
+      "text": 1955
+    },
+    {
+      "rank": 6,
+      "text": 1954
+    },
+    {
+      "rank": 7,
+      "text": 1987
+    },
+    {
+      "rank": 8,
+      "text": 1987
+    },
+    {
+      "rank": 9,
+      "text": 1955
+    },
+    {
+      "rank": 10,
+      "text": 1987
+    },
+    {
+      "rank": 12,
+      "text": 1954
+    },
+    {
+      "rank": 13,
+      "text": 1931
+    },
+    {
+      "rank": 14,
+      "text": 1987
+    },
+    {
+      "rank": 15,
+      "text": 1963
+    },
+    {
+      "rank": 16,
+      "text": 2036
+    }
+  ],
+  "failed_sequences": [
+    {
+      "rank": 11,
+      "error": "#20 0x00005beb753f5b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    }
+  ],
+  "llvm10": {
+    "oz_text": 2066,
+    "rnd_text": 1979,
+    "gnn_text": 1955
+  },
+  "portfolio_bo8": {
+    "text": 1930,
+    "rank": 3
+  },
+  "portfolio_bo16": {
+    "text": 1930,
+    "rank": 3
+  }
+}

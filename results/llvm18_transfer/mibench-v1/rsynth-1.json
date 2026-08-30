@@ -1,0 +1,91 @@
+{
+  "uri": "benchmark://mibench-v1/rsynth-1",
+  "suite": "mibench-v1",
+  "llvm": "18",
+  "o0": {
+    "text": 1225
+  },
+  "oz": {
+    "text": 986
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 986
+    },
+    {
+      "rank": 2,
+      "text": 986
+    },
+    {
+      "rank": 3,
+      "text": 986
+    },
+    {
+      "rank": 4,
+      "text": 986
+    },
+    {
+      "rank": 5,
+      "text": 986
+    },
+    {
+      "rank": 6,
+      "text": 986
+    },
+    {
+      "rank": 7,
+      "text": 986
+    },
+    {
+      "rank": 8,
+      "text": 986
+    },
+    {
+      "rank": 9,
+      "text": 986
+    },
+    {
+      "rank": 10,
+      "text": 986
+    },
+    {
+      "rank": 11,
+      "text": 986
+    },
+    {
+      "rank": 12,
+      "text": 986
+    },
+    {
+      "rank": 13,
+      "text": 986
+    },
+    {
+      "rank": 14,
+      "text": 986
+    },
+    {
+      "rank": 15,
+      "text": 986
+    },
+    {
+      "rank": 16,
+      "text": 986
+    }
+  ],
+  "failed_sequences": [],
+  "llvm10": {
+    "oz_text": 972,
+    "rnd_text": 972,
+    "gnn_text": 972
+  },
+  "portfolio_bo8": {
+    "text": 986,
+    "rank": 1
+  },
+  "portfolio_bo16": {
+    "text": 986,
+    "rank": 1
+  }
+}

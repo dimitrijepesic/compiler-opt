@@ -1,0 +1,91 @@
+{
+  "uri": "benchmark://chstone-v0/mips",
+  "suite": "chstone-v0",
+  "llvm": "18",
+  "o0": {
+    "text": 2487
+  },
+  "oz": {
+    "text": 2218
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 2154
+    },
+    {
+      "rank": 2,
+      "text": 2145
+    },
+    {
+      "rank": 3,
+      "text": 2138
+    },
+    {
+      "rank": 4,
+      "text": 2138
+    },
+    {
+      "rank": 5,
+      "text": 2134
+    },
+    {
+      "rank": 6,
+      "text": 2138
+    },
+    {
+      "rank": 7,
+      "text": 2130
+    },
+    {
+      "rank": 8,
+      "text": 2146
+    },
+    {
+      "rank": 9,
+      "text": 2166
+    },
+    {
+      "rank": 10,
+      "text": 2130
+    },
+    {
+      "rank": 11,
+      "text": 2146
+    },
+    {
+      "rank": 12,
+      "text": 2154
+    },
+    {
+      "rank": 13,
+      "text": 2162
+    },
+    {
+      "rank": 14,
+      "text": 2146
+    },
+    {
+      "rank": 15,
+      "text": 2146
+    },
+    {
+      "rank": 16,
+      "text": 2137
+    }
+  ],
+  "failed_sequences": [],
+  "llvm10": {
+    "oz_text": 2138,
+    "rnd_text": 2028,
+    "gnn_text": 2028
+  },
+  "portfolio_bo8": {
+    "text": 2130,
+    "rank": 7
+  },
+  "portfolio_bo16": {
+    "text": 2130,
+    "rank": 7
+  }
+}

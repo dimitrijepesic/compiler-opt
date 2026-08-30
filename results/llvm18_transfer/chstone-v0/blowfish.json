@@ -1,0 +1,91 @@
+{
+  "uri": "benchmark://chstone-v0/blowfish",
+  "suite": "chstone-v0",
+  "llvm": "18",
+  "o0": {
+    "text": 24095
+  },
+  "oz": {
+    "text": 21854
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 22310
+    },
+    {
+      "rank": 2,
+      "text": 23030
+    },
+    {
+      "rank": 3,
+      "text": 23078
+    },
+    {
+      "rank": 4,
+      "text": 22294
+    },
+    {
+      "rank": 5,
+      "text": 22278
+    },
+    {
+      "rank": 6,
+      "text": 22806
+    },
+    {
+      "rank": 7,
+      "text": 22278
+    },
+    {
+      "rank": 8,
+      "text": 22278
+    },
+    {
+      "rank": 9,
+      "text": 22278
+    },
+    {
+      "rank": 10,
+      "text": 23014
+    },
+    {
+      "rank": 11,
+      "text": 23062
+    },
+    {
+      "rank": 12,
+      "text": 22278
+    },
+    {
+      "rank": 13,
+      "text": 22966
+    },
+    {
+      "rank": 14,
+      "text": 22294
+    },
+    {
+      "rank": 15,
+      "text": 22310
+    },
+    {
+      "rank": 16,
+      "text": 22278
+    }
+  ],
+  "failed_sequences": [],
+  "llvm10": {
+    "oz_text": 22486,
+    "rnd_text": 22054,
+    "gnn_text": 22590
+  },
+  "portfolio_bo8": {
+    "text": 22278,
+    "rank": 5
+  },
+  "portfolio_bo16": {
+    "text": 22278,
+    "rank": 5
+  }
+}

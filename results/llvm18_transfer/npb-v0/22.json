@@ -1,0 +1,92 @@
+{
+  "uri": "benchmark://npb-v0/22",
+  "suite": "npb-v0",
+  "llvm": "18",
+  "o0": {
+    "text": 6650
+  },
+  "oz": {
+    "text": 5229
+  },
+  "sequences": [
+    {
+      "rank": 2,
+      "text": 5696
+    },
+    {
+      "rank": 8,
+      "text": 5639
+    },
+    {
+      "rank": 9,
+      "text": 5671
+    },
+    {
+      "rank": 10,
+      "text": 5712
+    },
+    {
+      "rank": 14,
+      "text": 5612
+    }
+  ],
+  "failed_sequences": [
+    {
+      "rank": 1,
+      "error": "#20 0x00006065aba80b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 3,
+      "error": "#20 0x000065230f77ab25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 4,
+      "error": "#20 0x000058dffc505b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 5,
+      "error": "#20 0x0000612570858b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 6,
+      "error": "#20 0x00006326f525eb25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 7,
+      "error": "#20 0x00005c6c7e2f3b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 11,
+      "error": "#20 0x00005795ac6abb25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 12,
+      "error": "#20 0x00005ba8ac587b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 13,
+      "error": "#20 0x000061ce401deb25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 15,
+      "error": "#20 0x0000625eb8ddeb25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 16,
+      "error": "#20 0x00005a4297c9db25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    }
+  ],
+  "llvm10": {
+    "oz_text": 5102,
+    "rnd_text": 5719,
+    "gnn_text": 5840
+  },
+  "portfolio_bo8": {
+    "text": 5639,
+    "rank": 8
+  },
+  "portfolio_bo16": {
+    "text": 5612,
+    "rank": 14
+  }
+}

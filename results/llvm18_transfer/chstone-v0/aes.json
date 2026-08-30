@@ -1,0 +1,91 @@
+{
+  "uri": "benchmark://chstone-v0/aes",
+  "suite": "chstone-v0",
+  "llvm": "18",
+  "o0": {
+    "text": 12667
+  },
+  "oz": {
+    "text": 10625
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 10531
+    },
+    {
+      "rank": 2,
+      "text": 12083
+    },
+    {
+      "rank": 3,
+      "text": 12033
+    },
+    {
+      "rank": 4,
+      "text": 10481
+    },
+    {
+      "rank": 5,
+      "text": 10467
+    },
+    {
+      "rank": 6,
+      "text": 12099
+    },
+    {
+      "rank": 7,
+      "text": 10419
+    },
+    {
+      "rank": 8,
+      "text": 10499
+    },
+    {
+      "rank": 9,
+      "text": 10547
+    },
+    {
+      "rank": 10,
+      "text": 12627
+    },
+    {
+      "rank": 11,
+      "text": 12083
+    },
+    {
+      "rank": 12,
+      "text": 10499
+    },
+    {
+      "rank": 13,
+      "text": 12145
+    },
+    {
+      "rank": 14,
+      "text": 10611
+    },
+    {
+      "rank": 15,
+      "text": 10545
+    },
+    {
+      "rank": 16,
+      "text": 10467
+    }
+  ],
+  "failed_sequences": [],
+  "llvm10": {
+    "oz_text": 10561,
+    "rnd_text": 10481,
+    "gnn_text": 10449
+  },
+  "portfolio_bo8": {
+    "text": 10419,
+    "rank": 7
+  },
+  "portfolio_bo16": {
+    "text": 10419,
+    "rank": 7
+  }
+}

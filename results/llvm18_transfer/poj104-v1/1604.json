@@ -1,0 +1,92 @@
+{
+  "uri": "benchmark://poj104-v1/43/1604",
+  "suite": "poj104-v1",
+  "llvm": "18",
+  "o0": {
+    "text": 399
+  },
+  "oz": {
+    "text": 372
+  },
+  "sequences": [
+    {
+      "rank": 5,
+      "text": 314
+    },
+    {
+      "rank": 11,
+      "text": 314
+    }
+  ],
+  "failed_sequences": [
+    {
+      "rank": 1,
+      "error": "#20 0x0000609b1e649b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 2,
+      "error": "#20 0x0000629347de4b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 3,
+      "error": "#20 0x00005a73cd5adb25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 4,
+      "error": "#20 0x00005c31032deb25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 6,
+      "error": "#20 0x0000560d82382b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 7,
+      "error": "#20 0x00005776a9893b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 8,
+      "error": "#20 0x00005f1424122b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 9,
+      "error": "#20 0x00006506d94dbb25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 10,
+      "error": "#20 0x0000651560998b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 12,
+      "error": "#20 0x00005e2889cb2b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 13,
+      "error": "#20 0x00005819855abb25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 14,
+      "error": "#20 0x0000638167e87b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 15,
+      "error": "#20 0x00005e59cd5c3b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    },
+    {
+      "rank": 16,
+      "error": "#20 0x00005ef332d43b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    }
+  ],
+  "llvm10": {
+    "oz_text": 341,
+    "rnd_text": 390,
+    "gnn_text": 390
+  },
+  "portfolio_bo8": {
+    "text": 314,
+    "rank": 5
+  },
+  "portfolio_bo16": {
+    "text": 314,
+    "rank": 5
+  }
+}

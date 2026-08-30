@@ -1,0 +1,92 @@
+{
+  "uri": "benchmark://mibench-v1/lame-psymodel",
+  "suite": "mibench-v1",
+  "llvm": "18",
+  "o0": {
+    "text": 6621
+  },
+  "oz": {
+    "text": 4926
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 4830
+    },
+    {
+      "rank": 2,
+      "text": 4798
+    },
+    {
+      "rank": 3,
+      "text": 4862
+    },
+    {
+      "rank": 4,
+      "text": 4846
+    },
+    {
+      "rank": 5,
+      "text": 4830
+    },
+    {
+      "rank": 6,
+      "text": 4830
+    },
+    {
+      "rank": 7,
+      "text": 4862
+    },
+    {
+      "rank": 8,
+      "text": 4846
+    },
+    {
+      "rank": 9,
+      "text": 4798
+    },
+    {
+      "rank": 10,
+      "text": 4814
+    },
+    {
+      "rank": 12,
+      "text": 4798
+    },
+    {
+      "rank": 13,
+      "text": 4766
+    },
+    {
+      "rank": 14,
+      "text": 4830
+    },
+    {
+      "rank": 15,
+      "text": 4861
+    },
+    {
+      "rank": 16,
+      "text": 4814
+    }
+  ],
+  "failed_sequences": [
+    {
+      "rank": 11,
+      "error": "#20 0x00005c37615e7b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    }
+  ],
+  "llvm10": {
+    "oz_text": 4942,
+    "rnd_text": 4862,
+    "gnn_text": 4894
+  },
+  "portfolio_bo8": {
+    "text": 4798,
+    "rank": 2
+  },
+  "portfolio_bo16": {
+    "text": 4766,
+    "rank": 13
+  }
+}

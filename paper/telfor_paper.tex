@@ -1,5 +1,7 @@
 % TELFOR 2026, IEEE conference paper (A4, two-column, four-page limit).
-% Build: pdflatex -> bibtex -> pdflatex x2. Needs refs.bib and figures/pareto.pdf.
+% Build: pdflatex -> bibtex -> pdflatex x2. Needs refs.bib and figures/battery.pdf
+% (scripts/generate_battery_figure.py; figures/pareto.pdf is the cBench-only
+% companion plot from generate_paper_figures.py, not used in the final figure).
 % The IEEE copyright notice is inserted by TELFOR for IEEE Xplore; keep the
 % \IEEEpubid lines commented unless the camera-ready instructions say otherwise.
 % All numbers are reproduced by scripts/compute_stats.py (--reframe, --controls, --e5).
@@ -303,7 +305,10 @@ llvm-str. (50) & 255 & \textbf{234} & 245 & 240 & 49 & 3.1 \\
 \end{table}
 
 Fig.~\ref{fig:pareto} places these results on a quality-vs.-budget
-front on cBench. At $k{=}8$ (360 compilations per program) the sampled
+front across the full battery: the GNN sampler dominates below
+${\approx}13$ compilations per program, and random search converges to
+it by $k{=}32$--33. On cBench, against measured greedy search,
+at $k{=}8$ (360 compilations per program) the sampled
 GNN policy is within 0.4\% of greedy search (0.06--0.35\%
 across seeds); at $k{=}32$ (73\% of greedy's
 budget) it reaches greedy quality, nominally surpassing it in two of
@@ -312,17 +317,19 @@ seeds beat the paired null (111\,023). Autophase at $k{=}32$ surpasses
 greedy in one seed (110\,338) but trails the null in the other two
 (111\,056, 111\,108): the graph policy's advantage is consistency, not
 peak quality. Within the measured budgets random search
-never catches the sampler on cBench; on the battery it does so at the
+never catches the sampler on cBench; on the full battery it does so at the
 larger measured budget ($k{=}32$), first on NPB, precisely the suite
 where random search is strongest. The learned sampler thus reduces the
 cost of search where search is most expensive.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.8\columnwidth]{figures/pareto.pdf}
-\caption{Quality vs.\ budget on cBench val{+}test: best-of-$k$
-sampling ($k{=}1..32$, mean over three seeds) vs.\ expected best-of-$k$
-random search and measured greedy search.}
+\includegraphics[width=0.8\columnwidth]{figures/battery.pdf}
+\caption{Quality vs.\ budget across all 347 battery programs (MiBench,
+CHStone, BLAS, csmith, NPB, POJ-104), summed IC relative to
+\texttt{-Oz}: best-of-$k$ sampling (GNN $k{=}1..32$, Autophase
+$k{=}1..8$, mean over three seeds) vs.\ expected best-of-$k$ random
+search.}
 \label{fig:pareto}
 \end{figure}
 
@@ -376,19 +383,17 @@ Portfolio-16 (no model, $2{\times}$ budget) & 6/6 & 114\,407 \\
 
 \subsection{Pretraining unlocks the encoder}
 All three from-scratch GNN seeds reach the same validation plateau
-(689) within the first 10--17\% of the budget and never leave it; the
-plateau is \emph{worse} than \texttt{-Oz} (643) and a single random
-episode (640): RL gradients alone do not teach the encoder useful
-features. Distilling Autophase into the encoder before RL (about an hour of
-CPU) removes the failure in two of two seeds (best validation 651 and
-668) and improves the mean full-split argmax totals from 64\,550 to
-57\,980 (validation) and 69\,180 to 63\,229 (test), 10.2\% and 8.6\% (9.4\% on
-average), with the better seed within 0.8\% of \texttt{-Oz}
-on both splits; it is the first deterministic policy here to beat the
-single-episode random null on both. Pretraining repairs the policy's \emph{mode}; the from-scratch
-policy remains the better \emph{sampler}. The two fixes are
-complementary: pretrain when only one rollout is affordable, sample
-when eight are.
+(689) within the first 10--17\% of the budget and never leave it,
+\emph{worse} than \texttt{-Oz} (643) and a single random episode (640):
+RL gradients alone do not teach the encoder useful features.
+Distilling Autophase into the encoder before RL removes the failure in
+two of two seeds (best validation 651, 668) and improves the mean
+full-split argmax totals from 64\,550/69\,180 to 57\,980/63\,229
+(validation/test), 10.2\% and 8.6\%; it is the first deterministic
+policy here to beat the single-episode random null on both splits.
+Pretraining repairs the policy's \emph{mode}; the from-scratch policy
+remains the better \emph{sampler} -- pretrain when only one rollout is
+affordable, sample when eight are.
 
 \subsection{Binary-level metrics}
 \label{sec:binary}
@@ -405,17 +410,14 @@ sections 10.6\% smaller than \texttt{-Oz} (864\,887 vs.\ 967\,878
 bytes; the random null achieves 10.4\%), and across all 371 random
 search alone is 4.0\% below \texttt{-Oz}. The
 45-pass sequences also apply \emph{faster} than the \texttt{-Oz}
-pipeline (median 15.0--15.8\,ms vs.\ 19.5\,ms per module via the plain
-\texttt{opt} CLI; the sequences work outside the RL environment).
-Cross-compiling the same modules for a Cortex-M-class embedded target
-(\texttt{thumbv7m}, LLVM~10's ARM backend; an approximation, as the IR
-carries the x86 host datalayout) makes the savings \emph{larger}:
-best-of-8 sequences produce \texttt{.text} sections 14.9--15.0\% below
-\texttt{-Oz} (839 vs.\ 986\,kB over the same 347 programs), the sampler
-and the random null now equal: on this target the curated space
-delivers the entire margin. Total footprint is dominated ($>$99.9\%) by data and BSS sections,
-invariant under pass ordering ($<$0.03\%), so \texttt{.text} is the
-informative metric.
+pipeline (median 15.0--15.8\,ms vs.\ 19.5\,ms per module).
+Cross-compiling for a Cortex-M target (\texttt{thumbv7m}; an
+approximation, as the IR keeps the x86 host datalayout) makes the
+savings \emph{larger} still: 14.9--15.0\% below \texttt{-Oz} (839 vs.\
+986\,kB), with the sampler and the random null equal -- on this target
+the curated space delivers the entire margin. Footprint is dominated
+($>$99.9\%) by data/BSS, invariant under ordering ($<$0.03\%);
+\texttt{.text} is the informative metric.
 
 \section{Discussion and Limitations}
 Three practices follow from these results. Evaluations of learned pass ordering should (1)~report a random
@@ -425,9 +427,12 @@ rankings; and (3)~never use \texttt{-O3} as a size baseline. Limitations: the st
 validated but size-bounded correlation to binary sections; training
 used four small programs by design (the experimental control), and a
 single-seed mixed-size arm did not improve generalization; runtime is
-not measured; the stack is CompilerGym~0.2.5 (LLVM~10); and the GNN costs
-$\sim$19$\times$ more per training step, though open-loop deployment
-cuts inference to one graph pass.
+not measured; the stack is CompilerGym~0.2.5 (LLVM~10), though the
+mined portfolio ported to LLVM~18's new pass manager still beats its
+\texttt{-Oz} by 10.6--10.9\% on 314 of 319 programs from five suites
+($p{<}10^{-11}$; csmith excluded, 20 of 28 fail to port); and the GNN
+costs $\sim$19$\times$ more per training step, though open-loop
+deployment cuts inference to one graph pass.
 
 \section{Conclusion}
 Under controlled measurement, the value of RL for LLVM pass ordering

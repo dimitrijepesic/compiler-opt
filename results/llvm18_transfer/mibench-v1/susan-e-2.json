@@ -1,0 +1,92 @@
+{
+  "uri": "benchmark://mibench-v1/susan-e-2",
+  "suite": "mibench-v1",
+  "llvm": "18",
+  "o0": {
+    "text": 4163
+  },
+  "oz": {
+    "text": 3198
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 2894
+    },
+    {
+      "rank": 2,
+      "text": 3118
+    },
+    {
+      "rank": 3,
+      "text": 3214
+    },
+    {
+      "rank": 4,
+      "text": 3022
+    },
+    {
+      "rank": 5,
+      "text": 3326
+    },
+    {
+      "rank": 6,
+      "text": 3358
+    },
+    {
+      "rank": 7,
+      "text": 3646
+    },
+    {
+      "rank": 8,
+      "text": 3502
+    },
+    {
+      "rank": 9,
+      "text": 3358
+    },
+    {
+      "rank": 10,
+      "text": 3246
+    },
+    {
+      "rank": 12,
+      "text": 3134
+    },
+    {
+      "rank": 13,
+      "text": 3086
+    },
+    {
+      "rank": 14,
+      "text": 2926
+    },
+    {
+      "rank": 15,
+      "text": 3182
+    },
+    {
+      "rank": 16,
+      "text": 3118
+    }
+  ],
+  "failed_sequences": [
+    {
+      "rank": 11,
+      "error": "#20 0x0000607c5d616b25 _start (/usr/lib/llvm-18/bin/opt+0x17b25)"
+    }
+  ],
+  "llvm10": {
+    "oz_text": 3836,
+    "rnd_text": 3356,
+    "gnn_text": 3244
+  },
+  "portfolio_bo8": {
+    "text": 2894,
+    "rank": 1
+  },
+  "portfolio_bo16": {
+    "text": 2894,
+    "rank": 1
+  }
+}

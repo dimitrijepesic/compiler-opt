@@ -1,0 +1,91 @@
+{
+  "uri": "benchmark://chstone-v0/gsm",
+  "suite": "chstone-v0",
+  "llvm": "18",
+  "o0": {
+    "text": 5843
+  },
+  "oz": {
+    "text": 5224
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 4248
+    },
+    {
+      "rank": 2,
+      "text": 4536
+    },
+    {
+      "rank": 3,
+      "text": 4584
+    },
+    {
+      "rank": 4,
+      "text": 4216
+    },
+    {
+      "rank": 5,
+      "text": 4264
+    },
+    {
+      "rank": 6,
+      "text": 4792
+    },
+    {
+      "rank": 7,
+      "text": 4184
+    },
+    {
+      "rank": 8,
+      "text": 4168
+    },
+    {
+      "rank": 9,
+      "text": 4312
+    },
+    {
+      "rank": 10,
+      "text": 5192
+    },
+    {
+      "rank": 11,
+      "text": 4504
+    },
+    {
+      "rank": 12,
+      "text": 4168
+    },
+    {
+      "rank": 13,
+      "text": 4712
+    },
+    {
+      "rank": 14,
+      "text": 4280
+    },
+    {
+      "rank": 15,
+      "text": 4232
+    },
+    {
+      "rank": 16,
+      "text": 4280
+    }
+  ],
+  "failed_sequences": [],
+  "llvm10": {
+    "oz_text": 5088,
+    "rnd_text": 4329,
+    "gnn_text": 4329
+  },
+  "portfolio_bo8": {
+    "text": 4168,
+    "rank": 8
+  },
+  "portfolio_bo16": {
+    "text": 4168,
+    "rank": 8
+  }
+}

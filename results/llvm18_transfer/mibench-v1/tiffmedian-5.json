@@ -1,0 +1,91 @@
+{
+  "uri": "benchmark://mibench-v1/tiffmedian-5",
+  "suite": "mibench-v1",
+  "llvm": "18",
+  "o0": {
+    "text": 898
+  },
+  "oz": {
+    "text": 736
+  },
+  "sequences": [
+    {
+      "rank": 1,
+      "text": 736
+    },
+    {
+      "rank": 2,
+      "text": 768
+    },
+    {
+      "rank": 3,
+      "text": 768
+    },
+    {
+      "rank": 4,
+      "text": 736
+    },
+    {
+      "rank": 5,
+      "text": 736
+    },
+    {
+      "rank": 6,
+      "text": 768
+    },
+    {
+      "rank": 7,
+      "text": 736
+    },
+    {
+      "rank": 8,
+      "text": 736
+    },
+    {
+      "rank": 9,
+      "text": 752
+    },
+    {
+      "rank": 10,
+      "text": 768
+    },
+    {
+      "rank": 11,
+      "text": 768
+    },
+    {
+      "rank": 12,
+      "text": 736
+    },
+    {
+      "rank": 13,
+      "text": 784
+    },
+    {
+      "rank": 14,
+      "text": 752
+    },
+    {
+      "rank": 15,
+      "text": 752
+    },
+    {
+      "rank": 16,
+      "text": 736
+    }
+  ],
+  "failed_sequences": [],
+  "llvm10": {
+    "oz_text": 752,
+    "rnd_text": 752,
+    "gnn_text": 752
+  },
+  "portfolio_bo8": {
+    "text": 736,
+    "rank": 1
+  },
+  "portfolio_bo16": {
+    "text": 736,
+    "rank": 1
+  }
+}
