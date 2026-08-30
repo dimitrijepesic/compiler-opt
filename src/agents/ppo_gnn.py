@@ -237,6 +237,18 @@ class PPOGNNAgent:
                 print(f"    Skipping {uri.split('/')[-1]} (error: {e})")
         return filtered
 
+    def _recycle_env(self):
+        """Replace the CompilerGym environment with a fresh one. The
+        long-lived service leaks memory across many steps on large
+        programs (observed OOM-killed at 11.5 GB RSS mid-training), so
+        the training loop recycles it periodically and after any
+        service failure."""
+        try:
+            self.env.close()
+        except Exception:
+            pass
+        self.env = compiler_gym.make("llvm-ic-v0")
+
     def _get_graph(self):
         """Extract program graph from current env state."""
         t0 = time.time()
@@ -310,11 +322,16 @@ class PPOGNNAgent:
 
         while steps_collected < self.collect_steps:
             uri = self.train_uris[np.random.randint(len(self.train_uris))]
-            self.env.reset(benchmark=uri)
-            initial_ic = int(self.env.observation["IrInstructionCount"])
-            prev_ic = initial_ic
-
-            graph = self._get_graph()
+            try:
+                self.env.reset(benchmark=uri)
+                initial_ic = int(self.env.observation["IrInstructionCount"])
+                prev_ic = initial_ic
+                graph = self._get_graph()
+            except Exception:
+                # Service died between episodes; replace it and try the
+                # next episode.
+                self._recycle_env()
+                continue
             episode_reward = 0
 
             for step in range(self.max_episode_steps):
@@ -324,21 +341,23 @@ class PPOGNNAgent:
 
                 try:
                     self.env.step(cg_action)
+                    current_ic = int(self.env.observation["IrInstructionCount"])
+                    next_graph = self._get_graph()
                 except Exception:
-                    # Session died; end the episode, bootstrap from the
-                    # (unchanged) current state's value.
+                    # Session died (the step itself, the observation read,
+                    # or the graph extraction); end the episode with a
+                    # bootstrap from the last known state's value and
+                    # replace the dead service.
                     self.buffer.add(graph, action_idx, log_prob, 0.0, value,
                                     True, bootstrap=value)
                     steps_collected += 1
                     self.total_steps += 1
+                    self._recycle_env()
                     break
 
-                current_ic = int(self.env.observation["IrInstructionCount"])
                 reward = (prev_ic - current_ic) / initial_ic
                 prev_ic = current_ic
                 episode_reward += reward
-
-                next_graph = self._get_graph()
 
                 # Episode ends by truncation at the time limit or when the
                 # rollout budget is exhausted mid-episode. Both must
@@ -546,6 +565,11 @@ class PPOGNNAgent:
         while self.total_steps < self.total_env_steps:
             update_num += 1
             t0 = time.time()
+
+            # Recycle the CompilerGym service periodically; it leaks
+            # memory across long runs (see _recycle_env).
+            if update_num > 1 and update_num % 5 == 1:
+                self._recycle_env()
 
             # Linear entropy coefficient decay across the training run
             frac = min((update_num - 1) / total_updates, 1.0)

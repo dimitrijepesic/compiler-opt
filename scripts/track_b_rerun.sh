@@ -8,8 +8,11 @@
 # unchanged evaluate_all.py protocol. The Autophase mixed arm already has
 # three complete seeds (results/ppo_autophase_mixed) and is reused as is.
 #
-# Resumable: a seed whose final checkpoint exists is skipped. Launch
-# detached so a killed Windows-side wrapper cannot take it down:
+# Up to three passes over the seeds: a seed whose final checkpoint exists
+# is skipped, so a crashed seed (the CompilerGym service can be OOM-killed
+# on long mixed-size runs) is retried on the next pass. The final
+# evaluation runs only once all three seeds are complete. Launch detached
+# so a killed Windows-side wrapper cannot take it down:
 #   wsl -d ubuntu-cgym -- bash -c 'setsid nohup bash \
 #     /mnt/c/everything/projekti/compiler-opt/scripts/track_b_rerun.sh \
 #     > /dev/null 2>&1 < /dev/null &'
@@ -21,22 +24,31 @@ export COMPILER_OPT_MICRO_BATCH="${COMPILER_OPT_MICRO_BATCH:-8}"
 OUT=results/ppo_gnn_mixed_v2
 mkdir -p "$OUT"
 
-for seed in 42 123 456; do
-  if [ -f "$OUT/checkpoint_final_seed$seed.pt" ]; then
-    echo "seed $seed already complete, skipping" >> "$OUT/rerun_log.txt"
-    continue
-  fi
-  echo "=== $(date -Is) seed $seed start ===" >> "$OUT/rerun_log.txt"
-  python -u scripts/train_ppo_gnn.py --seed "$seed" \
-    --config configs/hyperparams_mixed.yaml --device cuda \
-    --save-dir "$OUT" >> "$OUT/train_gnn_mixed_seed${seed}_log.txt" 2>&1
-  echo "=== $(date -Is) seed $seed exit=$? ===" >> "$OUT/rerun_log.txt"
+for pass in 1 2 3; do
+  for seed in 42 123 456; do
+    if [ -f "$OUT/checkpoint_final_seed$seed.pt" ]; then
+      continue
+    fi
+    echo "=== $(date -Is) pass $pass seed $seed start ===" >> "$OUT/rerun_log.txt"
+    python -u scripts/train_ppo_gnn.py --seed "$seed" \
+      --config configs/hyperparams_mixed.yaml --device cuda \
+      --save-dir "$OUT" >> "$OUT/train_gnn_mixed_seed${seed}_log.txt" 2>&1
+    rc=$?
+    echo "=== $(date -Is) pass $pass seed $seed exit=$rc ===" >> "$OUT/rerun_log.txt"
+  done
 done
 
-python -u scripts/evaluate_all.py \
-  --ppo-ap-dir results/ppo_autophase_mixed \
-  --ppo-gnn-dir "$OUT" \
-  --output results/final_evaluation_mixed_v2.json \
-  >> "$OUT/eval_log.txt" 2>&1
-echo "=== $(date -Is) TRACK-B-RERUN-DONE exit=$? ===" >> "$OUT/rerun_log.txt"
+if [ -f "$OUT/checkpoint_final_seed42.pt" ] \
+   && [ -f "$OUT/checkpoint_final_seed123.pt" ] \
+   && [ -f "$OUT/checkpoint_final_seed456.pt" ]; then
+  python -u scripts/evaluate_all.py \
+    --ppo-ap-dir results/ppo_autophase_mixed \
+    --ppo-gnn-dir "$OUT" \
+    --output results/final_evaluation_mixed_v2.json \
+    >> "$OUT/eval_log.txt" 2>&1
+  rc=$?
+  echo "=== $(date -Is) TRACK-B-RERUN-DONE exit=$rc ===" >> "$OUT/rerun_log.txt"
+else
+  echo "=== $(date -Is) TRACK-B-RERUN-INCOMPLETE: missing final checkpoints ===" >> "$OUT/rerun_log.txt"
+fi
 touch "$OUT/DONE"
