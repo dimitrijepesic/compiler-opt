@@ -1,21 +1,28 @@
-# GNN vs. Flat Features for LLVM Pass Ordering with RL: A Controlled Study
+# Null Models and Sampling-Based Evaluation of Reinforcement Learning for LLVM Pass Ordering
 
-> **Update (Aug 2026).** The study grew into a TELFOR 2026 paper
-> (`paper/telfor_paper.tex`): 880 programs from 11 independent sources,
+Reinforcement learning for LLVM pass ordering (PPO with a flat Autophase
+state vs. a GraphSAGE encoder over the program graph), measured against
+random-search null models in the same 36-pass action space and evaluated
+both by deterministic rollout and by best-of-k sampling. Paper source:
+`paper/telfor_paper.tex` (TELFOR 2026).
+
+> **Summary of the paper.** 880 programs from 11 independent sources,
 > two null models in the curated 36-pass space, sampling-based (best-of-k)
 > policy evaluation, and four controls (untrained policy, dropout-off,
-> open-loop, fixed-portfolio). Headline results: best-of-50 random search
-> in the curated space beats `-Oz` on all nine real-code sources
-> (0.9-24.5%); the sampled GNN policy beats the budget-matched random
-> null on 33/36 suite-seed totals (significant on 10/11 sources; Linux
-> kernel code is the measured boundary) and reaches greedy-search quality
-> at 73% of its compilation budget; `.text` sections come out 10.6%
-> smaller than `-Oz` on x86 and 14.9-15.0% smaller cross-compiled for a
-> Cortex-M target. Reproduce with `scripts/benchmark_battery.py`,
+> open-loop, fixed-portfolio). Best-of-50 random search in the curated
+> space beats `-Oz` on all nine real-code sources (0.9-24.5%); the sampled
+> GNN policy beats the budget-matched random null on 33/36 suite-seed
+> totals (significant on 10/11 sources; Linux kernel code is the measured
+> boundary) and matches greedy-search quality at 73% of its compilation
+> budget in every seed. Best-of-8 sequences from the curated space, learned
+> or random, give `.text` sections 10.6% smaller than `-Oz` on x86 (random
+> null: 10.4%) and 14.9-15.0% smaller cross-compiled for a Cortex-M target
+> (policy and null equal). Reproduce with `scripts/benchmark_battery.py`,
 > `scripts/evaluate_policy_battery.py` (`--untrained/--no-dropout/`
 > `--open-loop`), `scripts/mine_portfolio.py`,
 > `scripts/measure_binary_metrics.py --mtriple`, and
-> `scripts/compute_stats.py` (`--reframe/--controls/--e5`).
+> `scripts/compute_stats.py` (`--reframe/--controls/--e5`), which
+> regenerates every number in the paper.
 > The controlled two-representation comparison below is unchanged.
 
 ## Overview
@@ -29,7 +36,7 @@ question under a controlled protocol:
 
 **Answer, under this protocol: no.** The two representations are statistically
 indistinguishable on both validation and test splits (Wilcoxon p = 0.63 / 0.88),
-the GNN costs ~17× more wall-clock per environment step, and most of the
+the GNN costs ~19× more wall-clock per environment step (17-23× per seed), and most of the
 end-to-end IC reduction is attributable to the curated 36-pass action space
 rather than to learning. An earlier version of this README claimed the
 opposite; see [What changed and why](#what-changed-and-why).
@@ -109,8 +116,9 @@ random-1-episode 640, greedy = random-50 604):
    "beats a speed-oriented baseline at a size game." The honest compiler
    baseline is -Oz, and no learned policy here beats it on the full splits.
 
-6. **The GNN pays ~17× wall-clock per step** (51-68 min vs 3 min per 100K
-   steps), dominated by IR→graph extraction, despite an on-disk graph cache.
+6. **The GNN pays ~19× wall-clock per step** (17-23× per seed; 51-68 min vs
+   3 min per 100K steps), dominated by IR→graph extraction, despite an
+   on-disk graph cache.
 
 ### What changed and why
 
@@ -168,14 +176,26 @@ compiler-opt/
 │   ├── run_experiment.sh        # Full pipeline: baselines → training → eval → figures
 │   ├── augment_baselines.py     # Real O3/Oz + random-in-reduced-space nulls
 │   ├── train_ppo_autophase.py   # --seed N
-│   ├── train_ppo_gnn.py         # --seed N
-│   ├── evaluate_all.py          # Final eval: full val + test, stats
-│   └── generate_figures.py      # fig1-fig4
+│   ├── train_ppo_gnn.py         # --seed N [--init-encoder]
+│   ├── pretrain_gnn.py          # Autophase-distillation pretraining of the encoder
+│   ├── evaluate_all.py          # Final argmax eval: full val + test, stats
+│   ├── evaluate_sampling.py     # Best-of-k sampling on cBench (k=8, k=32)
+│   ├── benchmark_battery.py     # Null models on the 11-source battery
+│   ├── evaluate_policy_battery.py  # Best-of-k policies on the battery (+ controls)
+│   ├── mine_portfolio.py        # Fixed-portfolio control (greedy set cover)
+│   ├── measure_binary_metrics.py   # .text/footprint/opt-time, --mtriple for ARM
+│   ├── compute_stats.py         # Every statistic in the paper
+│   └── generate_figures.py, generate_paper_figures.py
 ├── data/                        # benchmark inventory, pass profiles
+├── paper/                       # telfor_paper.tex, refs.bib, figures/
 └── results/
-    ├── full_baselines_v2.json   # All baselines incl. real O3/Oz + nulls
-    ├── final_evaluation.json    # Per-seed final results + statistics
-    ├── ppo_autophase/, ppo_gnn/ # Checkpoints + training logs (3 seeds each)
+    ├── full_baselines_v2.json   # cBench baselines incl. real O3/Oz + nulls
+    ├── final_evaluation*.json   # Argmax results (controlled, mixed, pretrained)
+    ├── sampling_evaluation*.json   # Best-of-8 / best-of-32 on cBench
+    ├── battery/                 # Null models per source
+    ├── battery_policy/          # Best-of-k policy runs per source, seed, variant
+    ├── portfolio_eval/, binary_metrics/, binary_metrics_arm/
+    ├── ppo_autophase/, ppo_gnn/, ppo_gnn_pretrained/  # Checkpoints + logs
     ├── figures/
     └── archive_2026-04_original/  # Pre-rerun artifacts, kept for provenance
 ```
@@ -212,9 +232,9 @@ best-of-8 random null from the same 36-pass space:
 
 Every GNN seed beats every Autophase seed on both splits, beats the null
 6/6, decisively beats -Oz, and the best test seed **beats greedy search**
-(57,943 vs 58,069) at roughly 4.5× fewer compilations (8×45 steps vs
-greedy's ~1,620). The "plateau" policies were good *samplers* with a
-degenerate mode.
+(57,943 vs 58,069) at roughly 5.5× fewer compilations (8×45 = 360 vs
+greedy's measured ≈1,970 per program: (steps+1)×124 passes tried). The
+"plateau" policies were good *samplers* with a degenerate mode.
 
 ### Track C — encoder pretraining breaks the plateau
 
@@ -225,7 +245,8 @@ graph; 2,430 states; val MSE 0.025) before RL fine-tuning:
   0/3 from-scratch seeds escaped;
 - full-split argmax (best seed): validation **55,593**, test **61,015** —
   vs 64,550 / 69,180 from scratch. First argmax policy in the study to beat
-  the single-episode random null on both splits, and within 0.5-0.7% of -Oz.
+  the single-episode random null on both splits, and within 0.3-0.8% of -Oz
+  (mean over the two seeds: 57,980 / 63,229).
 
 RL gradients alone could not train the encoder; a pretrained encoder + RL
 can. The representation was never the bottleneck — encoder optimization was.
@@ -246,20 +267,28 @@ were. Evaluate the policy as a sampler (Track A) or give the encoder a
 pretrained start (Track C), and the GNN is the strongest agent in the
 study; train longer on bigger programs (Track B) and nothing improves.
 The data-efficiency claim stays dead; the amortized-search claim is now
-alive and supported: 8 sampled rollouts from the GNN policy ≈ greedy
-quality at ~22% of greedy's compile cost.
+alive and supported: 8 sampled rollouts from the GNN policy come within
+0.4% of greedy quality at ~18% of greedy's compile cost, and 32 rollouts
+match it at 73%.
 
-## Honest limitations & where a GNN could still win
+## Limitations
 
-- Deterministic argmax rollouts are brittle; sampling-based evaluation (e.g.
-  best-of-k samples) would measure the policy distribution, not its mode.
-- Training only on < 3K-IC programs is the protocol's control, but also its
-  limit: the scale-generalization failure might shrink with mixed-size
-  training (the GNN's per-step cost is what made that expensive here).
-- The GNN receives opcode-level features only; no pretraining, no value/type
-  information, no global context beyond mean pooling. A pretrained encoder
-  (e.g. on IR reconstruction or supervised proxy tasks) remains untested here.
-- Single-rollout policies are the right product target (amortized search:
-  greedy costs O(|A|) compilations per step, a policy costs one forward pass) —
-  but to claim it, a policy must first reliably beat the single-episode random
-  null on unseen programs. None here does.
+- The objective is IR instruction count. Its correlation with `.text` size is
+  validated only for programs above ~1,000 instructions (Pearson r = 0.78,
+  n = 26 points from 13 programs); runtime is not measured.
+- Training uses four small cBench programs by design (the experimental
+  control). The single-seed mixed-size arm (Track B) did not improve
+  generalization; scaling training up is left to future work.
+- The GNN receives opcode-level features only (no value/type information, mean
+  pooling); the encoder trains only after Autophase-distillation pretraining.
+- The margin of the sampled GNN policy over the budget-matched random null is
+  small in IC terms (0.7-2.8% of suite totals) and absent on Linux kernel
+  code; in bytes, the learned policy and the random null are within 0.2% of
+  each other on x86 and equal on the ARM target. The policy's value is as an
+  amortized searcher (fewer compilations for the same quality), not as a
+  source of large additional gains.
+- The "24 of 24" suite-seed win count on the original battery is not robust to
+  resampling on NPB (totals there are dominated by a few large programs); the
+  per-suite Wilcoxon tests are the primary evidence.
+- The stack is CompilerGym 0.2.5 / LLVM 10; the GNN costs ~19× more wall-clock
+  per training step than the flat-feature agent.

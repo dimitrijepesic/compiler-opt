@@ -5,8 +5,11 @@ import sys
 import shutil
 from src.agents.greedy import GreedyAgent
 
-# TVOJA PUTANJA KOJU SI NASAO
-CLANG_CMD = "/home/dimit/.local/share/compiler_gym/llvm-v0/bin/clang"
+# clang shipped with CompilerGym's LLVM; override with COMPILER_OPT_CLANG if needed
+CLANG_CMD = os.environ.get(
+    "COMPILER_OPT_CLANG",
+    os.path.expanduser("~/.local/share/compiler_gym/llvm-v0/bin/clang"),
+)
 
 SOURCE_FILE = "demo/test.c"
 ABS_PATH_SOURCE = os.path.abspath(SOURCE_FILE)
