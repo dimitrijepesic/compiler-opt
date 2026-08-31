@@ -311,6 +311,16 @@ class IRGraphCache:
             )
         self.cache_dir = cache_dir
         os.makedirs(cache_dir, exist_ok=True)
+        # Growth guards (the cache once grew by ~40 GB per training run and
+        # filled the host disk): stop writing new entries when the Windows
+        # host drive backing /mnt/c runs low, or after this process has
+        # written its cap. Reads are never blocked.
+        self._min_host_free = float(os.environ.get(
+            "COMPILER_OPT_CACHE_MIN_HOST_FREE_GB", 15)) * 1e9
+        self._write_cap = float(os.environ.get(
+            "COMPILER_OPT_CACHE_WRITE_CAP_GB", 30)) * 1e9
+        self._bytes_written = 0
+        self._write_guard_tripped = False
 
     def _key(self, ir_text):
         """Hash the IR text (+ feature version) to get a cache key."""
@@ -326,11 +336,33 @@ class IRGraphCache:
             return torch.load(path, weights_only=False)
         return None
 
+    def _write_allowed(self):
+        if self._write_guard_tripped:
+            return False
+        if self._bytes_written > self._write_cap:
+            self._write_guard_tripped = True
+            print("[IRGraphCache] write cap reached; caching disabled "
+                  "for the rest of this process")
+            return False
+        try:
+            st = os.statvfs("/mnt/c")
+            if st.f_bavail * st.f_frsize < self._min_host_free:
+                return False
+        except OSError:
+            pass
+        return True
+
     def put(self, ir_text, data):
-        """Cache a graph to disk."""
+        """Cache a graph to disk (skipped when the growth guards trip)."""
+        if not self._write_allowed():
+            return
         key = self._key(ir_text)
         path = os.path.join(self.cache_dir, f"{key}.pt")
         torch.save(data, path)
+        try:
+            self._bytes_written += os.path.getsize(path)
+        except OSError:
+            pass
 
     def get_or_extract(self, ir_text):
         """Get from cache or extract and cache."""
