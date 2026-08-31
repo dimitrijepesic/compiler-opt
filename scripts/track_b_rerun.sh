@@ -24,6 +24,16 @@ export COMPILER_OPT_MICRO_BATCH="${COMPILER_OPT_MICRO_BATCH:-8}"
 OUT=results/ppo_gnn_mixed_v2
 mkdir -p "$OUT"
 
+# The graph cache is rebuild-on-demand scratch, not a result: it grew by
+# ~40 GB per seed and once filled the host disk. Purge it after every
+# seed and after the final evaluation; everything worth keeping
+# (checkpoints, logs, the evaluation JSON) lives in $OUT.
+purge_cache() {
+  du -sh "$COMPILER_OPT_CACHE_DIR" 2>/dev/null |     sed "s/^/=== $(date -Is) cache before purge: /" >> "$OUT/rerun_log.txt"
+  rm -rf "$COMPILER_OPT_CACHE_DIR"
+  mkdir -p "$COMPILER_OPT_CACHE_DIR"
+}
+
 for pass in 1 2 3; do
   for seed in 42 123 456; do
     if [ -f "$OUT/checkpoint_final_seed$seed.pt" ]; then
@@ -35,6 +45,7 @@ for pass in 1 2 3; do
       --save-dir "$OUT" >> "$OUT/train_gnn_mixed_seed${seed}_log.txt" 2>&1
     rc=$?
     echo "=== $(date -Is) pass $pass seed $seed exit=$rc ===" >> "$OUT/rerun_log.txt"
+    purge_cache
   done
 done
 
@@ -48,6 +59,7 @@ if [ -f "$OUT/checkpoint_final_seed42.pt" ] \
     >> "$OUT/eval_log.txt" 2>&1
   rc=$?
   echo "=== $(date -Is) TRACK-B-RERUN-DONE exit=$rc ===" >> "$OUT/rerun_log.txt"
+  purge_cache
 else
   echo "=== $(date -Is) TRACK-B-RERUN-INCOMPLETE: missing final checkpoints ===" >> "$OUT/rerun_log.txt"
 fi
