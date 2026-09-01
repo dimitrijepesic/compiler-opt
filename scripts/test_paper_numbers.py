@@ -25,6 +25,7 @@ def _collect():
     vpn.pearson()
     vpn.binary_metrics()
     vpn.pretraining()
+    vpn.mixed_arm()
     vpn.gnn_cost()
     return list(vpn.CHECKS)
 

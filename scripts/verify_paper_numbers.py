@@ -346,6 +346,42 @@ def pretraining():
               ckpt["best_val_score"], tol=0)
 
 
+def mixed_arm():
+    """Three-seed mixed-size GNN arm (results/ppo_gnn_mixed_v2/PROTOCOL.md)."""
+    scratch = json.load(open("results/final_evaluation.json"))
+    mixed = json.load(open("results/final_evaluation_mixed_v2.json"))
+
+    def per_program(d):
+        out = {}
+        for split in ("validation", "test"):
+            for run in d["splits"][split]["agents"]["ppo_gnn"]["runs"]:
+                for det in run["details"]:
+                    out.setdefault((split, det["short_name"]), {})[run["seed"]] = det["final_ic"]
+        return out
+
+    for split, expected in (("validation", 64797), ("test", 69748)):
+        check(f"mixed-size GNN {split} mean argmax", expected,
+              mixed["splits"][split]["agents"]["ppo_gnn"]["summary"]["mean_total_ic"],
+              tol=0.001)
+    a, b = per_program(scratch), per_program(mixed)
+    keys = sorted(a)
+    mean_a = [sum(a[k].values()) / 3 for k in keys]
+    mean_b = [sum(b[k].values()) / 3 for k in keys]
+    p = stats.wilcoxon(mean_b, mean_a, alternative="less").pvalue
+    check("mixed-size vs from-scratch one-sided Wilcoxon p", 0.41, p, tol=0.02)
+    seeds = sorted({s for k in keys for s in b[k]})
+    # "one seed improved both splits": compare each seed's totals with the
+    # from-scratch mean on that split (the number the sentence quotes).
+    better = [s for s in seeds
+              if all(sum(b[k][s] for k in keys if k[0] == sp)
+                     < scratch["splits"][sp]["agents"]["ppo_gnn"]["summary"]["mean_total_ic"]
+                     for sp in ("validation", "test"))]
+    check("mixed-size seeds improving both splits", 1, len(better), tol=0)
+    for sp, expected in (("validation", 60211), ("test", 65239)):
+        check(f"mixed-size seed 42 {sp} argmax", expected,
+              sum(b[k][42] for k in keys if k[0] == sp), tol=0)
+
+
 def gnn_cost():
     import re
     times = {}
@@ -374,6 +410,7 @@ def main():
     pearson()
     binary_metrics()
     pretraining()
+    mixed_arm()
     gnn_cost()
 
     n_fail = sum(1 for ok, *_ in CHECKS if not ok)

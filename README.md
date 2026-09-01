@@ -272,17 +272,28 @@ can. The representation was never the bottleneck; encoder optimization was.
 
 Training on 9 benchmarks (O0 IC 450-15,184) instead of 4 tiny ones:
 Autophase became *worse and less stable* (argmax validation totals 82,935 /
-60,798 / 111,077); the GNN was unchanged (64,958 vs 64,550). Caveat: the
-GNN arm is a single seed whose training was interrupted at ~13 h by a
-forced Windows update; its surviving best checkpoint was evaluated and the
-arm is reported as incomplete.
+60,798 / 111,077). The GNN arm was rerun with three seeds under a
+pre-registered protocol (`results/ppo_gnn_mixed_v2/PROTOCOL.md`: same
+config, budget, seeds, checkpoint selection and evaluation; encoder and PPO
+batches on the GPU with gradient accumulation). Mean argmax totals
+**64,797 / 69,748** (validation / test) vs 64,550 / 69,180 from scratch,
+per-benchmark one-sided Wilcoxon p = 0.41: by the decision rule, no
+improvement. One seed (42) did improve both splits (60,211 / 65,239; 7 wins,
+2 ties, 0 losses over the nine programs) and was the only run without
+pretraining to leave the 689 val-small plateau (651); the other two seeds
+regressed (69,250 / 73,028 and 64,931 / 70,977). Mixed-size training thus
+reproduces the seed fragility the flat policy shows rather than fixing scale
+generalization. Results: `results/final_evaluation_mixed_v2.json` (the
+earlier single interrupted seed, 64,958 / 69,104, is kept in
+`final_evaluation_mixed.json`).
 
 ### Revised conclusion
 
 The graph representation is not the problem; measurement and optimization
 were. Evaluate the policy as a sampler (Track A) or give the encoder a
 pretrained start (Track C), and the GNN is the strongest agent in the
-study; train longer on bigger programs (Track B) and nothing improves.
+study; train on bigger programs (Track B) and the three-seed mean does not
+move (one seed of three improves).
 The data-efficiency claim stays dead; the amortized-search claim is now
 alive and supported: 8 sampled rollouts from the GNN policy come within
 0.4% of greedy quality at ~18% of greedy's compile cost, and 32 rollouts
@@ -294,8 +305,9 @@ match it at 73%.
   validated only for programs above ~1,000 instructions (Pearson r = 0.78,
   n = 26 points from 13 programs); runtime is not measured.
 - Training uses four small cBench programs by design (the experimental
-  control). The single-seed mixed-size arm (Track B) did not improve
-  generalization; scaling training up is left to future work.
+  control). A three-seed mixed-size arm (Track B) did not improve
+  generalization on average (one seed of three did); scaling training up
+  further is left to future work.
 - The GNN receives opcode-level features only (no value/type information, mean
   pooling); the encoder trains only after Autophase-distillation pretraining.
 - The margin of the sampled GNN policy over the budget-matched random null is

@@ -19,3 +19,11 @@ demo/*_bin
 # IDEs
 .vscode/
 .idea/
+# LaTeX build artifacts (paper/telfor_paper_preview.pdf stays tracked)
+paper/*.aux
+paper/*.bbl
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.synctex.gz
+paper/telfor_paper.pdf
