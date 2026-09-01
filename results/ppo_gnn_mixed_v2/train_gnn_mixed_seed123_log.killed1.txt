@@ -1,0 +1,34 @@
+
+######################################################################
+# SEED 123
+######################################################################
+
+/root/venv-cgym/lib/python3.10/site-packages/networkx/readwrite/json_graph/node_link.py:287: FutureWarning: 
+The default value will be changed to `edges="edges" in NetworkX 3.6.
+
+To make this warning go away, explicitly set the edges kwarg, e.g.:
+
+  nx.node_link_graph(data, edges="links") to preserve current behavior, or
+  nx.node_link_graph(data, edges="edges") for forward compatibility.
+  warnings.warn(
+    Skipping bzip2 (IC=28748 > 20000)
+    Skipping jpeg-c (IC=62452 > 20000)
+    Skipping tiff2bw (IC=58797 > 20000)
+    Skipping tiffdither (IC=58450 > 20000)
+    Skipping ghostscript (IC=406198 > 20000)
+======================================================================
+PPO + GNN TRAINING (seed=123)
+======================================================================
+  Action space: 36 passes (reduced)
+  GNN: 3 layers, hidden=128
+  Train benchmarks: 9
+  Val benchmarks: 3
+  Total budget: 100000 steps
+  Device: cuda
+
+  Update   1 | Steps:    2048/100000 | Ep reward: +0.4597 | P loss: -0.0496 | V loss: 0.0064 | Ent: 3.561 | KL: 0.0160 (4ep) | 7.3 sps | Graph: 72ms
+  Update   2 | Steps:    4096/100000 | Ep reward: +0.4806 | P loss: -0.0483 | V loss: 0.0019 | Ent: 3.543 | KL: 0.0124 (4ep) | 5.7 sps | Graph: 84ms
+  Update   3 | Steps:    6144/100000 | Ep reward: +0.5064 | P loss: -0.0482 | V loss: 0.0012 | Ent: 3.519 | KL: 0.0078 (4ep) | 5.8 sps | Graph: 88ms
+         VAL | Total IC: 1346 | Reduction: 1.17%
+         NEW BEST val IC: 1346
+  Update   4 | Steps:    8192/100000 | Ep reward: +0.5051 | P loss: -0.0429 | V loss: 0.0009 | Ent: 3.482 | KL: 0.0120 (4ep) | 9.1 sps | Graph: 79ms

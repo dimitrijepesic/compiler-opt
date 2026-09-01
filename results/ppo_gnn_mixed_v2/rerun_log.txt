@@ -1,0 +1,26 @@
+=== 2026-08-30T20:34:28+02:00 seed 42 start ===
+=== 2026-08-30T21:12:33+02:00 seed 42 exit=0 ===
+=== 2026-08-30T21:12:33+02:00 seed 123 start ===
+=== 2026-08-30T21:5x relaunch after hardening (service OOM at 11.5GB, seed42 crash update 10) ===
+=== 2026-08-30T21:40:16+02:00 pass 1 seed 42 start ===
+=== 2026-08-31T00:30:17+02:00 pass 1 seed 42 exit=0 ===
+=== 2026-08-31T00:30:17+02:00 pass 1 seed 123 start ===
+=== 2026-08-31T00:30:17+02:00 pass 1 seed 123 exit=1 ===
+=== 2026-08-31T00:30:17+02:00 pass 1 seed 456 start ===
+=== 2026-08-31T03:29:30+02:00 pass 1 seed 456 exit=0 ===
+=== 2026-08-31T03:29:30+02:00 pass 2 seed 123 start ===
+=== 2026-08-31T04:43:08+02:00 WSL VM died ~04:15 (host up, no reboot); seed 123 lost at update 21/49; relaunching ===
+=== 2026-08-31T04:43:08+02:00 pass 1 seed 123 start ===
+===  pass 1 seed 123 exit=135 ===
+===  pass 2 seed 123 start ===
+===  pass 2 seed 123 exit=126 ===
+===  pass 3 seed 123 start ===
+===  pass 3 seed 123 exit=126 ===
+===  TRACK-B-RERUN-INCOMPLETE: missing final checkpoints ===
+=== 2026-08-31T05:39:24+02:00 root cause found: graph cache grew to 191G, C: hit 0 bytes free, VM died twice; cache purged, fstrim done, relaunching seed 123 ===
+=== 2026-08-31T05:39:24+02:00 pass 1 seed 123 start ===
+=== 2026-08-31T10:14:15+02:00 pass 1 seed 123 start ===
+=== 2026-08-31T13:21:18+02:00 pass 1 seed 123 exit=0 ===
+=== 2026-08-31T13:21:18+02:00 cache before purge: 64G	/root/compiler_opt_graph_cache
+=== 2026-08-31T13:40:26+02:00 TRACK-B-RERUN-DONE exit=0 ===
+=== 2026-08-31T13:40:26+02:00 cache before purge: 362M	/root/compiler_opt_graph_cache
