@@ -18,9 +18,10 @@ both by deterministic rollout and by best-of-k sampling. Paper source:
 > or random, give `.text` sections 10.6% smaller than `-Oz` on x86 (random
 > null: 10.4%) and 14.9-15.0% smaller cross-compiled for a Cortex-M target
 > (policy and null equal); the mined portfolio still beats LLVM 18's own
-> `-Oz` by 10.6-10.9% when ported to its new pass manager, on 314 of 319
-> attempted programs (`scripts/llvm18_transfer.py`, run under a separately
-> installed LLVM 18 toolchain). Reproduce with `scripts/benchmark_battery.py`,
+> `-Oz` by 10.6-10.9% in summed `.text` when ported to its new pass manager,
+> over the 314 of 319 attempted programs that port (169-174 per-program
+> wins vs. 83-89 losses; `scripts/llvm18_transfer.py`, run under a
+> separately installed LLVM 18 toolchain). Reproduce with `scripts/benchmark_battery.py`,
 > `scripts/evaluate_policy_battery.py` (`--untrained/--no-dropout/`
 > `--open-loop`), `scripts/mine_portfolio.py`,
 > `scripts/measure_binary_metrics.py --mtriple`,
@@ -61,7 +62,7 @@ Everything that differs between the two agents is the state representation.
 | Checkpoint selection | val-small (crc32, qsort, stringsearch2) every 5K steps |
 | Final evaluation | full validation split (5) + held-out test split (4), once, from best checkpoints |
 | Action space | 36 passes (profiled subset of 124) |
-| PPO | clip 0.2, GAE λ=0.95, γ=0.99, KL early-stop (target 0.02), entropy coeff 0.01→0.001 |
+| PPO | clip 0.2, GAE λ=0.95, γ=0.99, KL early-stop (target 0.02, stop above 1.5×), entropy coeff 0.01→0.001 |
 
 Null models measured in the same 36-pass space: a single random 45-step
 episode (mean of 20), and best-of-50 random episodes.
@@ -186,6 +187,8 @@ compiler-opt/
 ├── scripts/
 │   ├── setup_wsl_env.sh         # One-time environment setup (WSL/Ubuntu 22.04)
 │   ├── run_experiment.sh        # Full pipeline: baselines → training → eval → figures
+│   ├── profile_action_space.py  # Profiles the 124 passes -> configs/passes.yaml (36-pass space)
+│   ├── run_full_baselines.py    # Greedy search + full-124-space random on cBench
 │   ├── augment_baselines.py     # Real O3/Oz + random-in-reduced-space nulls
 │   ├── train_ppo_autophase.py   # --seed N
 │   ├── train_ppo_gnn.py         # --seed N [--init-encoder]
@@ -196,10 +199,12 @@ compiler-opt/
 │   ├── evaluate_policy_battery.py  # Best-of-k policies on the battery (+ controls)
 │   ├── mine_portfolio.py        # Fixed-portfolio control (greedy set cover)
 │   ├── measure_binary_metrics.py   # .text/footprint/opt-time, --mtriple for ARM
+│   ├── measure_text_size.py     # IC-vs-.text anchor (Pearson r, paper Sec. IV-E)
 │   ├── compute_stats.py         # Every statistic in the paper
 │   ├── verify_paper_numbers.py, test_paper_numbers.py  # reproducibility check
 │   ├── nullcheck.py             # apply the protocol to any CompilerGym suite
 │   ├── llvm18_transfer.py       # portfolio ported to LLVM 18's new pass manager
+│   ├── track_*.sh, night_queue_*.sh  # campaign scripts that produced results/ (Tracks A-C, controls, ARM)
 │   ├── generate_battery_figure.py  # the paper's Fig. 1 (347-program battery)
 │   └── generate_figures.py, generate_paper_figures.py  # cBench-only companion
 ├── data/                        # benchmark inventory, pass profiles
@@ -256,7 +261,9 @@ greedy's measured ≈1,970 per program: (steps+1)×124 passes tried). The
 ### Track C: encoder pretraining breaks the plateau
 
 Distilling Autophase into the encoder (regress log1p(Autophase) from the
-graph; 2,430 states; val MSE 0.025) before RL fine-tuning:
+graph; 2,430 states from random episodes on the nine training-split programs
+up to 15,184 IC, i.e. the Track B set, so this arm also saw more programs
+than the four-program RL stage; val MSE 0.025) before RL fine-tuning:
 
 - val-small best per seed: **651 / 668**, both below the 689 plateau that
   0/3 from-scratch seeds escaped;
@@ -279,7 +286,7 @@ batches on the GPU with gradient accumulation). Mean argmax totals
 **64,797 / 69,748** (validation / test) vs 64,550 / 69,180 from scratch,
 per-benchmark one-sided Wilcoxon p = 0.41: by the decision rule, no
 improvement. One seed (42) did improve both splits (60,211 / 65,239; 7 wins,
-2 ties, 0 losses over the nine programs) and was the only run without
+2 ties, 0 losses over the nine programs) and was the only GNN run without
 pretraining to leave the 689 val-small plateau (651); the other two seeds
 regressed (69,250 / 73,028 and 64,931 / 70,977). Mixed-size training thus
 reproduces the seed fragility the flat policy shows rather than fixing scale
@@ -303,7 +310,11 @@ match it at 73%.
 
 - The objective is IR instruction count. Its correlation with `.text` size is
   validated only for programs above ~1,000 instructions (Pearson r = 0.78,
-  n = 26 points from 13 programs); runtime is not measured.
+  n = 26 points from 13 programs; r = 0.19 over all 36 programs measured);
+  runtime is not measured. The binary-level random null is a fresh best-of-8
+  draw, not the stored episodes: on the 24 programs above 6,000 instructions
+  it is 12-29% *above* `-Oz` in two independent draws, so the 371-program
+  total lands anywhere between 4.0% below and 0.1% above `-Oz`.
 - Training uses four small cBench programs by design (the experimental
   control). A three-seed mixed-size arm (Track B) did not improve
   generalization on average (one seed of three did); scaling training up
@@ -324,7 +335,20 @@ match it at 73%.
   drift, the mined portfolio was ported to LLVM 18's new pass manager (three
   of 36 passes approximated by their closest successor) and reapplied outside
   CompilerGym: it still beats LLVM 18's own `-Oz` by 10.6% (best-of-8) to
-  10.9% (best-of-16) in `.text` bytes on 314 of 319 attempted programs from
-  five suites (p < 1e-11). csmith is excluded: 20 of its 28 programs fail to
+  10.9% (best-of-16) in summed `.text` bytes over the 314 of 319 attempted
+  programs from five suites that port (169-174 per-program wins vs. 83-89
+  losses, one-sided p < 1e-11). csmith is excluded: 20 of its 28 programs fail to
   compile at all under the ported sequences, a version-robustness boundary in
   its own right rather than a property of the curated space.
+- Two protocol details a reader of the scripts should know. (1) Policy
+  rollouts skip a pass whose application fails and continue the episode,
+  while the stored null episodes stop at the first failure
+  (`evaluate_policy_battery.py` vs `benchmark_battery.py`); such failures are
+  rare in the curated space, but the two sides are not handled identically.
+  (2) The binary-level GNN numbers use one checkpoint (seed 123, the cBench
+  median seed), and the LLVM 18 best-of-8/16 picks the sequence by measured
+  `.text` rather than by IC. (3) In PPO training the GNN collects rollouts
+  with dropout off and runs the update epochs with dropout on, so the
+  importance ratio carries dropout noise; the approximate KL per update
+  averaged 0.009 and the early stop fired once per agent (seed 123), so the
+  effect on the recorded runs is small.
