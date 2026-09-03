@@ -201,8 +201,7 @@ below \texttt{-Oz}, a total driven by the largest programs (only 32\%
 of individual episodes win). The margins are thinnest on AnghaBench, GitHub and Linux
 (0.9--2.0\%), whose code largely arrives pre-optimized (on GitHub
 \texttt{-Oz} removes only 0.14\% of \texttt{-O0} IC; on GitHub and
-Linux, \texttt{-O3} beats \texttt{-Oz}). Two boundaries are equally
-clear. \texttt{-O3} is the wrong yardstick for size (on 6\% of the
+Linux, \texttt{-O3} beats \texttt{-Oz}). \texttt{-O3} is the wrong yardstick for size (on 6\% of the
 programs under 500 instructions it \emph{increases} IC above
 \texttt{-O0}). On the synthetic generators the full \texttt{-Oz}
 pipeline keeps its advantage (csmith 5.2\%, llvm-stress 1.7\%): the
@@ -275,8 +274,7 @@ as its null on 88--92\% of the 347 programs (175W/145T/27L, seed 42).
 Because the $(k{+}1)$-th candidate can be \texttt{-Oz} itself, the
 deployed sampler is never worse than \texttt{-Oz} by construction and
 averages 0.6--18.2\% per-program savings (Table~\ref{tab:sampling},
-safe\%). The policy thus
-transfers to ten of eleven sources, but only sampling reveals it.
+safe\%).
 
 \textbf{Robustness.} A $k{=}32$ rerun of the original suites
 reproduces the suite-total win everywhere except NPB, where only one
@@ -335,10 +333,9 @@ of search where search is most expensive.
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=0.68\columnwidth]{figures/battery.pdf}
+\includegraphics[width=0.62\columnwidth]{figures/battery.pdf}
 \caption{Quality vs.\ budget across the 347 programs of the original
-battery (MiBench, CHStone, BLAS, csmith, NPB, POJ-104), summed IC
-relative to
+battery, summed IC relative to
 \texttt{-Oz}: best-of-$k$ sampling (GNN $k{=}1..32$, Autophase
 $k{=}1..8$, mean over three seeds) vs.\ expected best-of-$k$ random
 search.}
@@ -461,12 +458,10 @@ policy's role as an \emph{amortized searcher}: greedy-search quality at
 73\% of the compilation budget, transferable from four small programs
 to ten of eleven program sources. Its deterministic mode becomes usable
 only after a short pretraining step.
-Throughout, evaluation choices changed the conclusions more than
-representation choices did.
 
 \section*{Acknowledgment}
-The author thanks Prof.~Zaharije Radivojevi\'c for an early discussion of
-this work.
+The author thanks Prof.~Zaharije Radivojevi\'c for early discussions of this
+work.
 
 \bibliographystyle{IEEEtran}
 \bibliography{refs}
