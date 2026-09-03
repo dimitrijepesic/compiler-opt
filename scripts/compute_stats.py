@@ -5,11 +5,16 @@ Formal statistics for the paper (revised after adversarial review).
 Three levels, in decreasing conservatism:
 
 1. UNIT-LEVEL EXACT SIGN TEST. The three seeds within a suite are
-   compared against the same stored null episodes, so the 24 suite x seed
-   pairs are not independent. The independent units are the 8
-   suite/split groups (6 battery suites + cBench validation + cBench
+   compared against the same stored null episodes, so the suite x seed
+   pairs are not independent. The independent units are the 12
+   suite/split groups (10 battery suites + cBench validation + cBench
    test). A unit counts as a win only if the agent beats its null under
-   EVERY seed. Exact one-sided binomial on the 8 units.
+   EVERY seed. Exact one-sided binomial on the 12 units.
+
+Convention for the four added sources (anghabench, github, linux,
+llvm-stress): the GNN stores 16 samples per program there; the FIRST 8
+are used everywhere (agent and paired null), so every number is a
+best-of-8 comparison. See _pair() and e5().
 
 2. PER-SUITE ONE-SIDED WILCOXON. Within a suite and seed, per-program
    (agent best-of-k, null best-of-k) pairs are independent across
@@ -17,7 +22,7 @@ Three levels, in decreasing conservatism:
    (alternative='less') for the median seed, and report the effective n
    (non-zero differences) alongside the nominal n.
 
-3. DESCRIPTIVE 24/24 + DISJOINT-SLICE ROBUSTNESS. The raw count of
+3. DESCRIPTIVE 33/36 + DISJOINT-SLICE ROBUSTNESS. The raw count of
    suite x seed wins is reported descriptively. As a robustness check,
    each seed is re-paired with a DISJOINT slice of the stored random
    episodes (seed 42 -> episodes 0-7, 123 -> 8-15, 456 -> 16-23), which
@@ -88,6 +93,15 @@ def cbench_records(agent):
     return out
 
 
+def _pair(agent, suite, r, eps):
+    """(agent best-of-8, paired null best-of-8) for one record."""
+    if "random_best_of_k_ic" in r:  # cBench record
+        return r["best_of_k_ic"], r["random_best_of_k_ic"]
+    if agent == "ppo_gnn" and suite in NEW_SUITES:  # 16 stored, use 8
+        return min(r["sample_ics"][:K]), min(eps[(suite, r["uri"])][:K])
+    return r["best_of_k_ic"], r["random_null_best_of_k"]
+
+
 # ---------------------------------------------------------------- analysis
 def analyze(agent):
     print(f"\n===== {agent}")
@@ -99,8 +113,9 @@ def analyze(agent):
     # --- per (unit, seed): totals with shared null and sliced null
     units = {}
     for (suite, seed), rows in bat.items():
-        a = sum(r["best_of_k_ic"] for r in rows)
-        z_shared = sum(r["random_null_best_of_k"] for r in rows)
+        pairs = [_pair(agent, suite, r, bat_eps) for r in rows]
+        a = sum(p[0] for p in pairs)
+        z_shared = sum(p[1] for p in pairs)
         s = SEED_SLICE.get(seed)
         z_slice = sum(
             min(bat_eps[(suite, r["uri"])][K * s: K * s + K])
@@ -153,13 +168,13 @@ def analyze(agent):
         for seed, rows in seeds.items():
             merged.setdefault(key, {}).setdefault(seed, []).extend(rows)
     for suite, seeds in sorted(merged.items()):
-        totals = {s: sum(r["best_of_k_ic"] for r in rows)
-                  for s, rows in seeds.items()}
+        pairs = {s: [_pair(agent, suite, r, bat_eps) for r in rows]
+                 for s, rows in seeds.items()}
+        totals = {s: sum(p[0] for p in ps) for s, ps in pairs.items()}
         med = sorted(totals, key=totals.get)[len(totals) // 2]
         rows = seeds[med]
-        a = [r["best_of_k_ic"] for r in rows]
-        z = [r.get("random_null_best_of_k", r.get("random_best_of_k_ic"))
-             for r in rows]
+        a = [p[0] for p in pairs[med]]
+        z = [p[1] for p in pairs[med]]
         nz = sum(1 for x, y in zip(a, z) if x != y)
         if nz == 0:
             print(f"    {suite:<14} all ties (n={len(rows)})")
@@ -190,22 +205,22 @@ def reframe(agent="ppo_gnn"):
            "wtl": {}, "npb_k32": {}}
 
     # --- iso-quality k per suite x seed (battery), plus cBench val+test
-    def iso_from(rows, eps_of):
-        best = sum(r["best_of_k_ic"] for r in rows)
+    def iso_from(rows, suite, eps_of):
+        best = sum(_pair(agent, suite, r, bat_eps)[0] for r in rows)
         for k in range(1, 51):
             if sum(min(eps_of(r)[:k]) for r in rows) <= best:
                 return k
         return None  # ">50"
     for suite in suites:
         out["iso_k"][suite] = {
-            sd: iso_from(bat[(suite, sd)],
+            sd: iso_from(bat[(suite, sd)], suite,
                          lambda r, s=suite: bat_eps[(s, r["uri"])])
             for sd in seeds}
     cb_all = {}
     for (unit, sd), rows in cb.items():
         cb_all.setdefault(sd, []).extend(rows)
     out["iso_k"]["cbench"] = {
-        sd: iso_from(rows, lambda r: cb_eps[r["name"]])
+        sd: iso_from(rows, "cbench", lambda r: cb_eps[r["name"]])
         for sd, rows in sorted(cb_all.items())}
 
     # --- -Oz-safe and win/tie/loss per suite x seed (battery)
@@ -213,13 +228,12 @@ def reframe(agent="ppo_gnn"):
         oz_row, wtl_row = {}, {}
         for sd in seeds:
             rows = bat[(suite, sd)]
-            gains = [(r["oz"] - min(r["best_of_k_ic"], r["oz"])) / r["oz"]
-                     for r in rows if r["oz"] > 0]
-            strict = sum(r["best_of_k_ic"] < r["oz"] for r in rows)
-            w = sum(r["best_of_k_ic"] < r["random_null_best_of_k"]
-                    for r in rows)
-            t = sum(r["best_of_k_ic"] == r["random_null_best_of_k"]
-                    for r in rows)
+            pairs = [_pair(agent, suite, r, bat_eps) for r in rows]
+            gains = [(r["oz"] - min(a, r["oz"])) / r["oz"]
+                     for r, (a, _) in zip(rows, pairs) if r["oz"] > 0]
+            strict = sum(a < r["oz"] for r, (a, _) in zip(rows, pairs))
+            w = sum(a < z for a, z in pairs)
+            t = sum(a == z for a, z in pairs)
             oz_row[sd] = {"mean_gain": float(np.mean(gains)),
                           "strict_win_share": strict / len(rows),
                           "n": len(rows)}
