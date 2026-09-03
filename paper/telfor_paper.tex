@@ -138,8 +138,8 @@ validates IC against actual binary section sizes.
 optimization-level observations, not approximated pass lists.
 
 \textbf{Action space.} Profiling all 124 available passes on the
-14-program cBench training split yields 36 passes that each improve at least one
-program; these cover 100\% of the observed single-pass improvement.
+14-program cBench training split yields 36 passes that each improve at
+least one program; the other 88 improve none.
 All agents and null models operate in this space with 45-step
 episodes. The reference greedy search tries all 124 passes at every
 step and stops when none improves (${\approx}1\,970$ compilations per
@@ -158,7 +158,8 @@ network. Both train on the \emph{same} four small programs of that split
 ($<$3000 instructions), for the same 100\,000 environment steps, with
 three seeds each; checkpoints are selected on a three-program validation
 subset. Apart from the joint optimizer that the encoder shared by the
-policy and value heads requires (encoder learning rate $10^{-4}$), the
+policy and value heads requires (value-loss weight 0.5, encoder
+learning rate $10^{-4}$), the
 representation is the only variable.
 
 \textbf{Null models.} Two null models are measured in the same 36-pass
@@ -184,9 +185,10 @@ program: the first eight for comparability, the disjoint second eight
 as a built-in resampling check.
 
 \textbf{Encoder pretraining.} In one arm (two seeds), the GNN encoder
-is first trained to regress the Autophase vector from the program graph (2430
-states collected by random episodes on the training programs) and then
-fine-tuned with RL.
+is first trained to regress the Autophase vector from the program graph
+(2430 states from random episodes on nine training-split programs of up
+to 15\,000 instructions, so this arm also sees more programs than the
+four-program RL stage) and then fine-tuned with RL.
 
 \section{Results}
 
@@ -194,13 +196,13 @@ fine-tuned with RL.
 Table~\ref{tab:nulls} compares real optimization levels against
 best-of-50 random episodes in the 36-pass space. Random search beats
 \texttt{-Oz} on all nine real-code sources, by 0.9\% (AnghaBench) to
-24.5\% (NPB); on NPB even \emph{single} random episodes sum to 12\%
+24.5\% (NPB); on NPB even \emph{single} random episodes sum to 11.5\%
 below \texttt{-Oz}, a total driven by the largest programs (only 32\%
 of individual episodes win). The margins are thinnest on AnghaBench, GitHub and Linux
 (0.9--2.0\%), whose code largely arrives pre-optimized (on GitHub
 \texttt{-Oz} removes only 0.14\% of \texttt{-O0} IC; on GitHub and
 Linux, \texttt{-O3} beats \texttt{-Oz}). Two boundaries are equally
-clear. \texttt{-O3} is the wrong yardstick for size (on 8\% of the
+clear. \texttt{-O3} is the wrong yardstick for size (on 6\% of the
 programs under 500 instructions it \emph{increases} IC above
 \texttt{-O0}). On the synthetic generators the full \texttt{-Oz}
 pipeline keeps its advantage (csmith 5.2\%, llvm-stress 1.7\%): the
@@ -267,7 +269,7 @@ sources where the GNN wins, random search needs a median of 11--49
 episodes (1.4--6$\times$ the budget) to match its eight samples; on
 cBench and csmith, the 50 stored episodes match no seed and one of
 three seeds respectively. On Linux, where the policy does not win,
-three random episodes suffice (Table~\ref{tab:sampling}, iso-$k$). Per
+two random episodes suffice (Table~\ref{tab:sampling}, iso-$k$). Per
 program on the original battery, the GNN sampler is at least as good
 as its null on 88--92\% of the 347 programs (175W/145T/27L, seed 42).
 Because the $(k{+}1)$-th candidate can be \texttt{-Oz} itself, the
@@ -306,9 +308,9 @@ BLAS (50) & 37\,099 & 37\,838 & 36\,998 & \textbf{36\,847} & 20 & 2.0 \\
 csmith (28) & 17\,555 & 20\,226 & 17\,179 & \textbf{17\,064} & $>$50 & 18.2 \\
 NPB (120) & 40\,301 & 53\,085 & 40\,822 & \textbf{39\,909} & 11 & 10.0 \\
 POJ-104 (97) & 7\,853 & 8\,334 & 7\,917 & \textbf{7\,730} & 12 & 7.9 \\
-AnghaB. (150) & 4\,049 & 4\,043 & 4\,052 & \textbf{4\,027} & 21 & 1.2 \\
-GitHub (140) & 79\,713 & 80\,661 & 79\,738 & \textbf{79\,676} & 27 & 1.2 \\
-Linux (136) & \textbf{147\,216} & 148\,029 & 147\,278 & 147\,378 & 3 & 0.6 \\
+AnghaB. (150) & 4\,049 & 4\,043 & 4\,052 & \textbf{4\,027} & 17 & 1.1 \\
+GitHub (140) & 79\,713 & 80\,661 & 79\,738 & \textbf{79\,676} & 17 & 1.2 \\
+Linux (136) & \textbf{147\,216} & 148\,029 & 147\,278 & 147\,378 & 2 & 0.6 \\
 llvm-str. (50) & 255 & \textbf{234} & 245 & 240 & 49 & 3.1 \\
 \bottomrule
 \end{tabular}
@@ -413,12 +415,15 @@ strongly predicts relative \texttt{.text} reduction (Pearson
 $r{=}0.78$, $p{=}2.2{\times}10^{-6}$; $n{=}26$ points, \texttt{-Oz}
 and the best random episode for each of 13 programs); below that
 size, fixed code-generation overheads dominate
-and the proxy weakens. The IC gains translate into bytes: across the
+and the proxy weakens ($r{=}0.19$ over all 36 programs). The IC gains
+translate into bytes: across the
 347 paired programs of the original battery, best-of-8 GNN sampling
-produces \texttt{.text} sections 10.6\% smaller than \texttt{-Oz}
-(864\,887 vs.\ 967\,878 bytes; the random null achieves 10.4\%), and
-across all 371 programs of the original battery best-of-8 random
-search alone is 4.0\% below \texttt{-Oz}. The 45-pass sequences also apply \emph{faster} than the
+(seed 123) produces \texttt{.text} sections 10.6\% smaller than \texttt{-Oz}
+(864\,887 vs.\ 967\,878 bytes; a fresh best-of-8 random draw achieves
+10.4\%). On the 24 larger programs (above 6000 instructions) best-of-8
+random search is 12--29\% \emph{above} \texttt{-Oz} in two independent
+draws, so over all 371 programs it lands between 4.0\% below and 0.1\%
+above. The 45-pass sequences also apply \emph{faster} than the
 \texttt{-Oz} pipeline (median 15.0--15.8\,ms vs.\ 19.5\,ms per module).
 Cross-compiling for a Cortex-M target (\texttt{thumbv7m}; an
 approximation, as the IR keeps the x86 host datalayout) makes the
@@ -441,8 +446,10 @@ average (64\,797/69\,748 vs.\ 64\,550/69\,180; one seed improved both
 splits, two regressed). Runtime is not measured. The stack is
 CompilerGym~0.2.5 (LLVM~10), though the mined portfolio ported to
 LLVM~18's new pass manager still beats its \texttt{-Oz} by
-10.6--10.9\% on 314 of 319 programs from five suites ($p{<}10^{-11}$;
-csmith excluded, 20 of 28 fail to port). The GNN costs $\sim$19$\times$
+10.6--10.9\% in summed \texttt{.text} (best of 8 or 16 sequences by
+measured \texttt{.text}) over the 314 of 319 programs from five suites
+that port (169--174 per-program wins vs.\ 83--89 losses,
+$p{<}10^{-11}$; csmith excluded, 20 of 28 fail to port). The GNN costs $\sim$19$\times$
 the flat agent's cost per training step, though open-loop deployment
 cuts inference to one graph pass.
 
