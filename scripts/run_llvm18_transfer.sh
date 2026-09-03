@@ -7,6 +7,6 @@
 set -e
 cd "$(dirname "$0")/.."
 export PATH="/usr/lib/llvm-18/bin:$PATH"
-source /root/venv-cgym/bin/activate
+source "${VENV:-$HOME/venv-cgym}/bin/activate"
 python scripts/llvm18_transfer.py --check-passes
 python scripts/llvm18_transfer.py --out-dir results/llvm18_transfer

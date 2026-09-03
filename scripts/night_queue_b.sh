@@ -1,7 +1,7 @@
 #!/bin/bash
 # Queue B: E1 controls -> E3 open-loop -> E4 portfolio -> ARM metrics.
-cd /mnt/c/everything/projekti/compiler-opt
-P=/root/venv-cgym/bin/python
+cd "$(dirname "$0")/.."
+P="${VENV:-$HOME/venv-cgym}/bin/python"
 ORIG=blas-v0,chstone-v0,csmith-v0,mibench-v1,npb-v0,poj104-v1
 $P scripts/evaluate_policy_battery.py --agent ppo_gnn --untrained --seeds 42 \
   --suites $ORIG >> results/e1a_untrained_log.txt 2>&1
