@@ -109,6 +109,8 @@ def main():
             agent = agent_class(seed=seed)
             try:
                 agent.load_checkpoint(ckpt)
+                if hasattr(agent, "gnn"):
+                    agent.gnn.train()  # sample with dropout active (paper Sec. III)
                 per_bm = {}
                 for uri in uris:
                     name = uri.split("/")[-1]

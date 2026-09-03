@@ -58,12 +58,7 @@ def measure_program(env, uri, action_map, rng, workdir):
     oz_bc = os.path.join(workdir, "oz.bc")
     subprocess.run([os.path.join(LLVM_BIN, "opt"), "-Oz", bc, "-o", oz_bc],
                    check=True, capture_output=True)
-    dis = subprocess.run([os.path.join(LLVM_BIN, "opt"),
-                          "-passes=instcount", "-stats", oz_bc, "-o",
-                          os.devnull], capture_output=True, text=True)
-    # IC of the Oz module via the env observation is not available here;
-    # count instructions with llvm-dis-free method: reuse env by applying
-    # nothing; instead record env's IrInstructionCountOz observation.
+    # The Oz module's IC is the env's IrInstructionCountOz observation.
     env.reset(benchmark=uri)
     rows["oz"] = {"ic": int(env.observation["IrInstructionCountOz"]),
                   "text": text_size(oz_bc, workdir)}

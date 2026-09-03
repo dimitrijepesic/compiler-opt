@@ -222,6 +222,7 @@ def main():
     agent = PPOGNNAgent(seed=args.gnn_seed)
     ckpt = f"results/ppo_gnn/checkpoint_best_seed{args.gnn_seed}.pt"
     agent.load_checkpoint(ckpt)
+    agent.gnn.train()  # sample with dropout active, as in evaluate_policy_battery.py
     env = agent.env  # reuse the agent's env for everything
 
     t_start = time.time()

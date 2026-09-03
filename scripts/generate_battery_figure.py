@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Fig. 2 for the paper: quality vs. compilation budget on the 347-program
+Fig. 1 for the paper: quality vs. compilation budget on the 347-program
 original battery (MiBench, CHStone, BLAS, csmith, NPB, POJ-104), the
 programs with a stored best-of-32 GNN evaluation.
 

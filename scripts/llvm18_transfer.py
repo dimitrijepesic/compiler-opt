@@ -288,6 +288,8 @@ def main():
                 if not result["sequences"]:
                     raise RuntimeError("all sequences failed")
                 first8 = [s for s in result["sequences"] if s["rank"] <= 8]
+                if not first8:
+                    raise RuntimeError("all of the first 8 sequences failed")
                 best8 = min(first8, key=lambda s: s["text"])
                 best16 = min(result["sequences"], key=lambda s: s["text"])
                 result["portfolio_bo8"] = {"text": best8["text"],
