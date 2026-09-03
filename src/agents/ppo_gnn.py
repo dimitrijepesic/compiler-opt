@@ -1,7 +1,7 @@
 """
 PPO + GNN Agent
 Proximal Policy Optimization with GraphSAGE encoder on LLVM IR graphs.
-This is the novel contribution: structural program representation for pass ordering.
+The graph representation is the variable under test in the controlled comparison.
 """
 
 import torch
@@ -265,12 +265,6 @@ class PPOGNNAgent:
         if self.device.type == "cpu":
             return graph
         return graph.clone().to(self.device)
-
-    def _encode_graph(self, graph):
-        """Run GNN encoder on a single graph, return embedding vector."""
-        with torch.no_grad():
-            embedding = self.gnn(self._on_device(graph))
-        return embedding.squeeze(0)  # [output_dim]
 
     def _select_action(self, graph):
         """Sample action from policy given a program graph."""

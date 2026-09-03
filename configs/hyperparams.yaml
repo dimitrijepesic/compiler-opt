@@ -35,10 +35,9 @@ ppo:
 
 gnn:
   num_layers: 3
-  hidden_dim: 128
-  embedding_dim: 64
+  hidden_dim: 128              # also the encoder output width fed to the heads
   aggregation: mean
-  pooling: mean
+  pooling: mean                # documentation only: global mean pooling is fixed in gnn_encoder.py
   dropout: 0.1
   encoder_lr: 1.0e-4           # lower lr for the encoder than the heads
 

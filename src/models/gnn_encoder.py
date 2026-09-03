@@ -1,7 +1,6 @@
 import torch
 import torch.nn as nn
 from torch_geometric.nn import SAGEConv, global_mean_pool
-from torch_geometric.data import Data, Batch
 
 
 class GNNEncoder(nn.Module):
@@ -86,7 +85,3 @@ class GNNEncoder(nn.Module):
         embedding = self.output_proj(x)
 
         return embedding
-
-    @staticmethod
-    def batch_graphs(graph_list):
-        return Batch.from_data_list(graph_list)

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 Step 5: Train PPO + GNN Agent
-Trains the novel RL agent with GraphSAGE encoder on program graphs.
+Trains the PPO agent with the GraphSAGE encoder on program graphs.
 """
 
 import sys

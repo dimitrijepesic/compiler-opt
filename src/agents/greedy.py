@@ -1,8 +1,12 @@
 from .base_agent import OptimizerAgent
-import sys
 
 
 class GreedyAgent(OptimizerAgent):
+    """Demo greedy search used by scripts/demo_runner.py only, capped at
+    `steps` iterations. The paper's reference greedy search
+    (results/full_baselines_v2.json) has no step cap: it tries every pass
+    at every step and stops only when none improves."""
+
     def train(self, steps=15):
         print(f"-- running greedy agent on {self.env.benchmark}")
         self.env.reset()
