@@ -39,6 +39,7 @@ GRID = "#e1e0d9"
 SURFACE = "#ffffff"
 
 plt.rcParams.update({
+    "pdf.fonttype": 42, "ps.fonttype": 42,  # TrueType, not Type 3 (IEEE PDF eXpress)
     "figure.facecolor": SURFACE, "axes.facecolor": SURFACE,
     "savefig.facecolor": SURFACE, "axes.edgecolor": "#c3c2b7",
     "axes.labelcolor": INK, "text.color": INK,
