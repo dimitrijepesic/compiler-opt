@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Reproducibility check for every headline number in paper/telfor_paper.tex.
+Reproducibility check for every headline number in paper/telfor_paper.tex
+(tables, and the numbers quoted in the running text: prose_claims()).
 
 Recomputes each figure from the raw JSON in results/ (independently of
 compute_stats.py's printed output, though it reuses its loaders) and
@@ -16,6 +17,7 @@ import json
 import os
 import sys
 
+import numpy as np
 from scipy import stats
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
@@ -401,6 +403,358 @@ def gnn_cost():
     check("GNN/AP wall-clock max seed ratio", 23, max(ratios), tol=0.1)
 
 
+# ------------------------------------------------------------ prose claims
+def _median_seed(totals):
+    """The seed whose total is the median of the three (compute_stats)."""
+    return sorted(totals, key=totals.get)[len(totals) // 2]
+
+
+def _battery_pairs(agent, eps):
+    """suite -> seed -> list of (agent best-of-8, null best-of-8, record).
+    Same convention as compute_stats._pair: on the four added sources the
+    GNN stores 16 samples and the first 8 are used."""
+    out = {}
+    for (suite, seed), rows in cs.battery_records(agent).items():
+        out.setdefault(suite, {})[seed] = [
+            cs._pair(agent, suite, r, eps) + (r,) for r in rows]
+    return out
+
+
+ORIG6 = ["mibench-v1", "chstone-v0", "blas-v0", "csmith-v0", "npb-v0",
+         "poj104-v1"]
+
+
+def prose_claims():
+    import re
+    eps = cs.load_battery_episodes()
+    rows = [r for agg in sorted(glob.glob("results/battery/*/_aggregate.json"))
+            for r in json.load(open(agg))["benchmarks"]]
+
+    # ---- Sec. IV-A -----------------------------------------------------
+    npb = json.load(open("results/battery/npb-v0/_aggregate.json"))["benchmarks"]
+    oz = sum(r["oz"] for r in npb)
+    single = sum(r["random_reduced_policy"]["mean"] for r in npb)
+    check("NPB single random episodes below -Oz %", 11.5,
+          (oz - single) / oz * 100, tol=0.02)
+    ep = [(ic, r["oz"]) for r in npb for ic in r["random_reduced_episode_ics"]]
+    check("NPB share of single episodes beating -Oz %", 32,
+          100 * sum(ic < z for ic, z in ep) / len(ep), tol=0.02)
+    small = [r for r in rows if r["o0"] < 500]
+    check("-O3 above -O0 on programs under 500 IC %", 6,
+          100 * sum(r["o3"] > r["o0"] for r in small) / len(small), tol=0.1)
+    gh = json.load(open("results/battery/github-v0/_aggregate.json"))["totals"]
+    check("GitHub: -Oz removes % of -O0 IC", 0.14,
+          (gh["o0"] - gh["oz"]) / gh["o0"] * 100, tol=0.05)
+    check("programs up to 6000 IC (eligible)", 831,
+          sum(r["o0"] <= 6000 for r in rows), tol=0)
+    import yaml
+    passes = yaml.safe_load(open("configs/passes.yaml"))
+    check("36-pass space: passes improving none", 88,
+          passes["total_original"] - len(passes["passes"]), tol=0)
+
+    # ---- Sec. IV-B -----------------------------------------------------
+    gnn = _battery_pairs("ppo_gnn", eps)
+    ap = _battery_pairs("ppo_autophase", eps)
+    npb_arg = {s: sum(p[2]["argmax_ic"] for p in ps) for s, ps in gnn["npb-v0"].items()}
+    check("NPB GNN argmax total (median seed)", 79686,
+          npb_arg[_median_seed(npb_arg)], tol=0)
+
+    def median_seed_p(pairs, cb_agent):
+        per = {}
+        for suite, seeds in pairs.items():
+            per[suite] = {s: ([p[0] for p in ps], [p[1] for p in ps])
+                          for s, ps in seeds.items()}
+        for (unit, seed), rs in cs.cbench_records(cb_agent).items():
+            a, z = per.setdefault("cbench", {}).setdefault(seed, ([], []))
+            a.extend(r["best_of_k_ic"] for r in rs)
+            z.extend(r["random_best_of_k_ic"] for r in rs)
+        out = {}
+        for suite, seeds in per.items():
+            med = _median_seed({s: sum(a) for s, (a, z) in seeds.items()})
+            a, z = seeds[med]
+            out[suite] = stats.wilcoxon(a, z, alternative="less").pvalue
+        return out
+    p_gnn = median_seed_p(gnn, "ppo_gnn")
+    p_ap = median_seed_p(ap, "ppo_autophase")
+    sig = {s: p for s, p in p_gnn.items() if p < 0.05}
+    check("GNN sources significant (median seed, of 11)", 10, len(sig), tol=0)
+    check("GNN largest significant p (MiBench)", 0.025, max(sig.values()), tol=0.05)
+    check("GNN largest significant p is MiBench", "mibench-v1",
+          max(sig, key=sig.get))
+    check("GNN non-significant source is Linux", "linux-v0",
+          [s for s in p_gnn if s not in sig][0])
+    check("Autophase sources significant (of 11)", 5,
+          sum(p < 0.05 for p in p_ap.values()), tol=0)
+
+    def seed_p(ps):
+        return stats.wilcoxon([p[0] for p in ps], [p[1] for p in ps],
+                              alternative="less").pvalue
+    lin = gnn["linux-v0"]
+    check("Linux: GNN seeds with per-program p >= 0.24", 2,
+          sum(seed_p(ps) >= 0.24 for ps in lin.values()), tol=0)
+    slice_b = sum(
+        sum(min(p[2]["sample_ics"][8:16]) for p in ps)
+        < sum(min(eps[("linux-v0", p[2]["uri"])][8:16]) for p in ps)
+        for ps in lin.values())
+    check("Linux: second-slice wins (of 3)", 0, slice_b, tol=0)
+    git = gnn["github-v0"]
+    losses = [sum(p[0] for p in ps) - sum(p[1] for p in ps)
+              for ps in git.values()]
+    check("GitHub: seeds losing the summed IC", 1, sum(d > 0 for d in losses), tol=0)
+    check("GitHub: losing margin (IC)", 17, max(losses), tol=0)
+    check("GitHub: all seeds p <= 2e-3", True,
+          bool(max(seed_p(ps) for ps in git.values()) <= 2e-3))
+
+    # margin over the null on the original battery (Table II medians)
+    margins = []
+    for suite in ORIG6:
+        tot = {s: sum(p[0] for p in ps) for s, ps in gnn[suite].items()}
+        med = _median_seed(tot)
+        null = sum(p[1] for p in gnn[suite][med])
+        margins.append((null - tot[med]) / null * 100)
+    check("margin over null, original battery, min %", "0.7", f"{min(margins):.1f}")
+    check("margin over null, original battery, max %", "2.8", f"{max(margins):.1f}")
+    cs_tot = {s: sum(p[0] for p in ps) for s, ps in gnn["csmith-v0"].items()}
+    med = _median_seed(cs_tot)
+    cs_oz = sum(p[2]["oz"] for p in gnn["csmith-v0"][med])
+    check("csmith: sampled GNN below -Oz %", 16,
+          (cs_oz - cs_tot[med]) / cs_oz * 100, tol=0.05)
+
+    # iso-k and safe% (Table II), median over seeds / median seed by gain
+    iso_expected = {"mibench-v1": 23, "chstone-v0": 32, "blas-v0": 20,
+                    "csmith-v0": ">50", "npb-v0": 11, "poj104-v1": 12,
+                    "anghabench-v1": 17, "github-v0": 17, "linux-v0": 2,
+                    "llvm-stress-v0": 49}
+    safe_expected = {"mibench-v1": "1.8", "chstone-v0": "7.3", "blas-v0": "2.0",
+                     "csmith-v0": "18.2", "npb-v0": "10.0", "poj104-v1": "7.9",
+                     "anghabench-v1": "1.1", "github-v0": "1.2",
+                     "linux-v0": "0.6", "llvm-stress-v0": "3.1"}
+    iso_all = {}
+    for suite, seeds in gnn.items():
+        per_seed = {}
+        for s, ps in seeds.items():
+            best = sum(p[0] for p in ps)
+            per_seed[s] = next(
+                (k for k in range(1, 51)
+                 if sum(min(eps[(suite, p[2]["uri"])][:k]) for p in ps) <= best),
+                51)
+        iso_all[suite] = per_seed
+        med = sorted(per_seed.values())[1]
+        check(f"Table II iso-k {suite}", iso_expected[suite],
+              ">50" if med > 50 else med, tol=0)
+        gains = {s: 100 * sum((p[2]["oz"] - min(p[0], p[2]["oz"])) / p[2]["oz"]
+                              for p in ps) / len(ps) for s, ps in seeds.items()}
+        med_gain = gains[_median_seed(gains)]
+        check(f"Table II safe% {suite}", safe_expected[suite], f"{med_gain:.1f}")
+    check("csmith: seeds matched within 50 episodes", 1,
+          sum(v <= 50 for v in iso_all["csmith-v0"].values()), tol=0)
+    cb_iso = json.load(open("results/reframe_stats_ppo_gnn.json"))["iso_k"]["cbench"]
+    check("cBench: seeds matched within 50 episodes", 0,
+          sum(v is not None for v in cb_iso.values()), tol=0)
+    eight = [v for s, v in iso_expected.items()
+             if s not in ("csmith-v0", "linux-v0")]
+    check("iso-k range on the eight sources, min", 11, min(eight), tol=0)
+    check("iso-k range on the eight sources, max", 49, max(eight), tol=0)
+
+    # per-program W/T/L on the original 347 (seed 42) and the 88-92% range
+    shares = {}
+    for s in ("42", "123", "456"):
+        w = t = l = 0
+        for suite in ORIG6:
+            for a, z, _ in gnn[suite][s]:
+                w += a < z
+                t += a == z
+                l += a > z
+        shares[s] = (w, t, l)
+    check("W/T/L vs null, original 347, seed 42", [175, 145, 27], list(shares["42"]))
+    good = [100 * (w + t) / (w + t + l) for w, t, l in shares.values()]
+    check("at least as good as null, min %", 88, min(good), tol=0.01)
+    check("at least as good as null, max %", 92, max(good), tol=0.01)
+
+    # k=32 rerun on NPB: prefix-8 and four disjoint eight-sample slices
+    k32 = {}
+    for path in sorted(glob.glob("results/battery_policy_k32/npb-v0/ppo_gnn_seed*/*.json")):
+        seed = path.replace("\\", "/").split("/")[-2].split("seed")[-1]
+        k32.setdefault(seed, []).append(json.load(open(path)))
+    prefix_wins = slice_wins = slices_sig = prefix_sig = 0
+    for seed, rs in k32.items():
+        for i in range(4):
+            a = [min(r["sample_ics"][8 * i: 8 * i + 8]) for r in rs]
+            z = [min(eps[("npb-v0", r["uri"])][8 * i: 8 * i + 8]) for r in rs]
+            p = stats.wilcoxon(a, z, alternative="less").pvalue
+            slice_wins += sum(a) < sum(z)
+            slices_sig += p < 0.05
+            if i == 0:
+                prefix_wins += sum(a) < sum(z)
+                prefix_sig += p < 1e-3
+    check("NPB k=32: seeds reproducing the suite-total win", 1, prefix_wins, tol=0)
+    check("NPB k=32: slices flipping the total (of 12)", 7, 12 - slice_wins, tol=0)
+    check("NPB k=32: slices with p<0.05 (of 12)", 12, slices_sig, tol=0)
+    check("NPB k=32: first-eight p<1e-3 (of 3 seeds)", 3, prefix_sig, tol=0)
+
+    # cBench k=8 vs greedy; budgets
+    fe = json.load(open("results/final_evaluation.json"))["splits"]
+    greedy = sum(sum(fe[s]["method_ics"]["greedy"]) for s in ("validation", "test"))
+    samp = json.load(open("results/sampling_evaluation.json"))["summary"]["ppo_gnn"]
+    gaps = [100 * ((samp[f"validation_seed{s}"]["best_of_k_total"]
+                    + samp[f"test_seed{s}"]["best_of_k_total"]) / greedy - 1)
+            for s in ("42", "123", "456")]
+    check("cBench k=8 GNN vs greedy, min gap %", 0.06, min(gaps), tol=0.1)
+    check("cBench k=8 GNN vs greedy, max gap %", 0.35, max(gaps), tol=0.05)
+    check("cBench k=8 GNN within 0.4% of greedy", True, bool(max(gaps) < 0.4))
+    cb = json.load(open("results/full_baselines_v2.json"))["baselines"]
+    steps = [len(b["greedy_actions"]) for b in cb if b["split"] in ("validation", "test")]
+    comp = (sum(steps) / len(steps) + 1) * 124
+    check("greedy compilations per cBench program", 1970, comp, tol=0.01)
+    check("k=32 budget as % of greedy", 73, 32 * 45 / comp * 100, tol=0.01)
+    check("k=8 budget as % of greedy (README ~18%)", 18, 8 * 45 / comp * 100, tol=0.03)
+    k32c = json.load(open("results/sampling_evaluation_k32.json"))
+    null32 = sum(k32c["random_null"].values())
+    ap32 = [k32c["summary"]["ppo_autophase"][f"validation_seed{s}"]["best_of_k_total"]
+            + k32c["summary"]["ppo_autophase"][f"test_seed{s}"]["best_of_k_total"]
+            for s in ("42", "123", "456")]
+    check("k=32 Autophase seeds surpassing greedy", 1, sum(v < greedy for v in ap32), tol=0)
+    check("k=32 Autophase seeds trailing the null", 2, sum(v > null32 for v in ap32), tol=0)
+    check("argmax Wilcoxon AP vs GNN, validation p", 0.625,
+          fe["validation"]["wilcoxon_ap_vs_gnn"]["p_value"], tol=0.01)
+    check("argmax Wilcoxon AP vs GNN, test p", 0.875,
+          fe["test"]["wilcoxon_ap_vs_gnn"]["p_value"], tol=0.01)
+
+    # ---- Sec. IV-C: controls (seed 42, original six suites) ------------
+    def load(var, suite, seed=42):
+        return {json.load(open(p))["uri"]: json.load(open(p)) for p in glob.glob(
+            f"results/battery_policy/{suite}/{var}_seed{seed}/*.json")}
+    ps_untr, ps_nd, gains_ol, wtl = [], [], {}, [0, 0, 0]
+    for suite in ORIG6:
+        base = load("ppo_gnn", suite)
+        for var, sink in (("ppo_gnn_untrained", ps_untr), ("ppo_gnn_nodropout", ps_nd)):
+            d = load(var, suite)
+            sink.append(stats.wilcoxon([r["best_of_k_ic"] for r in d.values()],
+                                       [r["random_null_best_of_k"] for r in d.values()],
+                                       alternative="less").pvalue)
+        nd = load("ppo_gnn_nodropout", suite)
+        for u in nd:
+            a, b = nd[u]["best_of_k_ic"], base[u]["best_of_k_ic"]
+            wtl[0 if a < b else 1 if a == b else 2] += 1
+        ol = load("ppo_gnn_openloop", suite)
+        null = sum(r["random_null_best_of_k"] for r in base.values())
+        closed = null - sum(r["best_of_k_ic"] for r in base.values())
+        gains_ol[suite] = (null - sum(r["best_of_k_ic"] for r in ol.values())) / closed
+    check("untrained: min one-sided p >= 0.12", True, bool(min(ps_untr) >= 0.12))
+    check("no-dropout: largest one-sided p", 0.016, max(ps_nd), tol=0.05)
+    check("no-dropout vs dropout W/T/L", [58, 226, 63], wtl)
+    easy = [gains_ol[s] for s in ("mibench-v1", "blas-v0", "chstone-v0")]
+    check("open-loop share of closed-loop gain, min (CHStone)", 0.90, min(easy), tol=0.02)
+    check("open-loop share of closed-loop gain, max (MiBench)", 1.41, max(easy), tol=0.02)
+    check("open-loop loses on NPB and POJ-104", True,
+          bool(gains_ol["npb-v0"] < 0 and gains_ol["poj104-v1"] < 0))
+    tot = {v: sum(json.load(open(p))["best_of_k_ic"] for s in ORIG6 for p in glob.glob(
+        f"results/battery_policy/{s}/{v}_seed42/*.json"))
+           for v in ("ppo_gnn", "ppo_gnn_openloop")}
+    null8 = sum(json.load(open(p))["random_null_best_of_k"] for s in ORIG6 for p in glob.glob(
+        f"results/battery_policy/{s}/ppo_gnn_seed42/*.json"))
+    check("open-loop share of the gain overall", 0.35,
+          (null8 - tot["ppo_gnn_openloop"]) / (null8 - tot["ppo_gnn"]), tol=0.05)
+    port_p, port_wins = [], 0
+    csmith_p = None
+    for suite in ORIG6:
+        port = {json.load(open(p))["uri"]: json.load(open(p)) for p in glob.glob(
+            f"results/portfolio_eval/{suite}/portfolio_seed0/*.json")}
+        base = load("ppo_gnn", suite)
+        a = [port[u]["best_of_8_ic"] for u in base]
+        b = [base[u]["best_of_k_ic"] for u in base]
+        port_wins += sum(a) < sum(port[u]["random_null_best_of_8"] for u in base)
+        if suite in ("mibench-v1", "blas-v0", "chstone-v0"):
+            port_p.append(stats.wilcoxon(a, b, alternative="less").pvalue)
+        if suite == "csmith-v0":
+            per = {}
+            for seed in (42, 123, 456):
+                for u, r in load("ppo_gnn", suite, seed).items():
+                    per.setdefault(u, []).append(r["best_of_k_ic"])
+            csmith_p = stats.wilcoxon([float(np.median(per[u])) for u in per],
+                                      [port[u]["best_of_8_ic"] for u in per],
+                                      alternative="less").pvalue
+    check("portfolio-8 beats the null on suites (of 6)", 5, port_wins, tol=0)
+    check("portfolio-8 < GNN on MiBench/BLAS/CHStone, largest p", 0.006,
+          max(port_p), tol=0.1)
+    check("csmith: GNN (median seeds) < portfolio-8 p", 0.004, csmith_p, tol=0.1)
+
+    # ---- Sec. IV-D: plateau timing and pretraining data -----------------
+    fracs = []
+    for seed in (42, 123, 456):
+        steps, first = 0, None
+        for line in open(f"results/train_gnn_seed{seed}_log.txt", errors="ignore"):
+            m = re.search(r"Steps:\s+(\d+)/(\d+)", line)
+            if m:
+                steps, budget = int(m.group(1)), int(m.group(2))
+            if first is None and re.search(r"VAL \| Total IC: 689\b", line):
+                first = steps
+        fracs.append(100 * first / budget)
+    check("GNN plateau reached, earliest % of budget", 10, int(min(fracs)), tol=0)
+    check("GNN plateau reached, latest % of budget", 17, -(-max(fracs) // 1), tol=0)
+    pre = json.load(open("results/gnn_pretrained/pretrain_log.json"))
+    check("pretraining states", 2430, pre["num_samples"], tol=0)
+    check("pretraining program cap (IC)", 20000, pre["config"]["max_ic"], tol=0)
+
+    # ---- Sec. IV-E: binary metrics ---------------------------------------
+    anchor = json.load(open("results/text_size_anchor.json"))
+    check("Pearson r over all 36 programs", 0.19, anchor["pearson_r"], tol=0.05)
+    check("Pearson n (all programs)", 36, anchor["n_programs"], tol=0)
+    x86 = json.load(open("results/binary_metrics/_aggregate.json"))
+    arm = json.load(open("results/binary_metrics_arm/_aggregate.json"))
+    for k in ("o0", "oz", "rnd_bo8", "gnn_bo8"):
+        d = x86["summary"][k]
+        check(f"footprint: .text share of {k} < 0.1%", True,
+              bool(100 * d["text_total"] / d["footprint_total"] < 0.1))
+    s = x86["summary"]
+    check("footprint: -Oz vs random delta < 0.03%", True,
+          bool(abs(s["oz"]["footprint_total"] - s["rnd_bo8"]["footprint_total"])
+               / s["oz"]["footprint_total"] * 100 < 0.03))
+    pa = {p["uri"]: p for p in x86["programs"]}
+    pb = {p["uri"]: p for p in arm["programs"]}
+    big = [u for u in pa if "gnn_bo8" not in pa[u]]
+    check("programs above 6000 IC in the binary battery", 24, len(big), tol=0)
+    check("large programs all above 6000 IC", True,
+          bool(min(pa[u]["o0"]["ic"] for u in big) > 6000))
+    oz_big = sum(pa[u]["oz"]["text"] for u in big)
+    draws = [100 * (sum(d[u]["rnd_bo8"]["text"] for u in big) / oz_big - 1)
+             for d in (pa, pb)]
+    check("large 24: random best-of-8 above -Oz, draw min %", 12, min(draws), tol=0.05)
+    check("large 24: random best-of-8 above -Oz, draw max %", 29, max(draws), tol=0.05)
+    oz_all = sum(pa[u]["oz"]["text"] for u in pa)
+    all_draws = [100 * (1 - sum(d[u]["rnd_bo8"]["text"] for u in pa) / oz_all)
+                 for d in (pa, pb)]
+    check("all 371: random best-of-8 below -Oz, draw 1 %", 4.0, max(all_draws), tol=0.02)
+    check("all 371: random best-of-8 above -Oz, draw 2 %", "0.1",
+          f"{-min(all_draws):.1f}")
+    check("GNN x86 .text identical across the two runs", True,
+          bool(all(pa[u]["gnn_bo8"]["text"] == pb[u]["gnn_bo8"]["text"]
+                   for u in pa if u not in big)))
+
+    # ---- Sec. V: LLVM 18 transfer (csmith excluded) ---------------------
+    recs = [json.load(open(p)) for p in glob.glob("results/llvm18_transfer/*/*.json")]
+    five = [r for r in recs if r["suite"] != "csmith-v0"]
+    check("LLVM 18: programs that port (csmith excluded)", 314, len(five), tol=0)
+    attempted = sum(len(glob.glob(f"results/battery_policy/{s}/ppo_gnn_seed42/*.json"))
+                    for s in ORIG6 if s != "csmith-v0")
+    check("LLVM 18: programs attempted (five suites)", 319, attempted, tol=0)
+    check("LLVM 18: csmith programs that port (of 28)", 8,
+          sum(r["suite"] == "csmith-v0" for r in recs), tol=0)
+    oz18 = sum(r["oz"]["text"] for r in five)
+    for key, pct, wins, losses in (("portfolio_bo8", 10.6, 169, 89),
+                                   ("portfolio_bo16", 10.9, 174, 83)):
+        a = [r[key]["text"] for r in five]
+        z = [r["oz"]["text"] for r in five]
+        check(f"LLVM 18 {key} below -Oz %", pct, 100 * (1 - sum(a) / oz18), tol=0.01)
+        check(f"LLVM 18 {key} per-program wins", wins, sum(x < y for x, y in zip(a, z)), tol=0)
+        check(f"LLVM 18 {key} per-program losses", losses, sum(x > y for x, y in zip(a, z)), tol=0)
+        check(f"LLVM 18 {key} one-sided p < 1e-11", True,
+              bool(stats.wilcoxon(a, z, alternative="less").pvalue < 1e-11))
+    check("LLVM 18 approximated passes", 3,
+          len(json.load(open("results/llvm18_transfer/_aggregate.json"))["approximated_passes"]),
+          tol=0)
+
+
 def main():
     table_i()
     table_ii()
@@ -412,6 +766,7 @@ def main():
     pretraining()
     mixed_arm()
     gnn_cost()
+    prose_claims()
 
     n_fail = sum(1 for ok, *_ in CHECKS if not ok)
     for ok, name, exp, act, unit in CHECKS:

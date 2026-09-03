@@ -27,6 +27,7 @@ def _collect():
     vpn.pretraining()
     vpn.mixed_arm()
     vpn.gnn_cost()
+    vpn.prose_claims()
     return list(vpn.CHECKS)
 
 
