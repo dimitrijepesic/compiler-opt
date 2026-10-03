@@ -1,0 +1,9 @@
+.git
+.venv*
+venv
+env
+tmp
+results
+data
+paper
+__pycache__
