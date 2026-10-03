@@ -1,0 +1,29 @@
+{
+  "written": "2026-09-19",
+  "host": {
+    "system": "macOS-26.6.2-arm64-arm-64bit",
+    "machine": "arm64"
+  },
+  "colima": [
+    "colima version 0.10.3"
+  ],
+  "docker_server": "29.5.2 linux/arm64",
+  "images": {
+    "cgym-causal:0.2.5": "sha256:28ff3e36663fc70aebd6b021fee5dc107d5d6f36dfe7e7dc8933eaadfa697b81",
+    "cgym:0.2.5": "sha256:33efcd5bd799993eb32bae1f67d6c35898a4898ced9813d107b2c840d89ec76f"
+  },
+  "container": {
+    "name": "causal-audit",
+    "platform": "linux/amd64 (Rosetta)",
+    "run": "docker run -d --name causal-audit --platform linux/amd64 -v cgym-share:/root/.local/share/compiler_gym -v cgym-cache:/root/.cache/compiler_gym -v <repo>:/work -w /work -e PYTHONWARNINGS=ignore cgym-causal:0.2.5 sleep infinity"
+  },
+  "llvm_archive": {
+    "file": "clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz",
+    "url": "https://github.com/llvm/llvm-project/releases/download/llvmorg-10.0.0/clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz",
+    "sha256": "b25f592a0c00686f03e3b7db68ca6dc87418f681f4ead4df4745a01d9be63843"
+  },
+  "images_superseded": {
+    "cgym-causal:0.2.5 (pilot attempt 1, marking replaced existing loop ids)": "sha256:3b4dbfadf8e52fb322012add4dc5f78f224320a64d1b7328cdac54ce70a9fcbb"
+  },
+  "replica_oz_sha256": "49bcccdb1848cc99ef7b8f43482b04e2afb0df9b797d1b1754fe289d06572d30"
+}

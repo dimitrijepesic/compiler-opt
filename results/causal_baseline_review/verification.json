@@ -1,0 +1,56 @@
+{
+  "scope": "Independent saved-record, arithmetic, local-manifest and example-artifact verification; no new compiler executions.",
+  "records": 120,
+  "local_manifest_files_checked": 8,
+  "totals": {
+    "ic": {
+      "P": 53085,
+      "U": 40525,
+      "A": 40446,
+      "AU": 40446
+    },
+    "text_sec": {
+      "P": 291616,
+      "U": 234913,
+      "A": 214296,
+      "AU": 214296
+    },
+    "text": {
+      "P": 348878,
+      "U": 290559,
+      "A": 267814,
+      "AU": 267814
+    }
+  },
+  "controls": {
+    "ic": {
+      "plain_oz_late_attr": 53085,
+      "plain_marked_oz_late_attr": 40525,
+      "attr_oz_stripped": 40446
+    },
+    "text_sec": {
+      "plain_oz_late_attr": 276714,
+      "plain_marked_oz_late_attr": 214511,
+      "attr_oz_stripped": 234572
+    },
+    "text": {
+      "plain_oz_late_attr": 331832,
+      "plain_marked_oz_late_attr": 267989,
+      "attr_oz_stripped": 290258
+    }
+  },
+  "programs_with_unrolling": 43,
+  "unroll_remarks": 449,
+  "same_ir_without_size_attrs": 114,
+  "nonunroll_ic_residual_programs": [
+    "benchmark://npb-v0/29",
+    "benchmark://npb-v0/4",
+    "benchmark://npb-v0/66",
+    "benchmark://npb-v0/61",
+    "benchmark://npb-v0/3"
+  ],
+  "ic_difference_on_unrolled_programs": 12560,
+  "codegen_on_U_saved_bytes": 20402,
+  "U_late_attrs_minus_A_bytes": 215,
+  "example_artifact_hashes_checked": 74
+}

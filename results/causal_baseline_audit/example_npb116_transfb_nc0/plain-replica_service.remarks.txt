@@ -1,0 +1,2 @@
+remark	loop-unroll	FullyUnrolled	transfb_nc0	completely unrolled loop with 4 iterations
+remark	loop-unroll	FullyUnrolled	transfb_nc0	completely unrolled loop with 6 iterations

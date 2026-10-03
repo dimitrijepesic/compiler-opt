@@ -1,0 +1,632 @@
+{
+  "schema": 1,
+  "uri": "benchmark://npb-v0/30",
+  "suite": "npb-v0",
+  "stage": "campaign",
+  "fingerprint": "e4e3de934419e4f0316cf3931d97861629db7531f50fe7ff11ff2f0823ec50f6",
+  "reference": {
+    "o0": 3802,
+    "oz": 1831,
+    "canonical_record": "results/baseline_audit/llvm10_canonical/records/8890c13f15bd3fe95b70eb45dd9df5b0362b38cbc226507e8ed9244d50ec5d06.json",
+    "canonical_record_sha256": "6a9e1a34aee07c1c3566a7500e6c7f0760f8bc49cd5b3869e0729f7c9c9ec088",
+    "plain": {
+      "input_sha256": "434419a75861752dc9f2068945b409e4eebbebdca81ea1a64e438ff89da44953",
+      "ir_sha256": "cbb3d439d1cc201bf61db8caf787a5affbc321862922a2543ee8ea64288f5653",
+      "oz": {
+        "ic": 1831,
+        "text": 11500,
+        "text_sec": 9108,
+        "bitcode_sha256": "c9df2e39dd17f03283c9249e19ce41a1dc51b1215653ea42f7faaba0d1de19ef",
+        "object_sha256": "3f384a9d1f3a7c2408ad3374b1f71685dfa9572e389119aa3f5a58947c606f91"
+      }
+    },
+    "attr": {
+      "input_sha256": "f6c1892f33d66bbbb19c9476fa542081213bb88c3c4fa245bd3a27070753d246",
+      "ir_sha256": "967430afde1b0a21a9e792025e03b070035087956c7b69f5f9b525137a3885a6",
+      "oz": {
+        "ic": 1831,
+        "text": 10523,
+        "text_sec": 8131,
+        "bitcode_sha256": "bf16484ffde1b6a0edf274ae7f7eca9b5031ccfec7f44946236f04786d91bcf5",
+        "object_sha256": "1f2734e84383a479972526a1fd57de890ead7c67ed7b20d6e1b7a323fc6fd677"
+      }
+    }
+  },
+  "checks": {
+    "environment_matches_reference": true,
+    "plain_input_ir_matches_canonical": true,
+    "plain_marking_changed_only_loop_metadata": true,
+    "plain_input_ic_is_o0": true,
+    "plain/service_original_load_ir_identical": true,
+    "plain/service_original_export_ic_is_observation": true,
+    "plain/service_marked_load_ir_identical": true,
+    "plain/service_marked_export_ic_is_observation": true,
+    "plain/service_original_ic_matches_canonical": true,
+    "plain/service_original_text_matches_canonical": true,
+    "plain/service_original_text_sec_matches_canonical": true,
+    "plain/replica_service_reproduces_service_ir": true,
+    "plain/replica_service_reproduces_service_metrics": true,
+    "plain/replica_service_marked_reproduces_service_ir": true,
+    "plain/replica_service_marked_reproduces_service_metrics": true,
+    "plain/marked_no_unroll_remarks": true,
+    "plain/disable_unroll_no_unroll_remarks": true,
+    "plain/threshold0_no_unroll_remarks": true,
+    "attr_input_ir_matches_canonical": true,
+    "attr_marking_changed_only_loop_metadata": true,
+    "attr_input_ic_is_o0": true,
+    "attr/service_original_load_ir_identical": true,
+    "attr/service_original_export_ic_is_observation": true,
+    "attr/service_marked_load_ir_identical": true,
+    "attr/service_marked_export_ic_is_observation": true,
+    "attr/service_original_ic_matches_canonical": true,
+    "attr/service_original_text_matches_canonical": true,
+    "attr/service_original_text_sec_matches_canonical": true,
+    "attr/replica_service_reproduces_service_ir": true,
+    "attr/replica_service_reproduces_service_metrics": true,
+    "attr/replica_service_marked_reproduces_service_ir": true,
+    "attr/replica_service_marked_reproduces_service_metrics": true,
+    "attr/marked_no_unroll_remarks": true,
+    "attr/disable_unroll_no_unroll_remarks": true,
+    "control/plain_oz_late_attr_ic_unchanged": true,
+    "control/plain_oz_late_attr_ir_identical_modulo_size_attrs": true,
+    "control/plain_oz_late_attr_attribute_state": true,
+    "control/plain_marked_oz_late_attr_ic_unchanged": true,
+    "control/plain_marked_oz_late_attr_ir_identical_modulo_size_attrs": true,
+    "control/plain_marked_oz_late_attr_attribute_state": true,
+    "control/attr_oz_stripped_ic_unchanged": true,
+    "control/attr_oz_stripped_ir_identical_modulo_size_attrs": true,
+    "control/attr_oz_stripped_attribute_state": true,
+    "attr_original_all_definitions_sized": true,
+    "plain_original_no_definition_sized": true
+  },
+  "soft": {
+    "plain_input_bitcode_matches_canonical": true,
+    "plain/service_original_bitcode_sha256_matches_canonical": true,
+    "plain/service_original_object_sha256_matches_canonical": true,
+    "plain/replica_service_reproduces_service_bitcode": false,
+    "plain/replica_service_reproduces_service_object": true,
+    "plain/replica_service_marked_reproduces_service_bitcode": false,
+    "plain/replica_service_marked_reproduces_service_object": true,
+    "plain/replica_disable_unroll_ir_equals_marked_modulo_loop_metadata": true,
+    "plain/replica_disable_unroll_metrics_equal_marked": true,
+    "plain/replica_threshold0_ir_equals_marked_modulo_loop_metadata": true,
+    "plain/replica_threshold0_metrics_equal_marked": true,
+    "attr_input_bitcode_matches_canonical": true,
+    "attr/service_original_bitcode_sha256_matches_canonical": true,
+    "attr/service_original_object_sha256_matches_canonical": true,
+    "attr/replica_service_reproduces_service_bitcode": false,
+    "attr/replica_service_reproduces_service_object": true,
+    "attr/replica_service_marked_reproduces_service_bitcode": false,
+    "attr/replica_service_marked_reproduces_service_object": true,
+    "attr/replica_disable_unroll_ir_equals_marked_modulo_loop_metadata": true,
+    "attr/replica_disable_unroll_metrics_equal_marked": true,
+    "attr/replica_threshold0_ir_equals_marked_modulo_loop_metadata": true,
+    "attr/replica_threshold0_metrics_equal_marked": true,
+    "plain_marked_ir_equals_attr_original_modulo_size_attrs": false,
+    "plain_marked_ir_equals_attr_marked_modulo_size_attrs": false,
+    "attr_marked_ir_equals_attr_original_modulo_loop_metadata": true
+  },
+  "environment": {
+    "o0": 3802,
+    "oz": 1831
+  },
+  "attribute_info": {
+    "definitions": 17,
+    "verified_size_definitions": 17
+  },
+  "inputs": {
+    "plain": {
+      "sha256": "434419a75861752dc9f2068945b409e4eebbebdca81ea1a64e438ff89da44953",
+      "ir_sha256": "cbb3d439d1cc201bf61db8caf787a5affbc321862922a2543ee8ea64288f5653",
+      "ic": 3802,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 0
+      },
+      "metadata_nodes": 0
+    },
+    "plain_marked": {
+      "sha256": "cf3470201bb04a60bb440afdadb581456e99c42d8ea5f164449aead698acf1ca",
+      "ir_sha256": "ad64095348ea0815aba17d7e7ed07cd929fbd978674c79d181245dc4e44c7946",
+      "ic": 3802,
+      "marked_loops": 32,
+      "preexisting_loop_ids": 0,
+      "loop_attachments": 32
+    },
+    "attr": {
+      "sha256": "f6c1892f33d66bbbb19c9476fa542081213bb88c3c4fa245bd3a27070753d246",
+      "ir_sha256": "967430afde1b0a21a9e792025e03b070035087956c7b69f5f9b525137a3885a6",
+      "ic": 3802,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 17
+      },
+      "metadata_nodes": 0
+    },
+    "attr_marked": {
+      "sha256": "28e03bfa3d8f16c37c666759e1b41faaaf6cb32fa0537b47166c5daf16375cc2",
+      "ir_sha256": "a12ef3037c138e13ed05f2878bc48c121fb1f886cddb396c0c19af11ef617529",
+      "ic": 3802,
+      "marked_loops": 32,
+      "preexisting_loop_ids": 0,
+      "loop_attachments": 32
+    }
+  },
+  "cells": {
+    "plain/service_original": {
+      "executor": "original service",
+      "input_sha256": "434419a75861752dc9f2068945b409e4eebbebdca81ea1a64e438ff89da44953",
+      "observation_o0": 3802,
+      "observation_oz": 1831,
+      "ic": 1831,
+      "text": 11500,
+      "text_sec": 9108,
+      "bitcode_sha256": "c9df2e39dd17f03283c9249e19ce41a1dc51b1215653ea42f7faaba0d1de19ef",
+      "object_sha256": "3f384a9d1f3a7c2408ad3374b1f71685dfa9572e389119aa3f5a58947c606f91",
+      "ir_sha256": "ea784f445dbef914deee0e5a11508e16f9c379055e7af572ab53cd060db9ee36",
+      "ir_nometa_sha256": "ea784f445dbef914deee0e5a11508e16f9c379055e7af572ab53cd060db9ee36",
+      "ir_nosize_sha256": "f17828201a3c85f79485c87be9722ff50b390c3b9ecafa1ed87869a3a3c9ccc6",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 0
+      }
+    },
+    "plain/service_marked": {
+      "executor": "original service",
+      "input_sha256": "cf3470201bb04a60bb440afdadb581456e99c42d8ea5f164449aead698acf1ca",
+      "observation_o0": 3802,
+      "observation_oz": 1831,
+      "ic": 1831,
+      "text": 11500,
+      "text_sec": 9108,
+      "bitcode_sha256": "77fa489717d07655d446a42fdcc12956b2aaa2c47c59fcb948f38397ae68b624",
+      "object_sha256": "3f384a9d1f3a7c2408ad3374b1f71685dfa9572e389119aa3f5a58947c606f91",
+      "ir_sha256": "09f41638d7dbe44375e6238a151c371c2b1e7535fafb0f5a413563c67511e78a",
+      "ir_nometa_sha256": "ea784f445dbef914deee0e5a11508e16f9c379055e7af572ab53cd060db9ee36",
+      "ir_nosize_sha256": "f17828201a3c85f79485c87be9722ff50b390c3b9ecafa1ed87869a3a3c9ccc6",
+      "loop_attachments": 32,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 0
+      }
+    },
+    "plain/replica_service": {
+      "executor": "replica_oz --mode=service",
+      "input_sha256": "434419a75861752dc9f2068945b409e4eebbebdca81ea1a64e438ff89da44953",
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 1831,
+      "text": 11500,
+      "text_sec": 9108,
+      "bitcode_sha256": "57591a0162d79ec9a6e951db6286beac7978f8146318c9258db99bcf9df7d819",
+      "object_sha256": "3f384a9d1f3a7c2408ad3374b1f71685dfa9572e389119aa3f5a58947c606f91",
+      "ir_sha256": "ea784f445dbef914deee0e5a11508e16f9c379055e7af572ab53cd060db9ee36",
+      "ir_nometa_sha256": "ea784f445dbef914deee0e5a11508e16f9c379055e7af572ab53cd060db9ee36",
+      "ir_nosize_sha256": "f17828201a3c85f79485c87be9722ff50b390c3b9ecafa1ed87869a3a3c9ccc6",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 0
+      },
+      "functions": {
+        "ReadWholeInputData": 40,
+        "ComputeMemoryFittedView": 71,
+        "SelectToView": 26,
+        "SharedSortAggregate": 297,
+        "MultiWayMerge": 269,
+        "PrefixedAggregate": 197,
+        "RunFormation": 122,
+        "SeekAndReadNextSubChunk": 14,
+        "ReadSubChunk": 41,
+        "AdcFileOpen": 9,
+        "AdcFileName": 2,
+        "NewAdcViewCntl": 297,
+        "InitAdcViewCntl": 73,
+        "CloseAdcView": 90,
+        "AdcCntlLog": 31,
+        "ViewSizesVerification": 126,
+        "ComputeGivenGroupbys": 126
+      }
+    },
+    "plain/replica_service_marked": {
+      "executor": "replica_oz --mode=service",
+      "input_sha256": "cf3470201bb04a60bb440afdadb581456e99c42d8ea5f164449aead698acf1ca",
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 1831,
+      "text": 11500,
+      "text_sec": 9108,
+      "bitcode_sha256": "5ee95cc625b2a6753628915ec6550f22cf396db495a2cfe217753d60bf8b7e08",
+      "object_sha256": "3f384a9d1f3a7c2408ad3374b1f71685dfa9572e389119aa3f5a58947c606f91",
+      "ir_sha256": "09f41638d7dbe44375e6238a151c371c2b1e7535fafb0f5a413563c67511e78a",
+      "ir_nometa_sha256": "ea784f445dbef914deee0e5a11508e16f9c379055e7af572ab53cd060db9ee36",
+      "ir_nosize_sha256": "f17828201a3c85f79485c87be9722ff50b390c3b9ecafa1ed87869a3a3c9ccc6",
+      "loop_attachments": 32,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 0
+      },
+      "functions": {
+        "ReadWholeInputData": 40,
+        "ComputeMemoryFittedView": 71,
+        "SelectToView": 26,
+        "SharedSortAggregate": 297,
+        "MultiWayMerge": 269,
+        "PrefixedAggregate": 197,
+        "RunFormation": 122,
+        "SeekAndReadNextSubChunk": 14,
+        "ReadSubChunk": 41,
+        "AdcFileOpen": 9,
+        "AdcFileName": 2,
+        "NewAdcViewCntl": 297,
+        "InitAdcViewCntl": 73,
+        "CloseAdcView": 90,
+        "AdcCntlLog": 31,
+        "ViewSizesVerification": 126,
+        "ComputeGivenGroupbys": 126
+      }
+    },
+    "plain/replica_disable_unroll": {
+      "executor": "replica_oz --mode=disable-unroll",
+      "input_sha256": "434419a75861752dc9f2068945b409e4eebbebdca81ea1a64e438ff89da44953",
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 1831,
+      "text": 11500,
+      "text_sec": 9108,
+      "bitcode_sha256": "e55d2ba18496b2b3d4334be497aed2ffa71f60d33b3e2785341caa8c7df3da71",
+      "object_sha256": "3f384a9d1f3a7c2408ad3374b1f71685dfa9572e389119aa3f5a58947c606f91",
+      "ir_sha256": "ea784f445dbef914deee0e5a11508e16f9c379055e7af572ab53cd060db9ee36",
+      "ir_nometa_sha256": "ea784f445dbef914deee0e5a11508e16f9c379055e7af572ab53cd060db9ee36",
+      "ir_nosize_sha256": "f17828201a3c85f79485c87be9722ff50b390c3b9ecafa1ed87869a3a3c9ccc6",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 0
+      },
+      "functions": {
+        "ReadWholeInputData": 40,
+        "ComputeMemoryFittedView": 71,
+        "SelectToView": 26,
+        "SharedSortAggregate": 297,
+        "MultiWayMerge": 269,
+        "PrefixedAggregate": 197,
+        "RunFormation": 122,
+        "SeekAndReadNextSubChunk": 14,
+        "ReadSubChunk": 41,
+        "AdcFileOpen": 9,
+        "AdcFileName": 2,
+        "NewAdcViewCntl": 297,
+        "InitAdcViewCntl": 73,
+        "CloseAdcView": 90,
+        "AdcCntlLog": 31,
+        "ViewSizesVerification": 126,
+        "ComputeGivenGroupbys": 126
+      }
+    },
+    "plain/replica_threshold0": {
+      "executor": "replica_oz --mode=unroll-threshold-0",
+      "input_sha256": "434419a75861752dc9f2068945b409e4eebbebdca81ea1a64e438ff89da44953",
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 1831,
+      "text": 11500,
+      "text_sec": 9108,
+      "bitcode_sha256": "57591a0162d79ec9a6e951db6286beac7978f8146318c9258db99bcf9df7d819",
+      "object_sha256": "3f384a9d1f3a7c2408ad3374b1f71685dfa9572e389119aa3f5a58947c606f91",
+      "ir_sha256": "ea784f445dbef914deee0e5a11508e16f9c379055e7af572ab53cd060db9ee36",
+      "ir_nometa_sha256": "ea784f445dbef914deee0e5a11508e16f9c379055e7af572ab53cd060db9ee36",
+      "ir_nosize_sha256": "f17828201a3c85f79485c87be9722ff50b390c3b9ecafa1ed87869a3a3c9ccc6",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 0
+      },
+      "functions": {
+        "ReadWholeInputData": 40,
+        "ComputeMemoryFittedView": 71,
+        "SelectToView": 26,
+        "SharedSortAggregate": 297,
+        "MultiWayMerge": 269,
+        "PrefixedAggregate": 197,
+        "RunFormation": 122,
+        "SeekAndReadNextSubChunk": 14,
+        "ReadSubChunk": 41,
+        "AdcFileOpen": 9,
+        "AdcFileName": 2,
+        "NewAdcViewCntl": 297,
+        "InitAdcViewCntl": 73,
+        "CloseAdcView": 90,
+        "AdcCntlLog": 31,
+        "ViewSizesVerification": 126,
+        "ComputeGivenGroupbys": 126
+      }
+    },
+    "attr/service_original": {
+      "executor": "original service",
+      "input_sha256": "f6c1892f33d66bbbb19c9476fa542081213bb88c3c4fa245bd3a27070753d246",
+      "observation_o0": 3802,
+      "observation_oz": 1831,
+      "ic": 1831,
+      "text": 10523,
+      "text_sec": 8131,
+      "bitcode_sha256": "bf16484ffde1b6a0edf274ae7f7eca9b5031ccfec7f44946236f04786d91bcf5",
+      "object_sha256": "1f2734e84383a479972526a1fd57de890ead7c67ed7b20d6e1b7a323fc6fd677",
+      "ir_sha256": "6a767224aa65595d517bcc105d8b76e34ada54c9ddea115299ad71805109cd33",
+      "ir_nometa_sha256": "6a767224aa65595d517bcc105d8b76e34ada54c9ddea115299ad71805109cd33",
+      "ir_nosize_sha256": "6c79dc3582907f1351975f27df3452d304ebe9864c40743544f84ecb9327a7d2",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 17
+      }
+    },
+    "attr/service_marked": {
+      "executor": "original service",
+      "input_sha256": "28e03bfa3d8f16c37c666759e1b41faaaf6cb32fa0537b47166c5daf16375cc2",
+      "observation_o0": 3802,
+      "observation_oz": 1831,
+      "ic": 1831,
+      "text": 10523,
+      "text_sec": 8131,
+      "bitcode_sha256": "99929703f9a0048714c7f4dc21f407ddef951346c135dd8abbe62e71d001e00c",
+      "object_sha256": "1f2734e84383a479972526a1fd57de890ead7c67ed7b20d6e1b7a323fc6fd677",
+      "ir_sha256": "a07ae2c1d800e8067e2dc4c9ab1e2e15bd220d714579f1125458992893362258",
+      "ir_nometa_sha256": "6a767224aa65595d517bcc105d8b76e34ada54c9ddea115299ad71805109cd33",
+      "ir_nosize_sha256": "6c79dc3582907f1351975f27df3452d304ebe9864c40743544f84ecb9327a7d2",
+      "loop_attachments": 32,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 17
+      }
+    },
+    "attr/replica_service": {
+      "executor": "replica_oz --mode=service",
+      "input_sha256": "f6c1892f33d66bbbb19c9476fa542081213bb88c3c4fa245bd3a27070753d246",
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 1831,
+      "text": 10523,
+      "text_sec": 8131,
+      "bitcode_sha256": "da960b31b67ded6f8993d1fb160e45cfe8269bbdceee39c9d53ab45aad64f7da",
+      "object_sha256": "1f2734e84383a479972526a1fd57de890ead7c67ed7b20d6e1b7a323fc6fd677",
+      "ir_sha256": "6a767224aa65595d517bcc105d8b76e34ada54c9ddea115299ad71805109cd33",
+      "ir_nometa_sha256": "6a767224aa65595d517bcc105d8b76e34ada54c9ddea115299ad71805109cd33",
+      "ir_nosize_sha256": "6c79dc3582907f1351975f27df3452d304ebe9864c40743544f84ecb9327a7d2",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 17
+      },
+      "functions": {
+        "ReadWholeInputData": 40,
+        "ComputeMemoryFittedView": 71,
+        "SelectToView": 26,
+        "SharedSortAggregate": 297,
+        "MultiWayMerge": 269,
+        "PrefixedAggregate": 197,
+        "RunFormation": 122,
+        "SeekAndReadNextSubChunk": 14,
+        "ReadSubChunk": 41,
+        "AdcFileOpen": 9,
+        "AdcFileName": 2,
+        "NewAdcViewCntl": 297,
+        "InitAdcViewCntl": 73,
+        "CloseAdcView": 90,
+        "AdcCntlLog": 31,
+        "ViewSizesVerification": 126,
+        "ComputeGivenGroupbys": 126
+      }
+    },
+    "attr/replica_service_marked": {
+      "executor": "replica_oz --mode=service",
+      "input_sha256": "28e03bfa3d8f16c37c666759e1b41faaaf6cb32fa0537b47166c5daf16375cc2",
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 1831,
+      "text": 10523,
+      "text_sec": 8131,
+      "bitcode_sha256": "c8dddb71a28370bd29b214f9225ad5c0b397a859bc9428bf7e94cc02efcfa2a6",
+      "object_sha256": "1f2734e84383a479972526a1fd57de890ead7c67ed7b20d6e1b7a323fc6fd677",
+      "ir_sha256": "a07ae2c1d800e8067e2dc4c9ab1e2e15bd220d714579f1125458992893362258",
+      "ir_nometa_sha256": "6a767224aa65595d517bcc105d8b76e34ada54c9ddea115299ad71805109cd33",
+      "ir_nosize_sha256": "6c79dc3582907f1351975f27df3452d304ebe9864c40743544f84ecb9327a7d2",
+      "loop_attachments": 32,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 17
+      },
+      "functions": {
+        "ReadWholeInputData": 40,
+        "ComputeMemoryFittedView": 71,
+        "SelectToView": 26,
+        "SharedSortAggregate": 297,
+        "MultiWayMerge": 269,
+        "PrefixedAggregate": 197,
+        "RunFormation": 122,
+        "SeekAndReadNextSubChunk": 14,
+        "ReadSubChunk": 41,
+        "AdcFileOpen": 9,
+        "AdcFileName": 2,
+        "NewAdcViewCntl": 297,
+        "InitAdcViewCntl": 73,
+        "CloseAdcView": 90,
+        "AdcCntlLog": 31,
+        "ViewSizesVerification": 126,
+        "ComputeGivenGroupbys": 126
+      }
+    },
+    "attr/replica_disable_unroll": {
+      "executor": "replica_oz --mode=disable-unroll",
+      "input_sha256": "f6c1892f33d66bbbb19c9476fa542081213bb88c3c4fa245bd3a27070753d246",
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 1831,
+      "text": 10523,
+      "text_sec": 8131,
+      "bitcode_sha256": "2de19764f9e8948acb131a289ff926f345742d1ff7881410421f4c60a73f2456",
+      "object_sha256": "1f2734e84383a479972526a1fd57de890ead7c67ed7b20d6e1b7a323fc6fd677",
+      "ir_sha256": "6a767224aa65595d517bcc105d8b76e34ada54c9ddea115299ad71805109cd33",
+      "ir_nometa_sha256": "6a767224aa65595d517bcc105d8b76e34ada54c9ddea115299ad71805109cd33",
+      "ir_nosize_sha256": "6c79dc3582907f1351975f27df3452d304ebe9864c40743544f84ecb9327a7d2",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 17
+      },
+      "functions": {
+        "ReadWholeInputData": 40,
+        "ComputeMemoryFittedView": 71,
+        "SelectToView": 26,
+        "SharedSortAggregate": 297,
+        "MultiWayMerge": 269,
+        "PrefixedAggregate": 197,
+        "RunFormation": 122,
+        "SeekAndReadNextSubChunk": 14,
+        "ReadSubChunk": 41,
+        "AdcFileOpen": 9,
+        "AdcFileName": 2,
+        "NewAdcViewCntl": 297,
+        "InitAdcViewCntl": 73,
+        "CloseAdcView": 90,
+        "AdcCntlLog": 31,
+        "ViewSizesVerification": 126,
+        "ComputeGivenGroupbys": 126
+      }
+    },
+    "attr/replica_threshold0": {
+      "executor": "replica_oz --mode=unroll-threshold-0",
+      "input_sha256": "f6c1892f33d66bbbb19c9476fa542081213bb88c3c4fa245bd3a27070753d246",
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 1831,
+      "text": 10523,
+      "text_sec": 8131,
+      "bitcode_sha256": "da960b31b67ded6f8993d1fb160e45cfe8269bbdceee39c9d53ab45aad64f7da",
+      "object_sha256": "1f2734e84383a479972526a1fd57de890ead7c67ed7b20d6e1b7a323fc6fd677",
+      "ir_sha256": "6a767224aa65595d517bcc105d8b76e34ada54c9ddea115299ad71805109cd33",
+      "ir_nometa_sha256": "6a767224aa65595d517bcc105d8b76e34ada54c9ddea115299ad71805109cd33",
+      "ir_nosize_sha256": "6c79dc3582907f1351975f27df3452d304ebe9864c40743544f84ecb9327a7d2",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 17
+      },
+      "functions": {
+        "ReadWholeInputData": 40,
+        "ComputeMemoryFittedView": 71,
+        "SelectToView": 26,
+        "SharedSortAggregate": 297,
+        "MultiWayMerge": 269,
+        "PrefixedAggregate": 197,
+        "RunFormation": 122,
+        "SeekAndReadNextSubChunk": 14,
+        "ReadSubChunk": 41,
+        "AdcFileOpen": 9,
+        "AdcFileName": 2,
+        "NewAdcViewCntl": 297,
+        "InitAdcViewCntl": 73,
+        "CloseAdcView": 90,
+        "AdcCntlLog": 31,
+        "ViewSizesVerification": 126,
+        "ComputeGivenGroupbys": 126
+      }
+    }
+  },
+  "codegen_control": {
+    "plain_oz_late_attr": {
+      "base_cell": "plain/service_original",
+      "info": {
+        "definitions": 17,
+        "verified_size_definitions": 17
+      },
+      "ic": 1831,
+      "text": 10577,
+      "text_sec": 8185,
+      "bitcode_sha256": "56f34cb0206a62d91421a40ae4360da3b3e5ac6f421c1a3fa25cfcc168945ec2",
+      "object_sha256": "63c09a06046381e6c89b124c95843c5b8fb59bcbda512714e621b5907f202d56",
+      "ir_sha256": "bfda4571240097015c94539fd9d4f3940672fe45e337397c89ea3123e40e30c9",
+      "ir_nometa_sha256": "bfda4571240097015c94539fd9d4f3940672fe45e337397c89ea3123e40e30c9",
+      "ir_nosize_sha256": "f17828201a3c85f79485c87be9722ff50b390c3b9ecafa1ed87869a3a3c9ccc6",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 17
+      }
+    },
+    "plain_marked_oz_late_attr": {
+      "base_cell": "plain/service_marked",
+      "info": {
+        "definitions": 17,
+        "verified_size_definitions": 17
+      },
+      "ic": 1831,
+      "text": 10577,
+      "text_sec": 8185,
+      "bitcode_sha256": "169f21d6539820b0660a471b87dbec1c9fcf3e91c7bba36db93f9bf841a1a23c",
+      "object_sha256": "63c09a06046381e6c89b124c95843c5b8fb59bcbda512714e621b5907f202d56",
+      "ir_sha256": "215fbfae541cd0206d0f09700113a30f036212a6d5cb2da3ab5ee5060a7037f9",
+      "ir_nometa_sha256": "bfda4571240097015c94539fd9d4f3940672fe45e337397c89ea3123e40e30c9",
+      "ir_nosize_sha256": "f17828201a3c85f79485c87be9722ff50b390c3b9ecafa1ed87869a3a3c9ccc6",
+      "loop_attachments": 32,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 17
+      }
+    },
+    "attr_oz_stripped": {
+      "base_cell": "attr/service_original",
+      "info": {
+        "definitions": 17
+      },
+      "ic": 1831,
+      "text": 11436,
+      "text_sec": 9044,
+      "bitcode_sha256": "088c415e71d85310657c2b4e85300306b04dc138b5f5e33f581b497473d900b8",
+      "object_sha256": "95d727fff5a8ca3cb86e1a425493985f89a89d825797558b39c64bf46a861688",
+      "ir_sha256": "792eac2eaabb2d71ef928e08d3407724232cc4e30124552097f8fec10296843b",
+      "ir_nometa_sha256": "792eac2eaabb2d71ef928e08d3407724232cc4e30124552097f8fec10296843b",
+      "ir_nosize_sha256": "6c79dc3582907f1351975f27df3452d304ebe9864c40743544f84ecb9327a7d2",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 17,
+        "with_minsize_optsize": 0
+      }
+    }
+  },
+  "complete": true,
+  "seconds": 20.675
+}

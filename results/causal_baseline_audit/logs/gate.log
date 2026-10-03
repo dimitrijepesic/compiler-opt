@@ -1,0 +1,7 @@
+{
+ "benchmark://npb-v0/116": "valid",
+ "benchmark://npb-v0/94": "valid",
+ "benchmark://npb-v0/96": "valid",
+ "benchmark://blas-v0/25": "valid"
+} 
+PILOT GATE: PASSED

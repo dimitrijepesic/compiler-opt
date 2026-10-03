@@ -1,0 +1,27 @@
+{
+  "before": {"ic": 5075, "functions": [
+    {"name": "transf", "ic": 1280, "blocks": 151, "loops": 33, "max_loop_depth": 7, "optsize": 1, "minsize": 1},
+    {"name": "transfb", "ic": 1455, "blocks": 147, "loops": 32, "max_loop_depth": 7, "optsize": 1, "minsize": 1},
+    {"name": "transfb_cor_e", "ic": 104, "blocks": 17, "loops": 3, "max_loop_depth": 1, "optsize": 1, "minsize": 1},
+    {"name": "transfb_cor_f", "ic": 278, "blocks": 47, "loops": 10, "max_loop_depth": 2, "optsize": 1, "minsize": 1},
+    {"name": "transf_nc", "ic": 178, "blocks": 25, "loops": 6, "max_loop_depth": 3, "optsize": 1, "minsize": 1},
+    {"name": "transfb_nc0", "ic": 59, "blocks": 9, "loops": 2, "max_loop_depth": 2, "optsize": 1, "minsize": 1},
+    {"name": "transfb_nc2", "ic": 288, "blocks": 37, "loops": 9, "max_loop_depth": 3, "optsize": 1, "minsize": 1},
+    {"name": "transfb_nc1", "ic": 302, "blocks": 37, "loops": 9, "max_loop_depth": 3, "optsize": 1, "minsize": 1},
+    {"name": "transfb_c", "ic": 524, "blocks": 43, "loops": 8, "max_loop_depth": 4, "optsize": 1, "minsize": 1},
+    {"name": "transfb_c_2", "ic": 607, "blocks": 43, "loops": 8, "max_loop_depth": 4, "optsize": 1, "minsize": 1}
+  ]},
+  "after": {"ic": 5075, "functions": [
+    {"name": "transf", "ic": 1280, "blocks": 151, "loops": 33, "max_loop_depth": 7, "optsize": 1, "minsize": 1},
+    {"name": "transfb", "ic": 1455, "blocks": 147, "loops": 32, "max_loop_depth": 7, "optsize": 1, "minsize": 1},
+    {"name": "transfb_cor_e", "ic": 104, "blocks": 17, "loops": 3, "max_loop_depth": 1, "optsize": 1, "minsize": 1},
+    {"name": "transfb_cor_f", "ic": 278, "blocks": 47, "loops": 10, "max_loop_depth": 2, "optsize": 1, "minsize": 1},
+    {"name": "transf_nc", "ic": 178, "blocks": 25, "loops": 6, "max_loop_depth": 3, "optsize": 1, "minsize": 1},
+    {"name": "transfb_nc0", "ic": 59, "blocks": 9, "loops": 2, "max_loop_depth": 2, "optsize": 1, "minsize": 1},
+    {"name": "transfb_nc2", "ic": 288, "blocks": 37, "loops": 9, "max_loop_depth": 3, "optsize": 1, "minsize": 1},
+    {"name": "transfb_nc1", "ic": 302, "blocks": 37, "loops": 9, "max_loop_depth": 3, "optsize": 1, "minsize": 1},
+    {"name": "transfb_c", "ic": 524, "blocks": 43, "loops": 8, "max_loop_depth": 4, "optsize": 1, "minsize": 1},
+    {"name": "transfb_c_2", "ic": 607, "blocks": 43, "loops": 8, "max_loop_depth": 4, "optsize": 1, "minsize": 1}
+  ]},
+  "mode": "mark-unroll-disable", "changed": 0, "marked_loops": 120, "ic_before": 5075, "ic_after": 5075
+}

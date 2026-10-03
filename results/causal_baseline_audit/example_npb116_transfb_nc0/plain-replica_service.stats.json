@@ -1,0 +1,9 @@
+{
+  "before": {"ic": 59, "functions": [
+    {"name": "transfb_nc0", "ic": 59, "blocks": 9, "loops": 2, "max_loop_depth": 2, "optsize": 0, "minsize": 0}
+  ]},
+  "after": {"ic": 90, "functions": [
+    {"name": "transfb_nc0", "ic": 90, "blocks": 1, "loops": 0, "max_loop_depth": 0, "optsize": 0, "minsize": 0}
+  ]},
+  "mode": "service", "changed": 1, "marked_loops": 0, "preexisting_loop_ids": 0, "ic_before": 59, "ic_after": 90
+}

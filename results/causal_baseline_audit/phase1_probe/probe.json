@@ -1,0 +1,76 @@
+{
+  "benchmark://npb-v0/116": {
+    "o0": 5075,
+    "oz": 4316,
+    "plain": {
+      "marked_loops": 120,
+      "service_load_ir_identical": true,
+      "service": {
+        "ic": 4316,
+        "ir": "1966a05777fb9ec0e0742cd1b2c08cf1a0020a288e90255556fb8b1207394f5a"
+      },
+      "service_marked_load_ir_identical": true,
+      "service_marked": {
+        "ic": 1911,
+        "ir": "794ff55ada5d6d655aadf64dd4123863ffb1eacbd160c5f548d1607e02531e3b"
+      },
+      "replica_service": {
+        "ic": 4316,
+        "ir": "1966a05777fb9ec0e0742cd1b2c08cf1a0020a288e90255556fb8b1207394f5a",
+        "unroll_remarks": 88
+      },
+      "replica_disable-unroll": {
+        "ic": 1911,
+        "ir": "68d22c0b8db3f910af552e2f9bc2b8914462e87ae1dd3f659109980c3c1f294a",
+        "unroll_remarks": 0
+      },
+      "replica_unroll-threshold-0": {
+        "ic": 1911,
+        "ir": "68d22c0b8db3f910af552e2f9bc2b8914462e87ae1dd3f659109980c3c1f294a",
+        "unroll_remarks": 0
+      },
+      "replica_service_on_marked": {
+        "ic": 1911,
+        "ir": "794ff55ada5d6d655aadf64dd4123863ffb1eacbd160c5f548d1607e02531e3b",
+        "unroll_remarks": 0
+      },
+      "replica_reproduces_service_ir": true,
+      "replica_reproduces_service_marked_ir": true
+    },
+    "attr": {
+      "marked_loops": 120,
+      "service_load_ir_identical": true,
+      "service": {
+        "ic": 1911,
+        "ir": "4436d2af953bcc807d5b883f08dcf47527fd94952f3c22ba5e2ea1bcc470b996"
+      },
+      "service_marked_load_ir_identical": true,
+      "service_marked": {
+        "ic": 1911,
+        "ir": "b89c997946087462d2750bc21ebb15d681f527b22392fb36bc3dcfef6dddf274"
+      },
+      "replica_service": {
+        "ic": 1911,
+        "ir": "4436d2af953bcc807d5b883f08dcf47527fd94952f3c22ba5e2ea1bcc470b996",
+        "unroll_remarks": 0
+      },
+      "replica_disable-unroll": {
+        "ic": 1911,
+        "ir": "4436d2af953bcc807d5b883f08dcf47527fd94952f3c22ba5e2ea1bcc470b996",
+        "unroll_remarks": 0
+      },
+      "replica_unroll-threshold-0": {
+        "ic": 1911,
+        "ir": "4436d2af953bcc807d5b883f08dcf47527fd94952f3c22ba5e2ea1bcc470b996",
+        "unroll_remarks": 0
+      },
+      "replica_service_on_marked": {
+        "ic": 1911,
+        "ir": "b89c997946087462d2750bc21ebb15d681f527b22392fb36bc3dcfef6dddf274",
+        "unroll_remarks": 0
+      },
+      "replica_reproduces_service_ir": true,
+      "replica_reproduces_service_marked_ir": true
+    }
+  }
+}

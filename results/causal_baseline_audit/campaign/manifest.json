@@ -1,0 +1,83 @@
+{
+  "schema": 1,
+  "stage": "campaign",
+  "sha256": {
+    "run_audit.py": "bf96b26a72e077f65503b7085318032a743c49abeba48364494e338b2cb57a17",
+    "helper baseline_audit_cgym_matrix.py": "7ef8a6787cd5e1142ebcae9a38966873fcc1c51088ce3c08d4fca96751cf044f",
+    "replica_oz.cpp": "a86f6b305175db333da4807c4fa4d8328ad7fdb7eeb97703afa6c3ae4169556d",
+    "Dockerfile": "6bbecc63026b43681a0df21275c2fe3eafc40d6d86931175d74752ef27e7b1f1",
+    "build_image.sh": "eb133ad0c363b595ba8d39f75f23886000b0ed77a4a3c22676a0328a017bb761",
+    "replica_oz": "49bcccdb1848cc99ef7b8f43482b04e2afb0df9b797d1b1754fe289d06572d30",
+    "ic": "9fe154827e6813452d87f40aa782d8b9f7aec757e859f6ad7e709aa6dec6549e",
+    "service": "60178fbf497cb79f01aa567dc16765d04579dd88b3137e47769b5757067d37ee",
+    "inputs.json": "a25543474877977ccc4f370c6b4a3a6540651a8ad8ee4ed356c0bfa85d6b3fc0",
+    "PROTOCOL.md": "2ccdb33d2fa0f7e36796173ea1257ad63ab283defe95e17e538a3253b0fccd1d",
+    "environment_host.json": "9115328524eacc035c8adfdcbaecbfcfc7ca5cefae13e41f2bc8796aece961d0",
+    "canonical manifest": "30b3db10edd7cc5a97954a97ea711f2083175046c6a2e7a4a722dd1d6cf0594d",
+    "llvm-v0/bin/opt": "6f9aa489196ca2d5ca48a42fca014875369d3314265932f13fe6bf9c6f0c2bd2",
+    "llvm-v0/bin/llc": "57429ac3124f84f193d4ccf55d5842c0c5f76a0f431efdff1b95a2a998a25a26",
+    "llvm-v0/bin/llvm-size": "dd245791e4e28d20653bf22098ec05c71df48bb8e2052992c5946144eb3abe79",
+    "llvm-v0/bin/llvm-dis": "766484cc3ee813694ef799dd63015838d76220f0ac77d97217123e21b3dd0353",
+    "llvm-v0/bin/llvm-as": "cfd67320709e04e485aa71036ceef11b206f5c4fe43b3e4b22a0f92d0444ad3a",
+    "llvm-v0/bin/clang": "d5ba08bb0056c28d93860f6651a00f10afd8b4fa2121c66cf6fba1fa89a93083"
+  },
+  "paths": {
+    "run_audit.py": "/work/scripts/causal_baseline_audit/run_audit.py",
+    "helper baseline_audit_cgym_matrix.py": "/work/scripts/baseline_audit_cgym_matrix.py",
+    "replica_oz.cpp": "/work/scripts/causal_baseline_audit/replica_oz.cpp",
+    "Dockerfile": "/work/scripts/causal_baseline_audit/Dockerfile",
+    "build_image.sh": "/work/scripts/causal_baseline_audit/build_image.sh",
+    "replica_oz": "/usr/local/bin/replica_oz",
+    "ic": "/usr/local/bin/ic",
+    "service": "/opt/venv-cgym/lib/python3.10/site-packages/compiler_gym/envs/llvm/service/compiler_gym-llvm-service",
+    "inputs.json": "/work/results/causal_baseline_audit/inputs.json",
+    "PROTOCOL.md": "/work/results/causal_baseline_audit/PROTOCOL.md",
+    "environment_host.json": "/work/results/causal_baseline_audit/environment_host.json",
+    "canonical manifest": "/work/results/baseline_audit/llvm10_canonical/manifest.json",
+    "llvm-v0/bin/opt": "/root/.local/share/compiler_gym/llvm-v0/bin/opt",
+    "llvm-v0/bin/llc": "/root/.local/share/compiler_gym/llvm-v0/bin/llc",
+    "llvm-v0/bin/llvm-size": "/root/.local/share/compiler_gym/llvm-v0/bin/llvm-size",
+    "llvm-v0/bin/llvm-dis": "/root/.local/share/compiler_gym/llvm-v0/bin/llvm-dis",
+    "llvm-v0/bin/llvm-as": "/root/.local/share/compiler_gym/llvm-v0/bin/llvm-as",
+    "llvm-v0/bin/clang": "/root/.local/share/compiler_gym/llvm-v0/bin/clang"
+  },
+  "compiler_gym": "0.2.5",
+  "bundled_llvm": "LLVM (http://llvm.org/):\n  LLVM version 10.0.0\n  Optimized build.\n  Default target: x86_64-unknown-linux-gnu\n  Host CPU: westmere",
+  "replica_llvm": "10.0.0",
+  "python": "3.10.12",
+  "cells": {
+    "service": [
+      "service_original",
+      "service_marked"
+    ],
+    "replica": {
+      "replica_service": [
+        "input",
+        "--mode=service"
+      ],
+      "replica_service_marked": [
+        "marked",
+        "--mode=service"
+      ],
+      "replica_disable_unroll": [
+        "input",
+        "--mode=disable-unroll"
+      ],
+      "replica_threshold0": [
+        "input",
+        "--mode=unroll-threshold-0"
+      ]
+    }
+  },
+  "primary_no_unroll_cell": "service_marked",
+  "commands": {
+    "service_oz": "env.reset(benchmark=file URI); env.send_param(\"llvm.apply_baseline_optimizations\", \"-Oz\"); env.write_bitcode(out)",
+    "mark": "replica_oz --mark-unroll-disable in.bc marked.bc",
+    "replica": "replica_oz <mode> --remarks --stats=stats.json in.bc out.bc",
+    "object": "llc -filetype=obj in.bc -o measurement.o",
+    "berkeley_text": "llvm-size measurement.o (first column)",
+    "code_bytes": "llvm-size -A measurement.o, sum of .text, .text.* or __text",
+    "ic": "ic in.bc (scripts/baseline_audit/ic.cpp, Module::getInstructionCount)"
+  },
+  "fingerprint": "e4e3de934419e4f0316cf3931d97861629db7531f50fe7ff11ff2f0823ec50f6"
+}

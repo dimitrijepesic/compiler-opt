@@ -1,0 +1,684 @@
+{
+  "function": "transfb_nc0",
+  "source_module": "benchmark://npb-v0/116",
+  "source_input": "results/causal_baseline_audit/pilot/artifacts/npb-v0_116/plain.bc",
+  "source_input_sha256": "13e7ef811b3e0c5e3cf7e626f786036cb79b0c7a3a157bb5a7b1742cf7c0815f",
+  "llvm_extract": "/opt/llvm10/bin/llvm-extract",
+  "note": "The original C source of this CompilerGym module is not available; nothing here is reconstructed C.",
+  "extraction_body_identical_to_full_module": true,
+  "cells": {
+    "plain/service_original": {
+      "observation_o0": 59,
+      "observation_oz": 90,
+      "ic": 90,
+      "text": 441,
+      "text_sec": 377,
+      "bitcode_sha256": "ce5b536c78a18bb8382b4b564f5986e212b1f65bf36adbb65d8530d8e71665c3",
+      "object_sha256": "86a1b3d545fd2e114ef90082daa227c24c94334a698e3a42663d7070fa827801",
+      "ir_sha256": "8a2a9c2ad491b6b17d01e3a71ee7732dcd9e8f355e7216df7b8f6f9fec3cb196",
+      "ir_nometa_sha256": "8a2a9c2ad491b6b17d01e3a71ee7732dcd9e8f355e7216df7b8f6f9fec3cb196",
+      "ir_nosize_sha256": "be2866147e6a0e49c4c1b659ddfae43fe4efcb2e8e7da3120e130fa389600f3f",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 0
+      }
+    },
+    "plain/service_marked": {
+      "observation_o0": 59,
+      "observation_oz": 25,
+      "ic": 25,
+      "text": 183,
+      "text_sec": 119,
+      "bitcode_sha256": "ce86c9dc2d488b7ecc52df42f72f8f0a6c303dcb69c7a3abe390ea2156addc78",
+      "object_sha256": "cc29bf3732165bdd07b01104bdf58f3299021ce8448de92df671ce1f3af273aa",
+      "ir_sha256": "f76f28d7d4589cb66536d2535d6d34cc18c7dfbd1cb3563457f6e8bf40fecd27",
+      "ir_nometa_sha256": "a4652ae142e0861193039cde5b462efcbdcfac2b4d751433935b7b6d19e95181",
+      "ir_nosize_sha256": "034929acbb123bd71bad62bf075fd487da6940a6a5b52451fb9b9173bf436fe9",
+      "loop_attachments": 2,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 0
+      }
+    },
+    "plain/replica_service": {
+      "unroll_remarks": {
+        "total": 2,
+        "by_name": {
+          "FullyUnrolled": 2
+        },
+        "by_function": {
+          "transfb_nc0": 2
+        },
+        "by_message": {
+          "completely unrolled loop with 4 iterations": 1,
+          "completely unrolled loop with 6 iterations": 1
+        }
+      },
+      "ic": 90,
+      "text": 441,
+      "text_sec": 377,
+      "bitcode_sha256": "ce5b536c78a18bb8382b4b564f5986e212b1f65bf36adbb65d8530d8e71665c3",
+      "object_sha256": "86a1b3d545fd2e114ef90082daa227c24c94334a698e3a42663d7070fa827801",
+      "ir_sha256": "8a2a9c2ad491b6b17d01e3a71ee7732dcd9e8f355e7216df7b8f6f9fec3cb196",
+      "ir_nometa_sha256": "8a2a9c2ad491b6b17d01e3a71ee7732dcd9e8f355e7216df7b8f6f9fec3cb196",
+      "ir_nosize_sha256": "be2866147e6a0e49c4c1b659ddfae43fe4efcb2e8e7da3120e130fa389600f3f",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 0
+      },
+      "function_before": {
+        "name": "transfb_nc0",
+        "ic": 59,
+        "blocks": 9,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 0,
+        "minsize": 0
+      },
+      "function_after": {
+        "name": "transfb_nc0",
+        "ic": 90,
+        "blocks": 1,
+        "loops": 0,
+        "max_loop_depth": 0,
+        "optsize": 0,
+        "minsize": 0
+      }
+    },
+    "plain/replica_service_marked": {
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 25,
+      "text": 183,
+      "text_sec": 119,
+      "bitcode_sha256": "ce86c9dc2d488b7ecc52df42f72f8f0a6c303dcb69c7a3abe390ea2156addc78",
+      "object_sha256": "cc29bf3732165bdd07b01104bdf58f3299021ce8448de92df671ce1f3af273aa",
+      "ir_sha256": "f76f28d7d4589cb66536d2535d6d34cc18c7dfbd1cb3563457f6e8bf40fecd27",
+      "ir_nometa_sha256": "a4652ae142e0861193039cde5b462efcbdcfac2b4d751433935b7b6d19e95181",
+      "ir_nosize_sha256": "034929acbb123bd71bad62bf075fd487da6940a6a5b52451fb9b9173bf436fe9",
+      "loop_attachments": 2,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 0
+      },
+      "function_before": {
+        "name": "transfb_nc0",
+        "ic": 59,
+        "blocks": 9,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 0,
+        "minsize": 0
+      },
+      "function_after": {
+        "name": "transfb_nc0",
+        "ic": 25,
+        "blocks": 7,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 0,
+        "minsize": 0
+      }
+    },
+    "plain/replica_disable_unroll": {
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 25,
+      "text": 183,
+      "text_sec": 119,
+      "bitcode_sha256": "6502ce9550409a774cbbf1d8ee1a23022d53b44833c4bccd049fb64d61111ad2",
+      "object_sha256": "cc29bf3732165bdd07b01104bdf58f3299021ce8448de92df671ce1f3af273aa",
+      "ir_sha256": "a4652ae142e0861193039cde5b462efcbdcfac2b4d751433935b7b6d19e95181",
+      "ir_nometa_sha256": "a4652ae142e0861193039cde5b462efcbdcfac2b4d751433935b7b6d19e95181",
+      "ir_nosize_sha256": "034929acbb123bd71bad62bf075fd487da6940a6a5b52451fb9b9173bf436fe9",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 0
+      },
+      "function_before": {
+        "name": "transfb_nc0",
+        "ic": 59,
+        "blocks": 9,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 0,
+        "minsize": 0
+      },
+      "function_after": {
+        "name": "transfb_nc0",
+        "ic": 25,
+        "blocks": 7,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 0,
+        "minsize": 0
+      }
+    },
+    "plain/replica_threshold0": {
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 25,
+      "text": 183,
+      "text_sec": 119,
+      "bitcode_sha256": "6502ce9550409a774cbbf1d8ee1a23022d53b44833c4bccd049fb64d61111ad2",
+      "object_sha256": "cc29bf3732165bdd07b01104bdf58f3299021ce8448de92df671ce1f3af273aa",
+      "ir_sha256": "a4652ae142e0861193039cde5b462efcbdcfac2b4d751433935b7b6d19e95181",
+      "ir_nometa_sha256": "a4652ae142e0861193039cde5b462efcbdcfac2b4d751433935b7b6d19e95181",
+      "ir_nosize_sha256": "034929acbb123bd71bad62bf075fd487da6940a6a5b52451fb9b9173bf436fe9",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 0
+      },
+      "function_before": {
+        "name": "transfb_nc0",
+        "ic": 59,
+        "blocks": 9,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 0,
+        "minsize": 0
+      },
+      "function_after": {
+        "name": "transfb_nc0",
+        "ic": 25,
+        "blocks": 7,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 0,
+        "minsize": 0
+      }
+    },
+    "attr/service_original": {
+      "observation_o0": 59,
+      "observation_oz": 25,
+      "ic": 25,
+      "text": 151,
+      "text_sec": 87,
+      "bitcode_sha256": "1af0505b2ea39948fb7e399b9df595452af0ffd0aebbfa6f064f263190f9f7dc",
+      "object_sha256": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+      "ir_sha256": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+      "ir_nometa_sha256": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+      "ir_nosize_sha256": "034929acbb123bd71bad62bf075fd487da6940a6a5b52451fb9b9173bf436fe9",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 1
+      }
+    },
+    "attr/service_marked": {
+      "observation_o0": 59,
+      "observation_oz": 25,
+      "ic": 25,
+      "text": 151,
+      "text_sec": 87,
+      "bitcode_sha256": "5cfbc1ade78abf745e6fb878afb8aecdea5b7d74931735648cb6e108167afdde",
+      "object_sha256": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+      "ir_sha256": "3be2e017efae52cd792eff450340bf1cad3b710d36086618a4b47e8e3f0e1ae8",
+      "ir_nometa_sha256": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+      "ir_nosize_sha256": "034929acbb123bd71bad62bf075fd487da6940a6a5b52451fb9b9173bf436fe9",
+      "loop_attachments": 2,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 1
+      }
+    },
+    "attr/replica_service": {
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 25,
+      "text": 151,
+      "text_sec": 87,
+      "bitcode_sha256": "1af0505b2ea39948fb7e399b9df595452af0ffd0aebbfa6f064f263190f9f7dc",
+      "object_sha256": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+      "ir_sha256": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+      "ir_nometa_sha256": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+      "ir_nosize_sha256": "034929acbb123bd71bad62bf075fd487da6940a6a5b52451fb9b9173bf436fe9",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 1
+      },
+      "function_before": {
+        "name": "transfb_nc0",
+        "ic": 59,
+        "blocks": 9,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 1,
+        "minsize": 1
+      },
+      "function_after": {
+        "name": "transfb_nc0",
+        "ic": 25,
+        "blocks": 7,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 1,
+        "minsize": 1
+      }
+    },
+    "attr/replica_service_marked": {
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 25,
+      "text": 151,
+      "text_sec": 87,
+      "bitcode_sha256": "5cfbc1ade78abf745e6fb878afb8aecdea5b7d74931735648cb6e108167afdde",
+      "object_sha256": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+      "ir_sha256": "3be2e017efae52cd792eff450340bf1cad3b710d36086618a4b47e8e3f0e1ae8",
+      "ir_nometa_sha256": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+      "ir_nosize_sha256": "034929acbb123bd71bad62bf075fd487da6940a6a5b52451fb9b9173bf436fe9",
+      "loop_attachments": 2,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 1
+      },
+      "function_before": {
+        "name": "transfb_nc0",
+        "ic": 59,
+        "blocks": 9,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 1,
+        "minsize": 1
+      },
+      "function_after": {
+        "name": "transfb_nc0",
+        "ic": 25,
+        "blocks": 7,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 1,
+        "minsize": 1
+      }
+    },
+    "attr/replica_disable_unroll": {
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 25,
+      "text": 151,
+      "text_sec": 87,
+      "bitcode_sha256": "1af0505b2ea39948fb7e399b9df595452af0ffd0aebbfa6f064f263190f9f7dc",
+      "object_sha256": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+      "ir_sha256": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+      "ir_nometa_sha256": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+      "ir_nosize_sha256": "034929acbb123bd71bad62bf075fd487da6940a6a5b52451fb9b9173bf436fe9",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 1
+      },
+      "function_before": {
+        "name": "transfb_nc0",
+        "ic": 59,
+        "blocks": 9,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 1,
+        "minsize": 1
+      },
+      "function_after": {
+        "name": "transfb_nc0",
+        "ic": 25,
+        "blocks": 7,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 1,
+        "minsize": 1
+      }
+    },
+    "attr/replica_threshold0": {
+      "unroll_remarks": {
+        "total": 0,
+        "by_name": {},
+        "by_function": {},
+        "by_message": {}
+      },
+      "ic": 25,
+      "text": 151,
+      "text_sec": 87,
+      "bitcode_sha256": "1af0505b2ea39948fb7e399b9df595452af0ffd0aebbfa6f064f263190f9f7dc",
+      "object_sha256": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+      "ir_sha256": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+      "ir_nometa_sha256": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+      "ir_nosize_sha256": "034929acbb123bd71bad62bf075fd487da6940a6a5b52451fb9b9173bf436fe9",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 1
+      },
+      "function_before": {
+        "name": "transfb_nc0",
+        "ic": 59,
+        "blocks": 9,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 1,
+        "minsize": 1
+      },
+      "function_after": {
+        "name": "transfb_nc0",
+        "ic": 25,
+        "blocks": 7,
+        "loops": 2,
+        "max_loop_depth": 2,
+        "optsize": 1,
+        "minsize": 1
+      }
+    }
+  },
+  "codegen_control": {
+    "plain_oz_late_attr": {
+      "base": "plain-service_original",
+      "ic": 90,
+      "text": 439,
+      "text_sec": 375,
+      "bitcode_sha256": "625d4f7c809bfbb7b834097bf75ed85b44e8840deeb0786a26e1fee981e819bc",
+      "object_sha256": "07c0ec8496c1a89f13d46766985f26d5e8a77eeb647b42c60433f40233663b70",
+      "ir_sha256": "a28aad1e0e37d338dc1b541265f5f30e8d7de1834ea32adc0bca24adb518adb8",
+      "ir_nometa_sha256": "a28aad1e0e37d338dc1b541265f5f30e8d7de1834ea32adc0bca24adb518adb8",
+      "ir_nosize_sha256": "be2866147e6a0e49c4c1b659ddfae43fe4efcb2e8e7da3120e130fa389600f3f",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 1
+      },
+      "ir_identical_modulo_size_attrs": true
+    },
+    "plain_marked_oz_late_attr": {
+      "base": "plain-service_marked",
+      "ic": 25,
+      "text": 151,
+      "text_sec": 87,
+      "bitcode_sha256": "36f16dd4e3e9c4606286e1cfcf5669cee8ae52f8e9e808fc482077e57a223207",
+      "object_sha256": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+      "ir_sha256": "3be2e017efae52cd792eff450340bf1cad3b710d36086618a4b47e8e3f0e1ae8",
+      "ir_nometa_sha256": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+      "ir_nosize_sha256": "034929acbb123bd71bad62bf075fd487da6940a6a5b52451fb9b9173bf436fe9",
+      "loop_attachments": 2,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 1
+      },
+      "ir_identical_modulo_size_attrs": true
+    },
+    "attr_oz_stripped": {
+      "base": "attr-service_original",
+      "ic": 25,
+      "text": 183,
+      "text_sec": 119,
+      "bitcode_sha256": "fbbe1915b2c3f09c8d22362e68e915817cf063bcfab49cf0e5af15e4b429d7a5",
+      "object_sha256": "cc29bf3732165bdd07b01104bdf58f3299021ce8448de92df671ce1f3af273aa",
+      "ir_sha256": "a4652ae142e0861193039cde5b462efcbdcfac2b4d751433935b7b6d19e95181",
+      "ir_nometa_sha256": "a4652ae142e0861193039cde5b462efcbdcfac2b4d751433935b7b6d19e95181",
+      "ir_nosize_sha256": "034929acbb123bd71bad62bf075fd487da6940a6a5b52451fb9b9173bf436fe9",
+      "loop_attachments": 0,
+      "size_definitions": {
+        "definitions": 1,
+        "with_minsize_optsize": 0
+      },
+      "ir_identical_modulo_size_attrs": true
+    }
+  },
+  "checks": {
+    "plain/replica_service_reproduces_service_ir": true,
+    "plain/replica_service_marked_reproduces_service_ir": true,
+    "plain/marked_no_unroll_remarks": true,
+    "attr/replica_service_reproduces_service_ir": true,
+    "attr/replica_service_marked_reproduces_service_ir": true,
+    "attr/marked_no_unroll_remarks": true,
+    "U_ir_equals_A_modulo_size_attrs": true,
+    "plain-service_original_function_body_same_as_in_full_module": true,
+    "plain-service_marked_function_body_same_as_in_full_module": true,
+    "attr-service_original_function_body_same_as_in_full_module": true,
+    "attr-service_marked_function_body_same_as_in_full_module": true,
+    "behaviour_all_variants_identical": true
+  },
+  "function_bytes": {
+    "full_module_pilot": {
+      "plain-service_original": 377,
+      "plain-service_marked": 119,
+      "attr-service_original": 87,
+      "attr-service_marked": 87,
+      "control-plain_oz_late_attr": 375,
+      "control-plain_marked_oz_late_attr": 87,
+      "control-attr_oz_stripped": 119
+    },
+    "example": {
+      "plain-service_original": 377,
+      "plain-service_marked": 119,
+      "attr-service_original": 87,
+      "attr-service_marked": 87,
+      "control-plain_oz_late_attr": 375,
+      "control-plain_marked_oz_late_attr": 87,
+      "control-attr_oz_stripped": 119
+    },
+    "all_functions_full_module": {
+      "plain-service_original": {
+        "transf": 4860,
+        "transf_nc": 958,
+        "transfb": 4504,
+        "transfb_c": 1269,
+        "transfb_c_2": 1873,
+        "transfb_cor_e": 162,
+        "transfb_cor_f": 1016,
+        "transfb_nc0": 377,
+        "transfb_nc1": 1522,
+        "transfb_nc2": 1570
+      },
+      "plain-service_marked": {
+        "transf": 2565,
+        "transf_nc": 385,
+        "transfb": 2998,
+        "transfb_c": 913,
+        "transfb_c_2": 1159,
+        "transfb_cor_e": 182,
+        "transfb_cor_f": 636,
+        "transfb_nc0": 119,
+        "transfb_nc1": 572,
+        "transfb_nc2": 572
+      },
+      "attr-service_original": {
+        "transf": 2121,
+        "transf_nc": 300,
+        "transfb": 2615,
+        "transfb_c": 807,
+        "transfb_c_2": 1044,
+        "transfb_cor_e": 159,
+        "transfb_cor_f": 524,
+        "transfb_nc0": 87,
+        "transfb_nc1": 469,
+        "transfb_nc2": 467
+      }
+    }
+  },
+  "shape": {
+    "plain": {
+      "fmul": 1,
+      "store": 7,
+      "conditional_branches": 2,
+      "basic_blocks": 9
+    },
+    "plain-service_original": {
+      "fmul": 15,
+      "store": 15,
+      "conditional_branches": 0,
+      "basic_blocks": 1
+    },
+    "plain-service_marked": {
+      "fmul": 1,
+      "store": 1,
+      "conditional_branches": 2,
+      "basic_blocks": 7
+    },
+    "attr-service_original": {
+      "fmul": 1,
+      "store": 1,
+      "conditional_branches": 2,
+      "basic_blocks": 7
+    }
+  },
+  "behaviour": {
+    "reference": "unoptimized extracted input (plain.o)",
+    "lines": 100,
+    "reference_sha256": "e857b462f79b048d5aabd2086fcfc4f8f9ef8fc78a67e154c2b0747174e050e0",
+    "variants_identical_to_reference": {
+      "attr-replica_disable_unroll.o": true,
+      "attr-replica_service.o": true,
+      "attr-replica_service_marked.o": true,
+      "attr-replica_threshold0.o": true,
+      "attr-service_marked.o": true,
+      "attr-service_original.o": true,
+      "control-attr_oz_stripped.o": true,
+      "control-plain_marked_oz_late_attr.o": true,
+      "control-plain_oz_late_attr.o": true,
+      "plain-replica_disable_unroll.o": true,
+      "plain-replica_service.o": true,
+      "plain-replica_service_marked.o": true,
+      "plain-replica_threshold0.o": true,
+      "plain-service_marked.o": true,
+      "plain-service_original.o": true
+    },
+    "scope": "4 pseudo-random fixed input vectors, bit-exact comparison of all 25 outputs; not a proof of semantic equivalence"
+  },
+  "commands": [
+    "/opt/llvm10/bin/llvm-extract -func=transfb_nc0 /work/results/causal_baseline_audit/pilot/artifacts/npb-v0_116/plain.bc -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain.bc",
+    "/root/.local/share/compiler_gym/llvm-v0/bin/opt -verify /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain.bc -disable-output",
+    "add_attributes(plain.bc, attr.bc)  # scripts/baseline_audit_cgym_matrix.py",
+    "replica_oz --mark-unroll-disable plain.bc plain-marked.bc",
+    "service: reset(file://input-c6425f64333778c181f307e3455d2d967e370e1a04b81f644af64b153e02024f.bc); send_param(\"llvm.apply_baseline_optimizations\",\"-Oz\"); write_bitcode(plain-service_original.bc)",
+    "service: reset(file://input-d3752cb4299dd6a71113016a8488484cd9d4dc916f6df88b21a3b5bbf45f9278.bc); send_param(\"llvm.apply_baseline_optimizations\",\"-Oz\"); write_bitcode(plain-service_marked.bc)",
+    "replica_oz --mode=service --remarks --stats=... plain.bc plain-replica_service.bc",
+    "replica_oz --mode=service --remarks --stats=... plain-marked.bc plain-replica_service_marked.bc",
+    "replica_oz --mode=disable-unroll --remarks --stats=... plain.bc plain-replica_disable_unroll.bc",
+    "replica_oz --mode=unroll-threshold-0 --remarks --stats=... plain.bc plain-replica_threshold0.bc",
+    "replica_oz --mark-unroll-disable attr.bc attr-marked.bc",
+    "service: reset(file://input-25aeba570f1462940d1caac019b221dc765aaf444a8878939aa7c7db7b587a40.bc); send_param(\"llvm.apply_baseline_optimizations\",\"-Oz\"); write_bitcode(attr-service_original.bc)",
+    "service: reset(file://input-500d651b1f485da88bfc484e6c46c3b75048fa55acd34ed81dbd7199b650e7ae.bc); send_param(\"llvm.apply_baseline_optimizations\",\"-Oz\"); write_bitcode(attr-service_marked.bc)",
+    "replica_oz --mode=service --remarks --stats=... attr.bc attr-replica_service.bc",
+    "replica_oz --mode=service --remarks --stats=... attr-marked.bc attr-replica_service_marked.bc",
+    "replica_oz --mode=disable-unroll --remarks --stats=... attr.bc attr-replica_disable_unroll.bc",
+    "replica_oz --mode=unroll-threshold-0 --remarks --stats=... attr.bc attr-replica_threshold0.bc",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/attr-replica_disable_unroll.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/attr-replica_disable_unroll.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/attr-replica_service.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/attr-replica_service.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/attr-replica_service_marked.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/attr-replica_service_marked.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/attr-replica_threshold0.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/attr-replica_threshold0.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/attr-service_marked.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/attr-service_marked.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/attr-service_original.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/attr-service_original.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/control-attr_oz_stripped.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/control-attr_oz_stripped.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/control-plain_marked_oz_late_attr.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/control-plain_marked_oz_late_attr.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/control-plain_oz_late_attr.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/control-plain_oz_late_attr.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain-replica_disable_unroll.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain-replica_disable_unroll.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain-replica_service.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain-replica_service.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain-replica_service_marked.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain-replica_service_marked.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain-replica_threshold0.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain-replica_threshold0.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain-service_marked.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain-service_marked.test",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain-service_original.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain-service_original.test",
+    "/root/.local/share/compiler_gym/llvm-v0/bin/llc -filetype=obj /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain.bc -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain.o",
+    "clang-14 -O0 -no-pie /work/results/causal_baseline_audit/example_npb116_transfb_nc0/driver.c /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain.o -o /work/results/causal_baseline_audit/example_npb116_transfb_nc0/plain.test"
+  ],
+  "files_sha256": {
+    "attr-marked.bc": "500d651b1f485da88bfc484e6c46c3b75048fa55acd34ed81dbd7199b650e7ae",
+    "attr-marked.ll": "31aca4a1a82715b2768822861f64f12424901a0490c4a3ff5ef0208586ca9838",
+    "attr-marked.stats.json": "288a7569b86b5781edeb0be36702e06af157783be2598d8043c8b8f378e18b65",
+    "attr-replica_disable_unroll.bc": "1af0505b2ea39948fb7e399b9df595452af0ffd0aebbfa6f064f263190f9f7dc",
+    "attr-replica_disable_unroll.ll": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+    "attr-replica_disable_unroll.o": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+    "attr-replica_disable_unroll.remarks.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "attr-replica_disable_unroll.stats.json": "aea2c7ade95e13a9b1f55e4ce6769fc392d3a8dee3dd3395ba4782c10647016a",
+    "attr-replica_service.bc": "1af0505b2ea39948fb7e399b9df595452af0ffd0aebbfa6f064f263190f9f7dc",
+    "attr-replica_service.ll": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+    "attr-replica_service.o": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+    "attr-replica_service.remarks.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "attr-replica_service.stats.json": "e6b718d6b9b6539593eaeb39ca4134e1569fe28259dc6ac560177ca7c5c396e0",
+    "attr-replica_service_marked.bc": "5cfbc1ade78abf745e6fb878afb8aecdea5b7d74931735648cb6e108167afdde",
+    "attr-replica_service_marked.ll": "3be2e017efae52cd792eff450340bf1cad3b710d36086618a4b47e8e3f0e1ae8",
+    "attr-replica_service_marked.o": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+    "attr-replica_service_marked.remarks.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "attr-replica_service_marked.stats.json": "e6b718d6b9b6539593eaeb39ca4134e1569fe28259dc6ac560177ca7c5c396e0",
+    "attr-replica_threshold0.bc": "1af0505b2ea39948fb7e399b9df595452af0ffd0aebbfa6f064f263190f9f7dc",
+    "attr-replica_threshold0.ll": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+    "attr-replica_threshold0.o": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+    "attr-replica_threshold0.remarks.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "attr-replica_threshold0.stats.json": "9482fe56a7a4139b725c8ebc281c777535008893eeb3d24511dedf2dee575650",
+    "attr-service_marked.bc": "5cfbc1ade78abf745e6fb878afb8aecdea5b7d74931735648cb6e108167afdde",
+    "attr-service_marked.ll": "3be2e017efae52cd792eff450340bf1cad3b710d36086618a4b47e8e3f0e1ae8",
+    "attr-service_marked.o": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+    "attr-service_original.bc": "1af0505b2ea39948fb7e399b9df595452af0ffd0aebbfa6f064f263190f9f7dc",
+    "attr-service_original.ll": "73052d5c98735cb42786de6d36401e7fe13a22a6f33efa30aaa3473461f586de",
+    "attr-service_original.o": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+    "attr.bc": "25aeba570f1462940d1caac019b221dc765aaf444a8878939aa7c7db7b587a40",
+    "attr.ll": "5909d71fa43c8356305d4055cc17a849186894ca9ad15d182bf718233fd18d20",
+    "behaviour_reference_output.txt": "e857b462f79b048d5aabd2086fcfc4f8f9ef8fc78a67e154c2b0747174e050e0",
+    "control-attr_oz_stripped.bc": "fbbe1915b2c3f09c8d22362e68e915817cf063bcfab49cf0e5af15e4b429d7a5",
+    "control-attr_oz_stripped.ll": "a4652ae142e0861193039cde5b462efcbdcfac2b4d751433935b7b6d19e95181",
+    "control-attr_oz_stripped.o": "cc29bf3732165bdd07b01104bdf58f3299021ce8448de92df671ce1f3af273aa",
+    "control-plain_marked_oz_late_attr.bc": "36f16dd4e3e9c4606286e1cfcf5669cee8ae52f8e9e808fc482077e57a223207",
+    "control-plain_marked_oz_late_attr.ll": "3be2e017efae52cd792eff450340bf1cad3b710d36086618a4b47e8e3f0e1ae8",
+    "control-plain_marked_oz_late_attr.o": "af9dbbf1cf05081434fe0b6a3d7a3f721863799e40290d27c1694ee80e47b99a",
+    "control-plain_oz_late_attr.bc": "625d4f7c809bfbb7b834097bf75ed85b44e8840deeb0786a26e1fee981e819bc",
+    "control-plain_oz_late_attr.ll": "a28aad1e0e37d338dc1b541265f5f30e8d7de1834ea32adc0bca24adb518adb8",
+    "control-plain_oz_late_attr.o": "07c0ec8496c1a89f13d46766985f26d5e8a77eeb647b42c60433f40233663b70",
+    "driver.c": "198d9edf6c462e46443d01371abedeaf8e8ca1dc4a222f0e760bed25681cb3d6",
+    "plain-marked.bc": "d3752cb4299dd6a71113016a8488484cd9d4dc916f6df88b21a3b5bbf45f9278",
+    "plain-marked.ll": "d2bed88723a5a34a47b722eeed77c446ba7c23a54032e518da7d4f908548d42e",
+    "plain-marked.stats.json": "778cb2c1b28639711f7f7ba1f37c66b345b6158f154bef2cca830f80461e3652",
+    "plain-replica_disable_unroll.bc": "6502ce9550409a774cbbf1d8ee1a23022d53b44833c4bccd049fb64d61111ad2",
+    "plain-replica_disable_unroll.ll": "a4652ae142e0861193039cde5b462efcbdcfac2b4d751433935b7b6d19e95181",
+    "plain-replica_disable_unroll.o": "cc29bf3732165bdd07b01104bdf58f3299021ce8448de92df671ce1f3af273aa",
+    "plain-replica_disable_unroll.remarks.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "plain-replica_disable_unroll.stats.json": "1032239479d35df8599ff15d052d833c74a812266e261089d5c5cdcc930c1cf1",
+    "plain-replica_service.bc": "ce5b536c78a18bb8382b4b564f5986e212b1f65bf36adbb65d8530d8e71665c3",
+    "plain-replica_service.ll": "8a2a9c2ad491b6b17d01e3a71ee7732dcd9e8f355e7216df7b8f6f9fec3cb196",
+    "plain-replica_service.o": "86a1b3d545fd2e114ef90082daa227c24c94334a698e3a42663d7070fa827801",
+    "plain-replica_service.remarks.txt": "9f162d4c70f642bbef6a4ce9cb10d22d16535ece8ba881ad2c2e50e21dc4efba",
+    "plain-replica_service.stats.json": "474bc615e5f7ffc87699925d290bd4775dfe0c7094738721c3f0213625eacf64",
+    "plain-replica_service_marked.bc": "ce86c9dc2d488b7ecc52df42f72f8f0a6c303dcb69c7a3abe390ea2156addc78",
+    "plain-replica_service_marked.ll": "f76f28d7d4589cb66536d2535d6d34cc18c7dfbd1cb3563457f6e8bf40fecd27",
+    "plain-replica_service_marked.o": "cc29bf3732165bdd07b01104bdf58f3299021ce8448de92df671ce1f3af273aa",
+    "plain-replica_service_marked.remarks.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "plain-replica_service_marked.stats.json": "89d3172fe09c815cf90d17cc9fdc1d19399f6063830d29a5c607cdad4151c2f1",
+    "plain-replica_threshold0.bc": "6502ce9550409a774cbbf1d8ee1a23022d53b44833c4bccd049fb64d61111ad2",
+    "plain-replica_threshold0.ll": "a4652ae142e0861193039cde5b462efcbdcfac2b4d751433935b7b6d19e95181",
+    "plain-replica_threshold0.o": "cc29bf3732165bdd07b01104bdf58f3299021ce8448de92df671ce1f3af273aa",
+    "plain-replica_threshold0.remarks.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "plain-replica_threshold0.stats.json": "eea0f9044dd468225c25faf822a2c30e8dd4814a02f168a70077cc6aa7965fc2",
+    "plain-service_marked.bc": "ce86c9dc2d488b7ecc52df42f72f8f0a6c303dcb69c7a3abe390ea2156addc78",
+    "plain-service_marked.ll": "f76f28d7d4589cb66536d2535d6d34cc18c7dfbd1cb3563457f6e8bf40fecd27",
+    "plain-service_marked.o": "cc29bf3732165bdd07b01104bdf58f3299021ce8448de92df671ce1f3af273aa",
+    "plain-service_original.bc": "ce5b536c78a18bb8382b4b564f5986e212b1f65bf36adbb65d8530d8e71665c3",
+    "plain-service_original.ll": "8a2a9c2ad491b6b17d01e3a71ee7732dcd9e8f355e7216df7b8f6f9fec3cb196",
+    "plain-service_original.o": "86a1b3d545fd2e114ef90082daa227c24c94334a698e3a42663d7070fa827801",
+    "plain.bc": "c6425f64333778c181f307e3455d2d967e370e1a04b81f644af64b153e02024f",
+    "plain.ll": "4bdf6f36d3299fc4e2fe1a2b8c7d09698c2e1de9c7fffdd8e66537295917da81",
+    "plain.o": "1399869a4a00562087f3188800ad5c276ee2889ceef8fdabd46a4718adfbcb42"
+  }
+}

@@ -1,0 +1,26 @@
+DEPRECATED: The legacy builder is deprecated and will be removed in a future release.
+            Install the buildx component to build images with BuildKit:
+            https://docs.docker.com/go/buildx/
+
+Sending build context to Docker daemon  433.7MB
+Step 1/6 : FROM cgym:0.2.5
+ ---> 33efcd5bd799
+Step 2/6 : COPY clang+llvm-10.0.0-x86_64-linux-gnu-ubuntu-18.04.tar.xz /opt/llvm10.tar.xz
+ ---> Using cache
+ ---> eae0041921c3
+Step 3/6 : RUN echo "b25f592a0c00686f03e3b7db68ca6dc87418f681f4ead4df4745a01d9be63843  /opt/llvm10.tar.xz" | sha256sum -c -  && mkdir -p /opt/llvm10 && tar -xJf /opt/llvm10.tar.xz -C /opt/llvm10 --strip-components=1  && rm /opt/llvm10.tar.xz && /opt/llvm10/bin/llvm-config --version
+ ---> Using cache
+ ---> 1224d4873046
+Step 4/6 : RUN apt-get update && apt-get install -y --no-install-recommends zlib1g-dev libtinfo-dev libxml2-dev  && rm -rf /var/lib/apt/lists/*
+ ---> Using cache
+ ---> f08b48917824
+Step 5/6 : COPY replica_oz.cpp /opt/replica_oz.cpp
+ ---> dc656d271eb0
+Step 6/6 : RUN clang++-14 -std=c++14 -O1 -fno-rtti -fno-exceptions -Wno-unused-command-line-argument       -I/opt/llvm10/include -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS       /opt/replica_oz.cpp -o /usr/local/bin/replica_oz       $(/opt/llvm10/bin/llvm-config --link-static --ldflags)       $(/opt/llvm10/bin/llvm-config --link-static --libs all)       $(/opt/llvm10/bin/llvm-config --link-static --system-libs)  && sha256sum /usr/local/bin/replica_oz
+ ---> [Warning] The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+ ---> Running in 2659110dbb0a
+49bcccdb1848cc99ef7b8f43482b04e2afb0df9b797d1b1754fe289d06572d30  /usr/local/bin/replica_oz
+ ---> Removed intermediate container 2659110dbb0a
+ ---> 28ff3e36663f
+Successfully built 28ff3e36663f
+Successfully tagged cgym-causal:0.2.5
