@@ -1,0 +1,226 @@
+{
+  "script_sha256": "60797d7a4964ee88412ee536e72973fb57cc2ab5c764c72b52657e5b7da178a8",
+  "source_index_sha256": "ae6c62ae30fdb2fdf490fa0ddbfed4fd2f87b492ef19b6e6ee3365503516d1bd",
+  "system_flags": [
+    "-isystem",
+    "/usr/include/c++/11",
+    "-isystem",
+    "/usr/include/x86_64-linux-gnu/c++/11",
+    "-isystem",
+    "/usr/include/c++/11/backward",
+    "-isystem",
+    "/usr/lib/gcc/x86_64-linux-gnu/11/include",
+    "-isystem",
+    "/usr/local/include",
+    "-isystem",
+    "/usr/include/x86_64-linux-gnu",
+    "-isystem",
+    "/usr/include"
+  ],
+  "reference_flags": [
+    "-Oz",
+    "-no-pie"
+  ],
+  "object_link_flags": [
+    "-no-pie"
+  ],
+  "execution": "amd64 container under Rosetta; no timing claim",
+  "programs": [
+    {
+      "name": "adpcm",
+      "uri": "benchmark://chstone-v0/adpcm",
+      "source_sha256": "49b3ccaafea6ab8b99357c234e201657806fbbd6715456e79c13878048714ba5",
+      "fixed_test_vectors": true,
+      "tests": {
+        "real_clang_oz": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "7792701f47d4991eb9de4dd531fd77ba6dbd53da269e367a08c9f97b39005a32"
+        },
+        "oz": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "b663b4a39415cf3d76577d4e59e551597a3155096dd914dc4049c94ba1eafd6e"
+        },
+        "portfolio_1": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "07e351bd81aed3c6b462b33b0e0ca49822c642fdb3205f65febe21825db81d20"
+        },
+        "portfolio_2": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "3f765a23072eec77817e5ff404b4dce497f855baf85180b0deea02824e37c49f"
+        },
+        "portfolio_3": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "b7e3cd33d402c4bc8d8b6f25970976145e588f7be5e459ce9aa7c1380c9bd0c8"
+        },
+        "selected": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "07e351bd81aed3c6b462b33b0e0ca49822c642fdb3205f65febe21825db81d20"
+        }
+      },
+      "selected": "portfolio_1",
+      "code_gain_pct_vs_service_oz": 0.4903677758318739,
+      "baseline_code_bytes": 2855,
+      "selected_code_bytes": 2841,
+      "passed": true
+    },
+    {
+      "name": "aes",
+      "uri": "benchmark://chstone-v0/aes",
+      "source_sha256": "cc2db407f48dcaa7fe5d3a76f8ab53000d8e2533e2a969565840014e5cfb0700",
+      "fixed_test_vectors": true,
+      "tests": {
+        "real_clang_oz": {
+          "exit_code": 0,
+          "stdout": "encrypted message \t3925841d02dc09fbdc118597196a0b32\ndecrypto message\t3243f6a8885a308d313198a2e0370734\n0\n",
+          "stderr": "",
+          "executable_sha256": "55e815d66b3cb6f3c88e095e4ab3d52d202f04c33337f929db4dfb96c06654ac"
+        },
+        "oz": {
+          "exit_code": 0,
+          "stdout": "encrypted message \t3925841d02dc09fbdc118597196a0b32\ndecrypto message\t3243f6a8885a308d313198a2e0370734\n0\n",
+          "stderr": "",
+          "executable_sha256": "50b5bd404cf17382f8bd88ad7ef89841fc0e73a0942c0f2f82bba79bb8750b49"
+        },
+        "portfolio_1": {
+          "exit_code": 0,
+          "stdout": "encrypted message \t3925841d02dc09fbdc118597196a0b32\ndecrypto message\t3243f6a8885a308d313198a2e0370734\n0\n",
+          "stderr": "",
+          "executable_sha256": "bc03d91f2f94e9c6bbd53795f64032fa44d0c3241db9d5b0975b33973659efac"
+        },
+        "portfolio_2": {
+          "exit_code": 0,
+          "stdout": "encrypted message \t3925841d02dc09fbdc118597196a0b32\ndecrypto message\t3243f6a8885a308d313198a2e0370734\n0\n",
+          "stderr": "",
+          "executable_sha256": "96b5a26263a44ef91346d293d6198b395f8f9a5f208c0669e97ef0a6ccb846f3"
+        },
+        "portfolio_3": {
+          "exit_code": 0,
+          "stdout": "encrypted message \t3925841d02dc09fbdc118597196a0b32\ndecrypto message\t3243f6a8885a308d313198a2e0370734\n0\n",
+          "stderr": "",
+          "executable_sha256": "174d913dafc11d2d92f90133332aafcf6fe162b8f3ae7f48d737b4eb280140fb"
+        },
+        "selected": {
+          "exit_code": 0,
+          "stdout": "encrypted message \t3925841d02dc09fbdc118597196a0b32\ndecrypto message\t3243f6a8885a308d313198a2e0370734\n0\n",
+          "stderr": "",
+          "executable_sha256": "bc03d91f2f94e9c6bbd53795f64032fa44d0c3241db9d5b0975b33973659efac"
+        }
+      },
+      "selected": "portfolio_1",
+      "code_gain_pct_vs_service_oz": 0.7363353157745681,
+      "baseline_code_bytes": 7062,
+      "selected_code_bytes": 7010,
+      "passed": true
+    },
+    {
+      "name": "gsm",
+      "uri": "benchmark://chstone-v0/gsm",
+      "source_sha256": "4d6787dd96818856008509f0c3f479dd2f2b42242f7cf2feb32750c16b6871bd",
+      "fixed_test_vectors": true,
+      "tests": {
+        "real_clang_oz": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "9c98d4b5014d378b0fbaeb564124968c82683698645c2943b7a9a4be720f2272"
+        },
+        "oz": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "403c5e2471e6e8291d77ede407b9181b1a392b54f22306c627eed74a2201dad4"
+        },
+        "portfolio_1": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "9520bd07311fdcc51cf56a8cc89da6634904d03d8316863e74f2c779bbad07db"
+        },
+        "portfolio_2": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "e83df2c1fcb253a85b6174b7791c78387aae74bf2ab8dacfed079142cac3f1a0"
+        },
+        "portfolio_3": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "89dd8dc2a4bcea165349db193fa7d0dc076c3064ee2cbb001cc44089ce32ef65"
+        },
+        "selected": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "9520bd07311fdcc51cf56a8cc89da6634904d03d8316863e74f2c779bbad07db"
+        }
+      },
+      "selected": "portfolio_1",
+      "code_gain_pct_vs_service_oz": 2.1878536401357978,
+      "baseline_code_bytes": 2651,
+      "selected_code_bytes": 2593,
+      "passed": true
+    },
+    {
+      "name": "sha",
+      "uri": "benchmark://chstone-v0/sha",
+      "source_sha256": "a8d214da7577dfd8e731587377ffdf09c648fe7bf170c919545dff086b47733d",
+      "fixed_test_vectors": true,
+      "tests": {
+        "real_clang_oz": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "79954f55d443aed918d12ec105fbd7a113b3174b186ac7a4419aa1022270aa35"
+        },
+        "oz": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "babde06b0d02c144e6e8aec50e47968a490f6a3437a09592ca42c92452f8222d"
+        },
+        "portfolio_1": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "e59144bc59bf2b08351e375335c22f9e51f34b248ec3e62bedee109f3bfade60"
+        },
+        "portfolio_2": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "3e0b310355575345b5de05ba1caa870a990374352a07ae504499f9ad81784e86"
+        },
+        "portfolio_3": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "e620efdd506a8d5d845161862880554527328fd945c079311f4bdc5f93497c00"
+        },
+        "selected": {
+          "exit_code": 0,
+          "stdout": "0\n",
+          "stderr": "",
+          "executable_sha256": "babde06b0d02c144e6e8aec50e47968a490f6a3437a09592ca42c92452f8222d"
+        }
+      },
+      "selected": "oz",
+      "code_gain_pct_vs_service_oz": 0.0,
+      "baseline_code_bytes": 899,
+      "selected_code_bytes": 899,
+      "passed": true
+    }
+  ]
+}
