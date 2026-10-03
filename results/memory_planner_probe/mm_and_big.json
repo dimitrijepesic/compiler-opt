@@ -1,0 +1,159 @@
+{
+ "minimalloc": {
+  "A.1048576.csv": {
+   "rc": 0,
+   "wall_s": 4.11,
+   "solved_at_capacity_1048576": true
+  },
+  "B.1048576.csv": {
+   "rc": 0,
+   "wall_s": 3.35,
+   "solved_at_capacity_1048576": true
+  },
+  "C.1048576.csv": {
+   "rc": 0,
+   "wall_s": 0.57,
+   "solved_at_capacity_1048576": true
+  },
+  "D.1048576.csv": {
+   "rc": 0,
+   "wall_s": 2.34,
+   "solved_at_capacity_1048576": true
+  },
+  "E.1048576.csv": {
+   "rc": 0,
+   "wall_s": 3.25,
+   "solved_at_capacity_1048576": true
+  },
+  "F.1048576.csv": {
+   "rc": 0,
+   "wall_s": 4.17,
+   "solved_at_capacity_1048576": true
+  },
+  "G.1048576.csv": {
+   "rc": 0,
+   "wall_s": 0.83,
+   "solved_at_capacity_1048576": true
+  },
+  "H.1048576.csv": {
+   "rc": 0,
+   "wall_s": 1.29,
+   "solved_at_capacity_1048576": true
+  },
+  "I.1048576.csv": {
+   "rc": 0,
+   "wall_s": 3.21,
+   "solved_at_capacity_1048576": true
+  },
+  "J.1048576.csv": {
+   "rc": 0,
+   "wall_s": 0.72,
+   "solved_at_capacity_1048576": true
+  },
+  "K.1048576.csv": {
+   "rc": 0,
+   "wall_s": 0.48,
+   "solved_at_capacity_1048576": true
+  },
+  "somas_tensors/resnet50.csv@1515472556": {
+   "rc": 0,
+   "wall_s": 0.19,
+   "solved": true
+  },
+  "somas_tensors/resnet50.csv@1520018973": {
+   "rc": 0,
+   "wall_s": 0.19,
+   "solved": true
+  },
+  "iopddl/G_1.csv@3030937746": {
+   "rc": 0,
+   "wall_s": 0.96,
+   "solved": true
+  },
+  "iopddl/G_1.csv@3040030559": {
+   "rc": 0,
+   "wall_s": 0.11,
+   "solved": true
+  }
+ },
+ "big": {
+  "somas_tensors/pangu_2.6B.csv@1": {
+   "rc": 0,
+   "wall_s": 0.8,
+   "eps": 108.17542771903624,
+   "interval": [
+    91.8619392259,
+    505.8679445349113
+   ],
+   "frag_pct": 3.34,
+   "makespan": 5714911295,
+   "load": 5530099775,
+   "tail": ""
+  },
+  "somas_tensors/pangu_2.6B.csv@10": {
+   "rc": 0,
+   "wall_s": 2.4,
+   "eps": 108.17542771903624,
+   "interval": [
+    91.8619392259,
+    505.8679445349113
+   ],
+   "frag_pct": 3.34,
+   "makespan": 5714911295,
+   "load": 5530099775,
+   "tail": ""
+  },
+  "iopddl/S_1.csv@1": {
+   "rc": 0,
+   "wall_s": 2.6,
+   "eps": 117.36248915920268,
+   "interval": [
+    96.65265813831755,
+    450.54677797803964
+   ],
+   "frag_pct": 2.93,
+   "makespan": 1542556726,
+   "load": 1498635932,
+   "tail": ""
+  },
+  "iopddl/S_1.csv@10": {
+   "rc": 0,
+   "wall_s": 6.8,
+   "eps": 117.36248915920268,
+   "interval": [
+    96.65265813831755,
+    450.54677797803964
+   ],
+   "frag_pct": 1.57,
+   "makespan": 1522106012,
+   "load": 1498635932,
+   "tail": ""
+  },
+  "iopddl/Y_1.csv@1": {
+   "rc": 0,
+   "wall_s": 17.5,
+   "eps": 118.08080859309227,
+   "interval": [
+    80.16587992274403,
+    638.2747021838567
+   ],
+   "frag_pct": 0.36,
+   "makespan": 499031546849,
+   "load": 497261190115,
+   "tail": ""
+  },
+  "iopddl/Y_1.csv@10": {
+   "rc": 0,
+   "wall_s": 40.1,
+   "eps": 118.08080859309227,
+   "interval": [
+    80.16587992274403,
+    638.2747021838567
+   ],
+   "frag_pct": 0.28,
+   "makespan": 498665826783,
+   "load": 497261190115,
+   "tail": ""
+  }
+ }
+}

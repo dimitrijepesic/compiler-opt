@@ -1,0 +1,48 @@
+diff --git a/coreba/src/analyze.rs b/coreba/src/analyze.rs
+index 9c05ff7..ca990ba 100644
+--- a/coreba/src/analyze.rs
++++ b/coreba/src/analyze.rs
+@@ -226,6 +226,14 @@ pub fn prelude_analysis(mut jobs: JobSet, start_addr: ByteSteps) -> AnalysisResu
+ /// 
+ /// Also returns the winning value's almost-converged instance.
+ fn init_rogue(input: Rc<Instance>, small: f64, big: f64) -> (f64, Rc<Instance>) {
++    // PROBE PATCH (not upstream): IDEALLOC_EPS_FRAC=f forces epsilon = small + f * (big - small).
++    if let Ok(v) = std::env::var("IDEALLOC_EPS_FRAC") {
++        let f: f64 = v.parse().unwrap();
++        let e = small + f * (big - small);
++        eprintln!("PROBE eps_forced {} interval [{}, {}]", e, small, big);
++        let t = rogue(input.clone(), e);
++        return (e, t);
++    }
+     let mut e = small;
+     let mut min_r = f64::MAX;
+     let mut best_e = e;
+@@ -246,6 +254,7 @@ fn init_rogue(input: Rc<Instance>, small: f64, big: f64) -> (f64, Rc<Instance>)
+             }
+             e += (big - e) * 0.01;
+         } else { 
++            eprintln!("PROBE eps_default {} interval [{}, {}]", best_e, small, big);
+             break (best_e, best); 
+         }
+     }
+diff --git a/coreba/src/bin/idealloc.rs b/coreba/src/bin/idealloc.rs
+index 3465997..b9754fb 100644
+--- a/coreba/src/bin/idealloc.rs
++++ b/coreba/src/bin/idealloc.rs
+@@ -48,5 +48,14 @@ fn main() {
+         },
+         InpuType::TRC   => { panic!("TRC files must first be fed to the `adapt` binary!"); },
+     }.unwrap();
+-    coreba::algo::idealloc(set, cli.max_frag, cli.start, cli.max_lives);
++    let (placement, makespan) = coreba::algo::idealloc(set, cli.max_frag, cli.start, cli.max_lives);
++    // PROBE PATCH (not upstream): export the placement for an independent validator.
++    if let Ok(path) = std::env::var("IDEALLOC_DUMP") {
++        let mut out = String::from("id,birth,death,size,offset\n");
++        for (id, pj) in placement.iter() {
++            out.push_str(&format!("{},{},{},{},{}\n", id, pj.descr.birth, pj.descr.death, pj.descr.size, pj.offset.get()));
++        }
++        out.push_str(&format!("#makespan,{}\n", makespan));
++        std::fs::write(path, out).unwrap();
++    }
+ }
+\ No newline at end of file

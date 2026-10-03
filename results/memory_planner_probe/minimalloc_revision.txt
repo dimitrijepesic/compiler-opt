@@ -1,0 +1,11 @@
+9f5cf810fec4494df473c23cffd0567989e81b69
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4eea1ff..ef087b9 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-cmake_minimum_required(VERSION 3.25.1)
++cmake_minimum_required(VERSION 3.22)
+ project(MiniMalloc LANGUAGES CXX)
+ 
+ set(CMAKE_CXX_STANDARD 20)
