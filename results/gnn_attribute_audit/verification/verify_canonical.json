@@ -1,0 +1,305 @@
+{
+ "records": 210,
+ "manifest_sources": 210,
+ "fingerprints_match_manifest": true,
+ "record_uris_equal_sources": true,
+ "failed_records": 0,
+ "suite_counts": {
+  "npb-v0": 120,
+  "mibench-v1": 40,
+  "blas-v0": 50
+ },
+ "excluded_above_cap": 2,
+ "max_o0_in_records": 5705,
+ "membership_equals_battery_le6000": true,
+ "o0_oz_reproduced": 210,
+ "portfolio_ic_reproduced": "210/210 programs (1680 candidate ICs expected: 1680)",
+ "attr_o0_unchanged": true,
+ "all_definitions_annotated": true,
+ "input_sha_distinct_plain_vs_attr": true,
+ "ir_identity_on_reload_recorded": true,
+ "service_oz_equals_observation_plain": true,
+ "cli_oz_ic_differs_from_service": {
+  "npb-v0": {
+   "plain": 37,
+   "attr": 21
+  },
+  "mibench-v1": {
+   "plain": 8,
+   "attr": 4
+  },
+  "blas-v0": {
+   "plain": 5,
+   "attr": 5
+  }
+ },
+ "all_candidates_ok": true,
+ "total_candidate_measurements": 6720,
+ "selection_by_ic_and_same_candidate_bytes_ok": true,
+ "table": {
+  "npb-v0/portfolio/plain/ic": {
+   "oz": 53085,
+   "cand": 40428,
+   "gain_pct": 23.84,
+   "wtl": "55/35/30",
+   "summary_json_gain": 23.84
+  },
+  "npb-v0/portfolio/plain/text": {
+   "oz": 348878,
+   "cand": 291120,
+   "gain_pct": 16.56,
+   "wtl": "60/13/47",
+   "summary_json_gain": 16.56
+  },
+  "npb-v0/portfolio/plain/text_sec": {
+   "oz": 291616,
+   "cand": 222477,
+   "gain_pct": 23.71,
+   "wtl": "76/13/31",
+   "summary_json_gain": 23.71
+  },
+  "npb-v0/portfolio/attr/ic": {
+   "oz": 40446,
+   "cand": 40412,
+   "gain_pct": 0.08,
+   "wtl": "34/37/49",
+   "summary_json_gain": 0.08
+  },
+  "npb-v0/portfolio/attr/text": {
+   "oz": 267814,
+   "cand": 268355,
+   "gain_pct": -0.2,
+   "wtl": "50/13/57",
+   "summary_json_gain": -0.2
+  },
+  "npb-v0/portfolio/attr/text_sec": {
+   "oz": 214296,
+   "cand": 201952,
+   "gain_pct": 5.76,
+   "wtl": "79/13/28",
+   "summary_json_gain": 5.76
+  },
+  "npb-v0/random/plain/ic": {
+   "oz": 53085,
+   "cand": 41220,
+   "gain_pct": 22.35,
+   "wtl": "51/30/39",
+   "summary_json_gain": 22.35
+  },
+  "npb-v0/random/plain/text": {
+   "oz": 348878,
+   "cand": 284463,
+   "gain_pct": 18.46,
+   "wtl": "65/22/33",
+   "summary_json_gain": 18.46
+  },
+  "npb-v0/random/plain/text_sec": {
+   "oz": 291616,
+   "cand": 220090,
+   "gain_pct": 24.53,
+   "wtl": "74/23/23",
+   "summary_json_gain": 24.53
+  },
+  "npb-v0/random/attr/ic": {
+   "oz": 40446,
+   "cand": 41204,
+   "gain_pct": -1.87,
+   "wtl": "24/32/64",
+   "summary_json_gain": -1.87
+  },
+  "npb-v0/random/attr/text": {
+   "oz": 267814,
+   "cand": 262591,
+   "gain_pct": 1.95,
+   "wtl": "60/22/38",
+   "summary_json_gain": 1.95
+  },
+  "npb-v0/random/attr/text_sec": {
+   "oz": 214296,
+   "cand": 200450,
+   "gain_pct": 6.46,
+   "wtl": "76/23/21",
+   "summary_json_gain": 6.46
+  },
+  "mibench-v1/portfolio/plain/ic": {
+   "oz": 4841,
+   "cand": 4747,
+   "gain_pct": 1.94,
+   "wtl": "13/20/7",
+   "summary_json_gain": 1.94
+  },
+  "mibench-v1/portfolio/plain/text": {
+   "oz": 40942,
+   "cand": 40212,
+   "gain_pct": 1.78,
+   "wtl": "8/22/10",
+   "summary_json_gain": 1.78
+  },
+  "mibench-v1/portfolio/plain/text_sec": {
+   "oz": 27791,
+   "cand": 26869,
+   "gain_pct": 3.32,
+   "wtl": "8/22/10",
+   "summary_json_gain": 3.32
+  },
+  "mibench-v1/portfolio/attr/ic": {
+   "oz": 4714,
+   "cand": 4747,
+   "gain_pct": -0.7,
+   "wtl": "12/20/8",
+   "summary_json_gain": -0.7
+  },
+  "mibench-v1/portfolio/attr/text": {
+   "oz": 38796,
+   "cand": 38602,
+   "gain_pct": 0.5,
+   "wtl": "11/13/16",
+   "summary_json_gain": 0.5
+  },
+  "mibench-v1/portfolio/attr/text_sec": {
+   "oz": 25629,
+   "cand": 25251,
+   "gain_pct": 1.47,
+   "wtl": "11/13/16",
+   "summary_json_gain": 1.47
+  },
+  "mibench-v1/random/plain/ic": {
+   "oz": 4841,
+   "cand": 4811,
+   "gain_pct": 0.62,
+   "wtl": "9/19/12",
+   "summary_json_gain": 0.62
+  },
+  "mibench-v1/random/plain/text": {
+   "oz": 40942,
+   "cand": 40422,
+   "gain_pct": 1.27,
+   "wtl": "7/23/10",
+   "summary_json_gain": 1.27
+  },
+  "mibench-v1/random/plain/text_sec": {
+   "oz": 27791,
+   "cand": 27127,
+   "gain_pct": 2.39,
+   "wtl": "7/23/10",
+   "summary_json_gain": 2.39
+  },
+  "mibench-v1/random/attr/ic": {
+   "oz": 4714,
+   "cand": 4811,
+   "gain_pct": -2.06,
+   "wtl": "8/19/13",
+   "summary_json_gain": -2.06
+  },
+  "mibench-v1/random/attr/text": {
+   "oz": 38796,
+   "cand": 38684,
+   "gain_pct": 0.29,
+   "wtl": "14/8/18",
+   "summary_json_gain": 0.29
+  },
+  "mibench-v1/random/attr/text_sec": {
+   "oz": 25629,
+   "cand": 25373,
+   "gain_pct": 1.0,
+   "wtl": "14/8/18",
+   "summary_json_gain": 1.0
+  },
+  "blas-v0/portfolio/plain/ic": {
+   "oz": 37838,
+   "cand": 36745,
+   "gain_pct": 2.89,
+   "wtl": "33/16/1",
+   "summary_json_gain": 2.89
+  },
+  "blas-v0/portfolio/plain/text": {
+   "oz": 184299,
+   "cand": 182786,
+   "gain_pct": 0.82,
+   "wtl": "26/9/15",
+   "summary_json_gain": 0.82
+  },
+  "blas-v0/portfolio/plain/text_sec": {
+   "oz": 180277,
+   "cand": 178716,
+   "gain_pct": 0.87,
+   "wtl": "26/9/15",
+   "summary_json_gain": 0.87
+  },
+  "blas-v0/portfolio/attr/ic": {
+   "oz": 37838,
+   "cand": 36745,
+   "gain_pct": 2.89,
+   "wtl": "33/16/1",
+   "summary_json_gain": 2.89
+  },
+  "blas-v0/portfolio/attr/text": {
+   "oz": 188019,
+   "cand": 186609,
+   "gain_pct": 0.75,
+   "wtl": "23/9/18",
+   "summary_json_gain": 0.75
+  },
+  "blas-v0/portfolio/attr/text_sec": {
+   "oz": 173661,
+   "cand": 172003,
+   "gain_pct": 0.95,
+   "wtl": "25/8/17",
+   "summary_json_gain": 0.95
+  },
+  "blas-v0/random/plain/ic": {
+   "oz": 37838,
+   "cand": 36984,
+   "gain_pct": 2.26,
+   "wtl": "30/9/11",
+   "summary_json_gain": 2.26
+  },
+  "blas-v0/random/plain/text": {
+   "oz": 184299,
+   "cand": 182851,
+   "gain_pct": 0.79,
+   "wtl": "24/9/17",
+   "summary_json_gain": 0.79
+  },
+  "blas-v0/random/plain/text_sec": {
+   "oz": 180277,
+   "cand": 178829,
+   "gain_pct": 0.8,
+   "wtl": "24/9/17",
+   "summary_json_gain": 0.8
+  },
+  "blas-v0/random/attr/ic": {
+   "oz": 37838,
+   "cand": 36984,
+   "gain_pct": 2.26,
+   "wtl": "30/9/11",
+   "summary_json_gain": 2.26
+  },
+  "blas-v0/random/attr/text": {
+   "oz": 188019,
+   "cand": 186342,
+   "gain_pct": 0.89,
+   "wtl": "21/8/21",
+   "summary_json_gain": 0.89
+  },
+  "blas-v0/random/attr/text_sec": {
+   "oz": 173661,
+   "cand": 171680,
+   "gain_pct": 1.14,
+   "wtl": "22/8/20",
+   "summary_json_gain": 1.14
+  }
+ },
+ "attr_portfolio_ic_vs_code_outcomes": {
+  "win/loss": 30,
+  "win/win": 48,
+  "tie/loss": 21,
+  "loss/win": 46,
+  "tie/tie": 31,
+  "loss/loss": 10,
+  "tie/win": 21,
+  "loss/tie": 2,
+  "win/tie": 1
+ },
+ "opposite_sign_total": 76
+}

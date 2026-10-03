@@ -1,0 +1,74 @@
+records: 210
+manifest_sources: 210
+fingerprints_match_manifest: True
+record_uris_equal_sources: True
+failed_records: 0
+suite_counts: {'npb-v0': 120, 'mibench-v1': 40, 'blas-v0': 50}
+excluded_above_cap: 2
+max_o0_in_records: 5705
+membership_equals_battery_le6000: True
+o0_oz_reproduced: 210
+portfolio_ic_reproduced: 210/210 programs (1680 candidate ICs expected: 1680)
+attr_o0_unchanged: True
+all_definitions_annotated: True
+input_sha_distinct_plain_vs_attr: True
+ir_identity_on_reload_recorded: True
+service_oz_equals_observation_plain: True
+cli_oz_ic_differs_from_service: {'npb-v0': {'plain': 37, 'attr': 21}, 'mibench-v1': {'plain': 8, 'attr': 4}, 'blas-v0': {'plain': 5, 'attr': 5}}
+all_candidates_ok: True
+total_candidate_measurements: 6720
+selection_by_ic_and_same_candidate_bytes_ok: True
+  npb-v0/portfolio/plain/ic        oz    53085 cand    40428 gain +23.84% (summary +23.84%) W/T/L 55/35/30
+  npb-v0/portfolio/plain/text      oz   348878 cand   291120 gain +16.56% (summary +16.56%) W/T/L 60/13/47
+  npb-v0/portfolio/plain/text_sec  oz   291616 cand   222477 gain +23.71% (summary +23.71%) W/T/L 76/13/31
+  npb-v0/portfolio/attr/ic         oz    40446 cand    40412 gain  +0.08% (summary  +0.08%) W/T/L 34/37/49
+  npb-v0/portfolio/attr/text       oz   267814 cand   268355 gain  -0.20% (summary  -0.20%) W/T/L 50/13/57
+  npb-v0/portfolio/attr/text_sec   oz   214296 cand   201952 gain  +5.76% (summary  +5.76%) W/T/L 79/13/28
+  npb-v0/random/plain/ic           oz    53085 cand    41220 gain +22.35% (summary +22.35%) W/T/L 51/30/39
+  npb-v0/random/plain/text         oz   348878 cand   284463 gain +18.46% (summary +18.46%) W/T/L 65/22/33
+  npb-v0/random/plain/text_sec     oz   291616 cand   220090 gain +24.53% (summary +24.53%) W/T/L 74/23/23
+  npb-v0/random/attr/ic            oz    40446 cand    41204 gain  -1.87% (summary  -1.87%) W/T/L 24/32/64
+  npb-v0/random/attr/text          oz   267814 cand   262591 gain  +1.95% (summary  +1.95%) W/T/L 60/22/38
+  npb-v0/random/attr/text_sec      oz   214296 cand   200450 gain  +6.46% (summary  +6.46%) W/T/L 76/23/21
+  mibench-v1/portfolio/plain/ic    oz     4841 cand     4747 gain  +1.94% (summary  +1.94%) W/T/L 13/20/7
+  mibench-v1/portfolio/plain/text  oz    40942 cand    40212 gain  +1.78% (summary  +1.78%) W/T/L 8/22/10
+  mibench-v1/portfolio/plain/text_sec oz    27791 cand    26869 gain  +3.32% (summary  +3.32%) W/T/L 8/22/10
+  mibench-v1/portfolio/attr/ic     oz     4714 cand     4747 gain  -0.70% (summary  -0.70%) W/T/L 12/20/8
+  mibench-v1/portfolio/attr/text   oz    38796 cand    38602 gain  +0.50% (summary  +0.50%) W/T/L 11/13/16
+  mibench-v1/portfolio/attr/text_sec oz    25629 cand    25251 gain  +1.47% (summary  +1.47%) W/T/L 11/13/16
+  mibench-v1/random/plain/ic       oz     4841 cand     4811 gain  +0.62% (summary  +0.62%) W/T/L 9/19/12
+  mibench-v1/random/plain/text     oz    40942 cand    40422 gain  +1.27% (summary  +1.27%) W/T/L 7/23/10
+  mibench-v1/random/plain/text_sec oz    27791 cand    27127 gain  +2.39% (summary  +2.39%) W/T/L 7/23/10
+  mibench-v1/random/attr/ic        oz     4714 cand     4811 gain  -2.06% (summary  -2.06%) W/T/L 8/19/13
+  mibench-v1/random/attr/text      oz    38796 cand    38684 gain  +0.29% (summary  +0.29%) W/T/L 14/8/18
+  mibench-v1/random/attr/text_sec  oz    25629 cand    25373 gain  +1.00% (summary  +1.00%) W/T/L 14/8/18
+  blas-v0/portfolio/plain/ic       oz    37838 cand    36745 gain  +2.89% (summary  +2.89%) W/T/L 33/16/1
+  blas-v0/portfolio/plain/text     oz   184299 cand   182786 gain  +0.82% (summary  +0.82%) W/T/L 26/9/15
+  blas-v0/portfolio/plain/text_sec oz   180277 cand   178716 gain  +0.87% (summary  +0.87%) W/T/L 26/9/15
+  blas-v0/portfolio/attr/ic        oz    37838 cand    36745 gain  +2.89% (summary  +2.89%) W/T/L 33/16/1
+  blas-v0/portfolio/attr/text      oz   188019 cand   186609 gain  +0.75% (summary  +0.75%) W/T/L 23/9/18
+  blas-v0/portfolio/attr/text_sec  oz   173661 cand   172003 gain  +0.95% (summary  +0.95%) W/T/L 25/8/17
+  blas-v0/random/plain/ic          oz    37838 cand    36984 gain  +2.26% (summary  +2.26%) W/T/L 30/9/11
+  blas-v0/random/plain/text        oz   184299 cand   182851 gain  +0.79% (summary  +0.79%) W/T/L 24/9/17
+  blas-v0/random/plain/text_sec    oz   180277 cand   178829 gain  +0.80% (summary  +0.80%) W/T/L 24/9/17
+  blas-v0/random/attr/ic           oz    37838 cand    36984 gain  +2.26% (summary  +2.26%) W/T/L 30/9/11
+  blas-v0/random/attr/text         oz   188019 cand   186342 gain  +0.89% (summary  +0.89%) W/T/L 21/8/21
+  blas-v0/random/attr/text_sec     oz   173661 cand   171680 gain  +1.14% (summary  +1.14%) W/T/L 22/8/20
+  attr portfolio code bytes npb-v0: sum-based +5.76%  median per program +3.09%  mean +5.11%
+  attr portfolio code bytes mibench-v1: sum-based +1.47%  median per program +0.00%  mean -0.66%
+  attr portfolio code bytes blas-v0: sum-based +0.95%  median per program +0.01%  mean +0.46%
+  attr portfolio code bytes all: sum-based +3.48%  median per program +0.68%  mean +2.91%
+attr_portfolio_ic_vs_code_outcomes: {'win/loss': 30, 'win/win': 48, 'tie/loss': 21, 'loss/win': 46, 'tie/tie': 31, 'loss/loss': 10, 'tie/win': 21, 'loss/tie': 2, 'win/tie': 1}
+opposite_sign_total: 76
+  attr portfolio code bytes all: choose by IC +3.48%  choose by bytes +4.68%  programs helped 91/210
+     1 sequences + Oz (bytes, fallback): +2.74%  wins 113 ties 97 of 210
+     3 sequences + Oz (bytes, fallback): +4.62%  wins 131 ties 79 of 210
+     8 sequences + Oz (bytes, fallback): +4.90%  wins 149 ties 61 of 210
+  attr portfolio code bytes without_npb: choose by IC +1.02%  choose by bytes +2.40%  programs helped 52/90
+     1 sequences + Oz (bytes, fallback): +1.77%  wins 37 ties 53 of 90
+     3 sequences + Oz (bytes, fallback): +2.34%  wins 42 ties 48 of 90
+     8 sequences + Oz (bytes, fallback): +2.55%  wins 50 ties 40 of 90
+  concentration (all, attr, portfolio, IC-selected code bytes): net saved 14380, top5 4750 (33.0% of net), top5 uris ['benchmark://npb-v0/61', 'benchmark://npb-v0/94', 'benchmark://npb-v0/53', 'benchmark://npb-v0/91', 'benchmark://npb-v0/118']
+  after omitting top5: choose by IC +2.51%, by bytes +3.79% (n=205)
+  analysis.json: all attr portfolio ic_first 3.48% bytes 4.68%; without_npb 1.02% -> 2.40%; budget 3+Oz all 4.62%, 8+Oz 4.90%; opposite-sign {'win/loss': 30, 'loss/win': 46}
+  analysis.json concentration all attr portfolio: {'net_saved_bytes': 14380, 'gross_saved_bytes': 17257, 'gross_regression_bytes': 2877, 'top5_positive_bytes': 4750, 'top5_share_of_net_pct': 33.031988873435324, 'top5_share_of_gross_pct': 27.525062293562033, 'after_omitting_top5_ic_savers': {'ic_first': {'baseline_sum': 384252, 'selected_sum': 374622, 'saved': 9630, 'gain_pct': 2.5061678273632926, 'wins': 110, 'ties': 34, 'losses': 61, 'median_program_gain_pct': 0.545454545454549}, 'bytes': {'baseline_sum': 384252, 'selected_sum': 369678, 'saved': 14574, 'gain_pct': 3.792823459604633, 'wins': 144, 'ties': 35, 'losses': 26, 'median_program_gain_pct': 1.9921927581101118}}}

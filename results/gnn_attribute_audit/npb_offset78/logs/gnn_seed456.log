@@ -1,0 +1,152 @@
+[gnn seed=456] 120 programs, 0 done, 120 pending, workers=3
+  1/120 benchmark://npb-v0/10: ok (30.98s) repro samples 8/8 argmax Y | bo8 plain 21 attr 21 | oz plain 21 attr 21
+  2/120 benchmark://npb-v0/1: ok (31.99s) repro samples 8/8 argmax Y | bo8 plain 53 attr 53 | oz plain 50 attr 50
+  3/120 benchmark://npb-v0/102: ok (30.34s) repro samples 8/8 argmax Y | bo8 plain 27 attr 27 | oz plain 27 attr 27
+  4/120 benchmark://npb-v0/101: ok (31.08s) repro samples 8/8 argmax Y | bo8 plain 53 attr 53 | oz plain 50 attr 50
+  5/120 benchmark://npb-v0/100: ok (67.56s) repro samples 8/8 argmax Y | bo8 plain 1313 attr 1313 | oz plain 2072 attr 1269
+  6/120 benchmark://npb-v0/103: ok (30.5s) repro samples 8/8 argmax Y | bo8 plain 69 attr 69 | oz plain 69 attr 69
+  7/120 benchmark://npb-v0/104: ok (31.02s) repro samples 8/8 argmax Y | bo8 plain 44 attr 44 | oz plain 39 attr 39
+  8/120 benchmark://npb-v0/105: ok (29.78s) repro samples 8/8 argmax Y | bo8 plain 53 attr 53 | oz plain 50 attr 50
+  9/120 benchmark://npb-v0/108: ok (18.08s) repro samples 8/8 argmax Y | bo8 plain 7 attr 7 | oz plain 7 attr 7
+  10/120 benchmark://npb-v0/106: ok (29.16s) repro samples 8/8 argmax Y | bo8 plain 21 attr 21 | oz plain 21 attr 21
+  11/120 benchmark://npb-v0/107: ok (30.05s) repro samples 8/8 argmax Y | bo8 plain 44 attr 44 | oz plain 39 attr 39
+  12/120 benchmark://npb-v0/110: ok (30.41s) repro samples 8/8 argmax Y | bo8 plain 45 attr 45 | oz plain 63 attr 44
+  13/120 benchmark://npb-v0/11: ok (52.16s) repro samples 8/8 argmax Y | bo8 plain 275 attr 275 | oz plain 313 attr 283
+  14/120 benchmark://npb-v0/109: ok (60.93s) repro samples 8/8 argmax Y | bo8 plain 557 attr 557 | oz plain 743 attr 715
+  15/120 benchmark://npb-v0/111: ok (29.89s) repro samples 8/8 argmax Y | bo8 plain 27 attr 27 | oz plain 27 attr 27
+  16/120 benchmark://npb-v0/112: ok (30.98s) repro samples 8/8 argmax Y | bo8 plain 76 attr 76 | oz plain 148 attr 79
+  17/120 benchmark://npb-v0/113: ok (30.74s) repro samples 8/8 argmax Y | bo8 plain 108 attr 108 | oz plain 110 attr 110
+  18/120 benchmark://npb-v0/114: ok (29.21s) repro samples 8/8 argmax Y | bo8 plain 44 attr 44 | oz plain 39 attr 39
+  19/120 benchmark://npb-v0/115: ok (30.1s) repro samples 8/8 argmax Y | bo8 plain 59 attr 59 | oz plain 54 attr 54
+  20/120 benchmark://npb-v0/117: ok (62.52s) repro samples 8/8 argmax Y | bo8 plain 792 attr 792 | oz plain 903 attr 903
+  21/120 benchmark://npb-v0/116: ok (76.05s) repro samples 8/8 argmax Y | bo8 plain 2035 attr 2035 | oz plain 4316 attr 1911
+  22/120 benchmark://npb-v0/118: ok (60.13s) repro samples 8/8 argmax Y | bo8 plain 922 attr 922 | oz plain 940 attr 918
+  23/120 benchmark://npb-v0/120: ok (29.95s) repro samples 8/8 argmax Y | bo8 plain 48 attr 48 | oz plain 66 attr 47
+  24/120 benchmark://npb-v0/119: ok (67.63s) repro samples 8/8 argmax Y | bo8 plain 2174 attr 2174 | oz plain 2174 attr 2174
+  25/120 benchmark://npb-v0/12: ok (68.82s) repro samples 8/8 argmax Y | bo8 plain 1309 attr 1309 | oz plain 2269 attr 1242
+  26/120 benchmark://npb-v0/122: ok (29.42s) repro samples 8/8 argmax Y | bo8 plain 69 attr 69 | oz plain 69 attr 69
+  27/120 benchmark://npb-v0/14: ok (30.52s) repro samples 8/8 argmax Y | bo8 plain 44 attr 44 | oz plain 39 attr 39
+  28/120 benchmark://npb-v0/15: ok (29.39s) repro samples 8/8 argmax Y | bo8 plain 27 attr 27 | oz plain 27 attr 27
+  29/120 benchmark://npb-v0/13: ok (51.51s) repro samples 8/8 argmax Y | bo8 plain 442 attr 442 | oz plain 991 attr 426
+  30/120 benchmark://npb-v0/16: ok (17.47s) repro samples 8/8 argmax Y | bo8 plain 6 attr 6 | oz plain 6 attr 6
+  31/120 benchmark://npb-v0/18: ok (31.34s) repro samples 8/8 argmax Y | bo8 plain 153 attr 153 | oz plain 342 attr 153
+  32/120 benchmark://npb-v0/17: ok (50.7s) repro samples 8/8 argmax Y | bo8 plain 328 attr 328 | oz plain 370 attr 376
+  33/120 benchmark://npb-v0/2: ok (34.94s) repro samples 8/8 argmax Y | bo8 plain 209 attr 209 | oz plain 268 attr 213
+  34/120 benchmark://npb-v0/19: ok (60.81s) repro samples 8/8 argmax Y | bo8 plain 855 attr 855 | oz plain 942 attr 920
+  35/120 benchmark://npb-v0/20: ok (28.74s) repro samples 8/8 argmax Y | bo8 plain 21 attr 21 | oz plain 21 attr 21
+  36/120 benchmark://npb-v0/21: ok (29.11s) repro samples 8/8 argmax Y | bo8 plain 27 attr 27 | oz plain 27 attr 27
+  37/120 benchmark://npb-v0/23: ok (29.78s) repro samples 8/8 argmax Y | bo8 plain 69 attr 69 | oz plain 69 attr 69
+  38/120 benchmark://npb-v0/24: ok (28.67s) repro samples 8/8 argmax Y | bo8 plain 21 attr 21 | oz plain 21 attr 21
+  39/120 benchmark://npb-v0/22: ok (60.82s) repro samples 8/8 argmax Y | bo8 plain 787 attr 787 | oz plain 836 attr 745
+  40/120 benchmark://npb-v0/25: ok (29.7s) repro samples 8/8 argmax Y | bo8 plain 53 attr 53 | oz plain 50 attr 50
+  41/120 benchmark://npb-v0/26: ok (29.55s) repro samples 8/8 argmax Y | bo8 plain 44 attr 44 | oz plain 39 attr 39
+  42/120 benchmark://npb-v0/27: ok (29.61s) repro samples 8/8 argmax Y | bo8 plain 27 attr 27 | oz plain 27 attr 27
+  43/120 benchmark://npb-v0/28: ok (54.58s) repro samples 8/8 argmax Y | bo8 plain 427 attr 427 | oz plain 462 attr 462
+  44/120 benchmark://npb-v0/3: ok (40.98s) repro samples 8/8 argmax Y | bo8 plain 226 attr 226 | oz plain 248 attr 238
+  45/120 benchmark://npb-v0/29: ok (60.58s) repro samples 8/8 argmax Y | bo8 plain 965 attr 957 | oz plain 1004 attr 997
+  46/120 benchmark://npb-v0/31: ok (29.0s) repro samples 8/8 argmax Y | bo8 plain 23 attr 23 | oz plain 21 attr 21
+  47/120 benchmark://npb-v0/32: ok (28.46s) repro samples 8/8 argmax Y | bo8 plain 27 attr 27 | oz plain 27 attr 27
+  48/120 benchmark://npb-v0/33: ok (29.59s) repro samples 8/8 argmax Y | bo8 plain 60 attr 60 | oz plain 59 attr 59
+  49/120 benchmark://npb-v0/30: ok (74.16s) repro samples 8/8 argmax Y | bo8 plain 1875 attr 1875 | oz plain 1831 attr 1831
+  50/120 benchmark://npb-v0/36: ok (31.98s) repro samples 8/8 argmax Y | bo8 plain 150 attr 150 | oz plain 339 attr 150
+  51/120 benchmark://npb-v0/35: ok (35.53s) repro samples 8/8 argmax Y | bo8 plain 202 attr 202 | oz plain 226 attr 226
+  52/120 benchmark://npb-v0/34: ok (58.23s) repro samples 8/8 argmax Y | bo8 plain 696 attr 696 | oz plain 739 attr 712
+  53/120 benchmark://npb-v0/37: ok (28.74s) repro samples 8/8 argmax Y | bo8 plain 60 attr 60 | oz plain 59 attr 59
+  54/120 benchmark://npb-v0/38: ok (51.55s) repro samples 8/8 argmax Y | bo8 plain 202 attr 202 | oz plain 564 attr 455
+  55/120 benchmark://npb-v0/39: ok (65.11s) repro samples 8/8 argmax Y | bo8 plain 1309 attr 1309 | oz plain 2072 attr 1269
+  56/120 benchmark://npb-v0/4: ok (54.19s) repro samples 8/8 argmax Y | bo8 plain 623 attr 613 | oz plain 624 attr 615
+  57/120 benchmark://npb-v0/40: ok (30.27s) repro samples 8/8 argmax Y | bo8 plain 89 attr 89 | oz plain 89 attr 89
+  58/120 benchmark://npb-v0/41: ok (27.33s) repro samples 8/8 argmax Y | bo8 plain 21 attr 21 | oz plain 21 attr 21
+  59/120 benchmark://npb-v0/43: ok (30.12s) repro samples 8/8 argmax Y | bo8 plain 123 attr 123 | oz plain 144 attr 126
+  60/120 benchmark://npb-v0/44: ok (29.5s) repro samples 8/8 argmax Y | bo8 plain 106 attr 106 | oz plain 110 attr 110
+  61/120 benchmark://npb-v0/42: ok (58.51s) repro samples 8/8 argmax Y | bo8 plain 724 attr 724 | oz plain 733 attr 733
+  62/120 benchmark://npb-v0/45: ok (29.42s) repro samples 8/8 argmax Y | bo8 plain 130 attr 130 | oz plain 223 attr 137
+  63/120 benchmark://npb-v0/46: ok (27.79s) repro samples 8/8 argmax Y | bo8 plain 39 attr 39 | oz plain 39 attr 39
+  64/120 benchmark://npb-v0/48: ok (28.69s) repro samples 8/8 argmax Y | bo8 plain 25 attr 25 | oz plain 25 attr 25
+  65/120 benchmark://npb-v0/49: ok (29.29s) repro samples 8/8 argmax Y | bo8 plain 69 attr 69 | oz plain 69 attr 69
+  66/120 benchmark://npb-v0/47: ok (50.48s) repro samples 8/8 argmax Y | bo8 plain 314 attr 314 | oz plain 484 attr 311
+  67/120 benchmark://npb-v0/5: ok (51.1s) repro samples 8/8 argmax Y | bo8 plain 344 attr 344 | oz plain 370 attr 376
+  68/120 benchmark://npb-v0/51: ok (34.54s) repro samples 8/8 argmax Y | bo8 plain 201 attr 201 | oz plain 225 attr 225
+  69/120 benchmark://npb-v0/50: ok (60.83s) repro samples 8/8 argmax Y | bo8 plain 929 attr 929 | oz plain 948 attr 926
+  70/120 benchmark://npb-v0/52: ok (49.14s) repro samples 8/8 argmax Y | bo8 plain 401 attr 401 | oz plain 517 attr 413
+  71/120 benchmark://npb-v0/54: ok (28.63s) repro samples 8/8 argmax Y | bo8 plain 44 attr 44 | oz plain 39 attr 39
+  72/120 benchmark://npb-v0/53: ok (65.63s) repro samples 8/8 argmax Y | bo8 plain 1388 attr 1388 | oz plain 2262 attr 1284
+  73/120 benchmark://npb-v0/56: ok (29.16s) repro samples 8/8 argmax Y | bo8 plain 53 attr 53 | oz plain 50 attr 50
+  74/120 benchmark://npb-v0/57: ok (28.62s) repro samples 8/8 argmax Y | bo8 plain 44 attr 44 | oz plain 39 attr 39
+  75/120 benchmark://npb-v0/55: ok (50.27s) repro samples 8/8 argmax Y | bo8 plain 371 attr 371 | oz plain 382 attr 363
+  76/120 benchmark://npb-v0/58: ok (27.94s) repro samples 8/8 argmax Y | bo8 plain 44 attr 44 | oz plain 39 attr 39
+  77/120 benchmark://npb-v0/59: ok (28.03s) repro samples 8/8 argmax Y | bo8 plain 69 attr 69 | oz plain 69 attr 69
+  78/120 benchmark://npb-v0/60: ok (28.76s) repro samples 8/8 argmax Y | bo8 plain 24 attr 24 | oz plain 22 attr 22
+  79/120 benchmark://npb-v0/6: ok (50.2s) repro samples 8/8 argmax Y | bo8 plain 349 attr 349 | oz plain 373 attr 379
+  80/120 benchmark://npb-v0/62: ok (29.02s) repro samples 8/8 argmax Y | bo8 plain 53 attr 53 | oz plain 50 attr 50
+  81/120 benchmark://npb-v0/63: ok (28.55s) repro samples 8/8 argmax Y | bo8 plain 69 attr 69 | oz plain 69 attr 69
+  82/120 benchmark://npb-v0/61: ok (53.74s) repro samples 8/8 argmax Y | bo8 plain 470 attr 470 | oz plain 411 attr 417
+  83/120 benchmark://npb-v0/64: ok (27.23s) repro samples 8/8 argmax Y | bo8 plain 27 attr 27 | oz plain 27 attr 27
+  84/120 benchmark://npb-v0/67: ok (29.16s) repro samples 8/8 argmax Y | bo8 plain 53 attr 53 | oz plain 50 attr 50
+  85/120 benchmark://npb-v0/65: ok (50.61s) repro samples 8/8 argmax Y | bo8 plain 283 attr 283 | oz plain 284 attr 284
+  86/120 benchmark://npb-v0/66: ok (61.42s) repro samples 8/8 argmax Y | bo8 plain 1008 attr 1008 | oz plain 1064 attr 1005
+  87/120 benchmark://npb-v0/68: ok (30.04s) repro samples 8/8 argmax Y | bo8 plain 89 attr 89 | oz plain 89 attr 89
+  88/120 benchmark://npb-v0/69: ok (36.08s) repro samples 8/8 argmax Y | bo8 plain 231 attr 231 | oz plain 277 attr 236
+  89/120 benchmark://npb-v0/7: ok (28.79s) repro samples 8/8 argmax Y | bo8 plain 73 attr 73 | oz plain 110 attr 77
+  90/120 benchmark://npb-v0/70: ok (29.04s) repro samples 8/8 argmax Y | bo8 plain 59 attr 59 | oz plain 59 attr 59
+  91/120 benchmark://npb-v0/71: ok (49.6s) repro samples 8/8 argmax Y | bo8 plain 329 attr 329 | oz plain 393 attr 324
+  92/120 benchmark://npb-v0/73: ok (30.1s) repro samples 8/8 argmax Y | bo8 plain 89 attr 89 | oz plain 114 attr 114
+  93/120 benchmark://npb-v0/72: ok (57.98s) repro samples 8/8 argmax Y | bo8 plain 734 attr 734 | oz plain 737 attr 737
+  94/120 benchmark://npb-v0/75: ok (29.0s) repro samples 8/8 argmax Y | bo8 plain 53 attr 53 | oz plain 50 attr 50
+  95/120 benchmark://npb-v0/76: ok (27.85s) repro samples 8/8 argmax Y | bo8 plain 27 attr 27 | oz plain 27 attr 27
+  96/120 benchmark://npb-v0/74: ok (53.91s) repro samples 8/8 argmax Y | bo8 plain 467 attr 467 | oz plain 535 attr 452
+  97/120 benchmark://npb-v0/78: ok (33.56s) repro samples 8/8 argmax Y | bo8 plain 148 attr 148 | oz plain 162 attr 152
+  98/120 benchmark://npb-v0/80: ok (28.22s) repro samples 8/8 argmax Y | bo8 plain 21 attr 21 | oz plain 21 attr 21
+  99/120 benchmark://npb-v0/79: ok (57.73s) repro samples 8/8 argmax Y | bo8 plain 773 attr 773 | oz plain 1611 attr 1152
+  100/120 benchmark://npb-v0/8: ok (52.08s) repro samples 8/8 argmax Y | bo8 plain 470 attr 470 | oz plain 529 attr 443
+  101/120 benchmark://npb-v0/81: ok (33.33s) repro samples 8/8 argmax Y | bo8 plain 220 attr 220 | oz plain 240 attr 221
+  102/120 benchmark://npb-v0/82: ok (29.06s) repro samples 8/8 argmax Y | bo8 plain 60 attr 60 | oz plain 59 attr 59
+  103/120 benchmark://npb-v0/83: ok (29.34s) repro samples 8/8 argmax Y | bo8 plain 21 attr 21 | oz plain 21 attr 21
+  104/120 benchmark://npb-v0/84: ok (30.1s) repro samples 8/8 argmax Y | bo8 plain 27 attr 27 | oz plain 27 attr 27
+  105/120 benchmark://npb-v0/85: ok (29.66s) repro samples 8/8 argmax Y | bo8 plain 23 attr 23 | oz plain 21 attr 21
+  106/120 benchmark://npb-v0/86: ok (30.42s) repro samples 8/8 argmax Y | bo8 plain 27 attr 27 | oz plain 27 attr 27
+  107/120 benchmark://npb-v0/88: ok (29.59s) repro samples 8/8 argmax Y | bo8 plain 21 attr 21 | oz plain 21 attr 21
+  108/120 benchmark://npb-v0/87: ok (33.23s) repro samples 8/8 argmax Y | bo8 plain 176 attr 176 | oz plain 185 attr 177
+  109/120 benchmark://npb-v0/89: ok (31.01s) repro samples 8/8 argmax Y | bo8 plain 44 attr 44 | oz plain 39 attr 39
+  110/120 benchmark://npb-v0/9: ok (30.1s) repro samples 8/8 argmax Y | bo8 plain 75 attr 75 | oz plain 74 attr 74
+  111/120 benchmark://npb-v0/92: ok (30.0s) repro samples 8/8 argmax Y | bo8 plain 53 attr 53 | oz plain 50 attr 50
+  112/120 benchmark://npb-v0/90: ok (61.33s) repro samples 8/8 argmax Y | bo8 plain 768 attr 768 | oz plain 735 attr 708
+  113/120 benchmark://npb-v0/91: ok (70.67s) repro samples 8/8 argmax Y | bo8 plain 1374 attr 1374 | oz plain 2258 attr 1281
+  114/120 benchmark://npb-v0/93: ok (28.7s) repro samples 8/8 argmax Y | bo8 plain 44 attr 44 | oz plain 39 attr 39
+  115/120 benchmark://npb-v0/94: ok (68.79s) repro samples 8/8 argmax Y | bo8 plain 1360 attr 1360 | oz plain 2234 attr 1284
+  116/120 benchmark://npb-v0/95: ok (52.83s) repro samples 8/8 argmax Y | bo8 plain 383 attr 383 | oz plain 367 attr 367
+  117/120 benchmark://npb-v0/96: ok (68.88s) repro samples 8/8 argmax Y | bo8 plain 1398 attr 1398 | oz plain 2316 attr 1308
+  118/120 benchmark://npb-v0/99: ok (28.79s) repro samples 8/8 argmax Y | bo8 plain 53 attr 53 | oz plain 50 attr 50
+  119/120 benchmark://npb-v0/98: ok (53.56s) repro samples 8/8 argmax Y | bo8 plain 633 attr 633 | oz plain 877 attr 606
+  120/120 benchmark://npb-v0/97: ok (74.09s) repro samples 8/8 argmax Y | bo8 plain 1874 attr 1874 | oz plain 2475 attr 1810
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+    Skipping gsm (IC=14902 > 3000)
+    Skipping blowfish (IC=3898 > 3000)
+    Skipping rijndael (IC=6133 > 3000)
+    Skipping bzip2 (IC=28748 > 3000)
+    Skipping jpeg-c (IC=62452 > 3000)
+    Skipping ispell (IC=15184 > 3000)
+    Skipping susan (IC=13282 > 3000)
+    Skipping tiff2bw (IC=58797 > 3000)
+    Skipping tiffdither (IC=58450 > 3000)
+    Skipping ghostscript (IC=406198 > 3000)
+[gnn seed=456] finished 120 in 28.1 min, 0 failed -> results/gnn_attribute_audit/npb_offset78/records_gnn_seed456

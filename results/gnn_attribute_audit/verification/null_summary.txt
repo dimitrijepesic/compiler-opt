@@ -1,0 +1,17 @@
+null records 347/347, failures 1 ['benchmark://npb-v0/90']
+suite         n | Oz IC plain    attr     chg | Oz code plain    attr     chg | rnd8 IC gain plain    attr | rnd8 code gain plain    attr | rnd IC identical plain==attr
+npb-v0      119 |       52350   39738  -24.1% |        287618  210807  -26.7% |            +22.78%  -1.68% |              +24.90%  +6.65% | 116/119
+mibench-v1   40 |        4841    4714   -2.6% |         27791   25629   -7.8% |             +0.62%  -2.06% |               +2.39%  +1.00% | 40/40
+blas-v0      50 |       37838   37838   +0.0% |        180277  173661   -3.7% |             +2.26%  +2.26% |               +0.80%  +1.14% | 50/50
+chstone-v0   12 |        9834    9137   -7.1% |         38315   32410  -15.4% |             +6.19%  -0.96% |               +5.13%  -2.03% | 12/12
+csmith-v0    28 |       20226   15617  -22.8% |        141400   92686  -34.5% |            +13.63% -11.87% |              +22.97%  -6.39% | 28/28
+poj104-v1    97 |        8334    7541   -9.5% |         39058   29635  -24.1% |             +5.78%  -4.12% |               +4.48%  -1.11% | 97/97
+ALL         346 |      133423  114585  -14.1% |        714459  564828  -20.9% |            +12.49%  -1.89% |              +15.38%  +1.65% | 343/346
+
+stored paper null best-of-8 (plain, from battery) vs fresh random-8 best-of-8 (plain), summed:
+  npb-v0      stored   39478 fresh   40423 (+2.39%)
+  mibench-v1  stored    4828 fresh    4811 (-0.35%)
+  blas-v0     stored   37099 fresh   36984 (-0.31%)
+  chstone-v0  stored    9241 fresh    9225 (-0.17%)
+  csmith-v0   stored   17555 fresh   17470 (-0.48%)
+  poj104-v1   stored    7853 fresh    7852 (-0.01%)

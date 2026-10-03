@@ -1,0 +1,52 @@
+=== CHStone source-build check (results/baseline_audit/llvm10_source_check) ===
+  real_clang_oz                  IC   9062  Berkeley text 114443  code  32123  (+0.00% vs real clang -Oz)
+  clang_size_attributes_cli_oz   IC   9216  Berkeley text 114708  code  32468  (+1.07% vs real clang -Oz)
+  plain_service_oz               IC   9834  Berkeley text 120467  code  38315  (+19.28% vs real clang -Oz)
+  attr_service_oz                IC   9137  Berkeley text 114722  code  32410  (+0.89% vs real clang -Oz)
+  attr_cli_oz                    IC   9216  Berkeley text 114708  code  32468  (+1.07% vs real clang -Oz)
+  summary.json totals agree: True
+  manual-vs-frontend attributes: identical code bytes on 12 /12; identical whole objects on 0 /12; equal IC on 12
+  per program code bytes (real / attr_service / plain_service):
+    adpcm       2908   2855 ( -1.82%)   4430 (+52.34%)
+    aes         7053   7062 ( +0.13%)   7562 ( +7.22%)
+    blowfish    3118   3118 ( +0.00%)   3418 ( +9.62%)
+    dfadd       1597   1614 ( +1.06%)   1766 (+10.58%)
+    dfdiv       1581   1597 ( +1.01%)   1749 (+10.63%)
+    dfmul       1290   1315 ( +1.94%)   1397 ( +8.29%)
+    dfsin       3321   3342 ( +0.63%)   3646 ( +9.79%)
+    gsm         2350   2651 (+12.81%)   3633 (+54.60%)
+    jpeg        5744   5675 ( -1.20%)   6818 (+18.70%)
+    mips         785    785 ( +0.00%)    948 (+20.76%)
+    motion      1487   1497 ( +0.67%)   1660 (+11.63%)
+    sha          889    899 ( +1.12%)   1288 (+44.88%)
+  clang: clang version 10.0.0  | cgym 0.2.5 | source files hashed per program: [1, 6, 7, 7, 7, 7, 7, 4, 11, 2, 8, 3]
+
+=== Source-aware portfolio validation (results/size_portfolio_source_check) ===
+  all passed: True | execution note: amd64 container under Rosetta; no timing claim
+  real clang -Oz code bytes 32123, source-aware selected 31729, saving 1.23%, portfolio chosen on 5/12, reference returned on 7/12
+  reference object code bytes and code hash equal the source-build check on all 12: True
+  executions 84 (12 x 7), exit 0: 84, stdout equal to real clang -Oz reference: 84; selected artifacts identical to the chosen candidate's executable: yes; service selection.json consistent: yes
+  per program (real / source-selected / artifact / service-baseline / service-selected):
+    adpcm       2908   2841 portfolio_1          2855   2841 (portfolio_1)
+    aes         7053   7010 portfolio_1          7062   7010 (portfolio_1)
+    blowfish    3118   3117 portfolio_1          3118   3117 (portfolio_1)
+    dfadd       1597   1597 reference_clang_oz   1614   1614 (oz)
+    dfdiv       1581   1581 reference_clang_oz   1597   1597 (oz)
+    dfmul       1290   1290 reference_clang_oz   1315   1315 (oz)
+    dfsin       3321   3321 reference_clang_oz   3342   3342 (oz)
+    gsm         2350   2350 reference_clang_oz   2651   2593 (portfolio_1)
+    jpeg        5744   5483 portfolio_1          5675   5483 (portfolio_1)
+    mips         785    763 portfolio_2           785    763 (portfolio_2)
+    motion      1487   1487 reference_clang_oz   1497   1497 (oz)
+    sha          889    889 reference_clang_oz    899    899 (oz)
+
+=== size_portfolio_demo npb-116 ===
+  candidates: [('oz', 1911, 8593), ('portfolio_1', 2036, 8294), ('portfolio_2', 2056, 8266), ('portfolio_3', 2145, 8254)] | selected portfolio_3 | saving 339 bytes (3.95%) | Oz IC 4316
+
+=== CLI audits (results/baseline_audit/llvm10 and llvm18): recompute NPB attr portfolio by IC ===
+  llvm10 npb-v0      n=122 of 122 | plain: IC +25.59% code +22.81% | attr: IC +2.19% code +6.34% || summary: plain IC +25.59% attr IC +2.19% attr code +6.34%
+  llvm10 mibench-v1  n= 40 of 40 | plain: IC +3.16% code +4.71% | attr: IC -1.44% code +1.55% || summary: plain IC +3.16% attr IC -1.44% attr code +1.55%
+  llvm10 blas-v0     n=300 of 300 | plain: IC +3.65% code +2.17% | attr: IC +3.65% code +2.18% || summary: plain IC +3.65% attr IC +3.65% attr code +2.18%
+  llvm18 npb-v0      n=120 of 122 | plain: IC +25.51% code +21.54% | attr: IC +2.20% code +6.38% || summary: plain IC +25.51% attr IC +2.20% attr code +6.38%
+  llvm18 mibench-v1  n= 40 of 40 | plain: IC +10.17% code +3.83% | attr: IC +0.25% code +1.93% || summary: plain IC +10.17% attr IC +0.25% attr code +1.93%
+  llvm18 blas-v0     n=299 of 300 | plain: IC +1.53% code +1.09% | attr: IC +1.53% code +1.09% || summary: plain IC +1.53% attr IC +1.53% attr code +1.09%
