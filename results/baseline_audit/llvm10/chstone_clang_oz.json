@@ -1,0 +1,433 @@
+{
+ "timestamp": "2026-09-16T12:19:29.702290",
+ "compiler_gym": "0.2.5",
+ "llvm_bin": "/root/.local/share/compiler_gym/llvm-v0/bin",
+ "system_flags": [
+  "-isystem",
+  "/usr/include/c++/11",
+  "-isystem",
+  "/usr/include/x86_64-linux-gnu/c++/11",
+  "-isystem",
+  "/usr/include/c++/11/backward",
+  "-isystem",
+  "/usr/lib/gcc/x86_64-linux-gnu/11/include",
+  "-isystem",
+  "/usr/local/include",
+  "-isystem",
+  "/usr/include/x86_64-linux-gnu",
+  "-isystem",
+  "/usr/include"
+ ],
+ "totals_text_sec": {
+  "real": 32123,
+  "cgym_attr": 32468,
+  "plain": 39745,
+  "attr": 32468,
+  "attr_fp": 32468
+ },
+ "totals_ic": {
+  "real": 9062,
+  "cgym_attr": 9216,
+  "plain": 10304,
+  "attr": 9216,
+  "attr_fp": 9216
+ },
+ "records": [
+  {
+   "uri": "benchmark://chstone-v0/adpcm",
+   "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/adpcm/adpcm.c",
+   "real": {
+    "ic": 758,
+    "text": 5608,
+    "text_sec": 2908
+   },
+   "clang_oz_attributes": "minsize nounwind optsize readnone uwtable \"frame-pointer\"=\"none\"",
+   "cgym_attr": {
+    "ic": 764,
+    "text": 5616,
+    "text_sec": 2916
+   },
+   "env_attributes": "nounwind readnone uwtable \"frame-pointer\"=\"none\"",
+   "o0_ic": 1474,
+   "cgym_oz_ic": 966,
+   "plain": {
+    "ic": 1056,
+    "text": 7917,
+    "text_sec": 5233
+   },
+   "attr": {
+    "ic": 764,
+    "text": 5616,
+    "text_sec": 2916
+   },
+   "attr_fp": {
+    "ic": 764,
+    "text": 5616,
+    "text_sec": 2916
+   }
+  },
+  {
+   "uri": "benchmark://chstone-v0/aes",
+   "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/aes/aes.c",
+   "real": {
+    "ic": 1903,
+    "text": 10124,
+    "text_sec": 7053
+   },
+   "clang_oz_attributes": "minsize nounwind optsize uwtable \"frame-pointer\"=\"none\"",
+   "cgym_attr": {
+    "ic": 1961,
+    "text": 10159,
+    "text_sec": 7088
+   },
+   "env_attributes": "nounwind uwtable \"frame-pointer\"=\"none\"",
+   "o0_ic": 4048,
+   "cgym_oz_ic": 1987,
+   "plain": {
+    "ic": 1995,
+    "text": 10561,
+    "text_sec": 7642
+   },
+   "attr": {
+    "ic": 1961,
+    "text": 10159,
+    "text_sec": 7088
+   },
+   "attr_fp": {
+    "ic": 1961,
+    "text": 10159,
+    "text_sec": 7088
+   }
+  },
+  {
+   "uri": "benchmark://chstone-v0/blowfish",
+   "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/blowfish/bf.c",
+   "real": {
+    "ic": 1128,
+    "text": 22202,
+    "text_sec": 3118
+   },
+   "clang_oz_attributes": "minsize nounwind optsize uwtable \"frame-pointer\"=\"none\"",
+   "cgym_attr": {
+    "ic": 1135,
+    "text": 22202,
+    "text_sec": 3118
+   },
+   "env_attributes": "nounwind uwtable \"frame-pointer\"=\"none\"",
+   "o0_ic": 2134,
+   "cgym_oz_ic": 1214,
+   "plain": {
+    "ic": 1231,
+    "text": 22486,
+    "text_sec": 3450
+   },
+   "attr": {
+    "ic": 1135,
+    "text": 22202,
+    "text_sec": 3118
+   },
+   "attr_fp": {
+    "ic": 1135,
+    "text": 22202,
+    "text_sec": 3118
+   }
+  },
+  {
+   "uri": "benchmark://chstone-v0/dfadd",
+   "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/dfadd/dfadd.c",
+   "real": {
+    "ic": 424,
+    "text": 4224,
+    "text_sec": 1597
+   },
+   "clang_oz_attributes": "minsize nounwind optsize uwtable \"frame-pointer\"=\"none\"",
+   "cgym_attr": {
+    "ic": 424,
+    "text": 4224,
+    "text_sec": 1597
+   },
+   "env_attributes": "nounwind uwtable \"frame-pointer\"=\"none\"",
+   "o0_ic": 991,
+   "cgym_oz_ic": 422,
+   "plain": {
+    "ic": 424,
+    "text": 4357,
+    "text_sec": 1746
+   },
+   "attr": {
+    "ic": 424,
+    "text": 4224,
+    "text_sec": 1597
+   },
+   "attr_fp": {
+    "ic": 424,
+    "text": 4224,
+    "text_sec": 1597
+   }
+  },
+  {
+   "uri": "benchmark://chstone-v0/dfdiv",
+   "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/dfdiv/dfdiv.c",
+   "real": {
+    "ic": 437,
+    "text": 3664,
+    "text_sec": 1581
+   },
+   "clang_oz_attributes": "minsize nounwind optsize uwtable \"frame-pointer\"=\"none\"",
+   "cgym_attr": {
+    "ic": 437,
+    "text": 3664,
+    "text_sec": 1581
+   },
+   "env_attributes": "nounwind uwtable \"frame-pointer\"=\"none\"",
+   "o0_ic": 1083,
+   "cgym_oz_ic": 435,
+   "plain": {
+    "ic": 437,
+    "text": 3806,
+    "text_sec": 1739
+   },
+   "attr": {
+    "ic": 437,
+    "text": 3664,
+    "text_sec": 1581
+   },
+   "attr_fp": {
+    "ic": 437,
+    "text": 3664,
+    "text_sec": 1581
+   }
+  },
+  {
+   "uri": "benchmark://chstone-v0/dfmul",
+   "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/dfmul/dfmul.c",
+   "real": {
+    "ic": 350,
+    "text": 3277,
+    "text_sec": 1290
+   },
+   "clang_oz_attributes": "minsize nounwind optsize uwtable \"frame-pointer\"=\"none\"",
+   "cgym_attr": {
+    "ic": 350,
+    "text": 3277,
+    "text_sec": 1290
+   },
+   "env_attributes": "nounwind uwtable \"frame-pointer\"=\"none\"",
+   "o0_ic": 859,
+   "cgym_oz_ic": 349,
+   "plain": {
+    "ic": 350,
+    "text": 3366,
+    "text_sec": 1387
+   },
+   "attr": {
+    "ic": 350,
+    "text": 3277,
+    "text_sec": 1290
+   },
+   "attr_fp": {
+    "ic": 350,
+    "text": 3277,
+    "text_sec": 1290
+   }
+  },
+  {
+   "uri": "benchmark://chstone-v0/dfsin",
+   "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/dfsin/dfsin.c",
+   "real": {
+    "ic": 905,
+    "text": 5930,
+    "text_sec": 3321
+   },
+   "clang_oz_attributes": "minsize nounwind optsize uwtable \"frame-pointer\"=\"none\"",
+   "cgym_attr": {
+    "ic": 905,
+    "text": 5930,
+    "text_sec": 3321
+   },
+   "env_attributes": "nounwind uwtable \"frame-pointer\"=\"none\"",
+   "o0_ic": 2070,
+   "cgym_oz_ic": 904,
+   "plain": {
+    "ic": 862,
+    "text": 6047,
+    "text_sec": 3518
+   },
+   "attr": {
+    "ic": 905,
+    "text": 5930,
+    "text_sec": 3321
+   },
+   "attr_fp": {
+    "ic": 905,
+    "text": 5930,
+    "text_sec": 3321
+   }
+  },
+  {
+   "uri": "benchmark://chstone-v0/gsm",
+   "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/gsm/gsm.c",
+   "real": {
+    "ic": 590,
+    "text": 3882,
+    "text_sec": 2350
+   },
+   "clang_oz_attributes": "minsize nounwind optsize uwtable \"frame-pointer\"=\"none\"",
+   "cgym_attr": {
+    "ic": 670,
+    "text": 4104,
+    "text_sec": 2652
+   },
+   "env_attributes": "nounwind uwtable \"frame-pointer\"=\"none\"",
+   "o0_ic": 1809,
+   "cgym_oz_ic": 843,
+   "plain": {
+    "ic": 911,
+    "text": 5088,
+    "text_sec": 3732
+   },
+   "attr": {
+    "ic": 670,
+    "text": 4104,
+    "text_sec": 2652
+   },
+   "attr_fp": {
+    "ic": 670,
+    "text": 4104,
+    "text_sec": 2652
+   }
+  },
+  {
+   "uri": "benchmark://chstone-v0/jpeg",
+   "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/jpeg/main.c",
+   "real": {
+    "ic": 1549,
+    "text": 29875,
+    "text_sec": 5744
+   },
+   "clang_oz_attributes": "minsize nounwind optsize uwtable \"frame-pointer\"=\"none\"",
+   "cgym_attr": {
+    "ic": 1549,
+    "text": 29875,
+    "text_sec": 5744
+   },
+   "env_attributes": "nounwind uwtable \"frame-pointer\"=\"none\"",
+   "o0_ic": 3186,
+   "cgym_oz_ic": 1590,
+   "plain": {
+    "ic": 1885,
+    "text": 31669,
+    "text_sec": 7426
+   },
+   "attr": {
+    "ic": 1549,
+    "text": 29875,
+    "text_sec": 5744
+   },
+   "attr_fp": {
+    "ic": 1549,
+    "text": 29875,
+    "text_sec": 5744
+   }
+  },
+  {
+   "uri": "benchmark://chstone-v0/mips",
+   "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/mips/mips.c",
+   "real": {
+    "ic": 375,
+    "text": 1685,
+    "text_sec": 785
+   },
+   "clang_oz_attributes": "minsize nounwind optsize uwtable \"frame-pointer\"=\"none\"",
+   "cgym_attr": {
+    "ic": 375,
+    "text": 1685,
+    "text_sec": 785
+   },
+   "env_attributes": "nounwind uwtable \"frame-pointer\"=\"none\"",
+   "o0_ic": 636,
+   "cgym_oz_ic": 392,
+   "plain": {
+    "ic": 413,
+    "text": 2138,
+    "text_sec": 958
+   },
+   "attr": {
+    "ic": 375,
+    "text": 1685,
+    "text_sec": 785
+   },
+   "attr_fp": {
+    "ic": 375,
+    "text": 1685,
+    "text_sec": 785
+   }
+  },
+  {
+   "uri": "benchmark://chstone-v0/motion",
+   "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/motion/mpeg2.c",
+   "real": {
+    "ic": 354,
+    "text": 6307,
+    "text_sec": 1487
+   },
+   "clang_oz_attributes": "minsize nounwind optsize uwtable \"frame-pointer\"=\"none\"",
+   "cgym_attr": {
+    "ic": 354,
+    "text": 6307,
+    "text_sec": 1487
+   },
+   "env_attributes": "nounwind uwtable \"frame-pointer\"=\"none\"",
+   "o0_ic": 925,
+   "cgym_oz_ic": 384,
+   "plain": {
+    "ic": 392,
+    "text": 6408,
+    "text_sec": 1660
+   },
+   "attr": {
+    "ic": 354,
+    "text": 6307,
+    "text_sec": 1487
+   },
+   "attr_fp": {
+    "ic": 354,
+    "text": 6307,
+    "text_sec": 1487
+   }
+  },
+  {
+   "uri": "benchmark://chstone-v0/sha",
+   "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/sha/sha_driver.c",
+   "real": {
+    "ic": 289,
+    "text": 17665,
+    "text_sec": 889
+   },
+   "clang_oz_attributes": "minsize nounwind optsize uwtable \"frame-pointer\"=\"none\"",
+   "cgym_attr": {
+    "ic": 292,
+    "text": 17665,
+    "text_sec": 889
+   },
+   "env_attributes": "nounwind uwtable \"frame-pointer\"=\"none\"",
+   "o0_ic": 642,
+   "cgym_oz_ic": 348,
+   "plain": {
+    "ic": 348,
+    "text": 17998,
+    "text_sec": 1254
+   },
+   "attr": {
+    "ic": 292,
+    "text": 17665,
+    "text_sec": 889
+   },
+   "attr_fp": {
+    "ic": 292,
+    "text": 17665,
+    "text_sec": 889
+   }
+  }
+ ]
+}

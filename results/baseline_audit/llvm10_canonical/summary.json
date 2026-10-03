@@ -1,0 +1,462 @@
+{
+  "timestamp": "2026-09-16T14:48:00.701986+00:00",
+  "fingerprint": "8db1604d49185a07ab80c58560d0608434f33c04a78e38931e5a924e6d52b539",
+  "summary": {
+    "attempted": 210,
+    "complete_paired": 210,
+    "excluded": [],
+    "candidate_failures": 0,
+    "plain": {
+      "portfolio": {
+        "ic": {
+          "baseline_sum": 95764,
+          "candidate_sum": 81920,
+          "gain_pct": 14.45637191428929,
+          "wins": 101,
+          "ties": 71,
+          "losses": 38
+        },
+        "text": {
+          "baseline_sum": 574119,
+          "candidate_sum": 514118,
+          "gain_pct": 10.450969224150397,
+          "wins": 94,
+          "ties": 44,
+          "losses": 72
+        },
+        "text_sec": {
+          "baseline_sum": 499684,
+          "candidate_sum": 428062,
+          "gain_pct": 14.33345874592743,
+          "wins": 110,
+          "ties": 44,
+          "losses": 56
+        }
+      },
+      "random": {
+        "ic": {
+          "baseline_sum": 95764,
+          "candidate_sum": 83015,
+          "gain_pct": 13.31293596758698,
+          "wins": 90,
+          "ties": 58,
+          "losses": 62
+        },
+        "text": {
+          "baseline_sum": 574119,
+          "candidate_sum": 507736,
+          "gain_pct": 11.562585457021978,
+          "wins": 96,
+          "ties": 54,
+          "losses": 60
+        },
+        "text_sec": {
+          "baseline_sum": 499684,
+          "candidate_sum": 426046,
+          "gain_pct": 14.736913729477031,
+          "wins": 105,
+          "ties": 55,
+          "losses": 50
+        }
+      }
+    },
+    "attr": {
+      "portfolio": {
+        "ic": {
+          "baseline_sum": 82998,
+          "candidate_sum": 81904,
+          "gain_pct": 1.3181040507000197,
+          "wins": 79,
+          "ties": 73,
+          "losses": 58
+        },
+        "text": {
+          "baseline_sum": 494629,
+          "candidate_sum": 493566,
+          "gain_pct": 0.21490854761851974,
+          "wins": 84,
+          "ties": 35,
+          "losses": 91
+        },
+        "text_sec": {
+          "baseline_sum": 413586,
+          "candidate_sum": 399206,
+          "gain_pct": 3.4769068585493668,
+          "wins": 115,
+          "ties": 34,
+          "losses": 61
+        }
+      },
+      "random": {
+        "ic": {
+          "baseline_sum": 82998,
+          "candidate_sum": 82999,
+          "gain_pct": -0.0012048483095883356,
+          "wins": 62,
+          "ties": 60,
+          "losses": 88
+        },
+        "text": {
+          "baseline_sum": 494629,
+          "candidate_sum": 487617,
+          "gain_pct": 1.4176281617131248,
+          "wins": 95,
+          "ties": 38,
+          "losses": 77
+        },
+        "text_sec": {
+          "baseline_sum": 413586,
+          "candidate_sum": 397503,
+          "gain_pct": 3.8886712799756307,
+          "wins": 112,
+          "ties": 39,
+          "losses": 59
+        }
+      }
+    }
+  },
+  "suites": {
+    "blas-v0": {
+      "attempted": 50,
+      "complete_paired": 50,
+      "excluded": [],
+      "candidate_failures": 0,
+      "plain": {
+        "portfolio": {
+          "ic": {
+            "baseline_sum": 37838,
+            "candidate_sum": 36745,
+            "gain_pct": 2.88863047729796,
+            "wins": 33,
+            "ties": 16,
+            "losses": 1
+          },
+          "text": {
+            "baseline_sum": 184299,
+            "candidate_sum": 182786,
+            "gain_pct": 0.820948567273827,
+            "wins": 26,
+            "ties": 9,
+            "losses": 15
+          },
+          "text_sec": {
+            "baseline_sum": 180277,
+            "candidate_sum": 178716,
+            "gain_pct": 0.8658897141620936,
+            "wins": 26,
+            "ties": 9,
+            "losses": 15
+          }
+        },
+        "random": {
+          "ic": {
+            "baseline_sum": 37838,
+            "candidate_sum": 36984,
+            "gain_pct": 2.256990327184316,
+            "wins": 30,
+            "ties": 9,
+            "losses": 11
+          },
+          "text": {
+            "baseline_sum": 184299,
+            "candidate_sum": 182851,
+            "gain_pct": 0.7856797920770098,
+            "wins": 24,
+            "ties": 9,
+            "losses": 17
+          },
+          "text_sec": {
+            "baseline_sum": 180277,
+            "candidate_sum": 178829,
+            "gain_pct": 0.8032083959684244,
+            "wins": 24,
+            "ties": 9,
+            "losses": 17
+          }
+        }
+      },
+      "attr": {
+        "portfolio": {
+          "ic": {
+            "baseline_sum": 37838,
+            "candidate_sum": 36745,
+            "gain_pct": 2.88863047729796,
+            "wins": 33,
+            "ties": 16,
+            "losses": 1
+          },
+          "text": {
+            "baseline_sum": 188019,
+            "candidate_sum": 186609,
+            "gain_pct": 0.7499242097873116,
+            "wins": 23,
+            "ties": 9,
+            "losses": 18
+          },
+          "text_sec": {
+            "baseline_sum": 173661,
+            "candidate_sum": 172003,
+            "gain_pct": 0.9547336477389812,
+            "wins": 25,
+            "ties": 8,
+            "losses": 17
+          }
+        },
+        "random": {
+          "ic": {
+            "baseline_sum": 37838,
+            "candidate_sum": 36984,
+            "gain_pct": 2.256990327184316,
+            "wins": 30,
+            "ties": 9,
+            "losses": 11
+          },
+          "text": {
+            "baseline_sum": 188019,
+            "candidate_sum": 186342,
+            "gain_pct": 0.8919311346193726,
+            "wins": 21,
+            "ties": 8,
+            "losses": 21
+          },
+          "text_sec": {
+            "baseline_sum": 173661,
+            "candidate_sum": 171680,
+            "gain_pct": 1.1407282003443542,
+            "wins": 22,
+            "ties": 8,
+            "losses": 20
+          }
+        }
+      }
+    },
+    "mibench-v1": {
+      "attempted": 40,
+      "complete_paired": 40,
+      "excluded": [],
+      "candidate_failures": 0,
+      "plain": {
+        "portfolio": {
+          "ic": {
+            "baseline_sum": 4841,
+            "candidate_sum": 4747,
+            "gain_pct": 1.9417475728155331,
+            "wins": 13,
+            "ties": 20,
+            "losses": 7
+          },
+          "text": {
+            "baseline_sum": 40942,
+            "candidate_sum": 40212,
+            "gain_pct": 1.7830101118655683,
+            "wins": 8,
+            "ties": 22,
+            "losses": 10
+          },
+          "text_sec": {
+            "baseline_sum": 27791,
+            "candidate_sum": 26869,
+            "gain_pct": 3.3176208124932494,
+            "wins": 8,
+            "ties": 22,
+            "losses": 10
+          }
+        },
+        "random": {
+          "ic": {
+            "baseline_sum": 4841,
+            "candidate_sum": 4811,
+            "gain_pct": 0.6197066721751687,
+            "wins": 9,
+            "ties": 19,
+            "losses": 12
+          },
+          "text": {
+            "baseline_sum": 40942,
+            "candidate_sum": 40422,
+            "gain_pct": 1.2700893947535485,
+            "wins": 7,
+            "ties": 23,
+            "losses": 10
+          },
+          "text_sec": {
+            "baseline_sum": 27791,
+            "candidate_sum": 27127,
+            "gain_pct": 2.389262710949591,
+            "wins": 7,
+            "ties": 23,
+            "losses": 10
+          }
+        }
+      },
+      "attr": {
+        "portfolio": {
+          "ic": {
+            "baseline_sum": 4714,
+            "candidate_sum": 4747,
+            "gain_pct": -0.7000424268137406,
+            "wins": 12,
+            "ties": 20,
+            "losses": 8
+          },
+          "text": {
+            "baseline_sum": 38796,
+            "candidate_sum": 38602,
+            "gain_pct": 0.5000515517063597,
+            "wins": 11,
+            "ties": 13,
+            "losses": 16
+          },
+          "text_sec": {
+            "baseline_sum": 25629,
+            "candidate_sum": 25251,
+            "gain_pct": 1.4748917242186632,
+            "wins": 11,
+            "ties": 13,
+            "losses": 16
+          }
+        },
+        "random": {
+          "ic": {
+            "baseline_sum": 4714,
+            "candidate_sum": 4811,
+            "gain_pct": -2.057700466694956,
+            "wins": 8,
+            "ties": 19,
+            "losses": 13
+          },
+          "text": {
+            "baseline_sum": 38796,
+            "candidate_sum": 38684,
+            "gain_pct": 0.28868955562428855,
+            "wins": 14,
+            "ties": 8,
+            "losses": 18
+          },
+          "text_sec": {
+            "baseline_sum": 25629,
+            "candidate_sum": 25373,
+            "gain_pct": 0.9988684693121086,
+            "wins": 14,
+            "ties": 8,
+            "losses": 18
+          }
+        }
+      }
+    },
+    "npb-v0": {
+      "attempted": 120,
+      "complete_paired": 120,
+      "excluded": [],
+      "candidate_failures": 0,
+      "plain": {
+        "portfolio": {
+          "ic": {
+            "baseline_sum": 53085,
+            "candidate_sum": 40428,
+            "gain_pct": 23.842893472732406,
+            "wins": 55,
+            "ties": 35,
+            "losses": 30
+          },
+          "text": {
+            "baseline_sum": 348878,
+            "candidate_sum": 291120,
+            "gain_pct": 16.55535746020099,
+            "wins": 60,
+            "ties": 13,
+            "losses": 47
+          },
+          "text_sec": {
+            "baseline_sum": 291616,
+            "candidate_sum": 222477,
+            "gain_pct": 23.70891857785581,
+            "wins": 76,
+            "ties": 13,
+            "losses": 31
+          }
+        },
+        "random": {
+          "ic": {
+            "baseline_sum": 53085,
+            "candidate_sum": 41220,
+            "gain_pct": 22.350946595083354,
+            "wins": 51,
+            "ties": 30,
+            "losses": 39
+          },
+          "text": {
+            "baseline_sum": 348878,
+            "candidate_sum": 284463,
+            "gain_pct": 18.46347433773411,
+            "wins": 65,
+            "ties": 22,
+            "losses": 33
+          },
+          "text_sec": {
+            "baseline_sum": 291616,
+            "candidate_sum": 220090,
+            "gain_pct": 24.5274607703281,
+            "wins": 74,
+            "ties": 23,
+            "losses": 23
+          }
+        }
+      },
+      "attr": {
+        "portfolio": {
+          "ic": {
+            "baseline_sum": 40446,
+            "candidate_sum": 40412,
+            "gain_pct": 0.08406270088513468,
+            "wins": 34,
+            "ties": 37,
+            "losses": 49
+          },
+          "text": {
+            "baseline_sum": 267814,
+            "candidate_sum": 268355,
+            "gain_pct": -0.20200586974541412,
+            "wins": 50,
+            "ties": 13,
+            "losses": 57
+          },
+          "text_sec": {
+            "baseline_sum": 214296,
+            "candidate_sum": 201952,
+            "gain_pct": 5.760256841004963,
+            "wins": 79,
+            "ties": 13,
+            "losses": 28
+          }
+        },
+        "random": {
+          "ic": {
+            "baseline_sum": 40446,
+            "candidate_sum": 41204,
+            "gain_pct": -1.8741037432626229,
+            "wins": 24,
+            "ties": 32,
+            "losses": 64
+          },
+          "text": {
+            "baseline_sum": 267814,
+            "candidate_sum": 262591,
+            "gain_pct": 1.9502341177085603,
+            "wins": 60,
+            "ties": 22,
+            "losses": 38
+          },
+          "text_sec": {
+            "baseline_sum": 214296,
+            "candidate_sum": 200450,
+            "gain_pct": 6.461156531153167,
+            "wins": 76,
+            "ties": 23,
+            "losses": 21
+          }
+        }
+      }
+    }
+  }
+}

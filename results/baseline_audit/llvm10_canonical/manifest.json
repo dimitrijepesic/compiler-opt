@@ -1,0 +1,4262 @@
+{
+  "schema": 1,
+  "script_sha256": "7ef8a6787cd5e1142ebcae9a38966873fcc1c51088ce3c08d4fca96751cf044f",
+  "k": 8,
+  "seed": 42,
+  "steps": 45,
+  "portfolio": [
+    [
+      111,
+      96,
+      90,
+      29,
+      10,
+      91,
+      21,
+      96,
+      72,
+      2,
+      72,
+      53,
+      1,
+      91,
+      111,
+      31,
+      104,
+      104,
+      38,
+      55,
+      105,
+      53,
+      53,
+      29,
+      97,
+      72,
+      111,
+      104,
+      24,
+      1,
+      1,
+      46,
+      31,
+      30,
+      1,
+      53,
+      25,
+      93,
+      117,
+      111,
+      53,
+      30,
+      2,
+      10,
+      104
+    ],
+    [
+      109,
+      53,
+      21,
+      25,
+      29,
+      26,
+      103,
+      97,
+      52,
+      10,
+      26,
+      2,
+      103,
+      83,
+      97,
+      66,
+      10,
+      66,
+      111,
+      16,
+      53,
+      110,
+      111,
+      59,
+      2,
+      53,
+      21,
+      90,
+      109,
+      90,
+      46,
+      110,
+      8,
+      109,
+      30,
+      105,
+      103,
+      38,
+      30,
+      97,
+      96,
+      10,
+      83,
+      21,
+      117
+    ],
+    [
+      55,
+      117,
+      26,
+      117,
+      38,
+      66,
+      38,
+      21,
+      55,
+      52,
+      111,
+      24,
+      111,
+      8,
+      104,
+      109,
+      25,
+      10,
+      93,
+      111,
+      30,
+      97,
+      26,
+      30,
+      53,
+      104,
+      66,
+      31,
+      25,
+      21,
+      59,
+      1,
+      104,
+      97,
+      110,
+      8,
+      53,
+      93,
+      16,
+      25,
+      38,
+      105,
+      41,
+      2,
+      53
+    ],
+    [
+      33,
+      66,
+      103,
+      8,
+      53,
+      90,
+      38,
+      52,
+      96,
+      16,
+      24,
+      31,
+      8,
+      55,
+      53,
+      111,
+      52,
+      1,
+      90,
+      10,
+      1,
+      30,
+      53,
+      8,
+      72,
+      30,
+      46,
+      117,
+      111,
+      105,
+      111,
+      8,
+      55,
+      117,
+      41,
+      10,
+      26,
+      117,
+      29,
+      104,
+      53,
+      104,
+      2,
+      97,
+      83
+    ],
+    [
+      103,
+      117,
+      117,
+      104,
+      30,
+      97,
+      41,
+      110,
+      55,
+      55,
+      21,
+      105,
+      52,
+      105,
+      109,
+      97,
+      16,
+      105,
+      90,
+      10,
+      93,
+      31,
+      1,
+      111,
+      16,
+      33,
+      30,
+      53,
+      97,
+      10,
+      31,
+      10,
+      90,
+      93,
+      21,
+      111,
+      25,
+      10,
+      105,
+      109,
+      21,
+      16,
+      117,
+      83,
+      2
+    ],
+    [
+      2,
+      31,
+      8,
+      117,
+      104,
+      29,
+      111,
+      90,
+      38,
+      83,
+      72,
+      104,
+      33,
+      110,
+      55,
+      25,
+      103,
+      38,
+      91,
+      103,
+      109,
+      30,
+      53,
+      109,
+      104,
+      33,
+      10,
+      59,
+      31,
+      83,
+      53,
+      24,
+      93,
+      117,
+      10,
+      111,
+      21,
+      29,
+      104,
+      109,
+      38,
+      10,
+      97,
+      26,
+      46
+    ],
+    [
+      104,
+      10,
+      72,
+      38,
+      109,
+      103,
+      109,
+      21,
+      24,
+      90,
+      105,
+      10,
+      8,
+      29,
+      93,
+      2,
+      33,
+      97,
+      110,
+      1,
+      90,
+      38,
+      8,
+      117,
+      24,
+      21,
+      53,
+      93,
+      103,
+      31,
+      52,
+      83,
+      31,
+      33,
+      26,
+      91,
+      16,
+      53,
+      55,
+      30,
+      55,
+      8,
+      16,
+      16,
+      39
+    ],
+    [
+      59,
+      110,
+      72,
+      109,
+      46,
+      105,
+      41,
+      59,
+      91,
+      59,
+      103,
+      26,
+      10,
+      38,
+      90,
+      1,
+      29,
+      24,
+      29,
+      53,
+      2,
+      1,
+      55,
+      109,
+      24,
+      39,
+      83,
+      39,
+      26,
+      30,
+      110,
+      72,
+      93,
+      96,
+      10,
+      111,
+      111,
+      30,
+      91,
+      53,
+      96,
+      24,
+      104,
+      111,
+      39
+    ]
+  ],
+  "pass_names": {
+    "111": "-sroa",
+    "103": "-mem2reg",
+    "29": "-early-cse-memssa",
+    "97": "-newgvn",
+    "39": "-gvn",
+    "53": "-instcombine",
+    "30": "-early-cse",
+    "10": "-simplifycfg",
+    "55": "-jump-threading",
+    "38": "-gvn-hoist",
+    "72": "-loop-simplifycfg",
+    "52": "-instsimplify",
+    "26": "-dse",
+    "2": "-aggressive-instcombine",
+    "91": "-mergefunc",
+    "1": "-adce",
+    "8": "-bdce",
+    "24": "-dce",
+    "25": "-die",
+    "66": "-loop-instsimplify",
+    "117": "-slsr",
+    "46": "-ipsccp",
+    "105": "-reassociate",
+    "109": "-sccp",
+    "16": "-constprop",
+    "31": "-elim-avail-extern",
+    "21": "-correlated-propagation",
+    "59": "-load-store-vectorizer",
+    "41": "-globalopt",
+    "83": "-lower-constant-intrinsics",
+    "104": "-prune-eh",
+    "93": "-mldst-motion",
+    "90": "-memcpyopt",
+    "110": "-slp-vectorizer",
+    "96": "-nary-reassociate",
+    "33": "-flattencfg"
+  },
+  "action_ids": [
+    1,
+    2,
+    8,
+    10,
+    16,
+    21,
+    24,
+    25,
+    26,
+    29,
+    30,
+    31,
+    33,
+    38,
+    39,
+    41,
+    46,
+    52,
+    53,
+    55,
+    59,
+    66,
+    72,
+    83,
+    90,
+    91,
+    93,
+    96,
+    97,
+    103,
+    104,
+    105,
+    109,
+    110,
+    111,
+    117
+  ],
+  "compiler_gym": "0.2.5",
+  "llvm_version": "LLVM (http://llvm.org/):\n  LLVM version 10.0.0\n  Optimized build.\n  Default target: x86_64-unknown-linux-gnu\n  Host CPU: westmere",
+  "ic_tool_sha256": "9fe154827e6813452d87f40aa782d8b9f7aec757e859f6ad7e709aa6dec6549e",
+  "numpy_version": "1.26.4",
+  "selection": "minimum IC; first candidate breaks ties",
+  "baseline": "service llvm.apply_baseline_optimizations=-Oz",
+  "codegen": "bundled llc defaults, original per-module triple and datalayout",
+  "sources": {
+    "benchmark://npb-v0/1": {
+      "uri": "benchmark://npb-v0/1",
+      "o0": 136,
+      "oz": 50,
+      "file": "results/battery/npb-v0/1.json",
+      "sha256": "a5896c525fa17e056ebf46a723c0d1ca53c00a0cad481e8afddcbcbd1208d2ba",
+      "portfolio_ics": [
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53
+      ],
+      "portfolio_reference_sha256": "d3527fe7d1c92a713a629229fcff0f117d58d9afe1c557bbfbe5b7b69f279532"
+    },
+    "benchmark://npb-v0/10": {
+      "uri": "benchmark://npb-v0/10",
+      "o0": 26,
+      "oz": 21,
+      "file": "results/battery/npb-v0/10.json",
+      "sha256": "60e61790ef4a63c3d5f65282918f81280f8a315a175dfdc2e248cfbd239dbbc2",
+      "portfolio_ics": [
+        21,
+        23,
+        21,
+        21,
+        23,
+        21,
+        21,
+        23
+      ],
+      "portfolio_reference_sha256": "f69cc4734bb14decc503602ab96b546cc54d43f122a9b28c243e2ad126d9e3d1"
+    },
+    "benchmark://npb-v0/100": {
+      "uri": "benchmark://npb-v0/100",
+      "o0": 3388,
+      "oz": 2072,
+      "file": "results/battery/npb-v0/100.json",
+      "sha256": "800e84ca75f1930ab2ad7052aedf95c186e1f207b484e534e8c5120d9f5764ad",
+      "portfolio_ics": [
+        1320,
+        1382,
+        1361,
+        1322,
+        1321,
+        1378,
+        1316,
+        1313
+      ],
+      "portfolio_reference_sha256": "6a7318aae0a3876678e5bf4aa5f7fa18ff9437c574046d9072df38185e9b9678"
+    },
+    "benchmark://npb-v0/101": {
+      "uri": "benchmark://npb-v0/101",
+      "o0": 136,
+      "oz": 50,
+      "file": "results/battery/npb-v0/101.json",
+      "sha256": "bcecd2d1aed7cdd3f987bbd0bd6d6ed92817e5007c4a6de1f37e9495560b7166",
+      "portfolio_ics": [
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53
+      ],
+      "portfolio_reference_sha256": "fa132916e6138203ff35c7c9553c111af1a3bcdf424b60db25192bc8daf25ea2"
+    },
+    "benchmark://npb-v0/102": {
+      "uri": "benchmark://npb-v0/102",
+      "o0": 47,
+      "oz": 27,
+      "file": "results/battery/npb-v0/102.json",
+      "sha256": "d1e911e1a0254419f301996eff9bca23722095b454ad5169a9607ed2a6fca1f6",
+      "portfolio_ics": [
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27
+      ],
+      "portfolio_reference_sha256": "540f718b49b122172711916dc0fa96dcdb2439256667cf19d829427d464a3ff0"
+    },
+    "benchmark://npb-v0/103": {
+      "uri": "benchmark://npb-v0/103",
+      "o0": 198,
+      "oz": 69,
+      "file": "results/battery/npb-v0/103.json",
+      "sha256": "fcad3dbec34747bedbd6ae0deb4c258dfd124ef8837767ff77f332c2b1e9a804",
+      "portfolio_ics": [
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69
+      ],
+      "portfolio_reference_sha256": "5b275295663c057ce742c49061867c9ecc618ab75a05dd25560747d27d8ff354"
+    },
+    "benchmark://npb-v0/104": {
+      "uri": "benchmark://npb-v0/104",
+      "o0": 110,
+      "oz": 39,
+      "file": "results/battery/npb-v0/104.json",
+      "sha256": "04205d5442ffd57f2ec1dffaff716f71babf40a295fe39fb20403302ec50bab7",
+      "portfolio_ics": [
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44
+      ],
+      "portfolio_reference_sha256": "aa3ac242e44bb885cedceac9f4f78f98346c70c38a62193f02a93f03d9add8d4"
+    },
+    "benchmark://npb-v0/105": {
+      "uri": "benchmark://npb-v0/105",
+      "o0": 136,
+      "oz": 50,
+      "file": "results/battery/npb-v0/105.json",
+      "sha256": "bb1b6477e9951ece4fdb278d30add048335d08c4b6195c45da699867601b3d7a",
+      "portfolio_ics": [
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53
+      ],
+      "portfolio_reference_sha256": "2ffb17545baceabbd351af7a2916754903470bff97e163342cef96c2046ee830"
+    },
+    "benchmark://npb-v0/106": {
+      "uri": "benchmark://npb-v0/106",
+      "o0": 26,
+      "oz": 21,
+      "file": "results/battery/npb-v0/106.json",
+      "sha256": "377535275f08f850522d6fb654d6cb0228be9c371d9bdd55222aa579d047bf08",
+      "portfolio_ics": [
+        21,
+        23,
+        21,
+        21,
+        23,
+        21,
+        21,
+        23
+      ],
+      "portfolio_reference_sha256": "55b7ce44163ea005a4faeee5582ef608352634f3f0540347f9e98bdeb26cf896"
+    },
+    "benchmark://npb-v0/107": {
+      "uri": "benchmark://npb-v0/107",
+      "o0": 110,
+      "oz": 39,
+      "file": "results/battery/npb-v0/107.json",
+      "sha256": "b62fb7da9476d9aa74f250cdcc0e37890f195bee9da5a2474edddd8aea25530b",
+      "portfolio_ics": [
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44
+      ],
+      "portfolio_reference_sha256": "651d24cda3a53446c5ff0ae4e3e92d173610180c98112eb5b1c90662506cfa4c"
+    },
+    "benchmark://npb-v0/108": {
+      "uri": "benchmark://npb-v0/108",
+      "o0": 7,
+      "oz": 7,
+      "file": "results/battery/npb-v0/108.json",
+      "sha256": "e991d404e607e01f00893d494e80d034fa894c28672b1223d47ad5b43a7ba737",
+      "portfolio_ics": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "portfolio_reference_sha256": "73cabd234903800a24b6dcb5cb3d9a1c75ba40a5909997ccf54857b50bc3c9ae"
+    },
+    "benchmark://npb-v0/109": {
+      "uri": "benchmark://npb-v0/109",
+      "o0": 3057,
+      "oz": 743,
+      "file": "results/battery/npb-v0/109.json",
+      "sha256": "8499b15e53c9ee0c0c6f6149436704b48a3bb6952695ca3448e530641ea52d4c",
+      "portfolio_ics": [
+        775,
+        874,
+        855,
+        778,
+        791,
+        898,
+        786,
+        778
+      ],
+      "portfolio_reference_sha256": "30c0677aa671cc193a5a87690c67d59be792cd4dfefed2cc431040c9f695edf5"
+    },
+    "benchmark://npb-v0/11": {
+      "uri": "benchmark://npb-v0/11",
+      "o0": 700,
+      "oz": 313,
+      "file": "results/battery/npb-v0/11.json",
+      "sha256": "479ec0c10da88be5423465fedd316f4ced2c2dd250d55426ccf5613bf62d531b",
+      "portfolio_ics": [
+        277,
+        283,
+        298,
+        284,
+        286,
+        276,
+        281,
+        280
+      ],
+      "portfolio_reference_sha256": "50f35564cfb2067f62d6798faf1fb7bfc68ae2dd5922dd006a2de9d3023f245e"
+    },
+    "benchmark://npb-v0/110": {
+      "uri": "benchmark://npb-v0/110",
+      "o0": 98,
+      "oz": 63,
+      "file": "results/battery/npb-v0/110.json",
+      "sha256": "aa9a9f00b7179cff722b5917bed23001649120603e8a9904511687575f8b5c92",
+      "portfolio_ics": [
+        45,
+        45,
+        48,
+        45,
+        45,
+        45,
+        46,
+        46
+      ],
+      "portfolio_reference_sha256": "09d5feda16ca1e6cfedcd8ffd23c82d1b8a89bc8032ce95e258ace865e96d6e2"
+    },
+    "benchmark://npb-v0/111": {
+      "uri": "benchmark://npb-v0/111",
+      "o0": 47,
+      "oz": 27,
+      "file": "results/battery/npb-v0/111.json",
+      "sha256": "7ffaaf127815e9f524d79d83edc9c6a523a025d1a8f4623f5ce5029030f3abf5",
+      "portfolio_ics": [
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27
+      ],
+      "portfolio_reference_sha256": "2c5c8fddabff6b25bdb1af19bf5b5307fe1f485271c6870047ffe5687cb99624"
+    },
+    "benchmark://npb-v0/112": {
+      "uri": "benchmark://npb-v0/112",
+      "o0": 132,
+      "oz": 148,
+      "file": "results/battery/npb-v0/112.json",
+      "sha256": "66e6b8f8223bb486d0029494a46d79db16bf78440354cab6febcabd729ce76ef",
+      "portfolio_ics": [
+        76,
+        76,
+        78,
+        76,
+        76,
+        76,
+        76,
+        76
+      ],
+      "portfolio_reference_sha256": "2f95ef4c99944f464a5992687dbe74235d0ed07ed77d6a751ea2584d45ca8976"
+    },
+    "benchmark://npb-v0/113": {
+      "uri": "benchmark://npb-v0/113",
+      "o0": 195,
+      "oz": 110,
+      "file": "results/battery/npb-v0/113.json",
+      "sha256": "f4ed4f15566fb1804a026cf23abddb683987ad1c36bcc206adc5e3bdb9a133bb",
+      "portfolio_ics": [
+        108,
+        108,
+        108,
+        108,
+        108,
+        108,
+        108,
+        108
+      ],
+      "portfolio_reference_sha256": "e6c6d34bb0f69b6aad602730788da1be7f8029c7e7cb215407b6db7c2bf26c5f"
+    },
+    "benchmark://npb-v0/114": {
+      "uri": "benchmark://npb-v0/114",
+      "o0": 110,
+      "oz": 39,
+      "file": "results/battery/npb-v0/114.json",
+      "sha256": "cf96746b1f95d75db1fb7f51fb261bdd388eacfce399429a69da40adf0cfa609",
+      "portfolio_ics": [
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44
+      ],
+      "portfolio_reference_sha256": "72f6c015008028ae0bb74eca079d3f439293dd10042d5e619bbc1ab5fa2d5989"
+    },
+    "benchmark://npb-v0/115": {
+      "uri": "benchmark://npb-v0/115",
+      "o0": 140,
+      "oz": 54,
+      "file": "results/battery/npb-v0/115.json",
+      "sha256": "e11f2394bc88b72dec9c7cf4676ff91c9ec4b44478538f8e03baa7bbdd453000",
+      "portfolio_ics": [
+        65,
+        64,
+        65,
+        59,
+        60,
+        59,
+        65,
+        59
+      ],
+      "portfolio_reference_sha256": "297ba787ef40b36e7b6d02e7ee2e78737ac8539d33ad92f1d87fc611479b52fe"
+    },
+    "benchmark://npb-v0/116": {
+      "uri": "benchmark://npb-v0/116",
+      "o0": 5075,
+      "oz": 4316,
+      "file": "results/battery/npb-v0/116.json",
+      "sha256": "872bdaf6d96f05996a083043ce3ddd8b8838dfe2a1b32a06953b5aedca0381bf",
+      "portfolio_ics": [
+        2036,
+        2056,
+        2145,
+        2036,
+        2050,
+        2037,
+        2036,
+        2036
+      ],
+      "portfolio_reference_sha256": "24a01d9f50f7710f99fcafa50d884f7d46a726016a4b378c7f3726af881118fb"
+    },
+    "benchmark://npb-v0/117": {
+      "uri": "benchmark://npb-v0/117",
+      "o0": 2166,
+      "oz": 903,
+      "file": "results/battery/npb-v0/117.json",
+      "sha256": "0b297f54360499c5c1c49eeafb9cd364c8180b6b44779acd435965e87d87165e",
+      "portfolio_ics": [
+        916,
+        886,
+        890,
+        800,
+        794,
+        781,
+        907,
+        810
+      ],
+      "portfolio_reference_sha256": "284178594c0659c5f4db6d881557e00f5cec95cfd40a697686c90f4b7176b695"
+    },
+    "benchmark://npb-v0/118": {
+      "uri": "benchmark://npb-v0/118",
+      "o0": 3015,
+      "oz": 940,
+      "file": "results/battery/npb-v0/118.json",
+      "sha256": "8f52edf78cfe2e1b517721520a2795418c385cef044dc7b59549e9e266a85b92",
+      "portfolio_ics": [
+        922,
+        960,
+        859,
+        929,
+        922,
+        1019,
+        922,
+        922
+      ],
+      "portfolio_reference_sha256": "7e0c8fe6e052f9eefe3c5bede3e406056873a7851f9f760b982514194bfe8eb9"
+    },
+    "benchmark://npb-v0/119": {
+      "uri": "benchmark://npb-v0/119",
+      "o0": 5705,
+      "oz": 2174,
+      "file": "results/battery/npb-v0/119.json",
+      "sha256": "a482acbf8cd5dabb0c3084298a44c431b668d6f1a856af0c270160e73ef7530f",
+      "portfolio_ics": [
+        2174,
+        2397,
+        2325,
+        2174,
+        2174,
+        2326,
+        2174,
+        2174
+      ],
+      "portfolio_reference_sha256": "a5ffc8d835c8b191599b5ac51623866cc5f76888f732e33ac5b38dd4a240a210"
+    },
+    "benchmark://npb-v0/12": {
+      "uri": "benchmark://npb-v0/12",
+      "o0": 3816,
+      "oz": 2269,
+      "file": "results/battery/npb-v0/12.json",
+      "sha256": "90414e98626a1621b4a3627029165a620792f44a8915b27f2dfc64ba7228eea5",
+      "portfolio_ics": [
+        1325,
+        1328,
+        1347,
+        1309,
+        1310,
+        1317,
+        1324,
+        1331
+      ],
+      "portfolio_reference_sha256": "c97917b5cc596d71a48a833ee0be05f3d4fdb962514fa5c28495ffd4823befc1"
+    },
+    "benchmark://npb-v0/120": {
+      "uri": "benchmark://npb-v0/120",
+      "o0": 101,
+      "oz": 66,
+      "file": "results/battery/npb-v0/120.json",
+      "sha256": "84ae3dd5515f78dc5fad7e25c33ec25e9f85b7c6813210b1da25d4e6c8d27dc2",
+      "portfolio_ics": [
+        48,
+        48,
+        51,
+        48,
+        48,
+        48,
+        49,
+        49
+      ],
+      "portfolio_reference_sha256": "ea2337f6dc37970d17683a4f359da2f35035210c1cf50c912c11bb41af544bed"
+    },
+    "benchmark://npb-v0/122": {
+      "uri": "benchmark://npb-v0/122",
+      "o0": 198,
+      "oz": 69,
+      "file": "results/battery/npb-v0/122.json",
+      "sha256": "1c419c55d90684616ce0b5073bf43a3d1051bb56719d2bc03ba342dcccca3435",
+      "portfolio_ics": [
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69
+      ],
+      "portfolio_reference_sha256": "1e0e7dadca7dcb913c4f809d1c2a9caedaaf2c7ac2ecd4ac640e7d35f47704f1"
+    },
+    "benchmark://npb-v0/13": {
+      "uri": "benchmark://npb-v0/13",
+      "o0": 1035,
+      "oz": 991,
+      "file": "results/battery/npb-v0/13.json",
+      "sha256": "6465b6757be038ce8bcf30806c1ed2a57ad96184be8513e987c127907617d158",
+      "portfolio_ics": [
+        442,
+        443,
+        470,
+        442,
+        442,
+        442,
+        444,
+        445
+      ],
+      "portfolio_reference_sha256": "2a7055de912c636e80dffbc03b2b747827c99e001957231a9fa95de53670e5ff"
+    },
+    "benchmark://npb-v0/14": {
+      "uri": "benchmark://npb-v0/14",
+      "o0": 110,
+      "oz": 39,
+      "file": "results/battery/npb-v0/14.json",
+      "sha256": "2a2db56853f86ff4a8d4903669e1dfdbe93a41205e5afd971e5b231d0fe51576",
+      "portfolio_ics": [
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44
+      ],
+      "portfolio_reference_sha256": "2891697d40e6d9b157b0c2c8d5efe5fda749a322fb5a88368c19c4fdf2b25693"
+    },
+    "benchmark://npb-v0/15": {
+      "uri": "benchmark://npb-v0/15",
+      "o0": 47,
+      "oz": 27,
+      "file": "results/battery/npb-v0/15.json",
+      "sha256": "03b5ae0d97ab3c8a37a7788956789ddc2cd760001c8c681047a87a0c9251eeef",
+      "portfolio_ics": [
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27
+      ],
+      "portfolio_reference_sha256": "55f68a4366e83b82316939b75657b328160ac240005faf396402334f829a97a5"
+    },
+    "benchmark://npb-v0/16": {
+      "uri": "benchmark://npb-v0/16",
+      "o0": 6,
+      "oz": 6,
+      "file": "results/battery/npb-v0/16.json",
+      "sha256": "ac8c4bfb9d094475babc72f447ea2c3f5d81ab5f632d6b57bee8a72813a0fa2d",
+      "portfolio_ics": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "portfolio_reference_sha256": "1a8a77b3dbfb2c2a3231d6f32af3cfc8e98b673b75c4868a4189ac93d5e7dcb7"
+    },
+    "benchmark://npb-v0/17": {
+      "uri": "benchmark://npb-v0/17",
+      "o0": 571,
+      "oz": 370,
+      "file": "results/battery/npb-v0/17.json",
+      "sha256": "8ef7e89ad7b6f29cc30ea0bd47c014c92878f342ae90a3033d0ed702948528f4",
+      "portfolio_ics": [
+        365,
+        327,
+        331,
+        367,
+        388,
+        333,
+        369,
+        328
+      ],
+      "portfolio_reference_sha256": "31dcf5b4875360f708b49b8bb7c9e65f8572b1371691a1453140c5f68726c8b5"
+    },
+    "benchmark://npb-v0/18": {
+      "uri": "benchmark://npb-v0/18",
+      "o0": 321,
+      "oz": 342,
+      "file": "results/battery/npb-v0/18.json",
+      "sha256": "21afd46f4532fa2a6d87bf55487250ad061e91270219c875a5e9307637dd7f80",
+      "portfolio_ics": [
+        153,
+        155,
+        162,
+        153,
+        153,
+        153,
+        157,
+        157
+      ],
+      "portfolio_reference_sha256": "98bb72121093edee6a6fd6544bcd1c6f18a886475aa419cac7b065e0e8b218b6"
+    },
+    "benchmark://npb-v0/19": {
+      "uri": "benchmark://npb-v0/19",
+      "o0": 3005,
+      "oz": 942,
+      "file": "results/battery/npb-v0/19.json",
+      "sha256": "b9dd1c0313af614a1367203f7ba035a1bfec0280ccfe3b752ae5a367a3080e74",
+      "portfolio_ics": [
+        923,
+        961,
+        859,
+        931,
+        923,
+        1019,
+        923,
+        923
+      ],
+      "portfolio_reference_sha256": "000db230c0889f9056788bbaec7875ac854e6d60888e422587764204cc7bbe88"
+    },
+    "benchmark://npb-v0/2": {
+      "uri": "benchmark://npb-v0/2",
+      "o0": 417,
+      "oz": 268,
+      "file": "results/battery/npb-v0/2.json",
+      "sha256": "e25b57229adde587e9126000d8c445c192cc3ccd9f8eabe78daeb12658250d57",
+      "portfolio_ics": [
+        209,
+        214,
+        214,
+        218,
+        210,
+        213,
+        215,
+        215
+      ],
+      "portfolio_reference_sha256": "131de7108548c7910144a739975434f773901fee0567305b690736058b66fb16"
+    },
+    "benchmark://npb-v0/20": {
+      "uri": "benchmark://npb-v0/20",
+      "o0": 26,
+      "oz": 21,
+      "file": "results/battery/npb-v0/20.json",
+      "sha256": "c7f8b9349c3ece1cfead20eec6b3151e61d67c662293e8725640aa3ba72d52cf",
+      "portfolio_ics": [
+        21,
+        23,
+        21,
+        21,
+        23,
+        21,
+        21,
+        23
+      ],
+      "portfolio_reference_sha256": "71efe4e5b358cfcbb7a90bf575a56c7b1a146d72e828d0a95587a9726196f2f7"
+    },
+    "benchmark://npb-v0/21": {
+      "uri": "benchmark://npb-v0/21",
+      "o0": 47,
+      "oz": 27,
+      "file": "results/battery/npb-v0/21.json",
+      "sha256": "5ee41ba27a43987e311be2f3a7d20e203d04be94766db8ce936ac9f4d5e0283b",
+      "portfolio_ics": [
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27
+      ],
+      "portfolio_reference_sha256": "adf41337fca282b29900d3bc8b6c18078209fefb18ace7c818d9f0860cf59037"
+    },
+    "benchmark://npb-v0/22": {
+      "uri": "benchmark://npb-v0/22",
+      "o0": 1795,
+      "oz": 836,
+      "file": "results/battery/npb-v0/22.json",
+      "sha256": "aa7d3262eff7928b489def3043e5a8d2fd018d8b79ab773f386c707eadd9f085",
+      "portfolio_ics": [
+        784,
+        782,
+        832,
+        791,
+        806,
+        808,
+        841,
+        798
+      ],
+      "portfolio_reference_sha256": "49d8bed052c45c1af01aac48e0a39b7ef7e3c818010f041f3915888222a65075"
+    },
+    "benchmark://npb-v0/23": {
+      "uri": "benchmark://npb-v0/23",
+      "o0": 198,
+      "oz": 69,
+      "file": "results/battery/npb-v0/23.json",
+      "sha256": "e59cd94535db3dca7fa00ce5d6c0882d06a1ec7b5a72997cb5f29bcca5f3a60c",
+      "portfolio_ics": [
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69
+      ],
+      "portfolio_reference_sha256": "666ee8ff72fb9d3f6488842f98e93b9dd03afc27046862095650c116ea375d28"
+    },
+    "benchmark://npb-v0/24": {
+      "uri": "benchmark://npb-v0/24",
+      "o0": 26,
+      "oz": 21,
+      "file": "results/battery/npb-v0/24.json",
+      "sha256": "ed6a9d01cf0f2809a6b820ba34c3f5066d2833eb34f74fd96cabda49441a3127",
+      "portfolio_ics": [
+        21,
+        23,
+        21,
+        21,
+        23,
+        21,
+        21,
+        23
+      ],
+      "portfolio_reference_sha256": "685a4a98909cb1e6c133779feb41a931a3d59932739004341474f0ce1b4cc785"
+    },
+    "benchmark://npb-v0/25": {
+      "uri": "benchmark://npb-v0/25",
+      "o0": 136,
+      "oz": 50,
+      "file": "results/battery/npb-v0/25.json",
+      "sha256": "79af0d2fc52967923c5d3d80e3ce9dc4c7000e2580c7ca61c0593cab79342951",
+      "portfolio_ics": [
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53
+      ],
+      "portfolio_reference_sha256": "7c0b8ed64a90e18d249729b84ecaa3705db951e1a5b3d536df7e56fa1fc214d5"
+    },
+    "benchmark://npb-v0/26": {
+      "uri": "benchmark://npb-v0/26",
+      "o0": 110,
+      "oz": 39,
+      "file": "results/battery/npb-v0/26.json",
+      "sha256": "057667859586e9dd0476ac521942f9ff1d32ed4b55e363b4a14432a4d76ddeac",
+      "portfolio_ics": [
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44
+      ],
+      "portfolio_reference_sha256": "1d5a1f55310e70c4c0e3b33b50b2887d5bfaefc1502b93d00e940b797595102f"
+    },
+    "benchmark://npb-v0/27": {
+      "uri": "benchmark://npb-v0/27",
+      "o0": 47,
+      "oz": 27,
+      "file": "results/battery/npb-v0/27.json",
+      "sha256": "d3f9a318c2981dc8adb409c57292adeb16b7ed937cd8125176d066ce9dff6c4e",
+      "portfolio_ics": [
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27
+      ],
+      "portfolio_reference_sha256": "79f2469f7cb38d6e6036da7b1b8b5e73176e5d7e4276fbdd66f472db7a90f04c"
+    },
+    "benchmark://npb-v0/28": {
+      "uri": "benchmark://npb-v0/28",
+      "o0": 1093,
+      "oz": 462,
+      "file": "results/battery/npb-v0/28.json",
+      "sha256": "02b02d04d486eac56993b9250e7b1d8c94d8a3d98a547ec60edff2318b073d68",
+      "portfolio_ics": [
+        427,
+        447,
+        454,
+        447,
+        430,
+        437,
+        498,
+        439
+      ],
+      "portfolio_reference_sha256": "622b05ad56c3d5e8b645d52441b6bbd3f01a433bd19d5dbe3311325a4c67ae77"
+    },
+    "benchmark://npb-v0/29": {
+      "uri": "benchmark://npb-v0/29",
+      "o0": 2184,
+      "oz": 1004,
+      "file": "results/battery/npb-v0/29.json",
+      "sha256": "429a711864e95f904049ffe70ff0b1a3d1d66ae32ed0497fd963c3ab3a5a3757",
+      "portfolio_ics": [
+        993,
+        971,
+        985,
+        996,
+        998,
+        959,
+        1027,
+        1004
+      ],
+      "portfolio_reference_sha256": "d1ea1716b0649bf21805183511b0be889d207839d15da5a7189e8f38cf995b46"
+    },
+    "benchmark://npb-v0/3": {
+      "uri": "benchmark://npb-v0/3",
+      "o0": 621,
+      "oz": 248,
+      "file": "results/battery/npb-v0/3.json",
+      "sha256": "a3da63cce4055b087bae1c8657d0a0c806c2217168e9332b512f854c841a40c2",
+      "portfolio_ics": [
+        230,
+        231,
+        230,
+        230,
+        232,
+        231,
+        266,
+        225
+      ],
+      "portfolio_reference_sha256": "12f7f4e7248567cb53f9a52acea1b591eaa91799bc8141dfffeb7cb5aa72eed5"
+    },
+    "benchmark://npb-v0/30": {
+      "uri": "benchmark://npb-v0/30",
+      "o0": 3802,
+      "oz": 1831,
+      "file": "results/battery/npb-v0/30.json",
+      "sha256": "d193a0db4b965176a999c03a11dab6f64c1ac506b22d831d3095cfd8f7c9a0d2",
+      "portfolio_ics": [
+        1855,
+        1897,
+        1891,
+        1868,
+        1861,
+        1896,
+        1880,
+        1872
+      ],
+      "portfolio_reference_sha256": "647c72ddb982e7d85f9e6347c9cde6234784a08c2c92c0d4e96f3c107b228364"
+    },
+    "benchmark://npb-v0/31": {
+      "uri": "benchmark://npb-v0/31",
+      "o0": 26,
+      "oz": 21,
+      "file": "results/battery/npb-v0/31.json",
+      "sha256": "985983b33c3965d252558494b25143fddb87472ceabfb7b558548f5bc26c8747",
+      "portfolio_ics": [
+        21,
+        23,
+        21,
+        21,
+        23,
+        21,
+        21,
+        23
+      ],
+      "portfolio_reference_sha256": "3a8de58befae7c558fa87b857862d0d04e4b2905717577c4c04a4f500dd957fc"
+    },
+    "benchmark://npb-v0/32": {
+      "uri": "benchmark://npb-v0/32",
+      "o0": 47,
+      "oz": 27,
+      "file": "results/battery/npb-v0/32.json",
+      "sha256": "feba425c2b746c3c0d5e0ca62d361a9314abf65e372f1c99fa728df59d60554c",
+      "portfolio_ics": [
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27
+      ],
+      "portfolio_reference_sha256": "12e61df8bfe57ebb22b50fae05d2eeaae94822b658bfe799b0f29af3c7cf9ee6"
+    },
+    "benchmark://npb-v0/33": {
+      "uri": "benchmark://npb-v0/33",
+      "o0": 193,
+      "oz": 59,
+      "file": "results/battery/npb-v0/33.json",
+      "sha256": "b3d22699c88f84506b6117cf5e78bc9a9aa58da81cd6dfa2b8b58da7cfaed076",
+      "portfolio_ics": [
+        60,
+        64,
+        65,
+        59,
+        60,
+        62,
+        61,
+        61
+      ],
+      "portfolio_reference_sha256": "074823636e34cf6ac4e94a6475c6d1d03bede14fc6acc1d61b5231a854d80708"
+    },
+    "benchmark://npb-v0/34": {
+      "uri": "benchmark://npb-v0/34",
+      "o0": 3046,
+      "oz": 739,
+      "file": "results/battery/npb-v0/34.json",
+      "sha256": "c82f4a411ec5a60b23bdc0135173b195c74df2a35f418132933606418eb97a1e",
+      "portfolio_ics": [
+        760,
+        859,
+        841,
+        766,
+        704,
+        883,
+        704,
+        761
+      ],
+      "portfolio_reference_sha256": "afbdfeb2a6f431cab732dae947396bcb45ab7f706fb8ed6cb5bd64ae23de0116"
+    },
+    "benchmark://npb-v0/35": {
+      "uri": "benchmark://npb-v0/35",
+      "o0": 428,
+      "oz": 226,
+      "file": "results/battery/npb-v0/35.json",
+      "sha256": "3841085ec996b5854fcac5c6ab54327c7d10ccb73ffee5a9e66f7820b2c9ef2f",
+      "portfolio_ics": [
+        226,
+        202,
+        204,
+        226,
+        228,
+        202,
+        226,
+        202
+      ],
+      "portfolio_reference_sha256": "e03ef50027f6c65de0824a6dc5d6dfe4ddd7770cbd2c79619e63f2e328b0a9c6"
+    },
+    "benchmark://npb-v0/36": {
+      "uri": "benchmark://npb-v0/36",
+      "o0": 318,
+      "oz": 339,
+      "file": "results/battery/npb-v0/36.json",
+      "sha256": "4593a138490cc6f42ebd9b7ce65131794b609e5612480744e3a08f858452af25",
+      "portfolio_ics": [
+        150,
+        152,
+        159,
+        150,
+        150,
+        150,
+        154,
+        154
+      ],
+      "portfolio_reference_sha256": "b7f135c9c0bf590534922a8c9a39bfd09b3161baaf189eda0f48dbb2801a13bd"
+    },
+    "benchmark://npb-v0/37": {
+      "uri": "benchmark://npb-v0/37",
+      "o0": 126,
+      "oz": 59,
+      "file": "results/battery/npb-v0/37.json",
+      "sha256": "2e82485026e604bd4a7a2589b72e622c4c89b9b0244ecea55e53904fe9868d2d",
+      "portfolio_ics": [
+        60,
+        66,
+        66,
+        60,
+        60,
+        66,
+        60,
+        60
+      ],
+      "portfolio_reference_sha256": "74b5d24b716e2bc92b18255b85c3293bbbb996e85a36e477c3f406de9573ec2d"
+    },
+    "benchmark://npb-v0/38": {
+      "uri": "benchmark://npb-v0/38",
+      "o0": 983,
+      "oz": 564,
+      "file": "results/battery/npb-v0/38.json",
+      "sha256": "77313a519b7dd702533e868a125543ac6c522f6aa53a482720a0f92eae75b11a",
+      "portfolio_ics": [
+        443,
+        441,
+        452,
+        443,
+        444,
+        440,
+        447,
+        450
+      ],
+      "portfolio_reference_sha256": "0301b34bc2fe480cc16f2b7048c7436d3ca0bff881363c6fe58700524251f88b"
+    },
+    "benchmark://npb-v0/39": {
+      "uri": "benchmark://npb-v0/39",
+      "o0": 3388,
+      "oz": 2072,
+      "file": "results/battery/npb-v0/39.json",
+      "sha256": "b4757354c3324ec2cdf0e7873906eee4e909b0192764afa5dfd2b5105e27320f",
+      "portfolio_ics": [
+        1320,
+        1382,
+        1361,
+        1322,
+        1321,
+        1378,
+        1316,
+        1313
+      ],
+      "portfolio_reference_sha256": "86173b80a0d7673c46d61d934bca72ef6090f130d9110160808ad652856bef3e"
+    },
+    "benchmark://npb-v0/4": {
+      "uri": "benchmark://npb-v0/4",
+      "o0": 1314,
+      "oz": 624,
+      "file": "results/battery/npb-v0/4.json",
+      "sha256": "91a227898d6e38fb58e7fde8d28c08140548d8c7acda082ec47ec3d678e301e2",
+      "portfolio_ics": [
+        623,
+        660,
+        646,
+        623,
+        628,
+        634,
+        642,
+        629
+      ],
+      "portfolio_reference_sha256": "3b5b1c1aaaee7c1e94812bc2c4cdba3483fba88548c5f1225c693beb285fb762"
+    },
+    "benchmark://npb-v0/40": {
+      "uri": "benchmark://npb-v0/40",
+      "o0": 309,
+      "oz": 89,
+      "file": "results/battery/npb-v0/40.json",
+      "sha256": "fd7ea8dfcf0a7a825f195074752018c4d3a04111a76b51f118a2bf283108e2d2",
+      "portfolio_ics": [
+        89,
+        95,
+        95,
+        89,
+        89,
+        93,
+        90,
+        90
+      ],
+      "portfolio_reference_sha256": "8838dbc42dcd555cbf212fec6af107d1bc4536c541fdf1e64a7824f5dbea89e0"
+    },
+    "benchmark://npb-v0/41": {
+      "uri": "benchmark://npb-v0/41",
+      "o0": 26,
+      "oz": 21,
+      "file": "results/battery/npb-v0/41.json",
+      "sha256": "dcd469414e48e228173fa9115e8bc18ee961591fa97939ade535572292b46688",
+      "portfolio_ics": [
+        21,
+        23,
+        21,
+        21,
+        23,
+        21,
+        21,
+        23
+      ],
+      "portfolio_reference_sha256": "be18478812b8df9c69ddaca95f32a32a0e4fecdeb6f477250d968e5259dcd7a7"
+    },
+    "benchmark://npb-v0/42": {
+      "uri": "benchmark://npb-v0/42",
+      "o0": 3835,
+      "oz": 733,
+      "file": "results/battery/npb-v0/42.json",
+      "sha256": "6f439bddfa5591c374a776b847ceb81f83f447783fc8382c5c2eab325fb2a375",
+      "portfolio_ics": [
+        724,
+        765,
+        748,
+        741,
+        724,
+        760,
+        724,
+        726
+      ],
+      "portfolio_reference_sha256": "1fa5eda5a65d457874b9bfec7db0217f6bda05cf9452e0eab735fa031d5cdce5"
+    },
+    "benchmark://npb-v0/43": {
+      "uri": "benchmark://npb-v0/43",
+      "o0": 194,
+      "oz": 144,
+      "file": "results/battery/npb-v0/43.json",
+      "sha256": "e00fc2328095a757fde982b395072d88f6c8f938ca2f3b427ccc04e10e129120",
+      "portfolio_ics": [
+        127,
+        125,
+        125,
+        127,
+        127,
+        123,
+        129,
+        123
+      ],
+      "portfolio_reference_sha256": "2f52c7fc6294747304f73b9e87e70eedfecbe3f8137d8b9f64854aa6d89ff27b"
+    },
+    "benchmark://npb-v0/44": {
+      "uri": "benchmark://npb-v0/44",
+      "o0": 171,
+      "oz": 110,
+      "file": "results/battery/npb-v0/44.json",
+      "sha256": "80f15d92947b525cf9be15e313b1b3c9ce5dcbab315ac3dbb42a7eab9d815783",
+      "portfolio_ics": [
+        109,
+        105,
+        117,
+        109,
+        109,
+        107,
+        110,
+        108
+      ],
+      "portfolio_reference_sha256": "53711b76ed829136be1d54c64e751348e63c381cbca3bad39d896bf707082d8f"
+    },
+    "benchmark://npb-v0/45": {
+      "uri": "benchmark://npb-v0/45",
+      "o0": 231,
+      "oz": 223,
+      "file": "results/battery/npb-v0/45.json",
+      "sha256": "cafe1a7deca36fe7483f0a33d6c8af51bb6bda73b6135ea7b83cffa382caa456",
+      "portfolio_ics": [
+        130,
+        130,
+        135,
+        130,
+        130,
+        130,
+        131,
+        131
+      ],
+      "portfolio_reference_sha256": "f0cb311fa803d1856104bab07d8b40ecafce033a9a06d0d9b1ae291416ae667e"
+    },
+    "benchmark://npb-v0/46": {
+      "uri": "benchmark://npb-v0/46",
+      "o0": 57,
+      "oz": 39,
+      "file": "results/battery/npb-v0/46.json",
+      "sha256": "c59fabfac7080c64c4a28fff5ea34542d66e8d0b6c377a3365c7445fc6bb0b87",
+      "portfolio_ics": [
+        39,
+        39,
+        39,
+        39,
+        39,
+        39,
+        39,
+        39
+      ],
+      "portfolio_reference_sha256": "cf6c5d11b6cdc6705a7c650309773d48e8301bc9e80384cc80a6cde8e107cc6b"
+    },
+    "benchmark://npb-v0/47": {
+      "uri": "benchmark://npb-v0/47",
+      "o0": 503,
+      "oz": 484,
+      "file": "results/battery/npb-v0/47.json",
+      "sha256": "48dfa2737adc84722b7130f1178e62cd49a7bf9b993e5a7626597de0580a849b",
+      "portfolio_ics": [
+        317,
+        314,
+        321,
+        317,
+        317,
+        314,
+        317,
+        315
+      ],
+      "portfolio_reference_sha256": "b50c2c1dd6ac518ce08fc7360af84b290f35bd7d5c1d42297089d62426284143"
+    },
+    "benchmark://npb-v0/48": {
+      "uri": "benchmark://npb-v0/48",
+      "o0": 55,
+      "oz": 25,
+      "file": "results/battery/npb-v0/48.json",
+      "sha256": "d5713e0bad3a5e96462a092600b303d110086f34e5b05f89e150cb7eb7060e3d",
+      "portfolio_ics": [
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25,
+        25
+      ],
+      "portfolio_reference_sha256": "274f9b69fd3c3b5be88afea47e927b529456f0387d4f9be2f1bd3a3cf3c4e9f2"
+    },
+    "benchmark://npb-v0/49": {
+      "uri": "benchmark://npb-v0/49",
+      "o0": 198,
+      "oz": 69,
+      "file": "results/battery/npb-v0/49.json",
+      "sha256": "62fcd28dca2c61f5730de6c135abf97c7106262cadc0393c7ff8bca70c9dafb9",
+      "portfolio_ics": [
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69
+      ],
+      "portfolio_reference_sha256": "9f39ddcf092f69f5028b0713a022ca45c79294f8a2acefb4a3b38e9c11c9fd4b"
+    },
+    "benchmark://npb-v0/5": {
+      "uri": "benchmark://npb-v0/5",
+      "o0": 571,
+      "oz": 370,
+      "file": "results/battery/npb-v0/5.json",
+      "sha256": "4b96eb08ffd700caaca307784e5a7fc3cb8d5fb66fe5b1a5dc47764b96f8cdc9",
+      "portfolio_ics": [
+        365,
+        327,
+        331,
+        367,
+        388,
+        333,
+        369,
+        328
+      ],
+      "portfolio_reference_sha256": "1478d23cc0713e0fefe44714eda23bf662b0536c808e8c4999a51a29a13d1819"
+    },
+    "benchmark://npb-v0/50": {
+      "uri": "benchmark://npb-v0/50",
+      "o0": 3008,
+      "oz": 948,
+      "file": "results/battery/npb-v0/50.json",
+      "sha256": "6f7deb60f6bf0f3d6fec8bbe9f5b13a14de4230f7df04f3709f04be00dbd9576",
+      "portfolio_ics": [
+        929,
+        967,
+        865,
+        937,
+        929,
+        1025,
+        929,
+        929
+      ],
+      "portfolio_reference_sha256": "e4476ceae4402df03164cf87864458134140e3b04bebc84a3610ab3834e619e0"
+    },
+    "benchmark://npb-v0/51": {
+      "uri": "benchmark://npb-v0/51",
+      "o0": 426,
+      "oz": 225,
+      "file": "results/battery/npb-v0/51.json",
+      "sha256": "27adc9c5842aef45541258b01907deb7cc0f26c90d8ff3360db4048b1974f59d",
+      "portfolio_ics": [
+        225,
+        201,
+        203,
+        225,
+        227,
+        201,
+        225,
+        201
+      ],
+      "portfolio_reference_sha256": "35c996198d2cac2923a3b9aedd1421437a70259d1eddd001480cdd911cb6868a"
+    },
+    "benchmark://npb-v0/52": {
+      "uri": "benchmark://npb-v0/52",
+      "o0": 831,
+      "oz": 517,
+      "file": "results/battery/npb-v0/52.json",
+      "sha256": "77740b143c4255c08c6e24e958e70236365c88246c1af4e6db2e3f703c021661",
+      "portfolio_ics": [
+        401,
+        401,
+        413,
+        401,
+        401,
+        401,
+        408,
+        408
+      ],
+      "portfolio_reference_sha256": "66ef8ad6ad6620fc0b090ccf6221862c6c970ab9d6d849543e9a6810a05098e5"
+    },
+    "benchmark://npb-v0/53": {
+      "uri": "benchmark://npb-v0/53",
+      "o0": 4687,
+      "oz": 2262,
+      "file": "results/battery/npb-v0/53.json",
+      "sha256": "356a54ce5d2bcf0700770b8e764cecddb6af5b96825a64293acedb3e52b47dcb",
+      "portfolio_ics": [
+        1388,
+        1418,
+        1463,
+        1398,
+        1396,
+        1428,
+        1401,
+        1391
+      ],
+      "portfolio_reference_sha256": "786b95cdcdfcae421a7027680dc4fd04416355e0db7ff713ccd475e92243735c"
+    },
+    "benchmark://npb-v0/54": {
+      "uri": "benchmark://npb-v0/54",
+      "o0": 110,
+      "oz": 39,
+      "file": "results/battery/npb-v0/54.json",
+      "sha256": "99962821c09e49c88a798bd053b3d7ea957a58b5febcf0e969462abca8c72352",
+      "portfolio_ics": [
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44
+      ],
+      "portfolio_reference_sha256": "3efae4b11bd6be856354b19831d349d4449fcdba2ad7f37e6aa1ddee39db16e2"
+    },
+    "benchmark://npb-v0/55": {
+      "uri": "benchmark://npb-v0/55",
+      "o0": 690,
+      "oz": 382,
+      "file": "results/battery/npb-v0/55.json",
+      "sha256": "bd5b379bae4c24d64372c53eac8828b4d8ff52da3a9851a176d96dc16082a9bc",
+      "portfolio_ics": [
+        372,
+        376,
+        385,
+        371,
+        374,
+        377,
+        381,
+        379
+      ],
+      "portfolio_reference_sha256": "350b7dbba0e90911c84b270e56b7fee0682092188e878e9ba7de935b81893fcf"
+    },
+    "benchmark://npb-v0/56": {
+      "uri": "benchmark://npb-v0/56",
+      "o0": 136,
+      "oz": 50,
+      "file": "results/battery/npb-v0/56.json",
+      "sha256": "87a277437fd40539bdba084c44d8fa1ccd5fa3a1d1f6e304c1f8c8d859e403e4",
+      "portfolio_ics": [
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53
+      ],
+      "portfolio_reference_sha256": "930f17649cdd83e7ae91e8163f5db461e10d42fa90131443f9b6fd6d9aa682c4"
+    },
+    "benchmark://npb-v0/57": {
+      "uri": "benchmark://npb-v0/57",
+      "o0": 110,
+      "oz": 39,
+      "file": "results/battery/npb-v0/57.json",
+      "sha256": "5527b9cfed8ad52d432c08706e9827dee741d12640b65770f27988cc7e6471f4",
+      "portfolio_ics": [
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44
+      ],
+      "portfolio_reference_sha256": "482af2bea5a8a132f5b66d1f1a408392613c9d3b492846d0da341851d7bb2c67"
+    },
+    "benchmark://npb-v0/58": {
+      "uri": "benchmark://npb-v0/58",
+      "o0": 110,
+      "oz": 39,
+      "file": "results/battery/npb-v0/58.json",
+      "sha256": "bb1798e06bab84c97e613ff29277899394ed8a441be2f8d2873bbf2b15d52c7c",
+      "portfolio_ics": [
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44
+      ],
+      "portfolio_reference_sha256": "046aed7cfab9511b0b96e08638c361df90fb3b11c08ddc64cba02353bf171d27"
+    },
+    "benchmark://npb-v0/59": {
+      "uri": "benchmark://npb-v0/59",
+      "o0": 198,
+      "oz": 69,
+      "file": "results/battery/npb-v0/59.json",
+      "sha256": "cef044d7acefb7b913b48ba67483bbebd62e80d595afa745e017238d97822259",
+      "portfolio_ics": [
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69
+      ],
+      "portfolio_reference_sha256": "302fd549313cc1a83df04233b75393fff24da0498249378c73517305f4a34f7d"
+    },
+    "benchmark://npb-v0/6": {
+      "uri": "benchmark://npb-v0/6",
+      "o0": 608,
+      "oz": 373,
+      "file": "results/battery/npb-v0/6.json",
+      "sha256": "453d0e1df3ab68723270f1770fd9ee269c2bccf88cfa72f3a8d7a28c38c56302",
+      "portfolio_ics": [
+        378,
+        339,
+        345,
+        382,
+        399,
+        345,
+        383,
+        341
+      ],
+      "portfolio_reference_sha256": "161d50a2d412b802c8f770e7a422e44a265f0a4287826069702e7c1170caac88"
+    },
+    "benchmark://npb-v0/60": {
+      "uri": "benchmark://npb-v0/60",
+      "o0": 60,
+      "oz": 22,
+      "file": "results/battery/npb-v0/60.json",
+      "sha256": "d65a6787a9a07bca27388c89663645a77abb0269e861c40cbc4d2453af15c6d1",
+      "portfolio_ics": [
+        24,
+        24,
+        26,
+        24,
+        24,
+        24,
+        26,
+        24
+      ],
+      "portfolio_reference_sha256": "bd1157e7994e766b2f40dd69202afd0ddc6645e6231e0af95c3acc8dacaf72bf"
+    },
+    "benchmark://npb-v0/61": {
+      "uri": "benchmark://npb-v0/61",
+      "o0": 1417,
+      "oz": 411,
+      "file": "results/battery/npb-v0/61.json",
+      "sha256": "e249386f6aec9fba6041aad8a5e32f71484f91d6cb25daa14507bd633762f595",
+      "portfolio_ics": [
+        569,
+        469,
+        473,
+        559,
+        560,
+        461,
+        1153,
+        474
+      ],
+      "portfolio_reference_sha256": "c203e525323f719f21b7de1f950f0de7f744bc683be1a887a8f9e992f60762bc"
+    },
+    "benchmark://npb-v0/62": {
+      "uri": "benchmark://npb-v0/62",
+      "o0": 136,
+      "oz": 50,
+      "file": "results/battery/npb-v0/62.json",
+      "sha256": "7d6455745fdacc1ba80683082763d9fc4154c0f5162eee352547e1554a70ca9d",
+      "portfolio_ics": [
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53
+      ],
+      "portfolio_reference_sha256": "a549386d25fa1d71714ed32da0585f1cd7900afb22dbf3d9a22a0bba924d8dc3"
+    },
+    "benchmark://npb-v0/63": {
+      "uri": "benchmark://npb-v0/63",
+      "o0": 198,
+      "oz": 69,
+      "file": "results/battery/npb-v0/63.json",
+      "sha256": "d788273cb72087a0c493a4deafe428e9548f993da242beb9b50218e6f3620251",
+      "portfolio_ics": [
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69,
+        69
+      ],
+      "portfolio_reference_sha256": "469e36888ad049ca01f55d3ad95708fdfec9e38af1504e4e1b08020df1fe4b42"
+    },
+    "benchmark://npb-v0/64": {
+      "uri": "benchmark://npb-v0/64",
+      "o0": 47,
+      "oz": 27,
+      "file": "results/battery/npb-v0/64.json",
+      "sha256": "e111eea199952cf062146373083c2ec468a57ae588a23c89406483f475f70296",
+      "portfolio_ics": [
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27
+      ],
+      "portfolio_reference_sha256": "ed4baed5e9739571c6f5ae70f00d3516fbb32e98c9cef1cfcd1de08229619cdf"
+    },
+    "benchmark://npb-v0/65": {
+      "uri": "benchmark://npb-v0/65",
+      "o0": 518,
+      "oz": 284,
+      "file": "results/battery/npb-v0/65.json",
+      "sha256": "dc769c1d6dbed44e0adc0663f149978a69d4b78426456a4f5b2df0d5a7442c98",
+      "portfolio_ics": [
+        314,
+        313,
+        309,
+        314,
+        304,
+        315,
+        315,
+        287
+      ],
+      "portfolio_reference_sha256": "f3034306658750a72193aaa881fdde00bff0b84c034f00fc681c438685853523"
+    },
+    "benchmark://npb-v0/66": {
+      "uri": "benchmark://npb-v0/66",
+      "o0": 2395,
+      "oz": 1064,
+      "file": "results/battery/npb-v0/66.json",
+      "sha256": "7071c081b0fd73f18a72f452096954e89c5dda7b2d33886538acedb289cade18",
+      "portfolio_ics": [
+        1010,
+        1024,
+        1034,
+        1005,
+        1009,
+        995,
+        1019,
+        1016
+      ],
+      "portfolio_reference_sha256": "4fa2bb7f15066aa009a5b4b071f8b66b7b474fc5341b90f1ca50cd0a6fc0715d"
+    },
+    "benchmark://npb-v0/67": {
+      "uri": "benchmark://npb-v0/67",
+      "o0": 136,
+      "oz": 50,
+      "file": "results/battery/npb-v0/67.json",
+      "sha256": "332c969a161161898f78259277b440daa050096577079d7acb5915c57abd81cf",
+      "portfolio_ics": [
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53
+      ],
+      "portfolio_reference_sha256": "175f2fe78a4b57a04cd4c903a09d8788a2f5298302f78a3d048815c37c1ff99c"
+    },
+    "benchmark://npb-v0/68": {
+      "uri": "benchmark://npb-v0/68",
+      "o0": 313,
+      "oz": 89,
+      "file": "results/battery/npb-v0/68.json",
+      "sha256": "58601a386e5d75381535107cdba22a84fd44a925c10ebe12c72765522f71c293",
+      "portfolio_ics": [
+        89,
+        97,
+        95,
+        89,
+        89,
+        93,
+        90,
+        90
+      ],
+      "portfolio_reference_sha256": "9582325b03ace055b2137e421336ee91447cbdb48a54decf74e0036fd5aafbad"
+    },
+    "benchmark://npb-v0/69": {
+      "uri": "benchmark://npb-v0/69",
+      "o0": 357,
+      "oz": 277,
+      "file": "results/battery/npb-v0/69.json",
+      "sha256": "4634da5e00485d1e805024d51b18414dd89361eaa4170d7d521b4155d57500c2",
+      "portfolio_ics": [
+        233,
+        231,
+        231,
+        233,
+        238,
+        229,
+        235,
+        233
+      ],
+      "portfolio_reference_sha256": "fbdb32f4996851f1a495ccc99c5ea6e39e42431b26954e3267d5820b29c98463"
+    },
+    "benchmark://npb-v0/7": {
+      "uri": "benchmark://npb-v0/7",
+      "o0": 177,
+      "oz": 110,
+      "file": "results/battery/npb-v0/7.json",
+      "sha256": "1cc3231732acd49c39072482cdf95d9f1eb7306a85a3aef62cf141b00fc449b2",
+      "portfolio_ics": [
+        73,
+        73,
+        78,
+        73,
+        73,
+        73,
+        73,
+        73
+      ],
+      "portfolio_reference_sha256": "6ddc05b72faab805074e07f8c4c1a02dc27b68c9338eeef9924ff0cc481ee433"
+    },
+    "benchmark://npb-v0/70": {
+      "uri": "benchmark://npb-v0/70",
+      "o0": 193,
+      "oz": 59,
+      "file": "results/battery/npb-v0/70.json",
+      "sha256": "e8061a66fd9cd2832833b952a6b450625a5bdcdeb543277ef6489a8195fd59a8",
+      "portfolio_ics": [
+        59,
+        67,
+        67,
+        59,
+        59,
+        65,
+        60,
+        60
+      ],
+      "portfolio_reference_sha256": "ee88a074df4697388e9f57862813096803bd1dc9a0b43492f9a17a2fb243783d"
+    },
+    "benchmark://npb-v0/71": {
+      "uri": "benchmark://npb-v0/71",
+      "o0": 529,
+      "oz": 393,
+      "file": "results/battery/npb-v0/71.json",
+      "sha256": "25b47325e712a19fd6c748044dd13539c522dfa918bce34edfc4fd8a19eef298",
+      "portfolio_ics": [
+        329,
+        331,
+        336,
+        329,
+        329,
+        329,
+        330,
+        329
+      ],
+      "portfolio_reference_sha256": "cc3e2502166fa53a0c8eee11a5760593e36c5ecc16ebc446e1f1a6ebc90b89e8"
+    },
+    "benchmark://npb-v0/72": {
+      "uri": "benchmark://npb-v0/72",
+      "o0": 3784,
+      "oz": 737,
+      "file": "results/battery/npb-v0/72.json",
+      "sha256": "13ce02c60f7b8e1be9042b91e1517508d953c680204b51e21bed77b2e522ef79",
+      "portfolio_ics": [
+        733,
+        770,
+        755,
+        747,
+        730,
+        768,
+        730,
+        732
+      ],
+      "portfolio_reference_sha256": "69ae7e037d33b8174c3c511499ad2f2b724fa780d01124de1310de20ff9399b7"
+    },
+    "benchmark://npb-v0/73": {
+      "uri": "benchmark://npb-v0/73",
+      "o0": 171,
+      "oz": 114,
+      "file": "results/battery/npb-v0/73.json",
+      "sha256": "9d58fdb2c7de88b8caffd773f9a16979a8af56d23c325e6dddfd50938cd507ae",
+      "portfolio_ics": [
+        114,
+        89,
+        91,
+        114,
+        114,
+        89,
+        114,
+        89
+      ],
+      "portfolio_reference_sha256": "3374a0e92dfe34ade31676077e1d0b594a65963ee5b78cda19acd3b9d63346fd"
+    },
+    "benchmark://npb-v0/74": {
+      "uri": "benchmark://npb-v0/74",
+      "o0": 2093,
+      "oz": 535,
+      "file": "results/battery/npb-v0/74.json",
+      "sha256": "a1daa64014d5f80be2baf31aa39a1b28f004740d82b8a0ba0699eae230796167",
+      "portfolio_ics": [
+        483,
+        503,
+        501,
+        482,
+        489,
+        555,
+        466,
+        501
+      ],
+      "portfolio_reference_sha256": "0aef85b85ca04d154b2938f68a478a63b4f3346ce2b3005584c0c8878304b64a"
+    },
+    "benchmark://npb-v0/75": {
+      "uri": "benchmark://npb-v0/75",
+      "o0": 136,
+      "oz": 50,
+      "file": "results/battery/npb-v0/75.json",
+      "sha256": "46b4d178f15ab5f302342d64014558b897be370acef1ef39683adf048e5c53e4",
+      "portfolio_ics": [
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53
+      ],
+      "portfolio_reference_sha256": "b7e614561977b9bb654cee0bed16fa4ddb3634b72e70729d81bbc87338c7d17d"
+    },
+    "benchmark://npb-v0/76": {
+      "uri": "benchmark://npb-v0/76",
+      "o0": 47,
+      "oz": 27,
+      "file": "results/battery/npb-v0/76.json",
+      "sha256": "17fc5f9ab76c673a9da7de96b3149e26cd300060908664a92b4b5a11a954ae60",
+      "portfolio_ics": [
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27
+      ],
+      "portfolio_reference_sha256": "6bbb77a6d26eeddd6bd7405e81c7bab03330e7719e8ccca98f619e121f29e59e"
+    },
+    "benchmark://npb-v0/78": {
+      "uri": "benchmark://npb-v0/78",
+      "o0": 418,
+      "oz": 162,
+      "file": "results/battery/npb-v0/78.json",
+      "sha256": "6eaab5de7ae017c60f8a94841f059988e33d7167e7ccdacf8c622a5634ce6aa2",
+      "portfolio_ics": [
+        157,
+        148,
+        151,
+        157,
+        152,
+        148,
+        152,
+        157
+      ],
+      "portfolio_reference_sha256": "c018bc3ca8369f9ae3ad58d2fa59679fb32b93617603159db0eaed9a6985e252"
+    },
+    "benchmark://npb-v0/79": {
+      "uri": "benchmark://npb-v0/79",
+      "o0": 2062,
+      "oz": 1611,
+      "file": "results/battery/npb-v0/79.json",
+      "sha256": "58cef12805afdb618a54018757d7e6a490ba18f50bdbd1db5affac53594d3266",
+      "portfolio_ics": [
+        1183,
+        772,
+        818,
+        1183,
+        1193,
+        784,
+        1201,
+        781
+      ],
+      "portfolio_reference_sha256": "8f2532d67463c144d29d9f00395b12acf705d96c54d149ae54d3ff08fae3ffbe"
+    },
+    "benchmark://npb-v0/8": {
+      "uri": "benchmark://npb-v0/8",
+      "o0": 1484,
+      "oz": 529,
+      "file": "results/battery/npb-v0/8.json",
+      "sha256": "9bcb91dc70e7bde184137da710e47134e72f22cf167fcd1a1c5bb3ff788f651f",
+      "portfolio_ics": [
+        472,
+        491,
+        486,
+        470,
+        472,
+        534,
+        450,
+        508
+      ],
+      "portfolio_reference_sha256": "11de378d7d3e1e1c28689d30e604c352ca7fee5ccb79a9f2a38c6e8bf6dca288"
+    },
+    "benchmark://npb-v0/80": {
+      "uri": "benchmark://npb-v0/80",
+      "o0": 26,
+      "oz": 21,
+      "file": "results/battery/npb-v0/80.json",
+      "sha256": "ade0616f088a7ed1a65bc829bfb3151a7e58cc7cc2a7dfd38ff4c8d18f952e2c",
+      "portfolio_ics": [
+        21,
+        23,
+        21,
+        21,
+        23,
+        21,
+        21,
+        23
+      ],
+      "portfolio_reference_sha256": "b74ed76fea98b062b015b9ce0962671f464b0820937b0f48f54b33ba9c651978"
+    },
+    "benchmark://npb-v0/81": {
+      "uri": "benchmark://npb-v0/81",
+      "o0": 343,
+      "oz": 240,
+      "file": "results/battery/npb-v0/81.json",
+      "sha256": "e5dc8be5a488b14a5a19ee7e8fa7565e98299e4b1457dcfefea351a668775c63",
+      "portfolio_ics": [
+        219,
+        218,
+        220,
+        220,
+        220,
+        219,
+        222,
+        222
+      ],
+      "portfolio_reference_sha256": "fef379888a699301d8772484b17822fcd19ee6e408ac06759e0bf4f368db871b"
+    },
+    "benchmark://npb-v0/82": {
+      "uri": "benchmark://npb-v0/82",
+      "o0": 126,
+      "oz": 59,
+      "file": "results/battery/npb-v0/82.json",
+      "sha256": "61d8b5f39cb8d098b345feec79f5cd9495a74e528bbf7c77f8f175768575eebd",
+      "portfolio_ics": [
+        60,
+        66,
+        66,
+        60,
+        60,
+        66,
+        60,
+        60
+      ],
+      "portfolio_reference_sha256": "1637a78bebe4dccfdc9c5bc4158abbcad6e20a1bfdc515a1672f906393fa379b"
+    },
+    "benchmark://npb-v0/83": {
+      "uri": "benchmark://npb-v0/83",
+      "o0": 26,
+      "oz": 21,
+      "file": "results/battery/npb-v0/83.json",
+      "sha256": "6f7c1a0789245748fe4fb4653991980b7b2cf36533bc73fb3fe2a48fcdebb328",
+      "portfolio_ics": [
+        21,
+        23,
+        21,
+        21,
+        23,
+        21,
+        21,
+        23
+      ],
+      "portfolio_reference_sha256": "826904b2b0723adcb11f15d490547fbf0ba23391dec20f52066698e0b310fa06"
+    },
+    "benchmark://npb-v0/84": {
+      "uri": "benchmark://npb-v0/84",
+      "o0": 47,
+      "oz": 27,
+      "file": "results/battery/npb-v0/84.json",
+      "sha256": "699ec91b3cc88e5cdacfd24eea9ac1a2e834dbc5aea87a4977a13d570acff878",
+      "portfolio_ics": [
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27
+      ],
+      "portfolio_reference_sha256": "570eddf38db4cfd9fd3f59b254123598ce951cb3a83d4861969f82265010cad7"
+    },
+    "benchmark://npb-v0/85": {
+      "uri": "benchmark://npb-v0/85",
+      "o0": 26,
+      "oz": 21,
+      "file": "results/battery/npb-v0/85.json",
+      "sha256": "f80e2e7496f58dfa63a39baf71e4c38e19298145e8c2689106b3b1d053a4b19a",
+      "portfolio_ics": [
+        21,
+        23,
+        21,
+        21,
+        23,
+        21,
+        21,
+        23
+      ],
+      "portfolio_reference_sha256": "5260449c00e0ad038e5f9d9fa1cd6e247ec1826df279ad4f3960a2c456b51a4a"
+    },
+    "benchmark://npb-v0/86": {
+      "uri": "benchmark://npb-v0/86",
+      "o0": 47,
+      "oz": 27,
+      "file": "results/battery/npb-v0/86.json",
+      "sha256": "69966f4b28dcd1ac872381e71a72737f5c00cb1dbd0bc6403b4a6d0aa19002b9",
+      "portfolio_ics": [
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27,
+        27
+      ],
+      "portfolio_reference_sha256": "ed2c43bde86fee34100b8bb1ecc106cb59b1f3d613c6b3d40f3a9d5a5b3cc256"
+    },
+    "benchmark://npb-v0/87": {
+      "uri": "benchmark://npb-v0/87",
+      "o0": 271,
+      "oz": 185,
+      "file": "results/battery/npb-v0/87.json",
+      "sha256": "99fca877d2438c78c3c0117d5d0394e6a37fba0f909ee8c993aa65cf2c4da024",
+      "portfolio_ics": [
+        176,
+        180,
+        176,
+        176,
+        176,
+        176,
+        176,
+        176
+      ],
+      "portfolio_reference_sha256": "d71311306e897e6a846d01979e6cb57e21a20c482511f81789f2fbb3d80e79b2"
+    },
+    "benchmark://npb-v0/88": {
+      "uri": "benchmark://npb-v0/88",
+      "o0": 26,
+      "oz": 21,
+      "file": "results/battery/npb-v0/88.json",
+      "sha256": "8c89b61babf78a8ab93e2bc37ce0219afdbb47d2d2ce8b4cec60d85a2d4c224c",
+      "portfolio_ics": [
+        21,
+        23,
+        21,
+        21,
+        23,
+        21,
+        21,
+        23
+      ],
+      "portfolio_reference_sha256": "f4705fb282d47d6838421a9146e08c610b753460b7a2c87589428c48d9e47c8a"
+    },
+    "benchmark://npb-v0/89": {
+      "uri": "benchmark://npb-v0/89",
+      "o0": 110,
+      "oz": 39,
+      "file": "results/battery/npb-v0/89.json",
+      "sha256": "7769635c056aa7385534e26fe75b9c496973f95bcff7284eddad67e3f8506195",
+      "portfolio_ics": [
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44
+      ],
+      "portfolio_reference_sha256": "a541621ac542c871929e23efa986326f7205cfaee1b11ebd217942c982d43570"
+    },
+    "benchmark://npb-v0/9": {
+      "uri": "benchmark://npb-v0/9",
+      "o0": 150,
+      "oz": 74,
+      "file": "results/battery/npb-v0/9.json",
+      "sha256": "e4f664457cdf57204a57b6642db43893ad2eb39286dcca7580eb8c75d1a2b82d",
+      "portfolio_ics": [
+        75,
+        81,
+        81,
+        75,
+        75,
+        81,
+        75,
+        75
+      ],
+      "portfolio_reference_sha256": "c8ead67d830e34fe6e495927b1181ebeb9f50a4db53986089e481e41a1fefffd"
+    },
+    "benchmark://npb-v0/90": {
+      "uri": "benchmark://npb-v0/90",
+      "o0": 3071,
+      "oz": 735,
+      "file": "results/battery/npb-v0/90.json",
+      "sha256": "05a15f0e1e9cf492a66ac65c808c40d68fd130bbd9c6efdda48dd81c21cbc2db",
+      "portfolio_ics": [
+        762,
+        861,
+        843,
+        768,
+        706,
+        884,
+        706,
+        764
+      ],
+      "portfolio_reference_sha256": "e251512730492a891c34bf2a730617d978748fccae68db4b5cb6cfe49f01e029"
+    },
+    "benchmark://npb-v0/91": {
+      "uri": "benchmark://npb-v0/91",
+      "o0": 4694,
+      "oz": 2258,
+      "file": "results/battery/npb-v0/91.json",
+      "sha256": "2521dae4483c3da82e6923c878aeb6c8415c8cdfa244ec930c7d9ce3c079ec38",
+      "portfolio_ics": [
+        1377,
+        1407,
+        1452,
+        1386,
+        1383,
+        1417,
+        1387,
+        1378
+      ],
+      "portfolio_reference_sha256": "4caf718e48764c0cf00bf7d0b8cde8f0aedc0bbba434df2eb30103585e603a32"
+    },
+    "benchmark://npb-v0/92": {
+      "uri": "benchmark://npb-v0/92",
+      "o0": 136,
+      "oz": 50,
+      "file": "results/battery/npb-v0/92.json",
+      "sha256": "341ee497cb6e48bf9ddf545f2568b7d8766a21cd561b5b256e27aec2ea81a1ed",
+      "portfolio_ics": [
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53
+      ],
+      "portfolio_reference_sha256": "550564e0e8bbb0d3e8772fb3e15b1fa9f6a6b684433d6094b75c9b9d1d6ac7d9"
+    },
+    "benchmark://npb-v0/93": {
+      "uri": "benchmark://npb-v0/93",
+      "o0": 110,
+      "oz": 39,
+      "file": "results/battery/npb-v0/93.json",
+      "sha256": "2ee8ee96734d321e2ccf0181c9f68f9fb6f4b18b2d054b0b8b8beb6fcd0d73ff",
+      "portfolio_ics": [
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44
+      ],
+      "portfolio_reference_sha256": "cbf6bc517a4fae4ae5a7c1dfc2b1031be809062b8f269918c795eae070361209"
+    },
+    "benchmark://npb-v0/94": {
+      "uri": "benchmark://npb-v0/94",
+      "o0": 4498,
+      "oz": 2234,
+      "file": "results/battery/npb-v0/94.json",
+      "sha256": "f815ea0eb7e3864dbe158a131c1810feffee3600f115ef200378c4330743f2d8",
+      "portfolio_ics": [
+        1371,
+        1405,
+        1408,
+        1369,
+        1380,
+        1446,
+        1381,
+        1358
+      ],
+      "portfolio_reference_sha256": "daaf718c93da0355051a4a9b40c41eeae61913a2e6dac494fa72ef92998d0339"
+    },
+    "benchmark://npb-v0/95": {
+      "uri": "benchmark://npb-v0/95",
+      "o0": 1240,
+      "oz": 367,
+      "file": "results/battery/npb-v0/95.json",
+      "sha256": "d94e02be020b9f35f48751f46e52fd569c2c21e37056a2352eaef0a8ad131b5f",
+      "portfolio_ics": [
+        386,
+        407,
+        443,
+        399,
+        395,
+        410,
+        397,
+        383
+      ],
+      "portfolio_reference_sha256": "a7f62f77f78535b16bc714f5b6ae8b656161bd71d30addeaeff338b2923ac714"
+    },
+    "benchmark://npb-v0/96": {
+      "uri": "benchmark://npb-v0/96",
+      "o0": 3990,
+      "oz": 2316,
+      "file": "results/battery/npb-v0/96.json",
+      "sha256": "ec2d0494b5cecd8340c4b59bf60679dff6d20b38ce9ca52a6036b0793220531d",
+      "portfolio_ics": [
+        1386,
+        1432,
+        1406,
+        1387,
+        1398,
+        1446,
+        1399,
+        1378
+      ],
+      "portfolio_reference_sha256": "f362419699515f8d8148081dca87b83a4d6a476dbb7571e444f601d907d77195"
+    },
+    "benchmark://npb-v0/97": {
+      "uri": "benchmark://npb-v0/97",
+      "o0": 4942,
+      "oz": 2475,
+      "file": "results/battery/npb-v0/97.json",
+      "sha256": "b7883faaec91d4cbbb1ce72bb2b88e74a76a209e2b074d7ec849c5ebb2aa935e",
+      "portfolio_ics": [
+        1897,
+        1904,
+        1973,
+        1949,
+        1927,
+        1909,
+        1937,
+        1912
+      ],
+      "portfolio_reference_sha256": "1dd1ce5b043e842101f44312b0094d3d71f795404849526cf9b6618eab032110"
+    },
+    "benchmark://npb-v0/98": {
+      "uri": "benchmark://npb-v0/98",
+      "o0": 1536,
+      "oz": 877,
+      "file": "results/battery/npb-v0/98.json",
+      "sha256": "99a9c56c96d1c2847c5cdc8f00ad2e0ddda32307ed9d997abbde56a57e3a0145",
+      "portfolio_ics": [
+        633,
+        637,
+        653,
+        635,
+        633,
+        634,
+        633,
+        633
+      ],
+      "portfolio_reference_sha256": "20e549ee62596017d4de3eae1c6c5bb838b60f47c0f2581eae33c716a2402bef"
+    },
+    "benchmark://npb-v0/99": {
+      "uri": "benchmark://npb-v0/99",
+      "o0": 136,
+      "oz": 50,
+      "file": "results/battery/npb-v0/99.json",
+      "sha256": "cbd4533f0950efff4e561dd1ba3205c8eb84c817654c37f5d425a1ae2c1a3a77",
+      "portfolio_ics": [
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53,
+        53
+      ],
+      "portfolio_reference_sha256": "c7fa2815dd638159665cc4c29d2858189a14678f0921e261ac6dc84514af5894"
+    },
+    "benchmark://mibench-v1/bitcount-1": {
+      "uri": "benchmark://mibench-v1/bitcount-1",
+      "o0": 124,
+      "oz": 45,
+      "file": "results/battery/mibench-v1/bitcount-1.json",
+      "sha256": "819d239d3926eaf85124e9be627735d0081adf5625810df3fd23d6739e3e9942",
+      "portfolio_ics": [
+        45,
+        45,
+        47,
+        45,
+        45,
+        45,
+        45,
+        45
+      ],
+      "portfolio_reference_sha256": "38b3f630734eff00931b2150aaadad6ff23373ba331433a4a37725e4043ead89"
+    },
+    "benchmark://mibench-v1/bitcount-2": {
+      "uri": "benchmark://mibench-v1/bitcount-2",
+      "o0": 131,
+      "oz": 49,
+      "file": "results/battery/mibench-v1/bitcount-2.json",
+      "sha256": "76c5a8705e82adeeb64eca93ad17ec5d86f3d024764cbf79015f96edc2d9ca6e",
+      "portfolio_ics": [
+        49,
+        49,
+        49,
+        49,
+        49,
+        49,
+        49,
+        49
+      ],
+      "portfolio_reference_sha256": "370f7e07fa613114d648382fa924ef29488804ae20cadda3d2fe421f52494fa4"
+    },
+    "benchmark://mibench-v1/dijkstra": {
+      "uri": "benchmark://mibench-v1/dijkstra",
+      "o0": 121,
+      "oz": 46,
+      "file": "results/battery/mibench-v1/dijkstra.json",
+      "sha256": "3b78cbdca4eaefa01e08cebe43901b0e3c67eb407023bcc71f1f3d22a7ed6a4e",
+      "portfolio_ics": [
+        45,
+        44,
+        44,
+        45,
+        45,
+        44,
+        45,
+        45
+      ],
+      "portfolio_reference_sha256": "3433350c99f303872a3043149bdc4e68275ab836fd3e8cdaac66b2b8ec54a716"
+    },
+    "benchmark://mibench-v1/fft-1": {
+      "uri": "benchmark://mibench-v1/fft-1",
+      "o0": 131,
+      "oz": 47,
+      "file": "results/battery/mibench-v1/fft-1.json",
+      "sha256": "e3d55c3bba77070b81f022b989f8f0348983aef6dcd97a53a3ff662102fe5858",
+      "portfolio_ics": [
+        47,
+        47,
+        47,
+        47,
+        47,
+        47,
+        47,
+        47
+      ],
+      "portfolio_reference_sha256": "211bd04ecba4dbb5bfaaddd50d3dabaf75d30858cee25902acbc667ed221ece5"
+    },
+    "benchmark://mibench-v1/fft-2": {
+      "uri": "benchmark://mibench-v1/fft-2",
+      "o0": 362,
+      "oz": 129,
+      "file": "results/battery/mibench-v1/fft-2.json",
+      "sha256": "4e813873ee729bbb762d14a0be2012938d84eb03e587959f24112e1ff418709f",
+      "portfolio_ics": [
+        129,
+        129,
+        131,
+        129,
+        129,
+        129,
+        148,
+        154
+      ],
+      "portfolio_reference_sha256": "e5ae4939f2fe8ae2a9325294b26006c787d9be6bc9b78525a390eaae5b1b5889"
+    },
+    "benchmark://mibench-v1/ghostscript": {
+      "uri": "benchmark://mibench-v1/ghostscript",
+      "o0": 194,
+      "oz": 54,
+      "file": "results/battery/mibench-v1/ghostscript.json",
+      "sha256": "f70e54b2d33854867759677835b689cfaf8649ad78d5f6200f9aef99d808714d",
+      "portfolio_ics": [
+        54,
+        54,
+        54,
+        54,
+        54,
+        54,
+        54,
+        54
+      ],
+      "portfolio_reference_sha256": "bffc4e701ad90f0c7a7965596a4ccf4775ff2e6349d5e19467d7f961959afe26"
+    },
+    "benchmark://mibench-v1/gsm-1": {
+      "uri": "benchmark://mibench-v1/gsm-1",
+      "o0": 218,
+      "oz": 95,
+      "file": "results/battery/mibench-v1/gsm-1.json",
+      "sha256": "23773ea9b9bc02555e32518667e5d70255d680118b2507ba42afc61f9caff1d6",
+      "portfolio_ics": [
+        89,
+        76,
+        80,
+        89,
+        102,
+        80,
+        107,
+        87
+      ],
+      "portfolio_reference_sha256": "a1b390e2b0494b6ada6d2bb97d6e3643f26dcaccf9c6bb5621b930c4da7a87a9"
+    },
+    "benchmark://mibench-v1/gsm-2": {
+      "uri": "benchmark://mibench-v1/gsm-2",
+      "o0": 222,
+      "oz": 85,
+      "file": "results/battery/mibench-v1/gsm-2.json",
+      "sha256": "a275e6d61bbe6bb2835e01d239a8620e73e3925b546679e36bb5e8a818106720",
+      "portfolio_ics": [
+        86,
+        87,
+        83,
+        86,
+        86,
+        86,
+        83,
+        84
+      ],
+      "portfolio_reference_sha256": "998d262dea8f775a88d006f16c6f4b5bc8d7db38d6e041831fe209086225b305"
+    },
+    "benchmark://mibench-v1/jpeg-c-1": {
+      "uri": "benchmark://mibench-v1/jpeg-c-1",
+      "o0": 177,
+      "oz": 70,
+      "file": "results/battery/mibench-v1/jpeg-c-1.json",
+      "sha256": "e89faf81c83af1f7cb82143e38d086e15f30dc1f52c2ddb500cd1f288abe0fb0",
+      "portfolio_ics": [
+        71,
+        71,
+        71,
+        71,
+        71,
+        71,
+        71,
+        71
+      ],
+      "portfolio_reference_sha256": "ceb53320629435e47022c37239cbc06151d41d3345a7b33e06a6daff644f9ffe"
+    },
+    "benchmark://mibench-v1/jpeg-c-2": {
+      "uri": "benchmark://mibench-v1/jpeg-c-2",
+      "o0": 347,
+      "oz": 139,
+      "file": "results/battery/mibench-v1/jpeg-c-2.json",
+      "sha256": "b237fd08708585677c8017e15ba6dfcc9550ba201210f127f8ad8f8d462edd18",
+      "portfolio_ics": [
+        137,
+        137,
+        143,
+        140,
+        137,
+        137,
+        142,
+        141
+      ],
+      "portfolio_reference_sha256": "a77b472e162b738bb7824d99889f6bbb946fb68cbba7d866712861a4c1e2841f"
+    },
+    "benchmark://mibench-v1/jpeg-c-3": {
+      "uri": "benchmark://mibench-v1/jpeg-c-3",
+      "o0": 325,
+      "oz": 132,
+      "file": "results/battery/mibench-v1/jpeg-c-3.json",
+      "sha256": "dd2e40c532f9f556b9c9f90a5317960a1a522d419870a2b8612ccdbd397b6439",
+      "portfolio_ics": [
+        132,
+        133,
+        135,
+        132,
+        131,
+        135,
+        132,
+        133
+      ],
+      "portfolio_reference_sha256": "561c2bbde69008cafaaccd7519fc91ebcbbaec4a58065cec1a8686f024f85e15"
+    },
+    "benchmark://mibench-v1/jpeg-c": {
+      "uri": "benchmark://mibench-v1/jpeg-c",
+      "o0": 645,
+      "oz": 200,
+      "file": "results/battery/mibench-v1/jpeg-c.json",
+      "sha256": "f89901363641687c4d20648eedc8b4eab100a937a86d85938faeacd0e8379179",
+      "portfolio_ics": [
+        201,
+        203,
+        203,
+        201,
+        201,
+        203,
+        201,
+        201
+      ],
+      "portfolio_reference_sha256": "1b613777e6dffbf84df46d1305341eff61532e4683e2abad9fbae86122b1f652"
+    },
+    "benchmark://mibench-v1/lame-newmdct-1": {
+      "uri": "benchmark://mibench-v1/lame-newmdct-1",
+      "o0": 569,
+      "oz": 313,
+      "file": "results/battery/mibench-v1/lame-newmdct-1.json",
+      "sha256": "ed3cd9e7bd4d9bd5fcc61dd5e29f75b25af6a72e2d90a3c4aa7bb1ac38f5d9fb",
+      "portfolio_ics": [
+        313,
+        354,
+        354,
+        313,
+        313,
+        354,
+        313,
+        313
+      ],
+      "portfolio_reference_sha256": "f926fc8752b09d0868443e81d42455b62ae86c9773576b05f2baad5eef437b2f"
+    },
+    "benchmark://mibench-v1/lame-newmdct-2": {
+      "uri": "benchmark://mibench-v1/lame-newmdct-2",
+      "o0": 189,
+      "oz": 80,
+      "file": "results/battery/mibench-v1/lame-newmdct-2.json",
+      "sha256": "a10eece34544adf68c6eff17e2e7ea9afac05c9b6417bdad503e459f89bc06f3",
+      "portfolio_ics": [
+        83,
+        82,
+        82,
+        83,
+        83,
+        85,
+        83,
+        83
+      ],
+      "portfolio_reference_sha256": "4b01f370d554fefdebb0e2e3d48c3e89279daa25114c1381ccdd1a72605fb951"
+    },
+    "benchmark://mibench-v1/lame-psymodel": {
+      "uri": "benchmark://mibench-v1/lame-psymodel",
+      "o0": 1563,
+      "oz": 507,
+      "file": "results/battery/mibench-v1/lame-psymodel.json",
+      "sha256": "baf47f3520a45adfd4a742ef69c06f9be82ea231d7cfc342f2d37b02957091bf",
+      "portfolio_ics": [
+        511,
+        511,
+        529,
+        514,
+        513,
+        513,
+        522,
+        515
+      ],
+      "portfolio_reference_sha256": "96e0c76552109b605767303c6da18c0b29ebf3cafc40f9059f068ac37648b3af"
+    },
+    "benchmark://mibench-v1/lame-quantize-1": {
+      "uri": "benchmark://mibench-v1/lame-quantize-1",
+      "o0": 161,
+      "oz": 61,
+      "file": "results/battery/mibench-v1/lame-quantize-1.json",
+      "sha256": "711e7630878f0791f2a38f4ba462a2c8f02dce84fb8b10fec061eb2765ad8050",
+      "portfolio_ics": [
+        62,
+        64,
+        62,
+        62,
+        62,
+        62,
+        62,
+        62
+      ],
+      "portfolio_reference_sha256": "1f5a70d5792c1c573804583528f6385d459be5f17baa4adbf3b733dbf8cb79f4"
+    },
+    "benchmark://mibench-v1/lame-quantize-2": {
+      "uri": "benchmark://mibench-v1/lame-quantize-2",
+      "o0": 129,
+      "oz": 50,
+      "file": "results/battery/mibench-v1/lame-quantize-2.json",
+      "sha256": "ffa730c747e599ecb5ea652b978dd767750ef57ccf5750a934b0989c63258b32",
+      "portfolio_ics": [
+        50,
+        50,
+        53,
+        50,
+        50,
+        50,
+        52,
+        50
+      ],
+      "portfolio_reference_sha256": "a7d3fb0716b81171ac1766770fecf6398b74647a2f013a534a513f42cb7eb04b"
+    },
+    "benchmark://mibench-v1/lame-takehiro-1": {
+      "uri": "benchmark://mibench-v1/lame-takehiro-1",
+      "o0": 386,
+      "oz": 145,
+      "file": "results/battery/mibench-v1/lame-takehiro-1.json",
+      "sha256": "153892b92067ed57ed5a6e09ae1d5d250f6e6a35075e42a3c2b8a74b21fe0ad7",
+      "portfolio_ics": [
+        142,
+        148,
+        146,
+        146,
+        142,
+        145,
+        145,
+        143
+      ],
+      "portfolio_reference_sha256": "7533ed304cc26c9b47003b4b819aed5017e58e6dc50515d9e3ab851d54b4a42d"
+    },
+    "benchmark://mibench-v1/lame-takehiro-2": {
+      "uri": "benchmark://mibench-v1/lame-takehiro-2",
+      "o0": 162,
+      "oz": 60,
+      "file": "results/battery/mibench-v1/lame-takehiro-2.json",
+      "sha256": "719d2c390f19bfc8165a4a94d7574040b83a0ddfe9a83b9a7055cd71b82f5e4b",
+      "portfolio_ics": [
+        58,
+        58,
+        58,
+        58,
+        58,
+        58,
+        58,
+        58
+      ],
+      "portfolio_reference_sha256": "842300061770d0f5d2a65f50703607e4374e5e297f2a57645694835b0885cc60"
+    },
+    "benchmark://mibench-v1/mad-1": {
+      "uri": "benchmark://mibench-v1/mad-1",
+      "o0": 391,
+      "oz": 297,
+      "file": "results/battery/mibench-v1/mad-1.json",
+      "sha256": "53513c8c66bf892502b325875ccb76d90f7cac21c8bb2204bbf5b01e9175b9fb",
+      "portfolio_ics": [
+        193,
+        201,
+        211,
+        199,
+        199,
+        201,
+        199,
+        199
+      ],
+      "portfolio_reference_sha256": "205d01efb058dd58b4b4a61155b7ff6e142590fb72ff52c237e4fd679abb7903"
+    },
+    "benchmark://mibench-v1/mad-2": {
+      "uri": "benchmark://mibench-v1/mad-2",
+      "o0": 243,
+      "oz": 97,
+      "file": "results/battery/mibench-v1/mad-2.json",
+      "sha256": "6d91ba94696f93329020db968736a1e07be074efeacb75772472b3fc0552cacb",
+      "portfolio_ics": [
+        99,
+        101,
+        101,
+        99,
+        99,
+        99,
+        100,
+        99
+      ],
+      "portfolio_reference_sha256": "6bc6bb5a65025f2a5af8101e33b41c9d51a3ba4eda58b5a5132e168a2230142e"
+    },
+    "benchmark://mibench-v1/pgp-d": {
+      "uri": "benchmark://mibench-v1/pgp-d",
+      "o0": 149,
+      "oz": 60,
+      "file": "results/battery/mibench-v1/pgp-d.json",
+      "sha256": "5d561c723db0735fddfd82ada9a03d82dc8503ff9c888b17024e34ff81e7029d",
+      "portfolio_ics": [
+        59,
+        59,
+        59,
+        59,
+        60,
+        59,
+        59,
+        59
+      ],
+      "portfolio_reference_sha256": "cba6784531dbdd5e88f6ba88109aa4cbfcadcaf948112e3de00c7ca77ebafbea"
+    },
+    "benchmark://mibench-v1/pgp-e-1": {
+      "uri": "benchmark://mibench-v1/pgp-e-1",
+      "o0": 149,
+      "oz": 60,
+      "file": "results/battery/mibench-v1/pgp-e-1.json",
+      "sha256": "64394cf8020361599c8a16aaf5287de4b157207bf7a950e2634c8a6f8445567c",
+      "portfolio_ics": [
+        59,
+        59,
+        59,
+        59,
+        60,
+        59,
+        59,
+        59
+      ],
+      "portfolio_reference_sha256": "06c6bd7da155492c2256e50d0f6a40bae9456d483df25e5f7560bb3197f1ea5d"
+    },
+    "benchmark://mibench-v1/pgp-e-2": {
+      "uri": "benchmark://mibench-v1/pgp-e-2",
+      "o0": 158,
+      "oz": 58,
+      "file": "results/battery/mibench-v1/pgp-e-2.json",
+      "sha256": "f8362858e73d45d1d2ff2f74669688b467cc2e5b380ff331ab4c59104a54a222",
+      "portfolio_ics": [
+        58,
+        58,
+        58,
+        58,
+        58,
+        58,
+        58,
+        58
+      ],
+      "portfolio_reference_sha256": "712251a98bb45ec1248bd4043e6a3b61dbf9a3c034ac1c38547936de41b40f45"
+    },
+    "benchmark://mibench-v1/pgp-e-3": {
+      "uri": "benchmark://mibench-v1/pgp-e-3",
+      "o0": 171,
+      "oz": 63,
+      "file": "results/battery/mibench-v1/pgp-e-3.json",
+      "sha256": "cf9044f927b44039a3b6ab90ea28e24cbdf90487425911d3b0c4921e801532a0",
+      "portfolio_ics": [
+        63,
+        63,
+        63,
+        63,
+        63,
+        63,
+        63,
+        63
+      ],
+      "portfolio_reference_sha256": "0541303fd37d15a53dfdb79a82a857932c3a85583435b460ef7d82fd7e643a24"
+    },
+    "benchmark://mibench-v1/qsort1": {
+      "uri": "benchmark://mibench-v1/qsort1",
+      "o0": 114,
+      "oz": 47,
+      "file": "results/battery/mibench-v1/qsort1.json",
+      "sha256": "8bc4dfd522ac74bb1073f4489164ab09f1f3b886ceb3790c7cae3d86707861de",
+      "portfolio_ics": [
+        47,
+        47,
+        49,
+        47,
+        47,
+        47,
+        47,
+        47
+      ],
+      "portfolio_reference_sha256": "7b5ad7932e01aa81d5851d8e74122dc2dc94b605e64bb843f94f2e7cb417e221"
+    },
+    "benchmark://mibench-v1/rsynth-1": {
+      "uri": "benchmark://mibench-v1/rsynth-1",
+      "o0": 224,
+      "oz": 65,
+      "file": "results/battery/mibench-v1/rsynth-1.json",
+      "sha256": "75a75db44787606e7aefe852f8ab2cd066806264cfc5c53de90d64f09cd8d232",
+      "portfolio_ics": [
+        65,
+        65,
+        65,
+        65,
+        65,
+        65,
+        65,
+        65
+      ],
+      "portfolio_reference_sha256": "a370431ebe3fc84e685accba647806b3f5b77e81214149fb3f425ef488d48492"
+    },
+    "benchmark://mibench-v1/rsynth-2": {
+      "uri": "benchmark://mibench-v1/rsynth-2",
+      "o0": 155,
+      "oz": 44,
+      "file": "results/battery/mibench-v1/rsynth-2.json",
+      "sha256": "493f5954bad26cfd7357f7c15cec57a03fcbba325d62402ee1d58c1bb7421faa",
+      "portfolio_ics": [
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44,
+        44
+      ],
+      "portfolio_reference_sha256": "c499a023d594b9b85e17616da2a3691c1e7f6319ded95f767839b30d0757efb5"
+    },
+    "benchmark://mibench-v1/susan-e-1": {
+      "uri": "benchmark://mibench-v1/susan-e-1",
+      "o0": 215,
+      "oz": 88,
+      "file": "results/battery/mibench-v1/susan-e-1.json",
+      "sha256": "f3300f9feb54db41119e38606dcd20eb13533ade15fd435ee4e6cdbcfaacffbf",
+      "portfolio_ics": [
+        89,
+        89,
+        90,
+        89,
+        89,
+        88,
+        89,
+        89
+      ],
+      "portfolio_reference_sha256": "c39e9729b6f13d40730d8deeedcb24a2e4f0e4203cba5b081fef17e992c5ec25"
+    },
+    "benchmark://mibench-v1/susan-e-2": {
+      "uri": "benchmark://mibench-v1/susan-e-2",
+      "o0": 1629,
+      "oz": 610,
+      "file": "results/battery/mibench-v1/susan-e-2.json",
+      "sha256": "d23ffbea8ad488823a2c15e97cd763c2075d60da7d79c72424a9b8b92109b6ea",
+      "portfolio_ics": [
+        670,
+        681,
+        686,
+        672,
+        686,
+        718,
+        684,
+        681
+      ],
+      "portfolio_reference_sha256": "dbac5d4c9151b2b376d24603172cd60d63d5634692d44a502c437b4b66e3962c"
+    },
+    "benchmark://mibench-v1/susan-s": {
+      "uri": "benchmark://mibench-v1/susan-s",
+      "o0": 231,
+      "oz": 87,
+      "file": "results/battery/mibench-v1/susan-s.json",
+      "sha256": "e1376b94d5d1d2e37020680efefeccb3d164ee3ce9fda16ac2be790cefbc2e44",
+      "portfolio_ics": [
+        87,
+        87,
+        88,
+        87,
+        87,
+        87,
+        88,
+        87
+      ],
+      "portfolio_reference_sha256": "adbc6e655a5b198e79dba4656b9badce86defe3539976227936295219dda0b79"
+    },
+    "benchmark://mibench-v1/tiff2rgba": {
+      "uri": "benchmark://mibench-v1/tiff2rgba",
+      "o0": 340,
+      "oz": 165,
+      "file": "results/battery/mibench-v1/tiff2rgba.json",
+      "sha256": "04a718c93744b6a74af4a98e4fac7641cd97356fbdb61f87e6a9f4cc86e0e7b6",
+      "portfolio_ics": [
+        169,
+        154,
+        142,
+        169,
+        169,
+        153,
+        175,
+        169
+      ],
+      "portfolio_reference_sha256": "a9b38c8407f7168385bec1d5aedd44719a6c5ecf0d33125f63f1729e9cc79e28"
+    },
+    "benchmark://mibench-v1/tiffdither-1": {
+      "uri": "benchmark://mibench-v1/tiffdither-1",
+      "o0": 331,
+      "oz": 145,
+      "file": "results/battery/mibench-v1/tiffdither-1.json",
+      "sha256": "a0d7237856c2effd6932c6dc40404d2c1aacc1021edea7181979fa680c7a883e",
+      "portfolio_ics": [
+        145,
+        149,
+        146,
+        145,
+        145,
+        145,
+        145,
+        145
+      ],
+      "portfolio_reference_sha256": "f965f832fde77573e8f2ab2daa7e3b4b08435f721b08d3b79c4aef164bfa8d7c"
+    },
+    "benchmark://mibench-v1/tiffdither-2": {
+      "uri": "benchmark://mibench-v1/tiffdither-2",
+      "o0": 331,
+      "oz": 145,
+      "file": "results/battery/mibench-v1/tiffdither-2.json",
+      "sha256": "02fe449773dc671580fe56e5de419f505686572b81bd3b3e4a72e949d592e87d",
+      "portfolio_ics": [
+        145,
+        149,
+        146,
+        145,
+        145,
+        145,
+        145,
+        145
+      ],
+      "portfolio_reference_sha256": "4c965a4cbcd0b950bbae594ee2a321b4c865ac12451bbfe018b34b5be0473560"
+    },
+    "benchmark://mibench-v1/tiffdither-3": {
+      "uri": "benchmark://mibench-v1/tiffdither-3",
+      "o0": 244,
+      "oz": 104,
+      "file": "results/battery/mibench-v1/tiffdither-3.json",
+      "sha256": "f1916b732b3b9278725f186b425ce180fab7b6a577fe8392ce7092e44b934718",
+      "portfolio_ics": [
+        104,
+        104,
+        104,
+        104,
+        104,
+        104,
+        104,
+        104
+      ],
+      "portfolio_reference_sha256": "8020c2a5f3701c8d6d348d8573467812f4a96c23f4a49a11c9461b1b5258340b"
+    },
+    "benchmark://mibench-v1/tiffmedian-1": {
+      "uri": "benchmark://mibench-v1/tiffmedian-1",
+      "o0": 229,
+      "oz": 72,
+      "file": "results/battery/mibench-v1/tiffmedian-1.json",
+      "sha256": "dc631fdbc549111e3cc0e1304c6bad672b02cbea375e1807e0232ffe6c005221",
+      "portfolio_ics": [
+        71,
+        74,
+        75,
+        70,
+        71,
+        68,
+        71,
+        70
+      ],
+      "portfolio_reference_sha256": "c483d1fbd0382698460660b592f0ddc6da68b4dc19cbcb339d165533bdf06c83"
+    },
+    "benchmark://mibench-v1/tiffmedian-2": {
+      "uri": "benchmark://mibench-v1/tiffmedian-2",
+      "o0": 158,
+      "oz": 61,
+      "file": "results/battery/mibench-v1/tiffmedian-2.json",
+      "sha256": "5d220c365f43154ec6cd5d6027f6791f0c818932314978251f7f0519a54e09a7",
+      "portfolio_ics": [
+        61,
+        61,
+        61,
+        61,
+        61,
+        61,
+        61,
+        61
+      ],
+      "portfolio_reference_sha256": "8f4e27b161263292968d3566dcc480026d98d69dece659116d5e0ccd806b9594"
+    },
+    "benchmark://mibench-v1/tiffmedian-3": {
+      "uri": "benchmark://mibench-v1/tiffmedian-3",
+      "o0": 220,
+      "oz": 99,
+      "file": "results/battery/mibench-v1/tiffmedian-3.json",
+      "sha256": "a2b55ce12ffd6ee99eb321983234b26844ecbe6175dfb46f1c75921d17a101d2",
+      "portfolio_ics": [
+        99,
+        99,
+        99,
+        99,
+        99,
+        99,
+        99,
+        99
+      ],
+      "portfolio_reference_sha256": "a2abf145c2fa0a4981360e416d311d31ea15d9572a95b19235e6cf63d23812da"
+    },
+    "benchmark://mibench-v1/tiffmedian-4": {
+      "uri": "benchmark://mibench-v1/tiffmedian-4",
+      "o0": 251,
+      "oz": 90,
+      "file": "results/battery/mibench-v1/tiffmedian-4.json",
+      "sha256": "400baf9ba0bb3b875da411802d25f4701f2f211afa1fde474016246eb0e1e529",
+      "portfolio_ics": [
+        90,
+        90,
+        90,
+        90,
+        90,
+        90,
+        90,
+        90
+      ],
+      "portfolio_reference_sha256": "c113fa6fb9e63ef492d26af913367dcfc25cc9a8d5f79a63350876be9d6538a5"
+    },
+    "benchmark://mibench-v1/tiffmedian-5": {
+      "uri": "benchmark://mibench-v1/tiffmedian-5",
+      "o0": 181,
+      "oz": 77,
+      "file": "results/battery/mibench-v1/tiffmedian-5.json",
+      "sha256": "daf2914e596d19fc49908338bc87e4636d274b28e72ef01f40f4292c7619a4e1",
+      "portfolio_ics": [
+        77,
+        84,
+        79,
+        77,
+        77,
+        80,
+        76,
+        77
+      ],
+      "portfolio_reference_sha256": "fdebb7ef740bc2a6f2c129f34032aeff1e67a749e0cc39cb9727d7486d7fdf79"
+    },
+    "benchmark://blas-v0/101": {
+      "uri": "benchmark://blas-v0/101",
+      "o0": 1138,
+      "oz": 1104,
+      "file": "results/battery/blas-v0/101.json",
+      "sha256": "058c9551dc14c3d5ee3d32199a4b60566f7ed935122ccd003735ae476c5947f6",
+      "portfolio_ics": [
+        1072,
+        1077,
+        1118,
+        1070,
+        1101,
+        1071,
+        1071,
+        1074
+      ],
+      "portfolio_reference_sha256": "e9dd68eb34a1c4bdef359c517816a53c4359819631fcf6644d5452d11efbe375"
+    },
+    "benchmark://blas-v0/105": {
+      "uri": "benchmark://blas-v0/105",
+      "o0": 457,
+      "oz": 430,
+      "file": "results/battery/blas-v0/105.json",
+      "sha256": "478ae7449be83fa2d127ac223a47a9f7b1908521b3c7deb0f2887cdd8748d693",
+      "portfolio_ics": [
+        438,
+        431,
+        441,
+        439,
+        437,
+        431,
+        434,
+        436
+      ],
+      "portfolio_reference_sha256": "1da6c216cfa0fde445727f50fa41a97f12c58e9f6e6e2800c17f44c14cc19540"
+    },
+    "benchmark://blas-v0/111": {
+      "uri": "benchmark://blas-v0/111",
+      "o0": 519,
+      "oz": 500,
+      "file": "results/battery/blas-v0/111.json",
+      "sha256": "86bef959fc80f51c58c664f06895d6593a6a83ea5b47aadd4222835e6932aa14",
+      "portfolio_ics": [
+        485,
+        485,
+        500,
+        485,
+        495,
+        491,
+        493,
+        490
+      ],
+      "portfolio_reference_sha256": "67f1cf11b1f15da2e989298dab277331b5388540b0b7dc109170edd9826eaf50"
+    },
+    "benchmark://blas-v0/112": {
+      "uri": "benchmark://blas-v0/112",
+      "o0": 68,
+      "oz": 68,
+      "file": "results/battery/blas-v0/112.json",
+      "sha256": "46a5daeedc772b128b04bb6f1ad0ba7043172cffbf9f9070bca9fba1b6530381",
+      "portfolio_ics": [
+        68,
+        68,
+        69,
+        68,
+        68,
+        68,
+        68,
+        68
+      ],
+      "portfolio_reference_sha256": "278014bbdf08195aedaae154cdd480b034d34f66522d1d4316bc6bde9e645984"
+    },
+    "benchmark://blas-v0/122": {
+      "uri": "benchmark://blas-v0/122",
+      "o0": 1322,
+      "oz": 1287,
+      "file": "results/battery/blas-v0/122.json",
+      "sha256": "63b40625500c494e0e7de234d496dd993a75d8dd92a20b42c6a932b949fedf83",
+      "portfolio_ics": [
+        1267,
+        1282,
+        1316,
+        1267,
+        1285,
+        1266,
+        1268,
+        1275
+      ],
+      "portfolio_reference_sha256": "4e1f4eb59a5fc89e0c42834225664bde4ed010883a314b9fce25c855f0223720"
+    },
+    "benchmark://blas-v0/125": {
+      "uri": "benchmark://blas-v0/125",
+      "o0": 1563,
+      "oz": 1546,
+      "file": "results/battery/blas-v0/125.json",
+      "sha256": "0144f8f3a10b2f920e8bfaa29b38dca2fd496d5f20a2077a3d3ef77a1a8f4d53",
+      "portfolio_ics": [
+        1516,
+        1508,
+        1518,
+        1519,
+        1547,
+        1484,
+        1512,
+        1491
+      ],
+      "portfolio_reference_sha256": "e9aaaa4ca8c976be8737573690dd2b1e5f53585cda592965b6750956722e0b67"
+    },
+    "benchmark://blas-v0/127": {
+      "uri": "benchmark://blas-v0/127",
+      "o0": 221,
+      "oz": 208,
+      "file": "results/battery/blas-v0/127.json",
+      "sha256": "a53b77198d2ae1fcebbcf071f3229d1285171859a3f983e3f703679950fbb839",
+      "portfolio_ics": [
+        208,
+        210,
+        211,
+        210,
+        212,
+        211,
+        211,
+        211
+      ],
+      "portfolio_reference_sha256": "04dd69573ed65796bd7bf1cf5264f0f524e53e8bebd29da98aa2394b4d5f2c3c"
+    },
+    "benchmark://blas-v0/133": {
+      "uri": "benchmark://blas-v0/133",
+      "o0": 1234,
+      "oz": 1150,
+      "file": "results/battery/blas-v0/133.json",
+      "sha256": "be76b4a5cd8c0a08c2546b319a031821bf945b564daff654e498a5452aba10bf",
+      "portfolio_ics": [
+        1142,
+        1155,
+        1167,
+        1138,
+        1162,
+        1138,
+        1140,
+        1138
+      ],
+      "portfolio_reference_sha256": "e05b51229074076a79e4a6e9b383f7ae246647fda63d894c070386ee597e0e97"
+    },
+    "benchmark://blas-v0/136": {
+      "uri": "benchmark://blas-v0/136",
+      "o0": 1209,
+      "oz": 1125,
+      "file": "results/battery/blas-v0/136.json",
+      "sha256": "e75d010acfb0c458a377df0e3eb44e9b06642dd3a0970f94dc3c6ac330642d07",
+      "portfolio_ics": [
+        1115,
+        1130,
+        1144,
+        1111,
+        1140,
+        1113,
+        1111,
+        1113
+      ],
+      "portfolio_reference_sha256": "3d00fe9aa81821751d134c3237d5835ef12adeb8132ad8c89c2e1064573fa55a"
+    },
+    "benchmark://blas-v0/138": {
+      "uri": "benchmark://blas-v0/138",
+      "o0": 2839,
+      "oz": 2480,
+      "file": "results/battery/blas-v0/138.json",
+      "sha256": "ef369b681244334a86b71259e5797bf3c9045ccbf8a77f87f8cf93d77117fedf",
+      "portfolio_ics": [
+        2435,
+        2485,
+        2519,
+        2465,
+        2473,
+        2438,
+        2436,
+        2446
+      ],
+      "portfolio_reference_sha256": "58ae72c30a6bab409d932847dc7adb10aae2f79423a3f1e06e0b13a9eda3d439"
+    },
+    "benchmark://blas-v0/153": {
+      "uri": "benchmark://blas-v0/153",
+      "o0": 601,
+      "oz": 583,
+      "file": "results/battery/blas-v0/153.json",
+      "sha256": "8a8a971dff0b691cd4c235ed5bb0aee84dd3f1943e765d1b535b2795b5fdf26b",
+      "portfolio_ics": [
+        579,
+        568,
+        571,
+        579,
+        587,
+        563,
+        579,
+        564
+      ],
+      "portfolio_reference_sha256": "6f38c2ff405b48f8bf9b41ce9367315e62f61bcc0a4a21b26881bbadd2ca6dde"
+    },
+    "benchmark://blas-v0/158": {
+      "uri": "benchmark://blas-v0/158",
+      "o0": 836,
+      "oz": 818,
+      "file": "results/battery/blas-v0/158.json",
+      "sha256": "7025c2be72dbad484ca6a5b669208394b50a6feaebf08eae83071459f824a5a5",
+      "portfolio_ics": [
+        785,
+        806,
+        771,
+        785,
+        822,
+        771,
+        786,
+        762
+      ],
+      "portfolio_reference_sha256": "0f58b1b289b562587f495225a27af4b780ac275dfbd68f7d21b4892ec0afb28d"
+    },
+    "benchmark://blas-v0/166": {
+      "uri": "benchmark://blas-v0/166",
+      "o0": 2658,
+      "oz": 2458,
+      "file": "results/battery/blas-v0/166.json",
+      "sha256": "addb3c3d12a278f11c55c4b91a8d927094847bb237587b0b45a491a361e82f23",
+      "portfolio_ics": [
+        2405,
+        2457,
+        2482,
+        2425,
+        2433,
+        2405,
+        2406,
+        2416
+      ],
+      "portfolio_reference_sha256": "805dbc97c30ebaf223e56bd5c1d40b88ad79f0449eb7bacac665a575918df5e1"
+    },
+    "benchmark://blas-v0/178": {
+      "uri": "benchmark://blas-v0/178",
+      "o0": 585,
+      "oz": 491,
+      "file": "results/battery/blas-v0/178.json",
+      "sha256": "1ba21106884c6cb1fb7017e7b47c2cf9d45c8e169de5c9a6cc366d33b415e882",
+      "portfolio_ics": [
+        487,
+        490,
+        498,
+        487,
+        494,
+        486,
+        488,
+        486
+      ],
+      "portfolio_reference_sha256": "dbf36638855f04116073afe0a73d06f4cad1b8401c7dc092c28470ad2b745bc4"
+    },
+    "benchmark://blas-v0/180": {
+      "uri": "benchmark://blas-v0/180",
+      "o0": 1098,
+      "oz": 1069,
+      "file": "results/battery/blas-v0/180.json",
+      "sha256": "a991a037d7d18adab16bc3126bca0cc5fd0fb527d7838e5ef8eb967cf3311bc9",
+      "portfolio_ics": [
+        1049,
+        1058,
+        1098,
+        1049,
+        1061,
+        1046,
+        1050,
+        1057
+      ],
+      "portfolio_reference_sha256": "7c1cf95d88f11953e99d9d6153ee858f4e22de37cb0cd95d6e54db72898665d2"
+    },
+    "benchmark://blas-v0/184": {
+      "uri": "benchmark://blas-v0/184",
+      "o0": 196,
+      "oz": 180,
+      "file": "results/battery/blas-v0/184.json",
+      "sha256": "5ee39d28b0205e4bbabd24f23cee07ffc8dd1f6bfb8e130028b5b1027aa7182c",
+      "portfolio_ics": [
+        180,
+        182,
+        182,
+        180,
+        184,
+        184,
+        184,
+        180
+      ],
+      "portfolio_reference_sha256": "091a2a32f9d076fd2328b650f819950e2a8a6eac4fc088356d01ce1f7cc3738d"
+    },
+    "benchmark://blas-v0/19": {
+      "uri": "benchmark://blas-v0/19",
+      "o0": 122,
+      "oz": 110,
+      "file": "results/battery/blas-v0/19.json",
+      "sha256": "c0fd9df207102d4e2fc3a99d310ba39cb0a1f1cfe9323a9aa39f432963db28f6",
+      "portfolio_ics": [
+        116,
+        105,
+        106,
+        116,
+        117,
+        104,
+        121,
+        107
+      ],
+      "portfolio_reference_sha256": "80e718986bdb7f743a86e9222fc3e63fae448746001d21364587b049ffd5d721"
+    },
+    "benchmark://blas-v0/191": {
+      "uri": "benchmark://blas-v0/191",
+      "o0": 281,
+      "oz": 262,
+      "file": "results/battery/blas-v0/191.json",
+      "sha256": "7a362338356451598766a5840aa51018f471f10a5e3a6cc97d33217b5246d2fa",
+      "portfolio_ics": [
+        263,
+        258,
+        256,
+        267,
+        269,
+        255,
+        263,
+        258
+      ],
+      "portfolio_reference_sha256": "d36b9b66ccf6ccb192ce8ba903f3324aa56c26ec2878863133f49658666f71e4"
+    },
+    "benchmark://blas-v0/194": {
+      "uri": "benchmark://blas-v0/194",
+      "o0": 279,
+      "oz": 262,
+      "file": "results/battery/blas-v0/194.json",
+      "sha256": "035c8aa50f71bbbfd385e58846f3245dfca9a7a58d9742043fe46d763ab4868e",
+      "portfolio_ics": [
+        263,
+        258,
+        256,
+        267,
+        269,
+        255,
+        263,
+        258
+      ],
+      "portfolio_reference_sha256": "3641a5ee5e2ed96a8f032170f4cd812716732190434bb56a9012c7433f9f683c"
+    },
+    "benchmark://blas-v0/196": {
+      "uri": "benchmark://blas-v0/196",
+      "o0": 1458,
+      "oz": 1264,
+      "file": "results/battery/blas-v0/196.json",
+      "sha256": "0a2aae7b6b58deecdd304877df343a9dfd16473b9b60a4c430176fd70b6f3ff0",
+      "portfolio_ics": [
+        1234,
+        1251,
+        1280,
+        1234,
+        1269,
+        1231,
+        1237,
+        1245
+      ],
+      "portfolio_reference_sha256": "5ba00eba3b3c3d0e55078f9cd0740eec3682bb7fef619dc7b9a610269a5bd515"
+    },
+    "benchmark://blas-v0/201": {
+      "uri": "benchmark://blas-v0/201",
+      "o0": 165,
+      "oz": 162,
+      "file": "results/battery/blas-v0/201.json",
+      "sha256": "0e01bf9b62d3367d0a62ed2c8163b66cb70d9fc3fe53ef6297b561106233c6a2",
+      "portfolio_ics": [
+        162,
+        150,
+        153,
+        163,
+        162,
+        151,
+        162,
+        151
+      ],
+      "portfolio_reference_sha256": "79257c08c2f5c9686826f3004e39d6b4c00bc3677e425e1cd9a3bb447f03d4db"
+    },
+    "benchmark://blas-v0/203": {
+      "uri": "benchmark://blas-v0/203",
+      "o0": 86,
+      "oz": 86,
+      "file": "results/battery/blas-v0/203.json",
+      "sha256": "e401556c312cfc1dfd44b7e7d994f078911ff1c7ecd4caa4592f4c3d00dc94db",
+      "portfolio_ics": [
+        86,
+        84,
+        85,
+        86,
+        86,
+        84,
+        86,
+        84
+      ],
+      "portfolio_reference_sha256": "2461a7deda780dffbefe1b5ef738a18645094b52e9898030970ea4b50e312e85"
+    },
+    "benchmark://blas-v0/206": {
+      "uri": "benchmark://blas-v0/206",
+      "o0": 198,
+      "oz": 140,
+      "file": "results/battery/blas-v0/206.json",
+      "sha256": "b61095210562da589b5ae9a4393e119e4043b51afee908f7b2d8f7f199046383",
+      "portfolio_ics": [
+        140,
+        141,
+        143,
+        143,
+        142,
+        142,
+        141,
+        144
+      ],
+      "portfolio_reference_sha256": "f10c48b444ad627e7e537dfa537cc5d86e944b73e87ecb4192d38834c1fb60cf"
+    },
+    "benchmark://blas-v0/21": {
+      "uri": "benchmark://blas-v0/21",
+      "o0": 856,
+      "oz": 827,
+      "file": "results/battery/blas-v0/21.json",
+      "sha256": "c9c8f011e213d15a865a96ac0f5d74dec57404f30d254bd849fd65d1acacd46d",
+      "portfolio_ics": [
+        827,
+        849,
+        841,
+        827,
+        842,
+        834,
+        827,
+        834
+      ],
+      "portfolio_reference_sha256": "36929e658a09a3c3ce9cc0dbb51ffacc785c8c2ef07825737ded00dea0877d05"
+    },
+    "benchmark://blas-v0/210": {
+      "uri": "benchmark://blas-v0/210",
+      "o0": 1319,
+      "oz": 1295,
+      "file": "results/battery/blas-v0/210.json",
+      "sha256": "f6c3482e6e4de2442c3cd2624a63c8321e84c7dec4d7058509656597f1818570",
+      "portfolio_ics": [
+        1258,
+        1276,
+        1306,
+        1258,
+        1301,
+        1255,
+        1258,
+        1258
+      ],
+      "portfolio_reference_sha256": "273000ccf1f3675d7839edcc0b9ee8caf2e5eebe7049b59bbb7bb2686e75b7a8"
+    },
+    "benchmark://blas-v0/215": {
+      "uri": "benchmark://blas-v0/215",
+      "o0": 148,
+      "oz": 136,
+      "file": "results/battery/blas-v0/215.json",
+      "sha256": "dd697f1da27845e55844c35fcb3c6182a960df8250a5d5fc2a66ef5a29af5dcf",
+      "portfolio_ics": [
+        136,
+        138,
+        138,
+        136,
+        140,
+        140,
+        140,
+        136
+      ],
+      "portfolio_reference_sha256": "b4a91781381087575240a054cc13097312bf53fba6e8adf0106ed953f2fdb6f0"
+    },
+    "benchmark://blas-v0/220": {
+      "uri": "benchmark://blas-v0/220",
+      "o0": 48,
+      "oz": 48,
+      "file": "results/battery/blas-v0/220.json",
+      "sha256": "68d448f0e07615e676e50f95be709fae9ac1b0b625f2287378cea8ad506f6abb",
+      "portfolio_ics": [
+        46,
+        46,
+        46,
+        46,
+        48,
+        46,
+        46,
+        46
+      ],
+      "portfolio_reference_sha256": "cd9cab05177fe1f1bc49f0106e7a498ec1ca97785e2a7cf8f17bcc3ef37d7642"
+    },
+    "benchmark://blas-v0/222": {
+      "uri": "benchmark://blas-v0/222",
+      "o0": 865,
+      "oz": 822,
+      "file": "results/battery/blas-v0/222.json",
+      "sha256": "0be14c518d26f9cae32354d5052c7926d9edd70beac4c7f7a32e149b1a6026d2",
+      "portfolio_ics": [
+        820,
+        817,
+        824,
+        823,
+        835,
+        805,
+        820,
+        804
+      ],
+      "portfolio_reference_sha256": "0ef428c21654f4193711d56454cae7bd8f2d78727726a16b2083603bae30e0cc"
+    },
+    "benchmark://blas-v0/226": {
+      "uri": "benchmark://blas-v0/226",
+      "o0": 1222,
+      "oz": 1130,
+      "file": "results/battery/blas-v0/226.json",
+      "sha256": "c1c2362eb934b5821e93f5d42549781c79f6e9f6dfc33be342a1c01c46c39659",
+      "portfolio_ics": [
+        1118,
+        1132,
+        1147,
+        1112,
+        1145,
+        1116,
+        1114,
+        1113
+      ],
+      "portfolio_reference_sha256": "5dbc19c3853d98e3a04cafa80a75764bfd057c1d951473a7c883e382fc5532f1"
+    },
+    "benchmark://blas-v0/229": {
+      "uri": "benchmark://blas-v0/229",
+      "o0": 187,
+      "oz": 178,
+      "file": "results/battery/blas-v0/229.json",
+      "sha256": "8fc5a82a8ecf2f99960c01c11e2dae76b25de7773398bf028836b28565a0cdbe",
+      "portfolio_ics": [
+        178,
+        180,
+        181,
+        178,
+        180,
+        181,
+        180,
+        179
+      ],
+      "portfolio_reference_sha256": "19c0481fe62750eddcd23eca95f17908b3453f93fd38c9da2641a042222a37d5"
+    },
+    "benchmark://blas-v0/23": {
+      "uri": "benchmark://blas-v0/23",
+      "o0": 1521,
+      "oz": 1387,
+      "file": "results/battery/blas-v0/23.json",
+      "sha256": "063488c377b264877b45104573bac89606961017666f8b3d616705c43e8a236e",
+      "portfolio_ics": [
+        1351,
+        1385,
+        1360,
+        1349,
+        1387,
+        1339,
+        1349,
+        1326
+      ],
+      "portfolio_reference_sha256": "6b1a940df7459a0c4963df6e1baab24c7c4d891d827ec1e7b59b25da87d4362a"
+    },
+    "benchmark://blas-v0/234": {
+      "uri": "benchmark://blas-v0/234",
+      "o0": 1522,
+      "oz": 1401,
+      "file": "results/battery/blas-v0/234.json",
+      "sha256": "4a8270ad24a235dad23efe989f9c25db53355ef9c40f1f834b97cfd73b825709",
+      "portfolio_ics": [
+        1371,
+        1331,
+        1328,
+        1369,
+        1413,
+        1301,
+        1367,
+        1306
+      ],
+      "portfolio_reference_sha256": "7ec5371e4fbbcc0a900854603929d0f278941ac1b6ec6fbfc6813362ab3752be"
+    },
+    "benchmark://blas-v0/239": {
+      "uri": "benchmark://blas-v0/239",
+      "o0": 1444,
+      "oz": 1384,
+      "file": "results/battery/blas-v0/239.json",
+      "sha256": "bfbc649b81b118f5f7644756bba7b63a3b11980f914d356e3321358b41df97e9",
+      "portfolio_ics": [
+        1356,
+        1374,
+        1411,
+        1356,
+        1383,
+        1362,
+        1363,
+        1366
+      ],
+      "portfolio_reference_sha256": "d037cc35e488d246d17341c5df9d1ab5be1106c962df5c1a8f715e308630bec4"
+    },
+    "benchmark://blas-v0/247": {
+      "uri": "benchmark://blas-v0/247",
+      "o0": 1416,
+      "oz": 1371,
+      "file": "results/battery/blas-v0/247.json",
+      "sha256": "65351861345c36669f4c1ca22c17934a6c251a7bcc18809297c434a021ab6f3e",
+      "portfolio_ics": [
+        1354,
+        1336,
+        1364,
+        1356,
+        1364,
+        1324,
+        1350,
+        1342
+      ],
+      "portfolio_reference_sha256": "540d21920839063dc844c62fb558ba14ca86f5c347d7d37e56ca78476980ca2e"
+    },
+    "benchmark://blas-v0/25": {
+      "uri": "benchmark://blas-v0/25",
+      "o0": 3219,
+      "oz": 2624,
+      "file": "results/battery/blas-v0/25.json",
+      "sha256": "1ac5205d27c9c7aa0f7e9cfcb908457836d5ed3c15f02e9754596b6a5b321f87",
+      "portfolio_ics": [
+        2630,
+        2579,
+        2612,
+        2680,
+        2628,
+        2554,
+        2636,
+        2566
+      ],
+      "portfolio_reference_sha256": "be0842dc9425d8c99305acafb3f2f9412b55bbd159823c0ec893a11af10d379b"
+    },
+    "benchmark://blas-v0/254": {
+      "uri": "benchmark://blas-v0/254",
+      "o0": 47,
+      "oz": 47,
+      "file": "results/battery/blas-v0/254.json",
+      "sha256": "97bd4d65ed4f763a2c52ae1803a34df393d010ccf9f8742d5ddb66c8b16a3ae3",
+      "portfolio_ics": [
+        47,
+        47,
+        49,
+        47,
+        47,
+        47,
+        47,
+        47
+      ],
+      "portfolio_reference_sha256": "1567ca2f6a71d165abfb9f7d93f27c395a41f3f73bc64cdd50ed701c85d6a78f"
+    },
+    "benchmark://blas-v0/256": {
+      "uri": "benchmark://blas-v0/256",
+      "o0": 168,
+      "oz": 148,
+      "file": "results/battery/blas-v0/256.json",
+      "sha256": "4bc1f435904d14641b2f423bcc4676579b0d82bd01020422c2f38dcfcad8f2a7",
+      "portfolio_ics": [
+        148,
+        150,
+        150,
+        148,
+        152,
+        152,
+        152,
+        148
+      ],
+      "portfolio_reference_sha256": "26f48f6738f7a081264a6f7b0ea3629806b54f17168e6392d273331a6392b6a2"
+    },
+    "benchmark://blas-v0/257": {
+      "uri": "benchmark://blas-v0/257",
+      "o0": 77,
+      "oz": 71,
+      "file": "results/battery/blas-v0/257.json",
+      "sha256": "e2ff8beae68f1f5af73c74407e9755ba658b4f96dffea895e6a7edfda24cc5ba",
+      "portfolio_ics": [
+        71,
+        71,
+        73,
+        71,
+        71,
+        71,
+        71,
+        71
+      ],
+      "portfolio_reference_sha256": "70dd3d6989d7dfb5ce595b94b1ed13d139f3502e66f38dc7b91588b7af4ecc39"
+    },
+    "benchmark://blas-v0/267": {
+      "uri": "benchmark://blas-v0/267",
+      "o0": 2423,
+      "oz": 2226,
+      "file": "results/battery/blas-v0/267.json",
+      "sha256": "5c5441a8095ac8079731768a112babbf7acd0bd38c074fc9bc6e5a248b85303d",
+      "portfolio_ics": [
+        2173,
+        2212,
+        2238,
+        2193,
+        2197,
+        2162,
+        2172,
+        2172
+      ],
+      "portfolio_reference_sha256": "8d39589af52fda2ec3af5bf0771a45370baa94bbe6cd9f3da87fec0e5a8ab03e"
+    },
+    "benchmark://blas-v0/27": {
+      "uri": "benchmark://blas-v0/27",
+      "o0": 227,
+      "oz": 204,
+      "file": "results/battery/blas-v0/27.json",
+      "sha256": "07719e349376e0ca9b99d8be5d9260db2fd53aed6a322a94d8596be797350639",
+      "portfolio_ics": [
+        204,
+        206,
+        207,
+        206,
+        208,
+        207,
+        207,
+        207
+      ],
+      "portfolio_reference_sha256": "ec6787447b91f2d6fd877e4d12c9dadd03246bfce690f784df02e51f465cdb59"
+    },
+    "benchmark://blas-v0/277": {
+      "uri": "benchmark://blas-v0/277",
+      "o0": 221,
+      "oz": 208,
+      "file": "results/battery/blas-v0/277.json",
+      "sha256": "092c809ecbccf34cffea346a3347436a2c0c1702f4255c18e2f9711c1a39f731",
+      "portfolio_ics": [
+        208,
+        210,
+        211,
+        210,
+        212,
+        211,
+        211,
+        211
+      ],
+      "portfolio_reference_sha256": "0633ba322fae58b4d15cdaa42750d823616f9d5f7d1b72c7713f40850efbc2c2"
+    },
+    "benchmark://blas-v0/285": {
+      "uri": "benchmark://blas-v0/285",
+      "o0": 1670,
+      "oz": 1651,
+      "file": "results/battery/blas-v0/285.json",
+      "sha256": "e04272956959dbdbd976bf6208865962d6874297405e63bd89eca12b7f8ae2e2",
+      "portfolio_ics": [
+        1620,
+        1564,
+        1583,
+        1620,
+        1650,
+        1548,
+        1617,
+        1553
+      ],
+      "portfolio_reference_sha256": "2a8e814dfa1573ac1046d66b2fc4495883fc0dcf7b236ea06190b4a58082ac9e"
+    },
+    "benchmark://blas-v0/288": {
+      "uri": "benchmark://blas-v0/288",
+      "o0": 7,
+      "oz": 7,
+      "file": "results/battery/blas-v0/288.json",
+      "sha256": "27805548f1b55ea62f6a4434189ffc75a9a49581f9194866731c67b594f3090f",
+      "portfolio_ics": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "portfolio_reference_sha256": "937a6377b31e2125a2d1452dc3960bbdd172ee6c75508f190e7060e3e45f2c9f"
+    },
+    "benchmark://blas-v0/298": {
+      "uri": "benchmark://blas-v0/298",
+      "o0": 836,
+      "oz": 812,
+      "file": "results/battery/blas-v0/298.json",
+      "sha256": "6a43a6304905d7b8993396f346346507c0aa051c9e0be032c16ace6887fb879f",
+      "portfolio_ics": [
+        779,
+        781,
+        773,
+        779,
+        830,
+        765,
+        780,
+        763
+      ],
+      "portfolio_reference_sha256": "49cbaf0b9f99c11803af31fd2956e8c4c64025a9c1db1179849454b12920bfe1"
+    },
+    "benchmark://blas-v0/35": {
+      "uri": "benchmark://blas-v0/35",
+      "o0": 16,
+      "oz": 16,
+      "file": "results/battery/blas-v0/35.json",
+      "sha256": "75deb0ba37e0fb66fbe6fe6175e05b8f23e90852098da46724f6a28ded7f7055",
+      "portfolio_ics": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "portfolio_reference_sha256": "ea00e2e2665944c8f9618d6caabcb8df8e109a4a1300d9e65c5511098d55fc74"
+    },
+    "benchmark://blas-v0/49": {
+      "uri": "benchmark://blas-v0/49",
+      "o0": 77,
+      "oz": 71,
+      "file": "results/battery/blas-v0/49.json",
+      "sha256": "e54ad00b52cf66ed5afa74d36ce477a71996d2b6de0432e0169dc377f0a91a22",
+      "portfolio_ics": [
+        71,
+        71,
+        73,
+        71,
+        71,
+        71,
+        71,
+        71
+      ],
+      "portfolio_reference_sha256": "66a53d1ef82d2194385f9f665ee4f332b312610ab4ce48159ef0a19c9051ead4"
+    },
+    "benchmark://blas-v0/50": {
+      "uri": "benchmark://blas-v0/50",
+      "o0": 733,
+      "oz": 713,
+      "file": "results/battery/blas-v0/50.json",
+      "sha256": "02a5fb20634256a1e8229e6d14d38c5b7c64f49b76f81bfae229dc609d8f5b42",
+      "portfolio_ics": [
+        713,
+        695,
+        704,
+        721,
+        713,
+        693,
+        709,
+        701
+      ],
+      "portfolio_reference_sha256": "d4b40388aa8699f58b4b03a0c9fade535626da640284e482f194a2adcb604690"
+    },
+    "benchmark://blas-v0/53": {
+      "uri": "benchmark://blas-v0/53",
+      "o0": 194,
+      "oz": 182,
+      "file": "results/battery/blas-v0/53.json",
+      "sha256": "f29713a86cf853610654462671275490d86074b8bdbab68cad7253a3a3994f91",
+      "portfolio_ics": [
+        182,
+        183,
+        185,
+        184,
+        184,
+        183,
+        183,
+        185
+      ],
+      "portfolio_reference_sha256": "7d0fac489e779e62a4c57a90df1424bbba660effc444de154038c72d9c3bb52b"
+    },
+    "benchmark://blas-v0/65": {
+      "uri": "benchmark://blas-v0/65",
+      "o0": 722,
+      "oz": 683,
+      "file": "results/battery/blas-v0/65.json",
+      "sha256": "5f968f12fb7e5aa386d1bde596b56b54802558fa06e6476df8b7af8c9ac7f7a6",
+      "portfolio_ics": [
+        696,
+        643,
+        654,
+        695,
+        695,
+        640,
+        692,
+        642
+      ],
+      "portfolio_reference_sha256": "d605664a6aa71f71ad367eed74766269e5a1c7cb90fdcc60471c15e33f6395c6"
+    },
+    "benchmark://blas-v0/80": {
+      "uri": "benchmark://blas-v0/80",
+      "o0": 427,
+      "oz": 413,
+      "file": "results/battery/blas-v0/80.json",
+      "sha256": "fa49b99db8f53dbf67fd6c88ab4ecde7f2df7d171fc9e2e5c5819fbb8575b54a",
+      "portfolio_ics": [
+        410,
+        415,
+        423,
+        410,
+        413,
+        411,
+        409,
+        411
+      ],
+      "portfolio_reference_sha256": "4be9afa872f4d5d9cd96a0df8af351fc0f9684a2bb7d37205cd91434982e5f56"
+    }
+  },
+  "max_ic": 6000,
+  "excluded_above_cap": [
+    {
+      "uri": "benchmark://npb-v0/121",
+      "o0": 6203
+    },
+    {
+      "uri": "benchmark://npb-v0/77",
+      "o0": 10497
+    }
+  ],
+  "fingerprint": "8db1604d49185a07ab80c58560d0608434f33c04a78e38931e5a924e6d52b539"
+}

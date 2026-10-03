@@ -1,0 +1,57 @@
+{
+  "uri": "benchmark://chstone-v0/mips",
+  "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/mips/mips.c",
+  "source_files": {
+    "imem.h": "22fe5cd200ea1d9b083af75022244c4b968bf864925c32fded1470e66038232e",
+    "mips.c": "38aa9fdbb577aa138409cdc005930a20fe96f2a50cb8f505785131336a7ded64"
+  },
+  "real_clang_oz": {
+    "ic": 375,
+    "object_sha256": "53b2dd94172f6eeba6239106684e61b7774c9f122190c6acc329fcab93bf4e19",
+    "code_sha256": "2d04ca19a24c6b1f3ff9cff8dc53dcb81f74819499df99d4695bf8d9654d36ac",
+    "text_sec": 785,
+    "text": 1685
+  },
+  "clang_size_attributes_cli_oz": {
+    "ic": 375,
+    "bitcode_sha256": "b6d3e9bbfcd3bbb997696ddb7f0bf2bdce9f0e80c30be19de2a72221250c5056",
+    "object_sha256": "7e102e3b0cecb86818fa84e71b9af15750b63e449a74793e087a68e04f321590",
+    "code_sha256": "2d04ca19a24c6b1f3ff9cff8dc53dcb81f74819499df99d4695bf8d9654d36ac",
+    "text_sec": 785,
+    "text": 1685
+  },
+  "attribute_info": {
+    "definitions": 1,
+    "verified_size_definitions": 1
+  },
+  "plain_service_oz": {
+    "ic": 392,
+    "bitcode_sha256": "1f57bb538945c589456ec1eac31ee637b3146caf70a27dc9946a11fffced06e3",
+    "object_sha256": "8a7a45584e93cb0a248fd72deba4360895ad9ae14afeab849374c65dc4f884b2",
+    "code_sha256": "5262a21e07fb2752e142ac50032ef63908b7bbf1a2ac7767d30fdb32430aca66",
+    "text_sec": 948,
+    "text": 2128
+  },
+  "attr_service_oz": {
+    "ic": 375,
+    "bitcode_sha256": "16f5d2e0dc03ee2593fd787a909bc8a76d705ad5110da6ff9bab0daa30b60e90",
+    "object_sha256": "723b289788652d246e7046cc547425609a13365cf8c9de48f45f457515e29655",
+    "code_sha256": "af3bea672c7ba3b6dee0468694e609e1af9c761c958cca62aeab2b7ec32da068",
+    "text_sec": 785,
+    "text": 1677
+  },
+  "attr_cli_oz": {
+    "ic": 375,
+    "bitcode_sha256": "7a5968b02b9e4e20f693bc94c275152acdeaf12df4aed42e395cc6cdb2e4f5ca",
+    "object_sha256": "ab0557c9ae5f23bf7922fd10615ec1dc9d06278f5be35177e2cb1d8ea61ab729",
+    "code_sha256": "2d04ca19a24c6b1f3ff9cff8dc53dcb81f74819499df99d4695bf8d9654d36ac",
+    "text_sec": 785,
+    "text": 1685
+  },
+  "manual_vs_frontend_attributes": {
+    "equal_ic": true,
+    "equal_code_length": true,
+    "identical_code_bytes": true,
+    "identical_object_bytes": false
+  }
+}

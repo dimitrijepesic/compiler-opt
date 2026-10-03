@@ -1,0 +1,11 @@
+{
+  "uri": "benchmark://chstone-v0/gsm",
+  "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/gsm/gsm.c",
+  "source_files": {
+    "add.c": "2607b2a0b13b25b96fbd8f107a03457796cb09315549c2ae407a04f07dbee9dc",
+    "gsm.c": "4d6787dd96818856008509f0c3f479dd2f2b42242f7cf2feb32750c16b6871bd",
+    "lpc.c": "e98d294c784be911a30c37f1a7e7380b06b9a09bb06cb7066a4e914c8f79d79c",
+    "private.h": "6658e28ff117d241da97148822dcf792879be5fc2623f096396a9205a8ceb052"
+  },
+  "failed": "FileNotFoundError(2, 'No such file or directory')"
+}

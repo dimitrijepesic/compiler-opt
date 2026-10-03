@@ -1,0 +1,11 @@
+{
+  "self_test": "passed: grouped and ungrouped definitions, address markers, declaration/callsite preservation, URI identity, batched/individual action equivalence",
+  "original_o0_oz_matches": 210,
+  "original_portfolio_candidate_matches": 1680,
+  "successful_candidate_measurements": 6720,
+  "directory_lock_test": "second writer rejected",
+  "resume_test": "210 modules; 210 resumed; 0 pending",
+  "independent_summary_recomputation": "passed all suite/method/metric sums",
+  "plot_visual_review": "passed",
+  "manifest_script_hash_matches": true
+}

@@ -1,0 +1,56 @@
+{
+  "uri": "benchmark://chstone-v0/adpcm",
+  "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/adpcm/adpcm.c",
+  "source_files": {
+    "adpcm.c": "49b3ccaafea6ab8b99357c234e201657806fbbd6715456e79c13878048714ba5"
+  },
+  "real_clang_oz": {
+    "ic": 758,
+    "object_sha256": "e8c2c0ff274a8e436557b74c069202352dc98f810ab37d1c4ea853f6aa995506",
+    "code_sha256": "1387ab8d2b566fefcd926bf7f6cf58245aef26369381d78ae84f97c1668c2994",
+    "text_sec": 2908,
+    "text": 5608
+  },
+  "clang_size_attributes_cli_oz": {
+    "ic": 764,
+    "bitcode_sha256": "fdcd0b53eb2fc0b4d50683c9833079ee1b5ea557ea62a8703587d6ca92be6b18",
+    "object_sha256": "d2780947b535d753725029d046bc05d644e1d43ce7d7504ffe8b30bbebd5d210",
+    "code_sha256": "64e6c50eb4ae3f68a09cf6bd7a5d9e0e837d9903decfae3ff1eccffceb6b0f46",
+    "text_sec": 2916,
+    "text": 5616
+  },
+  "attribute_info": {
+    "definitions": 15,
+    "verified_size_definitions": 15
+  },
+  "plain_service_oz": {
+    "ic": 966,
+    "bitcode_sha256": "16be5435eaa4f1782fbb566abc41b98ef0b53884c2c2dfae5af0f63acab009ee",
+    "object_sha256": "51cd3a1fc3c21fe61aa01610ec4b8c8affa52f26064e9d12f91eefaf9405e6c5",
+    "code_sha256": "d453d26bfd2b49151784e9c9972f1af9c9c48ecf9127e3a91ec53319b0482f7d",
+    "text_sec": 4430,
+    "text": 7050
+  },
+  "attr_service_oz": {
+    "ic": 737,
+    "bitcode_sha256": "fd62a5be1cfccbec2e4e36bd52b146b899d3f6e74bbf15b41184de10b5228eaa",
+    "object_sha256": "36923fc066c54713750c6c6cc785f10f84d0354452a3c87678ec88c154dc1beb",
+    "code_sha256": "a9085f4bbea7d88feb150739d7449fb706255e14cba96cc6c87162bdf16cbba9",
+    "text_sec": 2855,
+    "text": 5555
+  },
+  "attr_cli_oz": {
+    "ic": 764,
+    "bitcode_sha256": "5f4d5d0bd79f2e2fcac347a79190f24c03c570eda44d175c4f41183f444e17d6",
+    "object_sha256": "9e0888a9ffcb284d0b486aa02ba58d9726eb00a73886b25e223dfdcc74fd01d9",
+    "code_sha256": "64e6c50eb4ae3f68a09cf6bd7a5d9e0e837d9903decfae3ff1eccffceb6b0f46",
+    "text_sec": 2916,
+    "text": 5616
+  },
+  "manual_vs_frontend_attributes": {
+    "equal_ic": true,
+    "equal_code_length": true,
+    "identical_code_bytes": true,
+    "identical_object_bytes": false
+  }
+}

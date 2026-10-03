@@ -1,0 +1,8 @@
+{
+  "uri": "benchmark://chstone-v0/adpcm",
+  "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/adpcm/adpcm.c",
+  "source_files": {
+    "adpcm.c": "49b3ccaafea6ab8b99357c234e201657806fbbd6715456e79c13878048714ba5"
+  },
+  "failed": "FileNotFoundError(2, 'No such file or directory')"
+}

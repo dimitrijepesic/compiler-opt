@@ -1,0 +1,14 @@
+{
+  "uri": "benchmark://chstone-v0/dfmul",
+  "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/dfmul/dfmul.c",
+  "source_files": {
+    "SPARC-GCC.h": "a8cf98cb2610862c5353fa632d5ca7a8daa18913aba462520644ee0cb004af9e",
+    "dfmul.c": "ad5cd6a22e292ef1df73bc75b51ff435bc8810d03305a61e09a5af5831e2a226",
+    "milieu.h": "4e4828b96e9d9455341abac06190b7831107e728908f0b6ab018e74f796f3de2",
+    "softfloat-macros": "b266c4e9aa9fe93b741d9befac4e3f8d98e0aa713357f5153ca2dcbde3780b43",
+    "softfloat-specialize": "de4652c83084dc3ba035321ea5e583762bd2a89c60be8d5c76bbd6e459e079fa",
+    "softfloat.c": "67b72221757da930533326f7343a2f86b662679eeab3b27129ef979521bb0e72",
+    "softfloat.h": "cef144ae805ffcce1e350e8737cfdc0099b2f23a469860cc21eeb10778883892"
+  },
+  "failed": "FileNotFoundError(2, 'No such file or directory')"
+}

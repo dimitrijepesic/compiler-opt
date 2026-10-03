@@ -1,0 +1,10 @@
+{
+  "uri": "benchmark://chstone-v0/sha",
+  "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/sha/sha_driver.c",
+  "source_files": {
+    "sha.c": "e90d115679ba6ca8a3c51aefd874ce2be71d32c01fbe6a4d50350472e1b4c1e0",
+    "sha.h": "5d28b3adc291324095082d5cc4e053e87462210c94888d68e7f32bf2188684d0",
+    "sha_driver.c": "a8d214da7577dfd8e731587377ffdf09c648fe7bf170c919545dff086b47733d"
+  },
+  "failed": "FileNotFoundError(2, 'No such file or directory')"
+}

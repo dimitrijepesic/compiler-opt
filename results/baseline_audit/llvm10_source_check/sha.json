@@ -1,0 +1,58 @@
+{
+  "uri": "benchmark://chstone-v0/sha",
+  "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/sha/sha_driver.c",
+  "source_files": {
+    "sha.c": "e90d115679ba6ca8a3c51aefd874ce2be71d32c01fbe6a4d50350472e1b4c1e0",
+    "sha.h": "5d28b3adc291324095082d5cc4e053e87462210c94888d68e7f32bf2188684d0",
+    "sha_driver.c": "a8d214da7577dfd8e731587377ffdf09c648fe7bf170c919545dff086b47733d"
+  },
+  "real_clang_oz": {
+    "ic": 289,
+    "object_sha256": "c32686257e6ad88172b23082eaf2a4fba9de17e8562a7cdc17e5a99c64d942b3",
+    "code_sha256": "e81fd3473413dde30053e9e6468c23f455e0963c594e5bf0462fd3f7933b1861",
+    "text_sec": 889,
+    "text": 17665
+  },
+  "clang_size_attributes_cli_oz": {
+    "ic": 292,
+    "bitcode_sha256": "9fadde2162dbcb8a32692017b2436b717093b855cf10b3d4f6cdcd08d6e6e403",
+    "object_sha256": "168e850002b3c1fc76bdc92c5b722a1c053f2f89c8aa27274625ba3e8b978955",
+    "code_sha256": "e81fd3473413dde30053e9e6468c23f455e0963c594e5bf0462fd3f7933b1861",
+    "text_sec": 889,
+    "text": 17665
+  },
+  "attribute_info": {
+    "definitions": 8,
+    "verified_size_definitions": 8
+  },
+  "plain_service_oz": {
+    "ic": 348,
+    "bitcode_sha256": "baa01591e28b3eecc82304c47a18c846434c575417926b1a3bbb1494b158ff9f",
+    "object_sha256": "dc220a2ae6bdcf78c8019a4ac533c2ec720e7c81a7143982a1898e94b27e83c2",
+    "code_sha256": "d781eb556d45b29d06f53faa44ba5ed2df1851d1a075f144a218baba75fb9fe9",
+    "text_sec": 1288,
+    "text": 18032
+  },
+  "attr_service_oz": {
+    "ic": 292,
+    "bitcode_sha256": "3bde1a52975ed50df95416e30f139b74ae8cf1852f76c49ebe486a95c69328a2",
+    "object_sha256": "2d47a7803f00bdef169d6393944cd5d575518a12e29b0e42f1058f21aaa718e5",
+    "code_sha256": "d3d7140adc4fd4f7e32269989872efada30aba11152018c0c1ab67a1ee7312b1",
+    "text_sec": 899,
+    "text": 17675
+  },
+  "attr_cli_oz": {
+    "ic": 292,
+    "bitcode_sha256": "797c4037dd380b24b3403c7e71b739c97e9bc4169ca97dd93204c1c6a2dfa6ee",
+    "object_sha256": "91f7a6f0b8e3b0fc671fc55ade1d05d999539a4a10e284db9eb1f78338e49f5c",
+    "code_sha256": "e81fd3473413dde30053e9e6468c23f455e0963c594e5bf0462fd3f7933b1861",
+    "text_sec": 889,
+    "text": 17665
+  },
+  "manual_vs_frontend_attributes": {
+    "equal_ic": true,
+    "equal_code_length": true,
+    "identical_code_bytes": true,
+    "identical_object_bytes": false
+  }
+}

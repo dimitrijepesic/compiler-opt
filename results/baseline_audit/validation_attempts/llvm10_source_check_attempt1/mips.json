@@ -1,0 +1,9 @@
+{
+  "uri": "benchmark://chstone-v0/mips",
+  "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/mips/mips.c",
+  "source_files": {
+    "imem.h": "22fe5cd200ea1d9b083af75022244c4b968bf864925c32fded1470e66038232e",
+    "mips.c": "38aa9fdbb577aa138409cdc005930a20fe96f2a50cb8f505785131336a7ded64"
+  },
+  "failed": "FileNotFoundError(2, 'No such file or directory')"
+}

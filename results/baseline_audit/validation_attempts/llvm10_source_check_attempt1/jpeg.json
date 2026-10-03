@@ -1,0 +1,18 @@
+{
+  "uri": "benchmark://chstone-v0/jpeg",
+  "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/jpeg/main.c",
+  "source_files": {
+    "chenidct.c": "48c090e1cf427bc4db916d0e6562c3766619cf32269be20cb297d81452c3a76f",
+    "decode.c": "732625a48643dfdc15813d22b15f9e6c8ed52f957ec12875d43ad1f285c71d8e",
+    "decode.h": "036527d92b65e75ad5eacd749e06e38a004b3dfb4b5495b62fd4c42af1eb0e91",
+    "global.h": "0ee218f052f8e125158769f2f001880c01ba02363c7722b27ab82d1eb886086b",
+    "huffman.c": "d057e4bfb80ce9d33e132aaa0a14add99e11bf46e6c59ca5bc43bcb618ac3c37",
+    "huffman.h": "fafc32efae89c3571efe1ed49ad3ddada451088731ae93a251655bb4a3f0b81e",
+    "init.h": "92f74e98f87e1f27933901c7dc09f31779f376afd127100b630a52dd2fd8ed14",
+    "jfif_read.c": "f076a27d5ebbacffad39ce21b9f733987bf1fc9ba9a76c6981daabe77813da52",
+    "jpeg2bmp.c": "314ec7da76a70ae2386713d3c79577c72ea455de85c3f50eb83ef139d00ae748",
+    "main.c": "e20412e572cc8c58777aa604ba4e931bfc21402c19c6cb0b0e99f951bb6158f9",
+    "marker.c": "0bb89c8bb943fb9fbf6ba32914a28df4dec20f99a7ec8b33af11e9340fd6d2cc"
+  },
+  "failed": "FileNotFoundError(2, 'No such file or directory')"
+}

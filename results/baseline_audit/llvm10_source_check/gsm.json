@@ -1,0 +1,59 @@
+{
+  "uri": "benchmark://chstone-v0/gsm",
+  "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/gsm/gsm.c",
+  "source_files": {
+    "add.c": "2607b2a0b13b25b96fbd8f107a03457796cb09315549c2ae407a04f07dbee9dc",
+    "gsm.c": "4d6787dd96818856008509f0c3f479dd2f2b42242f7cf2feb32750c16b6871bd",
+    "lpc.c": "e98d294c784be911a30c37f1a7e7380b06b9a09bb06cb7066a4e914c8f79d79c",
+    "private.h": "6658e28ff117d241da97148822dcf792879be5fc2623f096396a9205a8ceb052"
+  },
+  "real_clang_oz": {
+    "ic": 590,
+    "object_sha256": "deb464ca5934748f8c3214274f49293b7a80a8f898b4c02da8c9903856e8d098",
+    "code_sha256": "f1432ad2b85a1e3292c5adead4fcbf4959cf1d4be4540d1be21610c23883422c",
+    "text_sec": 2350,
+    "text": 3882
+  },
+  "clang_size_attributes_cli_oz": {
+    "ic": 670,
+    "bitcode_sha256": "7acb27d9c7dd939fd9b2d4949eac97389f97dfb2b84557c1861e8df56fdf5f63",
+    "object_sha256": "67850230f9efecc44b4db3ef64908bed8744f4e2666e3f1e210629c8b8fe1f40",
+    "code_sha256": "821aec47f279179566f4629867c843d22d1246ca7e3b4c3a6a09b80930237cb5",
+    "text_sec": 2652,
+    "text": 4104
+  },
+  "attribute_info": {
+    "definitions": 12,
+    "verified_size_definitions": 12
+  },
+  "plain_service_oz": {
+    "ic": 843,
+    "bitcode_sha256": "f7b6fb91e98011f96827e69b7d54b71dfc4667e192bffb064bd2645581b3562a",
+    "object_sha256": "9b90662c1e6b154612f04299e23744a38fcbf0e2a77913db6dab44a0eab50f7c",
+    "code_sha256": "1a7e2045aabfdd4a767eebc80f53b208aeb0d61061343128dec6c89a618fb710",
+    "text_sec": 3633,
+    "text": 4989
+  },
+  "attr_service_oz": {
+    "ic": 669,
+    "bitcode_sha256": "70917596d9fc7f99181d41ed8cf702372f7ee90ea2b4a0fb972acc3074e6244b",
+    "object_sha256": "c059dfd2d7a28a7ff6192d942547305cfe969a03f1fd59dcbb672221944927fd",
+    "code_sha256": "a24521f5d5af93b81c5581aaf26888b476b4b84bd412c5a090f58630fe3512b8",
+    "text_sec": 2651,
+    "text": 4103
+  },
+  "attr_cli_oz": {
+    "ic": 670,
+    "bitcode_sha256": "80804be3d7df3f9ceb09730a1574b942cfa0da52810fa601669205c950fced8e",
+    "object_sha256": "c518067f8bda5bd1a97fd67f89bfc1eef2237502e77fbe296ef9084129d55a0d",
+    "code_sha256": "821aec47f279179566f4629867c843d22d1246ca7e3b4c3a6a09b80930237cb5",
+    "text_sec": 2652,
+    "text": 4104
+  },
+  "manual_vs_frontend_attributes": {
+    "equal_ic": true,
+    "equal_code_length": true,
+    "identical_code_bytes": true,
+    "identical_object_bytes": false
+  }
+}

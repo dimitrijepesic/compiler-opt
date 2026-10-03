@@ -1,0 +1,63 @@
+{
+  "uri": "benchmark://chstone-v0/motion",
+  "source": "/root/.local/share/compiler_gym/llvm-v0/benchmark/chstone-v0/contents/patmos_HLS-e62d878ceb91e5a18007ca2e0a9602ee44ff7d59/benchmarks/CHStone/motion/mpeg2.c",
+  "source_files": {
+    "config.h": "deae51f50abd533102ff7ef32595f70888906e7a0b6eff22f5518ab69f71c7fe",
+    "getbits.c": "f046ab391679e425552b54ca7adc4c6f79affbc3a27962932c260dbdaba6148c",
+    "getvlc.c": "30e3bea96f27af17d7c389b95d2d6eb471593bb533552bdd393e5cbdb1ad603f",
+    "getvlc.h": "09f7a66712c2f15d53240608b4505156cb5afd7533b3c1e37d82709b613ee5b4",
+    "global.h": "b5dffdcd7dca6c99e8a70923ce69d8331b1b0182aead55722ae72e5325fce02d",
+    "motion.c": "04d99f2902575229aa08f230eb2eff436522b6c2f5b856f45e323aed92a35ff8",
+    "mpeg2.c": "496172a4946e21a7359334d2504f7fe44a5126777da705e7a907e43f3a5c6b10",
+    "mpeg2dec.h": "1e0fa3433070ac3c895723aece4fc3559902825cd21219fd0dd473ef987dbf4c"
+  },
+  "real_clang_oz": {
+    "ic": 354,
+    "object_sha256": "d80314dfe8251e1ecf10ac2efb5382e2c17e8a106d6a1fe4c4c584dbae1d8972",
+    "code_sha256": "c9e5a5579b550e907d7ed44a9aead3d142533a3cef5c6a407b35a42334708676",
+    "text_sec": 1487,
+    "text": 6307
+  },
+  "clang_size_attributes_cli_oz": {
+    "ic": 354,
+    "bitcode_sha256": "bafca3f43980df5221d3b8638a6d1e47a340c695afb4b7cbf2c3fbef3b820f62",
+    "object_sha256": "aab00bf36e776a31dcd705c48bea89d61554428b323800ff52a6b60d82e80e94",
+    "code_sha256": "c9e5a5579b550e907d7ed44a9aead3d142533a3cef5c6a407b35a42334708676",
+    "text_sec": 1487,
+    "text": 6307
+  },
+  "attribute_info": {
+    "definitions": 13,
+    "verified_size_definitions": 13
+  },
+  "plain_service_oz": {
+    "ic": 384,
+    "bitcode_sha256": "da035dff70895f04b6b9cf219b16aaad7de6aa0bba0dca7e6abd23348a963b44",
+    "object_sha256": "3d48969d20fafb7a2c4dbacaa9d457ab1b9d7a1d0247a40ffa9d2da34e7a8069",
+    "code_sha256": "e0cd992e8cae9b23df3cb8dff149a13c42041e556e7a246ff519534c4b58d700",
+    "text_sec": 1660,
+    "text": 6408
+  },
+  "attr_service_oz": {
+    "ic": 354,
+    "bitcode_sha256": "4116199edfe1574b55acf9ac76fbb9eac8f2b567dd4f1c36d7f3aadcd8b4390a",
+    "object_sha256": "fa445c5d58c08c496f2d2b697690b1fe871cc11dda878efdfbb93f4c0467819d",
+    "code_sha256": "58235574c8c0ed9688067d0bcb6fb1e9de8d201d36bbe6bc47fa1ae4583ec729",
+    "text_sec": 1497,
+    "text": 6317
+  },
+  "attr_cli_oz": {
+    "ic": 354,
+    "bitcode_sha256": "39d739d15cbdfa0d2b33ae5f235ef51a89ce715c2224815c0d400bf2bd4d1f5d",
+    "object_sha256": "44b6ca057c15a4ec0ec1e1ddc5124ddeebfc72313bcde0701fde560165a94809",
+    "code_sha256": "c9e5a5579b550e907d7ed44a9aead3d142533a3cef5c6a407b35a42334708676",
+    "text_sec": 1487,
+    "text": 6307
+  },
+  "manual_vs_frontend_attributes": {
+    "equal_ic": true,
+    "equal_code_length": true,
+    "identical_code_bytes": true,
+    "identical_object_bytes": false
+  }
+}

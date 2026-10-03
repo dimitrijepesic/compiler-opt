@@ -1,0 +1,375 @@
+{
+  "timestamp": "2026-09-16T14:28:38.906701+00:00",
+  "fingerprint": "a677e82d5cfbab3448ae0e67afb4f6451afe2c2df4998c471de46046bf67e7a7",
+  "summary": {
+    "attempted": 3,
+    "complete_paired": 0,
+    "excluded": [
+      {
+        "uri": "benchmark://cbench-v1/qsort",
+        "error": "AssertionError('Input changed on file URI load')"
+      },
+      {
+        "uri": "benchmark://npb-v0/116",
+        "error": "AssertionError('Input changed on file URI load')"
+      },
+      {
+        "uri": "benchmark://npb-v0/117",
+        "error": "AssertionError('Input changed on file URI load')"
+      }
+    ],
+    "candidate_failures": 0,
+    "plain": {
+      "portfolio": {
+        "ic": {
+          "baseline_sum": 0,
+          "candidate_sum": 0,
+          "gain_pct": null,
+          "wins": 0,
+          "ties": 0,
+          "losses": 0
+        },
+        "text": {
+          "baseline_sum": 0,
+          "candidate_sum": 0,
+          "gain_pct": null,
+          "wins": 0,
+          "ties": 0,
+          "losses": 0
+        },
+        "text_sec": {
+          "baseline_sum": 0,
+          "candidate_sum": 0,
+          "gain_pct": null,
+          "wins": 0,
+          "ties": 0,
+          "losses": 0
+        }
+      },
+      "random": {
+        "ic": {
+          "baseline_sum": 0,
+          "candidate_sum": 0,
+          "gain_pct": null,
+          "wins": 0,
+          "ties": 0,
+          "losses": 0
+        },
+        "text": {
+          "baseline_sum": 0,
+          "candidate_sum": 0,
+          "gain_pct": null,
+          "wins": 0,
+          "ties": 0,
+          "losses": 0
+        },
+        "text_sec": {
+          "baseline_sum": 0,
+          "candidate_sum": 0,
+          "gain_pct": null,
+          "wins": 0,
+          "ties": 0,
+          "losses": 0
+        }
+      }
+    },
+    "attr": {
+      "portfolio": {
+        "ic": {
+          "baseline_sum": 0,
+          "candidate_sum": 0,
+          "gain_pct": null,
+          "wins": 0,
+          "ties": 0,
+          "losses": 0
+        },
+        "text": {
+          "baseline_sum": 0,
+          "candidate_sum": 0,
+          "gain_pct": null,
+          "wins": 0,
+          "ties": 0,
+          "losses": 0
+        },
+        "text_sec": {
+          "baseline_sum": 0,
+          "candidate_sum": 0,
+          "gain_pct": null,
+          "wins": 0,
+          "ties": 0,
+          "losses": 0
+        }
+      },
+      "random": {
+        "ic": {
+          "baseline_sum": 0,
+          "candidate_sum": 0,
+          "gain_pct": null,
+          "wins": 0,
+          "ties": 0,
+          "losses": 0
+        },
+        "text": {
+          "baseline_sum": 0,
+          "candidate_sum": 0,
+          "gain_pct": null,
+          "wins": 0,
+          "ties": 0,
+          "losses": 0
+        },
+        "text_sec": {
+          "baseline_sum": 0,
+          "candidate_sum": 0,
+          "gain_pct": null,
+          "wins": 0,
+          "ties": 0,
+          "losses": 0
+        }
+      }
+    }
+  },
+  "suites": {
+    "cbench-v1": {
+      "attempted": 1,
+      "complete_paired": 0,
+      "excluded": [
+        {
+          "uri": "benchmark://cbench-v1/qsort",
+          "error": "AssertionError('Input changed on file URI load')"
+        }
+      ],
+      "candidate_failures": 0,
+      "plain": {
+        "portfolio": {
+          "ic": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text_sec": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          }
+        },
+        "random": {
+          "ic": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text_sec": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          }
+        }
+      },
+      "attr": {
+        "portfolio": {
+          "ic": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text_sec": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          }
+        },
+        "random": {
+          "ic": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text_sec": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          }
+        }
+      }
+    },
+    "npb-v0": {
+      "attempted": 2,
+      "complete_paired": 0,
+      "excluded": [
+        {
+          "uri": "benchmark://npb-v0/116",
+          "error": "AssertionError('Input changed on file URI load')"
+        },
+        {
+          "uri": "benchmark://npb-v0/117",
+          "error": "AssertionError('Input changed on file URI load')"
+        }
+      ],
+      "candidate_failures": 0,
+      "plain": {
+        "portfolio": {
+          "ic": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text_sec": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          }
+        },
+        "random": {
+          "ic": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text_sec": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          }
+        }
+      },
+      "attr": {
+        "portfolio": {
+          "ic": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text_sec": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          }
+        },
+        "random": {
+          "ic": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          },
+          "text_sec": {
+            "baseline_sum": 0,
+            "candidate_sum": 0,
+            "gain_pct": null,
+            "wins": 0,
+            "ties": 0,
+            "losses": 0
+          }
+        }
+      }
+    }
+  }
+}
