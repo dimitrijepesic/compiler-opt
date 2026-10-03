@@ -1,0 +1,10 @@
+{
+ "fingerprint": "890c4e101cce5f5f7bdbdcd53c7e8b4b73fec40089cc7394cf6cefc625e30781",
+ "manifest_fingerprint": "54393ce307c20db7a0a96de86380746ff7ff76e94c9fd4116789b9062f38be2f",
+ "replay_mode": "step",
+ "pilot": true,
+ "command": "python scripts/evaluate_selector_audit.py --run --pilot --replay step --workers 4",
+ "started": "2026-09-16T21:29:14.300321+00:00",
+ "workers": 4,
+ "hardware": "amd64 Ubuntu 22.04 container under Rosetta 2 (Colima vz VM) on Apple M5 Pro; emulated, no timing claim"
+}

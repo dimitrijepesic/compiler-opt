@@ -1,0 +1,58 @@
+{
+ "schema": 1,
+ "created": "2026-09-16T21:29:13.744905+00:00",
+ "script_sha256": "fc32aa56c365f5ed3f6e486c66d721255de57a513e2772a39101e9d2c5f77653",
+ "helper": "scripts/baseline_audit_cgym_matrix.py",
+ "helper_sha256": "7ef8a6787cd5e1142ebcae9a38966873fcc1c51088ce3c08d4fca96751cf044f",
+ "gnn_script_sha256": "183eec9dd19cedde383668f61fe2762ff3b32ea0f824686c5c184b6e1847ad84",
+ "passes_yaml_sha256": "de9762bdbc4006cc81f4e0b9db5c05bf9716a04169e9d5b646cea3d4f80a420d",
+ "inputs_sha256": "5dde562f72b261899a44f2870e56845cceae389fed9ddb614d5cae6d4ed3ed6d",
+ "n_programs": 347,
+ "pilot_uris": [
+  "benchmark://blas-v0/25",
+  "benchmark://blas-v0/288",
+  "benchmark://chstone-v0/aes",
+  "benchmark://chstone-v0/mips",
+  "benchmark://mibench-v1/qsort1",
+  "benchmark://mibench-v1/susan-e-2",
+  "benchmark://npb-v0/119",
+  "benchmark://npb-v0/16",
+  "benchmark://poj104-v1/102/1409",
+  "benchmark://poj104-v1/54/59",
+  "generator://csmith-v0/21",
+  "generator://csmith-v0/40"
+ ],
+ "compiler_gym": "0.2.5",
+ "numpy": "1.26.4",
+ "llvm_version": "LLVM (http://llvm.org/):\n  LLVM version 10.0.0\n  Optimized build.\n  Default target: x86_64-unknown-linux-gnu\n  Host CPU: westmere",
+ "ic_tool_sha256": "9fe154827e6813452d87f40aa782d8b9f7aec757e859f6ad7e709aa6dec6549e",
+ "seeds_gnn": [
+  42,
+  123,
+  456
+ ],
+ "replicates_random": [
+  42,
+  43,
+  44,
+  45,
+  46
+ ],
+ "k": 8,
+ "steps": 45,
+ "random_rule": "seed=int.from_bytes(sha256(f'{rep}:{uri}').digest()[:8],'big'); numpy default_rng; rng.choice(sorted 36 action ids, size=(8,45))",
+ "condition": "attr: minsize optsize on function definitions (canonical add_attributes)",
+ "baseline": "service llvm.apply_baseline_optimizations=-Oz on the attributed module",
+ "replay": "reset attributed file URI, then the stored/new action ids through the service; final module exported and measured",
+ "measurement": "bundled llc -filetype=obj; llvm-size (Berkeley text) and llvm-size -A (.text*/__text sum = text_sec); ic tool for IC; sha256 of bitcode and object",
+ "selectors": {
+  "ic_first": "min IC, first candidate on ties (the paper's rule)",
+  "code_first": "min text_sec, first candidate on ties",
+  "ic_then_code": "min IC, ties by min text_sec, then first (diagnostic)",
+  "berkeley_first": "min Berkeley text, first on ties (diagnostic)",
+  "oz_fallback": "separate tables only: baseline is an extra candidate; guarantee holds only for the metric selected on"
+ },
+ "gnn_sources": "npb-v0: results/gnn_attribute_audit/npb_offset78/records_gnn_seed*; other suites: results/gnn_attribute_audit/records_gnn_seed*",
+ "random_42_source": "results/gnn_attribute_audit/records_null (attr candidates reused; replayed only in the pilot)",
+ "fingerprint": "54393ce307c20db7a0a96de86380746ff7ff76e94c9fd4116789b9062f38be2f"
+}
