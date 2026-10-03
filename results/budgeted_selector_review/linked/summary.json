@@ -1,0 +1,500 @@
+{
+  "scope": "Measure already linked CHStone artifacts; no compilation or execution.\n\nThe primary selection is frozen: source_selected.elf was chosen using object\n.text bytes. Read all 12 reference/selected pairs, verify their recorded\nexecutable hashes and fixed-vector test results, and measure with llvm-size.\nFile bytes include ELF metadata/padding and exclude shared-library contents.\nNo new selector is fitted and no claim of total deployment footprint is made.\n",
+  "script_sha256": "fbb9ff93793b4b3320a0944973ef9e22f42384ac6b7a9de29e5bf1cfaa3e9e99",
+  "input_sha256": "54be25138645abf5d1293b70af8deb8b12ef6c8491d2804a199b0b7b3a7c8c8c",
+  "llvm_size_sha256": "dd245791e4e28d20653bf22098ec05c71df48bb8e2052992c5946144eb3abe79",
+  "object_link_flags": [
+    "-no-pie"
+  ],
+  "records": [
+    {
+      "name": "adpcm",
+      "chosen_by_object_code": "portfolio_1",
+      "reference": {
+        "text_section_bytes": 3140,
+        "berkeley_text_bytes": 6664,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 1536,
+        "file_bytes": 19072,
+        "sha256": "7792701f47d4991eb9de4dd531fd77ba6dbd53da269e367a08c9f97b39005a32"
+      },
+      "selected": {
+        "text_section_bytes": 3073,
+        "berkeley_text_bytes": 6529,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 1536,
+        "file_bytes": 19040,
+        "sha256": "07e351bd81aed3c6b462b33b0e0ca49822c642fdb3205f65febe21825db81d20"
+      },
+      "reference_object": {
+        "text_section_bytes": 2908,
+        "berkeley_text_bytes": 5608,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 16864,
+        "sha256": "e8c2c0ff274a8e436557b74c069202352dc98f810ab37d1c4ea853f6aa995506"
+      },
+      "selected_object": {
+        "text_section_bytes": 2841,
+        "berkeley_text_bytes": 5477,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 17360,
+        "sha256": "79109a67be6d275e8490e89ddd1607251a0ec80a8f935b18a00a18e73c23dd3c"
+      }
+    },
+    {
+      "name": "aes",
+      "chosen_by_object_code": "portfolio_1",
+      "reference": {
+        "text_section_bytes": 7285,
+        "berkeley_text_bytes": 11184,
+        "berkeley_data_bytes": 568,
+        "berkeley_bss_bytes": 2216,
+        "file_bytes": 20640,
+        "sha256": "55e815d66b3cb6f3c88e095e4ab3d52d202f04c33337f929db4dfb96c06654ac"
+      },
+      "selected": {
+        "text_section_bytes": 7242,
+        "berkeley_text_bytes": 11239,
+        "berkeley_data_bytes": 568,
+        "berkeley_bss_bytes": 2216,
+        "file_bytes": 20616,
+        "sha256": "bc03d91f2f94e9c6bbd53795f64032fa44d0c3241db9d5b0975b33973659efac"
+      },
+      "reference_object": {
+        "text_section_bytes": 7053,
+        "berkeley_text_bytes": 10124,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 18472,
+        "sha256": "dc1ec8bc3d92fa4bd24cbf3dd9511b80d83ff2bd2584c91fec8e6ec3c93c0324"
+      },
+      "selected_object": {
+        "text_section_bytes": 7010,
+        "berkeley_text_bytes": 10179,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 18552,
+        "sha256": "e1bf418b2c0ba81b4e6be491ce5bf44b7346be12dbc6926ffa0a392f47350a08"
+      }
+    },
+    {
+      "name": "blowfish",
+      "chosen_by_object_code": "portfolio_1",
+      "reference": {
+        "text_section_bytes": 3350,
+        "berkeley_text_bytes": 23144,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 8352,
+        "file_bytes": 32576,
+        "sha256": "3d6cf7a8d181db94461876c3cb77f8c99b1b6204e4ef071d8e451f14f44e5594"
+      },
+      "selected": {
+        "text_section_bytes": 3349,
+        "berkeley_text_bytes": 23143,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 8352,
+        "file_bytes": 32552,
+        "sha256": "77aa03b50c60a25b50cb3685e43795e10d705eb6be1d000c3699568c4c7ab5c9"
+      },
+      "reference_object": {
+        "text_section_bytes": 3118,
+        "berkeley_text_bytes": 22202,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 28272,
+        "sha256": "a99e9201e4b80db9a65ef6e7d1449a6756c926f699e1cc7148780265f6db3221"
+      },
+      "selected_object": {
+        "text_section_bytes": 3117,
+        "berkeley_text_bytes": 22201,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 28088,
+        "sha256": "f4abe55ab7a12078cf5ce1356287f74619b1e6d9375827e6babfea0950383365"
+      }
+    },
+    {
+      "name": "dfadd",
+      "chosen_by_object_code": "reference_clang_oz",
+      "reference": {
+        "text_section_bytes": 1829,
+        "berkeley_text_bytes": 5222,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 16,
+        "file_bytes": 16576,
+        "sha256": "76a185be95a33372ac98085e6503fd80a36b8db8f1dbd9a58dbb186517b2fa09"
+      },
+      "selected": {
+        "text_section_bytes": 1829,
+        "berkeley_text_bytes": 5222,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 16,
+        "file_bytes": 16576,
+        "sha256": "76a185be95a33372ac98085e6503fd80a36b8db8f1dbd9a58dbb186517b2fa09"
+      },
+      "reference_object": {
+        "text_section_bytes": 1597,
+        "berkeley_text_bytes": 4224,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 8,
+        "file_bytes": 7088,
+        "sha256": "b2d64909bf6ea38dad010c8fc4b0f3aaf799eaa95ad2facb91274a816d2c000b"
+      },
+      "selected_object": {
+        "text_section_bytes": 1597,
+        "berkeley_text_bytes": 4224,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 8,
+        "file_bytes": 7088,
+        "sha256": "b2d64909bf6ea38dad010c8fc4b0f3aaf799eaa95ad2facb91274a816d2c000b"
+      }
+    },
+    {
+      "name": "dfdiv",
+      "chosen_by_object_code": "reference_clang_oz",
+      "reference": {
+        "text_section_bytes": 1813,
+        "berkeley_text_bytes": 4682,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 16,
+        "file_bytes": 16680,
+        "sha256": "1474c98809b3d6bca4761ef98e64a06e5b3dccfb1ff5d3a90320159d600cd59d"
+      },
+      "selected": {
+        "text_section_bytes": 1813,
+        "berkeley_text_bytes": 4682,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 16,
+        "file_bytes": 16680,
+        "sha256": "1474c98809b3d6bca4761ef98e64a06e5b3dccfb1ff5d3a90320159d600cd59d"
+      },
+      "reference_object": {
+        "text_section_bytes": 1581,
+        "berkeley_text_bytes": 3664,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 8,
+        "file_bytes": 6704,
+        "sha256": "8e77d1a334ec0803184044f3bb7f09cf67b7ff5ad0351bc24a01e434ea9329ee"
+      },
+      "selected_object": {
+        "text_section_bytes": 1581,
+        "berkeley_text_bytes": 3664,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 8,
+        "file_bytes": 6704,
+        "sha256": "8e77d1a334ec0803184044f3bb7f09cf67b7ff5ad0351bc24a01e434ea9329ee"
+      }
+    },
+    {
+      "name": "dfmul",
+      "chosen_by_object_code": "reference_clang_oz",
+      "reference": {
+        "text_section_bytes": 1522,
+        "berkeley_text_bytes": 4279,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 16,
+        "file_bytes": 16616,
+        "sha256": "05ebb94ddb84c84e8ec2961c9134bb587e251a561b1523b63e99ad1ac68b5e6a"
+      },
+      "selected": {
+        "text_section_bytes": 1522,
+        "berkeley_text_bytes": 4279,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 16,
+        "file_bytes": 16616,
+        "sha256": "05ebb94ddb84c84e8ec2961c9134bb587e251a561b1523b63e99ad1ac68b5e6a"
+      },
+      "reference_object": {
+        "text_section_bytes": 1290,
+        "berkeley_text_bytes": 3277,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 8,
+        "file_bytes": 6120,
+        "sha256": "2bb053e6d17c7240b14a6d5577c6a52c563f11ac0f7d0654fc0af61d52761723"
+      },
+      "selected_object": {
+        "text_section_bytes": 1290,
+        "berkeley_text_bytes": 3277,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 8,
+        "file_bytes": 6120,
+        "sha256": "2bb053e6d17c7240b14a6d5577c6a52c563f11ac0f7d0654fc0af61d52761723"
+      }
+    },
+    {
+      "name": "dfsin",
+      "chosen_by_object_code": "reference_clang_oz",
+      "reference": {
+        "text_section_bytes": 3553,
+        "berkeley_text_bytes": 7044,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 16,
+        "file_bytes": 17120,
+        "sha256": "a64f0667cd29791f541c81f29593b5108f44b12c23bfc9ade4a3c04363168181"
+      },
+      "selected": {
+        "text_section_bytes": 3553,
+        "berkeley_text_bytes": 7044,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 16,
+        "file_bytes": 17120,
+        "sha256": "a64f0667cd29791f541c81f29593b5108f44b12c23bfc9ade4a3c04363168181"
+      },
+      "reference_object": {
+        "text_section_bytes": 3321,
+        "berkeley_text_bytes": 5930,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 8,
+        "file_bytes": 10056,
+        "sha256": "d80ce00a464037399c383404c97e5410336d2d615f177c06f2968feae7df463f"
+      },
+      "selected_object": {
+        "text_section_bytes": 3321,
+        "berkeley_text_bytes": 5930,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 8,
+        "file_bytes": 10056,
+        "sha256": "d80ce00a464037399c383404c97e5410336d2d615f177c06f2968feae7df463f"
+      }
+    },
+    {
+      "name": "gsm",
+      "chosen_by_object_code": "reference_clang_oz",
+      "reference": {
+        "text_section_bytes": 2582,
+        "berkeley_text_bytes": 4868,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 8,
+        "file_bytes": 16384,
+        "sha256": "9c98d4b5014d378b0fbaeb564124968c82683698645c2943b7a9a4be720f2272"
+      },
+      "selected": {
+        "text_section_bytes": 2582,
+        "berkeley_text_bytes": 4868,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 8,
+        "file_bytes": 16384,
+        "sha256": "9c98d4b5014d378b0fbaeb564124968c82683698645c2943b7a9a4be720f2272"
+      },
+      "reference_object": {
+        "text_section_bytes": 2350,
+        "berkeley_text_bytes": 3882,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 6824,
+        "sha256": "deb464ca5934748f8c3214274f49293b7a80a8f898b4c02da8c9903856e8d098"
+      },
+      "selected_object": {
+        "text_section_bytes": 2350,
+        "berkeley_text_bytes": 3882,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 6824,
+        "sha256": "deb464ca5934748f8c3214274f49293b7a80a8f898b4c02da8c9903856e8d098"
+      }
+    },
+    {
+      "name": "jpeg",
+      "chosen_by_object_code": "portfolio_1",
+      "reference": {
+        "text_section_bytes": 5976,
+        "berkeley_text_bytes": 31151,
+        "berkeley_data_bytes": 616,
+        "berkeley_bss_bytes": 32048,
+        "file_bytes": 48968,
+        "sha256": "168d6f3ed507e8a952cc14de8c9d822828780bf3edd921bb852fc83cd8b01d6a"
+      },
+      "selected": {
+        "text_section_bytes": 5715,
+        "berkeley_text_bytes": 31071,
+        "berkeley_data_bytes": 616,
+        "berkeley_bss_bytes": 32048,
+        "file_bytes": 48936,
+        "sha256": "092efe3a8173a8ffd709a9fa9aeb5845dded93d5289412cc5e37198329fc9fb5"
+      },
+      "reference_object": {
+        "text_section_bytes": 5744,
+        "berkeley_text_bytes": 29875,
+        "berkeley_data_bytes": 40,
+        "berkeley_bss_bytes": 28,
+        "file_bytes": 45000,
+        "sha256": "a6ead9f9e4757e55726a0ba73619a01ca3483eecc58c4567be2fcef913a3f332"
+      },
+      "selected_object": {
+        "text_section_bytes": 5483,
+        "berkeley_text_bytes": 29795,
+        "berkeley_data_bytes": 40,
+        "berkeley_bss_bytes": 28,
+        "file_bytes": 44744,
+        "sha256": "7642a21d83a140ee96fe0e145ed3a2ce6e71208008a40bde8b6d62948b9e19e8"
+      }
+    },
+    {
+      "name": "mips",
+      "chosen_by_object_code": "portfolio_2",
+      "reference": {
+        "text_section_bytes": 1017,
+        "berkeley_text_bytes": 2583,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 8,
+        "file_bytes": 15944,
+        "sha256": "8d8139692896255f21d302e04eac17a72434518326bddc25df3bcc2c9e712463"
+      },
+      "selected": {
+        "text_section_bytes": 995,
+        "berkeley_text_bytes": 2553,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 8,
+        "file_bytes": 15920,
+        "sha256": "5ba713e8fa00c8eccbb3cd90fb0f98b3ffbd2f7f18e6b8692339b1aaeafcbce3"
+      },
+      "reference_object": {
+        "text_section_bytes": 785,
+        "berkeley_text_bytes": 1685,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 4464,
+        "sha256": "53b2dd94172f6eeba6239106684e61b7774c9f122190c6acc329fcab93bf4e19"
+      },
+      "selected_object": {
+        "text_section_bytes": 763,
+        "berkeley_text_bytes": 1655,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 4264,
+        "sha256": "37f53d91ababc450339b46f0eff6874351ea5b1c7d672dba2f4e252d7508b34d"
+      }
+    },
+    {
+      "name": "motion",
+      "chosen_by_object_code": "reference_clang_oz",
+      "reference": {
+        "text_section_bytes": 1719,
+        "berkeley_text_bytes": 7348,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 2104,
+        "file_bytes": 20864,
+        "sha256": "169727527ede3907defed22266a29fc704360a1ffa2986835fa559dbba40f043"
+      },
+      "selected": {
+        "text_section_bytes": 1719,
+        "berkeley_text_bytes": 7348,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 2104,
+        "file_bytes": 20864,
+        "sha256": "169727527ede3907defed22266a29fc704360a1ffa2986835fa559dbba40f043"
+      },
+      "reference_object": {
+        "text_section_bytes": 1487,
+        "berkeley_text_bytes": 6307,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 10400,
+        "sha256": "d80314dfe8251e1ecf10ac2efb5382e2c17e8a106d6a1fe4c4c584dbae1d8972"
+      },
+      "selected_object": {
+        "text_section_bytes": 1487,
+        "berkeley_text_bytes": 6307,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 10400,
+        "sha256": "d80314dfe8251e1ecf10ac2efb5382e2c17e8a106d6a1fe4c4c584dbae1d8972"
+      }
+    },
+    {
+      "name": "sha",
+      "chosen_by_object_code": "reference_clang_oz",
+      "reference": {
+        "text_section_bytes": 1121,
+        "berkeley_text_bytes": 18623,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 128,
+        "file_bytes": 32712,
+        "sha256": "79954f55d443aed918d12ec105fbd7a113b3174b186ac7a4419aa1022270aa35"
+      },
+      "selected": {
+        "text_section_bytes": 1121,
+        "berkeley_text_bytes": 18623,
+        "berkeley_data_bytes": 560,
+        "berkeley_bss_bytes": 128,
+        "file_bytes": 32712,
+        "sha256": "79954f55d443aed918d12ec105fbd7a113b3174b186ac7a4419aa1022270aa35"
+      },
+      "reference_object": {
+        "text_section_bytes": 889,
+        "berkeley_text_bytes": 17665,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 20672,
+        "sha256": "c32686257e6ad88172b23082eaf2a4fba9de17e8562a7cdc17e5a99c64d942b3"
+      },
+      "selected_object": {
+        "text_section_bytes": 889,
+        "berkeley_text_bytes": 17665,
+        "berkeley_data_bytes": 0,
+        "berkeley_bss_bytes": 0,
+        "file_bytes": 20672,
+        "sha256": "c32686257e6ad88172b23082eaf2a4fba9de17e8562a7cdc17e5a99c64d942b3"
+      }
+    }
+  ],
+  "summary": {
+    "text_section_bytes": {
+      "reference_sum": 34907,
+      "selected_sum": 34513,
+      "saved_bytes": 394,
+      "saving_pct": 1.1287134385653308,
+      "wtl": [
+        5,
+        7,
+        0
+      ]
+    },
+    "berkeley_text_bytes": {
+      "reference_sum": 126792,
+      "selected_sum": 126601,
+      "saved_bytes": 191,
+      "saving_pct": 0.15064041895387723,
+      "wtl": [
+        4,
+        7,
+        1
+      ]
+    },
+    "berkeley_data_bytes": {
+      "reference_sum": 6784,
+      "selected_sum": 6784,
+      "saved_bytes": 0,
+      "saving_pct": 0.0,
+      "wtl": [
+        0,
+        12,
+        0
+      ]
+    },
+    "berkeley_bss_bytes": {
+      "reference_sum": 46464,
+      "selected_sum": 46464,
+      "saved_bytes": 0,
+      "saving_pct": 0.0,
+      "wtl": [
+        0,
+        12,
+        0
+      ]
+    },
+    "file_bytes": {
+      "reference_sum": 274152,
+      "selected_sum": 274016,
+      "saved_bytes": 136,
+      "saving_pct": 0.0496075169978698,
+      "wtl": [
+        5,
+        7,
+        0
+      ]
+    }
+  }
+}
