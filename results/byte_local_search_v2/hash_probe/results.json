@@ -1,0 +1,123 @@
+{
+ "uri": "generator://csmith-v0/40",
+ "scope": "diagnostic replay of frozen start sequences; not part of the pilot budget or results",
+ "manifest_fingerprint": "7807d8ec65bc91d4d0cfa4564b07b119f7945d2ac11cd1d4474cef02a8bd759a",
+ "targets": [
+  {
+   "start": "42",
+   "start_index": 7,
+   "repeats": 8,
+   "frozen": {
+    "ic": 1095,
+    "text": 7653,
+    "text_sec": 4384,
+    "bitcode_sha256": "3950df7e71421c4aa3fd83be522c7ab19910dfea2f7184682830b13afc3d1591",
+    "object_sha256": "056a1687f1d1d582178a585293ea94f45feb58b39969f35edefe6cce7dc5a35d"
+   },
+   "metrics_identical_across_variants": true,
+   "variants": [
+    {
+     "name": "s42_i7_variant0",
+     "ir_sha256": "c207d672c826cf191f8cf2241f87b7ca5f470fd37aea83bc4b52256176d336f5",
+     "repeats": [
+      0,
+      1,
+      4,
+      5,
+      7
+     ],
+     "ic": 1095,
+     "text": 7653,
+     "text_sec": 4384,
+     "bitcode_sha256": "3950df7e71421c4aa3fd83be522c7ab19910dfea2f7184682830b13afc3d1591",
+     "object_sha256": "056a1687f1d1d582178a585293ea94f45feb58b39969f35edefe6cce7dc5a35d"
+    },
+    {
+     "name": "s42_i7_variant1",
+     "ir_sha256": "8990aa4563b264f36261ac41d72f8ad7a43b7c9cad21df027438f38fa5ed115a",
+     "repeats": [
+      2,
+      3,
+      6
+     ],
+     "ic": 1095,
+     "text": 7653,
+     "text_sec": 4384,
+     "bitcode_sha256": "61669e95f784317185638e99bb1f7042c08b11c387ca77c6cfbaa1537074144b",
+     "object_sha256": "7009a50f296325be2063f4b16a6f962b31e116bd385b667e39aa514ae0a19d46"
+    }
+   ],
+   "frozen_variant": "s42_i7_variant0",
+   "ir_diff_vs_first_variant": {
+    "s42_i7_variant1": {
+     "changed_lines": 2,
+     "sample": [
+      "--- ",
+      "+++ ",
+      "@@ -1352 +1352 @@",
+      "-  br i1 icmp eq (i16* inttoptr (i64 trunc (i128 lshr (i128 bitcast (<2 x i64> <i64 ptrtoint (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 7) to i64), i64 ptrtoint (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 7) to i64)> to i128), i128 64) to i64) to i16*), i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 1)), label %40, label %53",
+      "+  br i1 icmp eq (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 1), i16* inttoptr (i64 trunc (i128 lshr (i128 bitcast (<2 x i64> <i64 ptrtoint (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 7) to i64), i64 ptrtoint (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 7) to i64)> to i128), i128 64) to i64) to i16*)), label %40, label %53"
+     ]
+    }
+   }
+  },
+  {
+   "start": "44",
+   "start_index": 3,
+   "repeats": 8,
+   "frozen": {
+    "ic": 1177,
+    "text": 8434,
+    "text_sec": 4813,
+    "bitcode_sha256": "ba1bb8a205ca2684cbe1578b4d94d26862bae7cae6145c6af9780ffafe6f5d23",
+    "object_sha256": "fefa58a85a124ecd3c2e304f0cff88d4382fd918b1e51a7deaa11e9d56bdaee7"
+   },
+   "metrics_identical_across_variants": true,
+   "variants": [
+    {
+     "name": "s44_i3_variant0",
+     "ir_sha256": "3196b8d7e1e6ddba55bd9f31c988c360648fd4219801f44197e8b7d4c3345ee5",
+     "repeats": [
+      0,
+      1,
+      4,
+      5
+     ],
+     "ic": 1177,
+     "text": 8434,
+     "text_sec": 4813,
+     "bitcode_sha256": "2f49625077ec60b8441732320f8bb881f820f54cd5210073e4716e373a66dc9f",
+     "object_sha256": "02d9bf907c8d3fe47947d168cbc25de0b50d65e6869d13893f19cb2f47ffdbc4"
+    },
+    {
+     "name": "s44_i3_variant1",
+     "ir_sha256": "a5787085489e4bbb68ba610dd3e215894792dc7615d48bd305061652f1e5e79f",
+     "repeats": [
+      2,
+      3,
+      6,
+      7
+     ],
+     "ic": 1177,
+     "text": 8434,
+     "text_sec": 4813,
+     "bitcode_sha256": "ba1bb8a205ca2684cbe1578b4d94d26862bae7cae6145c6af9780ffafe6f5d23",
+     "object_sha256": "fefa58a85a124ecd3c2e304f0cff88d4382fd918b1e51a7deaa11e9d56bdaee7"
+    }
+   ],
+   "frozen_variant": "s44_i3_variant1",
+   "ir_diff_vs_first_variant": {
+    "s44_i3_variant1": {
+     "changed_lines": 2,
+     "sample": [
+      "--- ",
+      "+++ ",
+      "@@ -1310 +1310 @@",
+      "-  br i1 icmp eq (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 1), i16* inttoptr (i64 trunc (i128 lshr (i128 bitcast (<2 x i64> <i64 ptrtoint (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 7) to i64), i64 ptrtoint (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 7) to i64)> to i128), i128 64) to i64) to i16*)), label %37, label %52",
+      "+  br i1 icmp eq (i16* inttoptr (i64 trunc (i128 lshr (i128 bitcast (<2 x i64> <i64 ptrtoint (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 7) to i64), i64 ptrtoint (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 7) to i64)> to i128), i128 64) to i64) to i16*), i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 1)), label %37, label %52"
+     ]
+    }
+   }
+  }
+ ]
+}

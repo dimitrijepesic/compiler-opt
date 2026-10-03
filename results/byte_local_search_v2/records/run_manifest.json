@@ -1,0 +1,7 @@
+{
+ "fingerprint": "7807d8ec65bc91d4d0cfa4564b07b119f7945d2ac11cd1d4474cef02a8bd759a",
+ "started": "2026-09-20T12:21:59.570479+00:00",
+ "command": "scripts/byte_local_search_v2.py --run",
+ "workers": 1,
+ "hardware": "amd64 container under Rosetta 2 on Apple silicon; describes this host only, not native optimization speed"
+}

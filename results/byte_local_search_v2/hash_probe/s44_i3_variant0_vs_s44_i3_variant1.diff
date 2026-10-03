@@ -1,0 +1,5 @@
+--- 
++++ 
+@@ -1310 +1310 @@
+-  br i1 icmp eq (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 1), i16* inttoptr (i64 trunc (i128 lshr (i128 bitcast (<2 x i64> <i64 ptrtoint (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 7) to i64), i64 ptrtoint (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 7) to i64)> to i128), i128 64) to i64) to i16*)), label %37, label %52
++  br i1 icmp eq (i16* inttoptr (i64 trunc (i128 lshr (i128 bitcast (<2 x i64> <i64 ptrtoint (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 7) to i64), i64 ptrtoint (i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 7) to i64)> to i128), i128 64) to i64) to i16*), i16* getelementptr inbounds ([8 x i16], [8 x i16]* @g_91, i64 0, i64 1)), label %37, label %52

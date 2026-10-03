@@ -1,0 +1,15 @@
+start 2026-09-20T12:21:57Z
+0 done, 12 pending, manifest 7807d8ec65bc91d4
+  1/12 benchmark://blas-v0/25: ok (118.75s)
+  2/12 benchmark://blas-v0/288: ok (64.1s)
+  3/12 benchmark://chstone-v0/aes: ok (106.21s)
+  4/12 benchmark://chstone-v0/mips: ok (84.96s)
+  5/12 benchmark://mibench-v1/qsort1: ok (74.94s)
+  6/12 benchmark://mibench-v1/susan-e-2: ok (92.45s)
+  7/12 benchmark://npb-v0/119: ok (78.9s)
+  8/12 benchmark://npb-v0/16: ok (58.29s)
+  9/12 benchmark://poj104-v1/102/1409: ok (83.09s)
+  10/12 benchmark://poj104-v1/54/59: ok (75.53s)
+  11/12 generator://csmith-v0/21: ok (77.85s)
+  12/12 generator://csmith-v0/40: ok (102.75s)
+end 2026-09-20T12:38:57Z

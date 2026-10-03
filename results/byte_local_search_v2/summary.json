@@ -1,0 +1,545 @@
+{
+ "manifest_fingerprint": "7807d8ec65bc91d4d0cfa4564b07b119f7945d2ac11cd1d4474cef02a8bd759a",
+ "programs_expected": 12,
+ "programs_usable": 12,
+ "problems": [],
+ "timing_label": "amd64 container under Rosetta 2 on Apple silicon; describes this host only, not native optimization speed",
+ "paired_advantage_pct_of_oz": {
+  "all": {
+   "curve": {
+    "n": 12,
+    "per_start": {
+     "42": 0.17868404456590287,
+     "43": -1.0221778431784738,
+     "44": -0.7935673743956275
+    },
+    "mean_over_starts": -0.5456870576693995,
+    "bytes_diff_per_start": {
+     "42": 68,
+     "43": -389,
+     "44": -302
+    },
+    "oz_bytes": 38056
+   },
+   "curve_strict": {
+    "n": 12,
+    "per_start": {
+     "42": 0.17868404456590287,
+     "43": -1.0221778431784738,
+     "44": -0.7778011351692243
+    },
+    "mean_over_starts": -0.5404316445939318,
+    "bytes_diff_per_start": {
+     "42": 68,
+     "43": -389,
+     "44": -296
+    },
+    "oz_bytes": 38056
+   }
+  },
+  "without_npb": {
+   "curve": {
+    "n": 10,
+    "per_start": {
+     "42": 0.23920920251873218,
+     "43": -1.3684173497027474,
+     "44": -1.0623702817743694
+    },
+    "mean_over_starts": -0.7305261429861283,
+    "bytes_diff_per_start": {
+     "42": 68,
+     "43": -389,
+     "44": -302
+    },
+    "oz_bytes": 28427
+   },
+   "curve_strict": {
+    "n": 10,
+    "per_start": {
+     "42": 0.23920920251873218,
+     "43": -1.3684173497027474,
+     "44": -1.0412635874344813
+    },
+    "mean_over_starts": -0.7234905782061656,
+    "bytes_diff_per_start": {
+     "42": 68,
+     "43": -389,
+     "44": -296
+    },
+    "oz_bytes": 28427
+   }
+  },
+  "npb-v0": {
+   "curve": {
+    "n": 2,
+    "per_start": {
+     "42": 0.0,
+     "43": 0.0,
+     "44": 0.0
+    },
+    "mean_over_starts": 0.0,
+    "bytes_diff_per_start": {
+     "42": 0,
+     "43": 0,
+     "44": 0
+    },
+    "oz_bytes": 9629
+   },
+   "curve_strict": {
+    "n": 2,
+    "per_start": {
+     "42": 0.0,
+     "43": 0.0,
+     "44": 0.0
+    },
+    "mean_over_starts": 0.0,
+    "bytes_diff_per_start": {
+     "42": 0,
+     "43": 0,
+     "44": 0
+    },
+    "oz_bytes": 9629
+   }
+  },
+  "mibench-v1": {
+   "curve": {
+    "n": 2,
+    "per_start": {
+     "42": 0.0,
+     "43": -10.109828217403548,
+     "44": -2.8442692199380457
+    },
+    "mean_over_starts": -4.318032479113865,
+    "bytes_diff_per_start": {
+     "42": 0,
+     "43": -359,
+     "44": -101
+    },
+    "oz_bytes": 3551
+   },
+   "curve_strict": {
+    "n": 2,
+    "per_start": {
+     "42": 0.0,
+     "43": -10.109828217403548,
+     "44": -2.8442692199380457
+    },
+    "mean_over_starts": -4.318032479113865,
+    "bytes_diff_per_start": {
+     "42": 0,
+     "43": -359,
+     "44": -101
+    },
+    "oz_bytes": 3551
+   }
+  },
+  "blas-v0": {
+   "curve": {
+    "n": 2,
+    "per_start": {
+     "42": 0.5192772798406601,
+     "43": 0.0,
+     "44": -1.0527813344714754
+    },
+    "mean_over_starts": -0.17783468487693843,
+    "bytes_diff_per_start": {
+     "42": 73,
+     "43": 0,
+     "44": -148
+    },
+    "oz_bytes": 14058
+   },
+   "curve_strict": {
+    "n": 2,
+    "per_start": {
+     "42": 0.5192772798406601,
+     "43": 0.0,
+     "44": -1.0527813344714754
+    },
+    "mean_over_starts": -0.17783468487693843,
+    "bytes_diff_per_start": {
+     "42": 73,
+     "43": 0,
+     "44": -148
+    },
+    "oz_bytes": 14058
+   }
+  },
+  "chstone-v0": {
+   "curve": {
+    "n": 2,
+    "per_start": {
+     "42": -0.06371861858034918,
+     "43": -0.3823117114820951,
+     "44": -0.5989550146552822
+    },
+    "mean_over_starts": -0.34832844823924214,
+    "bytes_diff_per_start": {
+     "42": -5,
+     "43": -30,
+     "44": -47
+    },
+    "oz_bytes": 7847
+   },
+   "curve_strict": {
+    "n": 2,
+    "per_start": {
+     "42": -0.06371861858034918,
+     "43": -0.3823117114820951,
+     "44": -0.5989550146552822
+    },
+    "mean_over_starts": -0.34832844823924214,
+    "bytes_diff_per_start": {
+     "42": -5,
+     "43": -30,
+     "44": -47
+    },
+    "oz_bytes": 7847
+   }
+  },
+  "csmith-v0": {
+   "curve": {
+    "n": 2,
+    "per_start": {
+     "42": 0.0,
+     "43": 0.0,
+     "44": 0.0
+    },
+    "mean_over_starts": 0.0,
+    "bytes_diff_per_start": {
+     "42": 0,
+     "43": 0,
+     "44": 0
+    },
+    "oz_bytes": 2258
+   },
+   "curve_strict": {
+    "n": 2,
+    "per_start": {
+     "42": 0.0,
+     "43": 0.0,
+     "44": 0.0
+    },
+    "mean_over_starts": 0.0,
+    "bytes_diff_per_start": {
+     "42": 0,
+     "43": 0,
+     "44": 0
+    },
+    "oz_bytes": 2258
+   }
+  },
+  "poj104-v1": {
+   "curve": {
+    "n": 2,
+    "per_start": {
+     "42": 0.0,
+     "43": 0.0,
+     "44": -0.8415147265077139
+    },
+    "mean_over_starts": -0.2805049088359046,
+    "bytes_diff_per_start": {
+     "42": 0,
+     "43": 0,
+     "44": -6
+    },
+    "oz_bytes": 713
+   },
+   "curve_strict": {
+    "n": 2,
+    "per_start": {
+     "42": 0.0,
+     "43": 0.0,
+     "44": 0.0
+    },
+    "mean_over_starts": 0.0,
+    "bytes_diff_per_start": {
+     "42": 0,
+     "43": 0,
+     "44": 0
+    },
+    "oz_bytes": 713
+   }
+  }
+ },
+ "paired_outcomes": {
+  "42": {
+   "W": 1,
+   "T": 10,
+   "L": 1,
+   "median_paired_pct": 0.0,
+   "median_local_gain_pct": 0.0,
+   "median_control_gain_pct": 0.0
+  },
+  "43": {
+   "W": 0,
+   "T": 10,
+   "L": 2,
+   "median_paired_pct": 0.0,
+   "median_local_gain_pct": 0.0,
+   "median_control_gain_pct": 0.0
+  },
+  "44": {
+   "W": 0,
+   "T": 7,
+   "L": 5,
+   "median_paired_pct": 0.0,
+   "median_local_gain_pct": 0.0,
+   "median_control_gain_pct": 0.0
+  }
+ },
+ "arm_gain_vs_oz_pct": {
+  "all": {
+   "42": {
+    "local": {
+     "8": 3.2609838133277274,
+     "16": 3.2609838133277274,
+     "24": 3.4528063905822997
+    },
+    "control": {
+     "8": 3.2609838133277274,
+     "16": 3.274122346016397,
+     "24": 3.274122346016397
+    }
+   },
+   "43": {
+    "local": {
+     "8": 1.821000630649569,
+     "16": 1.9261088921589238,
+     "24": 1.9287365986966576
+    },
+    "control": {
+     "8": 1.821000630649569,
+     "16": 2.9482867353373976,
+     "24": 2.950914441875131
+    }
+   },
+   "44": {
+    "local": {
+     "8": 1.487281900357368,
+     "16": 1.705381542989279,
+     "24": 2.091654404036157
+    },
+    "control": {
+     "8": 1.487281900357368,
+     "16": 2.0837712844229554,
+     "24": 2.885221778431785
+    }
+   }
+  },
+  "without_npb": {
+   "42": {
+    "local": {
+     "8": 4.365567945966863,
+     "16": 4.365567945966863,
+     "24": 4.6223660604355015
+    },
+    "control": {
+     "8": 4.365567945966863,
+     "16": 4.383156857916769,
+     "24": 4.383156857916769
+    }
+   },
+   "43": {
+    "local": {
+     "8": 2.4378231962570793,
+     "16": 2.5785344918563338,
+     "24": 2.582052274246315
+    },
+    "control": {
+     "8": 2.4378231962570793,
+     "16": 3.946951841559081,
+     "24": 3.9504696239490626
+    }
+   },
+   "44": {
+    "local": {
+     "8": 1.9910648327294473,
+     "16": 2.2830407710979,
+     "24": 2.8001547824251594
+    },
+    "control": {
+     "8": 1.9910648327294473,
+     "16": 2.789601435255215,
+     "24": 3.8625250641995286
+    }
+   }
+  }
+ },
+ "arm_gain_vs_oz_pct_strict_24": {
+  "all": {
+   "42": {
+    "local": 3.4528063905822997,
+    "control": 3.274122346016397
+   },
+   "43": {
+    "local": 1.9287365986966576,
+    "control": 2.950914441875131
+   },
+   "44": {
+    "local": 2.091654404036157,
+    "control": 2.8694555392053815
+   }
+  },
+  "without_npb": {
+   "42": {
+    "local": 4.6223660604355015,
+    "control": 4.383156857916769
+   },
+   "43": {
+    "local": 2.582052274246315,
+    "control": 3.9504696239490626
+   },
+   "44": {
+    "local": 2.8001547824251594,
+    "control": 3.8414183698596407
+   }
+  }
+ },
+ "cost": {
+  "arms": {
+   "local": {
+    "accounting_attempts": 864,
+    "executed": 864,
+    "failed": 0,
+    "reset_s": 3.3758626508060843,
+    "optimize_s": 20.58729038015008,
+    "export_s": 1.2068521689798217,
+    "codegen_s": 269.303590723488,
+    "metric_s": 180.55307800709852,
+    "hash_s": 0.24696275911992416,
+    "total_s": 475.297571062576,
+    "generation_s": 0.27548716685851105,
+    "wall_s": 475.6211114219914
+   },
+   "control": {
+    "accounting_attempts": 864,
+    "executed": 864,
+    "failed": 0,
+    "reset_s": 3.3911582819127943,
+    "optimize_s": 23.67463888527709,
+    "export_s": 1.2141484171152115,
+    "codegen_s": 270.93932438621414,
+    "metric_s": 180.6631685924076,
+    "hash_s": 0.24830464160186239,
+    "total_s": 480.1544538233138,
+    "generation_s": 0.022869380947668105,
+    "wall_s": 480.1939612090064
+   }
+  },
+  "reference_executions": 12,
+  "reference_accounting": 72,
+  "reference_timing_s": {
+   "optimize_s": 0.2813079389743507,
+   "export_s": 0.027703077968908474,
+   "codegen_s": 3.7067017569497693,
+   "metric_s": 2.5147811969800387,
+   "hash_s": 0.011537583981407806
+  },
+  "input_and_reference_s": 57.31714862797526,
+  "program_wall_s": 1017.8199999999999
+ },
+ "start_hash_variations": [
+  "generator://csmith-v0/40 start 42 control attempts [7]",
+  "generator://csmith-v0/40 start 44 local attempts [3]"
+ ],
+ "functional": {
+  "benchmark://blas-v0/25": {
+   "status": "unchecked",
+   "reason": "no functional harness for this suite"
+  },
+  "benchmark://blas-v0/288": {
+   "status": "unchecked",
+   "reason": "no functional harness for this suite"
+  },
+  "benchmark://chstone-v0/aes": {
+   "reference_stdout_equals_source_build_stdout": true,
+   "status": "pass"
+  },
+  "benchmark://chstone-v0/mips": {
+   "reference_stdout_equals_source_build_stdout": true,
+   "status": "pass"
+  },
+  "benchmark://mibench-v1/qsort1": {
+   "status": "unchecked",
+   "reason": "no functional harness for this suite"
+  },
+  "benchmark://mibench-v1/susan-e-2": {
+   "status": "unchecked",
+   "reason": "no functional harness for this suite"
+  },
+  "benchmark://npb-v0/119": {
+   "status": "unchecked",
+   "reason": "no functional harness for this suite"
+  },
+  "benchmark://npb-v0/16": {
+   "status": "unchecked",
+   "reason": "no functional harness for this suite"
+  },
+  "benchmark://poj104-v1/102/1409": {
+   "status": "unchecked",
+   "reason": "no functional harness for this suite"
+  },
+  "benchmark://poj104-v1/54/59": {
+   "status": "unchecked",
+   "reason": "no functional harness for this suite"
+  },
+  "generator://csmith-v0/21": {
+   "status": "not_needed",
+   "reason": "every run delivered the reference object"
+  },
+  "generator://csmith-v0/40": {
+   "status": "not_needed",
+   "reason": "every run delivered the reference object"
+  }
+ },
+ "criteria": {
+  "C1": {
+   "pass": false,
+   "value": -0.5456870576693995,
+   "threshold": ">= 0.5"
+  },
+  "C2": {
+   "pass": false,
+   "value": {
+    "42": 0.17868404456590287,
+    "43": -1.0221778431784738,
+    "44": -0.7935673743956275
+   },
+   "threshold": "> 0 in at least 2 of 3 starts"
+  },
+  "C3": {
+   "pass": false,
+   "value": {
+    "without_npb_mean": -0.7305261429861283,
+    "suite_means": {
+     "mibench-v1": -4.318032479113865,
+     "blas-v0": -0.17783468487693843,
+     "chstone-v0": -0.34832844823924214,
+     "csmith-v0": 0.0,
+     "poj104-v1": -0.2805049088359046
+    }
+   },
+   "threshold": "> 0 and at least 2 non-NPB suites > 0"
+  },
+  "C4": {
+   "pass": true,
+   "value": {
+    "delivered_above_oz": [],
+    "functional_failures": [],
+    "unchecked": [
+     "benchmark://blas-v0/25",
+     "benchmark://blas-v0/288",
+     "benchmark://mibench-v1/qsort1",
+     "benchmark://mibench-v1/susan-e-2",
+     "benchmark://npb-v0/119",
+     "benchmark://npb-v0/16",
+     "benchmark://poj104-v1/102/1409",
+     "benchmark://poj104-v1/54/59"
+    ]
+   },
+   "threshold": "no delivered object above Oz; all available functional checks pass"
+  },
+  "continue": false
+ }
+}
