@@ -1,10 +1,83 @@
-# Null Models and Sampling-Based Evaluation of Reinforcement Learning for LLVM Pass Ordering
+# A Causal Audit of Baselines for LLVM Code-Size Optimization
+
+Artifact for the TELFOR 2026 paper: source `paper/main.tex`, built PDF
+`paper/main.pdf`.
+
+In an LLVM 10 phase-ordering experiment run through the original
+CompilerGym 0.2.5 service, a frozen eight-sequence portfolio appeared to
+reduce the summed IR instruction count (IC) of 120 NPB modules by 23.84%
+relative to the service's `-Oz` reference. Adding `minsize optsize` to the
+function definitions of both the reference and the candidate inputs reduces
+that advantage to 0.08%. Preventing loop unrolling through input loop
+metadata removes 12,560 of the 12,639 extra instructions in the original
+reference, a fixed-IR control isolates a further code-generation effect, and
+a 5.76% code-section saving survives the corrected comparison.
+
+## Check the paper's numbers (no LLVM needed)
+
+```bash
+make verify        # regenerate the numerical macros and compare; check causal-audit records, hashes and totals
+make paper         # verify, then build paper/main.pdf with tectonic
+```
+
+`make verify` needs only Python 3; `make paper` also needs
+[tectonic](https://tectonic-typesetting.github.io/). Every number in the
+text, Table II and Fig. 1 comes from `scripts/build_paper_artifact.py`, which reads the
+per-module records below and writes `paper/generated/`. `make numbers`
+rewrites those macros; `make figures` also redraws
+`paper/figures/baseline_audit.pdf` and needs the packages in
+`requirements-paper.txt` (pass `PYTHON=.venv-paper/bin/python` after
+installing them in a virtual environment).
+
+## Rerun the compiler
+
+Docker with `linux/amd64` (emulated on Apple silicon):
+
+```bash
+make image               # checksum-pinned LLVM 10.0.0 release; images cgym:0.2.5 and cgym-causal:0.2.5
+make reproduce-example   # P, U, A and U+ for transfb_nc0 through the original service, into tmp/reproduce-example
+```
+
+`reproduce-example` checks the fresh IR, IC and object sizes against the
+recorded example and runs all variants on the fixed input vectors. The full
+campaigns are rerun with the scripts in the table; each results directory
+documents its commands and outputs.
+
+| Paper | Records | Produced by |
+|---|---|---|
+| Table II, Fig. 1(a) | `results/baseline_audit/llvm10_canonical/` | `scripts/baseline_audit_cgym_matrix.py` |
+| Sec. IV-B, IV-C, Fig. 1(b) | `results/causal_baseline_audit/campaign/` | `scripts/causal_baseline_audit/run_audit.py` |
+| Sec. IV-D example | `results/causal_baseline_audit/example_npb116_transfb_nc0/` | `scripts/causal_baseline_audit/make_example.py` |
+| Sec. IV-E, CHStone source builds | `results/baseline_audit/llvm10_source_check/` | `scripts/check_cgym_source_baseline.py` |
+| Sec. IV-E, candidate selection | `results/selector_audit/` | `scripts/evaluate_selector_audit.py` |
+
+## Exploratory work kept for provenance
+
+None of the following supports a claim in `paper/main.tex`:
+
+- earlier audits on the same records: `results/gnn_attribute_audit/`,
+  `results/baseline_selection_audit/`, `results/size_portfolio_demo/`,
+  `results/size_portfolio_source_check/`;
+- superseded manuscript drafts: `paper/telfor_revised.tex` and
+  `paper/telfor_safe_selector.tex` (with `results/budgeted_selector_audit/`);
+- pilots that did not pan out: `results/byte_local_search_v2/` (negative),
+  `results/memory_planner_probe/` (feasibility probe, direction withdrawn).
+
+## Earlier study: RL for LLVM pass ordering
+
+The rest of this README documents the preceding study
+(`paper/telfor_paper.tex`), whose portfolio and GNN checkpoints the audit
+reuses. Its `-Oz` comparisons use the unattributed service reference that the
+audit examines, so its size gains over `-Oz` should be read together with
+Sec. IV of the new paper.
+
+**Null Models and Sampling-Based Evaluation of Reinforcement Learning for LLVM Pass Ordering**
 
 Reinforcement learning for LLVM pass ordering (PPO with a flat Autophase
 state vs. a GraphSAGE encoder over the program graph), measured against
 random-search null models in the same 36-pass action space and evaluated
 both by deterministic rollout and by best-of-k sampling. Paper source:
-`paper/telfor_paper.tex` (TELFOR 2026).
+`paper/telfor_paper.tex` (earlier draft, superseded by `paper/main.tex`).
 
 > **Summary of the paper.** 880 programs from 11 independent sources,
 > two null models in the curated 36-pass space, sampling-based (best-of-k)
@@ -34,7 +107,7 @@ both by deterministic rollout and by best-of-k sampling. Paper source:
 > any CompilerGym benchmark set.
 > The controlled two-representation comparison below is unchanged.
 
-## Overview
+### Overview
 
 This project trains reinforcement-learning agents to choose LLVM optimization
 pass orderings that minimize IR instruction count (IC), and asks a specific
@@ -50,7 +123,7 @@ end-to-end IC reduction is attributable to the curated 36-pass action space
 rather than to learning. An earlier version of this README claimed the
 opposite; see [What changed and why](#what-changed-and-why).
 
-## Controlled protocol
+### Controlled protocol
 
 Everything that differs between the two agents is the state representation.
 
@@ -67,7 +140,7 @@ Everything that differs between the two agents is the state representation.
 Null models measured in the same 36-pass space: a single random 45-step
 episode (mean of 20), and best-of-50 random episodes.
 
-## Results
+### Results
 
 Total IC, lower is better. `-O3`/`-Oz` are the **real** optimization levels
 (CompilerGym `IrInstructionCountO3/Oz` observations), not hand-picked pass
@@ -93,7 +166,7 @@ random-1-episode 640, greedy = random-50 604):
 | PPO + Autophase | 685 | 681 | **629** |
 | PPO + GNN | 689 | 689 | 689 |
 
-### Findings
+#### Findings
 
 1. **The curated action space, not RL, does the heavy lifting.** Best-of-50
    random search inside the 36-pass space matches greedy search (within 0.5%)
@@ -129,7 +202,7 @@ random-1-episode 640, greedy = random-50 604):
    3 min per 100K steps), dominated by IR→graph extraction, despite an
    on-disk graph cache.
 
-### What changed and why
+#### What changed and why
 
 The original README reported that both agents "significantly outperform -O3"
 (~50% vs ~48% reduction) and that the GNN "matches Autophase with 75% fewer
@@ -159,14 +232,14 @@ Fixes applied before the rerun (all in this repo's history):
   a paired Wilcoxon test; `scripts/generate_figures.py` (referenced but
   missing before) exists.
 
-## Figures
+### Figures
 
 ![Training curves](results/figures/fig1_training_curves.png)
 ![Validation curves](results/figures/fig2_validation_curves.png)
 ![Diagnostics](results/figures/fig3_entropy.png)
 ![Final comparison](results/figures/fig4_best_val_comparison.png)
 
-## Repository structure
+### Repository structure
 
 ```
 compiler-opt/
@@ -208,7 +281,7 @@ compiler-opt/
 │   ├── generate_battery_figure.py  # the paper's Fig. 1 (347-program battery)
 │   └── generate_figures.py, generate_paper_figures.py  # cBench-only companion
 ├── data/                        # benchmark inventory, pass profiles
-├── paper/                       # telfor_paper.tex, refs.bib, figures/
+├── paper/                       # main.tex (audit paper), telfor_paper.tex, refs.bib, figures/
 └── results/
     ├── full_baselines_v2.json   # cBench baselines incl. real O3/Oz + nulls
     ├── final_evaluation*.json   # Argmax results (controlled, mixed, pretrained)
@@ -222,7 +295,7 @@ compiler-opt/
     └── archive_2026-04_original/  # Pre-rerun artifacts, kept for provenance
 ```
 
-## Reproduce
+### Reproduce
 
 Linux (or WSL2 Ubuntu 22.04) required: CompilerGym 0.2.5 is Linux-only.
 
@@ -234,12 +307,12 @@ bash scripts/run_experiment.sh    # baselines + 6 trainings + eval + figures
 Wall-clock on a laptop CPU: baselines ~35 min, PPO+Autophase ~3 min/seed,
 PPO+GNN ~50-70 min/seed, final evaluation ~15 min.
 
-## Follow-up experiments (three tracks, run in parallel)
+### Follow-up experiments (three tracks, run in parallel)
 
 The controlled study left three open leads. All three were run; two changed
 the conclusions materially.
 
-### Track A: sampling evaluation (best-of-8) finds the GNN's first real win
+#### Track A: sampling evaluation (best-of-8) finds the GNN's first real win
 
 Argmax rollouts measure a policy's *mode*; sampling measures its
 *distribution*. Eight sampled rollouts per benchmark, best kept, against a
@@ -258,7 +331,7 @@ Every GNN seed beats every Autophase seed on both splits, beats the null
 greedy's measured ≈1,970 per program: (steps+1)×124 passes tried). The
 "plateau" policies were good *samplers* with a degenerate mode.
 
-### Track C: encoder pretraining breaks the plateau
+#### Track C: encoder pretraining breaks the plateau
 
 Distilling Autophase into the encoder (regress log1p(Autophase) from the
 graph; 2,430 states from random episodes on the nine training-split programs
@@ -275,7 +348,7 @@ than the four-program RL stage; val MSE 0.025) before RL fine-tuning:
 RL gradients alone could not train the encoder; a pretrained encoder + RL
 can. The representation was never the bottleneck; encoder optimization was.
 
-### Track B: mixed-size training does not fix scale generalization
+#### Track B: mixed-size training does not fix scale generalization
 
 Training on 9 benchmarks (O0 IC 450-15,184) instead of 4 tiny ones:
 Autophase became *worse and less stable* (argmax validation totals 82,935 /
@@ -294,7 +367,7 @@ generalization. Results: `results/final_evaluation_mixed_v2.json` (the
 earlier single interrupted seed, 64,958 / 69,104, is kept in
 `final_evaluation_mixed.json`).
 
-### Revised conclusion
+#### Revised conclusion
 
 The graph representation is not the problem; measurement and optimization
 were. Evaluate the policy as a sampler (Track A) or give the encoder a
@@ -306,7 +379,7 @@ alive and supported: 8 sampled rollouts from the GNN policy come within
 0.4% of greedy quality at ~18% of greedy's compile cost, and 32 rollouts
 match it at 73%.
 
-## Limitations
+### Limitations
 
 - The objective is IR instruction count. Its correlation with `.text` size is
   validated only for programs above ~1,000 instructions (Pearson r = 0.78,
