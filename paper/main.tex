@@ -34,8 +34,8 @@ A controlled intervention that prevents loop unrolling removes
 original reference. Measurements on fixed optimized IR separately
 identify an attribute-dependent code-generation effect. The corrected
 comparison still retains \NpbAttrCodeGain\% savings in code-section
-bytes, so the instruction-count result does not determine the native
-size result. Paired measurements on three suites, a small source-build
+bytes, so the instruction-count result does not determine the
+native-size result. Paired measurements on three suites, a small source-build
 control, and a learned-versus-random selection check delimit the finding.
 We provide per-module records and an executable example to make baseline
 preparation, causal interventions, and size definitions inspectable.
@@ -48,9 +48,10 @@ compiler optimization, LLVM, code size, phase ordering, reproducibility
 \end{IEEEkeywords}
 
 \section{Introduction}
-Choosing a sequence of compiler optimization passes is often evaluated
-by comparing the resulting intermediate representation (IR) with a
-standard optimization pipeline. CompilerGym~\cite{compilergym} makes
+Choosing a sequence of compiler optimization passes to reduce code size
+is a long-studied problem~\cite{cooper1999}. Such sequences are often
+evaluated by comparing the resulting intermediate representation (IR)
+with a standard optimization pipeline. CompilerGym~\cite{compilergym} makes
 this experiment accessible through a common interface, including an
 LLVM \texttt{-Oz} reference and a fast instruction-count objective.
 Learned methods can select passes or choose from a portfolio of
@@ -101,11 +102,14 @@ including \texttt{minsize} and \texttt{optsize}~\cite{cginput}.
 An earlier dataset issue documented \texttt{noinline} attributes left
 by \texttt{-O0} preparation~\cite{cgissue}. That issue concerns a
 different attribute and transformation, but illustrates why benchmark
-preparation is part of the experimental protocol.
+preparation is part of the experimental protocol. More generally,
+innocuous-looking details of an experimental setup can bias conclusions
+about compiler optimizations~\cite{mytkowicz}.
 
 CompilerGym also exposes object-size measurements and documents the
-limitations of instruction count as a proxy~\cite{cgmetrics}.
-The coreset approach~\cite{coreset} demonstrates learned selection
+limitations of instruction count as a proxy~\cite{cgmetrics}, and
+learned size optimization integrated into LLVM is trained on native size
+reduction~\cite{mlgo}. The coreset approach~\cite{coreset} demonstrates learned selection
 over pass-sequence candidates; neither portfolios nor byte-based
 selection originate in this study. Our question is the magnitude and
 mechanism of a baseline-sensitive result, with a secondary check of
@@ -115,13 +119,14 @@ whether an IR advantage survives the choice of a native-size objective.
 \subsection{Service and paired comparison}
 We use the unmodified CompilerGym~0.2.5 service and its bundled LLVM~10
 on x86-64. We invoke the service's built-in baseline operation and
-require the exported IC to equal its \texttt{-Oz} observation. The
+require the exported module's static IR instruction count (IC) to equal
+its \texttt{-Oz} observation. The
 standalone \texttt{opt -Oz} command constructs a different pipeline
 and is not substituted for this reference. Exact API calls and
 toolchain hashes are recorded in the artifact.
 
-The paired audit covers \AuditCount{} modules: \NpbCount{} NPB,
-\MibenchCount{} MiBench, and \BlasCount{} BLAS. Membership follows
+The paired audit covers \AuditCount{} modules: \NpbCount{} NPB~\cite{npb},
+\MibenchCount{} MiBench~\cite{mibench}, and \BlasCount{} BLAS~\cite{blas}. Membership follows
 the existing experiment's per-suite lists and its unoptimized-IC cap
 of 6,000. The first eight sequences of the previously mined portfolio
 are frozen before the audit. Each sequence has 45 actions in a
@@ -138,7 +143,7 @@ environment, without size attributes. Preparation A adds
 call-site attributes, target triple, data layout, and the other
 attributes are preserved. Both the reference and every candidate
 start from the same prepared module in each condition. Inputs are
-loaded through content-specific file URIs and their full disassembled
+loaded through content-specific file URIs, and their full disassembled
 IR is checked after reloading, avoiding stale benchmark-cache entries.
 
 \subsection{Interventions and fidelity checks}
@@ -166,7 +171,7 @@ U$^+$ & Add size attributes to U's optimized output; run only code generation af
 \end{tabular}
 \end{table}
 
-For optimization remarks we construct a small replica of the service's
+For optimization remarks, we construct a small replica of the service's
 pass-manager setup, linked against the same LLVM release. Its complete
 output IR and measured costs must reproduce the service for each
 preparation before interpreting its remarks. A builder-level unrolling
@@ -182,7 +187,7 @@ the dependence on the optimized IR. The complete IR, after normalizing
 these attributes, must remain unchanged in each such control.
 
 \subsection{Measurements and interpretation}
-Each measurement includes static IR instruction count (IC), code-section
+Each measurement includes IC, code-section
 bytes (summed \texttt{.text} sections), and Berkeley text (the
 \texttt{text} column of \texttt{llvm-size}). The latter also includes
 other read-only allocated sections, such as constants and unwind data.
@@ -221,7 +226,7 @@ The portfolio's NPB IC gain changes from \NpbPlainIcGain\% to
 The random control has the same qualitative behavior: its apparent
 IC gain becomes a loss, while a code-section saving remains.
 The effect is smaller on MiBench and absent in the BLAS IC comparison.
-Thus neither the magnitude of the NPB effect nor disappearance of the
+Thus neither the magnitude of the NPB effect nor the disappearance of the
 IR gain should be generalized to all suites or all size metrics.
 
 \begin{table}[t]
@@ -243,7 +248,7 @@ Suite ($n$) & Method & P & A & P & A \\
 For attributed NPB inputs, the portfolio wins/ties/loses on
 \NpbIcWins/\NpbIcTies/\NpbIcLosses{} modules in IC, and
 \NpbCodeWins/\NpbCodeTies/\NpbCodeLosses{} in code bytes.
-The almost-zero summed IC gain therefore does not imply identical
+The near-zero summed IC gain therefore does not imply identical
 results per module. Candidate outputs can also change when attributes
 are added; the paired result is not a change of the denominator alone.
 
@@ -268,8 +273,8 @@ it is not a universal additive partition of compiler decisions.
 
 \subsection{Code generation accounts for a further byte effect}
 For code sections, P, U, and A total \PlainCode{}, \UnrollCode{},
-and \AttrCode{} bytes. U$^+$ has exactly U's IC but saves
-\LateCodeDelta{} more bytes, leaving it only \LateCodeResidual{}
+and \AttrCode{} bytes. U$^+$ has exactly U's IC but is
+\LateCodeDelta{} bytes smaller, leaving it only \LateCodeResidual{}
 bytes above A. For \SameIrModules{} of the \NpbCount{} modules,
 U and A have identical normalized IR and U$^+$ produces the same
 object bytes as A. Removing the attributes from A before code
@@ -288,14 +293,14 @@ We extract \texttt{transfb\_nc0} unchanged from NPB module 116 using
 \texttt{llvm-extract}. Its original C source is unavailable; no source
 is reconstructed. The function contains a $5\times3$ loop nest.
 Under P the nest expands to 15 copies of its body, leaving
-\ExamplePlainIc{} IC and \ExamplePlainBytes{} function bytes.
-U retains the loops at \ExampleUnrollIc{} IC and
+\ExamplePlainIc{} instructions and \ExamplePlainBytes{} function bytes.
+U retains the loops at \ExampleUnrollIc{} instructions and
 \ExampleUnrollBytes{} bytes. A has the same IC but only
 \ExampleAttrBytes{} bytes; adding attributes late to U produces that
 same size. The function body and size match those in the full-module
 objects, so extraction did not create this effect.
 
-The artifact includes the input IR, transformed IR, objects and a
+The artifact includes the input IR, transformed IR, objects, and a
 driver. All variants agree bit for bit on four fixed pseudorandom
 input vectors and all 25 outputs per vector. This is a regression
 check, not a semantic-equivalence proof. The example illustrates the
@@ -307,7 +312,7 @@ For \SourceCount{} CHStone programs~\cite{chstone}, the plain service,
 attributed service, and direct \texttt{clang -Oz} builds contain
 \SourcePlainBytes{}, \SourceAttrBytes{}, and \SourceClangBytes{}
 code-section bytes, respectively. The attributed service is
-\SourceAttrOverClang\% larger in aggregate, but GSM remains
+\SourceAttrOverClang\% larger than the direct build in aggregate, but GSM remains
 \GsmOverClang\% larger. Closeness of the pooled sum is not evidence
 of per-program equivalence. This source control is confined to CHStone.
 
@@ -322,7 +327,7 @@ This is not evidence of equivalence, and the policy was not retrained
 under the new preparation. The broader Berkeley-text metric gives
 different conclusions: Berkeley-first GNN selection saves
 \GnnBerkeleyWithoutMin--\GnnBerkeleyWithoutMax\% even without NPB,
-where code-first code-section savings are close to zero or negative.
+whereas code-first code-section savings are close to zero or negative.
 Full paired records are provided separately to keep this check
 distinct from the causal NPB experiment.
 
@@ -348,7 +353,7 @@ of retraining.
 For a size-oriented evaluation, the input attributes should be stated
 alongside the pass pipeline. Reference and candidate inputs should
 have matched preparation, with source-level comparisons where possible.
-IR counts, code sections and broader object size should be reported as
+IR counts, code sections, and broader object size should be reported as
 separate objectives. A random control at the same candidate budget
 helps distinguish the effect of learned generation from the effect of
 search and selection. These practices define the comparison; they do
@@ -365,7 +370,7 @@ over an IR pipeline must be interpreted with its input attributes and
 its actual size metric, rather than automatically as a gain over
 source-level compilation for size.
 
-\textbf{Artifact.} Source, per-module records, numerical checks and
+\textbf{Artifact.} Source, per-module records, numerical checks, and
 the executable example are available at
 \url{https://github.com/dimitrijepesic/compiler-opt}.
 The figure and numerical macros are generated from recorded results;
