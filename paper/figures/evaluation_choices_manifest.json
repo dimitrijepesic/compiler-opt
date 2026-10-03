@@ -1,0 +1,12 @@
+{
+  "script": "scripts/generate_final_figures.py",
+  "inputs": {
+    "results/causal_baseline_audit/summary.json": "87925c57eb884c4501a9e112b6c7adf2424e9aa8a25fe3835a919900107557aa",
+    "results/selector_audit/summary.json": "534bd87c709f18c876207b5f6f37ef8ebd8030a8843d84191254afe55cbec348"
+  },
+  "outputs": {
+    "paper/figures/evaluation_choices.pdf": "ea03916cf65666c346dba5851ad83678fa06d6e3e02030cfa56fce839ef52ea9",
+    "paper/figures/evaluation_choices.png": "702e1f80d5e44e440db48347a7d138e365637e8dcd0cab2843111e2559cb44c9"
+  },
+  "random_range_note": "min-max over rnd42..rnd46; not a confidence interval"
+}
