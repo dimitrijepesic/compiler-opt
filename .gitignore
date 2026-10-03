@@ -1,6 +1,7 @@
 # Environments
 venv/
 env/
+.venv*/
 
 # Python cache
 __pycache__/
@@ -29,3 +30,29 @@ paper/*.synctex.gz
 paper/telfor_paper.pdf
 # Upload copies of the submission PDF (same bytes as telfor_paper_preview.pdf)
 paper/TELFOR2026_*.pdf
+
+# Compiled instruction counter (scripts/baseline_audit/ic.cpp)
+scripts/baseline_audit/ic
+
+# Local scratch work, downloads, and fresh reproduction outputs
+/tmp/
+/platform.info
+.DS_Store
+paper/*.xdv
+
+# Working notes kept out of the artifact
+paper/budgeted_selector_direction.md
+paper/final_claim_audit*.md
+paper/finding_and_defense_sr.md
+paper/focused_baseline_story.md
+paper/literature_directions_*.md
+paper/research_pivot_*.md
+paper/revised_manuscript_draft.md
+paper/revision_plan_baseline_audit.md
+results/budgeted_selector_review/REVIEW.md
+results/causal_baseline_audit/PROTOCOL.md
+
+# Frozen pilot dumps are not required by the paper artifact.
+results/causal_baseline_audit/pilot/artifacts/
+results/causal_baseline_audit/pilot_attempt1/
+results/causal_baseline_audit/residual_probe/artifacts/
