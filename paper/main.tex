@@ -127,8 +127,8 @@ of 6,000. The first eight sequences of the previously mined portfolio
 are frozen before the audit. Each sequence has 45 actions in a
 36-pass space; it is executed through service actions. A random
 control uses eight uniformly drawn sequences per module, with the
-same draws in both preparations. The final candidate with the smallest
-IC is selected, with the first candidate breaking ties. There is no
+same draws in both preparations. The candidate whose final IR has the
+smallest IC is selected, with the earliest candidate breaking ties. There is no
 reference fallback in this comparison. All modules and all candidates
 complete in both preparations.
 
@@ -144,7 +144,7 @@ IR is checked after reloading, avoiding stale benchmark-cache entries.
 \subsection{Interventions and fidelity checks}
 The causal audit uses the same \NpbCount{} NPB modules and the
 preparations in Table~\ref{tab:interventions}. U adds
-\texttt{llvm.loop.unroll.disable} metadata to every natural input loop
+\texttt{llvm.loop.\allowbreak unroll.\allowbreak disable} metadata to every natural input loop
 and then runs the original service reference. The pass pipeline remains
 unchanged. A fourth condition, AU, applies the same intervention to A.
 It checks whether unrolling still contributes under the size attributes.
